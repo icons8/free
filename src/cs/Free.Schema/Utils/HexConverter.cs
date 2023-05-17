@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-namespace Free.Utils;
+namespace Free.Schema.Utils;
 
 internal static class HexConverter
 {

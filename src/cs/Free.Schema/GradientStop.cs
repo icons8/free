@@ -1,4 +1,4 @@
-﻿namespace Free;
+﻿namespace Free.Schema;
 
 /// <summary>A position color pair representing a gradient stop.</summary>
 public sealed class GradientStop

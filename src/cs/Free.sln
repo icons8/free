@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Free", "Free.csproj", "{FBD22F71-17E0-46C7-8E7C-486E0284AE35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Free.Schema", "Free.Schema/Free.Schema.csproj", "{FBD22F71-17E0-46C7-8E7C-486E0284AE35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

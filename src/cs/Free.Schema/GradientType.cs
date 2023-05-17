@@ -1,4 +1,4 @@
-namespace Free;
+namespace Free.Schema;
 
 /// <summary>Enumeration of the type of a Gradient.</summary>
 public enum GradientType : byte

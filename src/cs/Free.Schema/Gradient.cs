@@ -1,4 +1,4 @@
-namespace Free;
+namespace Free.Schema;
 
 /// <summary>An object that represent a Gradient.</summary>
 public sealed class Gradient
@@ -15,7 +15,7 @@ public sealed class Gradient
     /// <summary>The different stops of the Gradient.</summary>
     public List<GradientStop> Stops { get; } = new List<GradientStop>();
 
-    /// <summary>When the gradient is <see cref="Free.GradientType.Radial"/>, the from and to points
+    /// <summary>When the gradient is <see cref="Schema.GradientType.Radial"/>, the from and to points
     /// makes one axis of the ellipse of the gradient while the aspect ratio determine the length of the orthogonal axis
     /// (aspectRatio == 1 means that it’s a circle).</summary>
     public float AspectRatio { get; set; }

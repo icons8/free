@@ -1,6 +1,6 @@
-using static Free.Utils.HexConverter;
+using static Free.Schema.Utils.HexConverter;
 
-namespace Free;
+namespace Free.Schema;
 
 /// <summary>32-bit ARGB unpremultiplied color value.</summary>
 /// <remarks>The color components are always in a known order.</remarks>
@@ -30,8 +30,8 @@ public readonly struct Color
     public override string ToString() => $"{Alpha:x2}{Red:x2}{Green:x2}{Blue:x2}";
     
     /// <param name="hexString">The hexadecimal string representation of a color.</param>
-    /// <param name="color">The new <see cref="Free.Color" /> instance.</param>
-    /// <summary>Converts the hexadecimal string representation of a color to its <see cref="Free.Color" /> equivalent.</summary>
+    /// <param name="color">The new <see cref="Color" /> instance.</param>
+    /// <summary>Converts the hexadecimal string representation of a color to its <see cref="Color" /> equivalent.</summary>
     /// <returns>Returns true if the conversion was successful, otherwise false.</returns>
     /// <remarks>This method can parse a string in the forms with or without a preceding '#' character: AARRGGB, RRGGBB, ARGB, RGB, XX, X.</remarks>
     public static bool TryParse(ReadOnlySpan<char> hexString, out Color color)
