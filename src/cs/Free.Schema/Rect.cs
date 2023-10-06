@@ -10,6 +10,9 @@ public readonly struct Rect
     
     public readonly float Height;
 
+    public float Right => Left + Width;
+    public float Bottom => Top + Height;
+
     public Rect(float left, float top, float width, float height)
     {
         Left = left;

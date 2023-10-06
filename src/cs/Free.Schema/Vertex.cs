@@ -115,6 +115,7 @@ public readonly struct Vertex
  
     public bool HasFrom => HasFlag(VertexFlags.HasCurveFrom);
     public bool HasTo => HasFlag(VertexFlags.HasCurveTo);
+    public bool HasCornerRadius => Radius > 0 && Mode == CurveMode.Straight;
     public Point HandleIn => To - Point;
     public Point HandleOut => From - Point;
     
