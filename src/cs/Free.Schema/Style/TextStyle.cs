@@ -6,7 +6,7 @@ public sealed class TextStyle
 
     public Color Color { get; set; } = new Color(0, 0, 0);
 
-    public Guid? SwatchId { get; set; }
+    public Guid? ColorId { get; set; }
 
     public string FontFamilyName { get; set; } = "Inter";
 

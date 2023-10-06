@@ -7,7 +7,7 @@ public class Fill
     public FillType FillType { get; set; }
     public float Opacity { get; set; }
     public BlendingMode BlendMode { get; set; } 
-    public Guid? SwatchId { get; set; }
+    public Guid? ColorId { get; set; }
 
     public Pattern Pattern { get; } = new();
     public Gradient Gradient { get; } = new();

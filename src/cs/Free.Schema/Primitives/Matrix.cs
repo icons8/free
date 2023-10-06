@@ -2,6 +2,10 @@ namespace Free.Schema;
 
 public readonly struct Matrix
 {
+    public static readonly Matrix Identity = new(
+        1f, 0f, 0f,
+        0f, 1f, 0f);
+    
     public readonly float ScaleX;
     public readonly float SkewX;
     public readonly float TransX;
@@ -20,4 +24,7 @@ public readonly struct Matrix
         ScaleY = scaleY;
         TransY = transY;
     }
+    
+    public float Rotation => MathF.Atan2(SkewY, ScaleX);
+    public float RotationDeg => MathF.Atan2(SkewY, ScaleX) * 180f / float.Pi;
 }

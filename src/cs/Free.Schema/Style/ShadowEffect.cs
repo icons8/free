@@ -4,7 +4,7 @@ public sealed class ShadowEffect
 {
     public float BlurRadius { get; set; }
     public Color Color { get; set; }
-    public Guid? SwatchId { get; set; }
+    public Guid? ColorId { get; set; }
     public float Spread { get; set; }
     public float OffsetX { get; set; }
     public float OffsetY { get; set; }
