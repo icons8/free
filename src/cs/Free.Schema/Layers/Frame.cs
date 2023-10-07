@@ -19,8 +19,7 @@ public class Frame : Styled
     public Color Background { get; set; }
     public Guid BackgroundId { get; set; }
     public List<IFrameLayout> Layouts { get; } = new();
-    public RulerData HorizontalRuler { get; } = new();
-    public RulerData VerticalRuler { get; } = new();
+    public Rulers Rulers { get; } = new();
     public OverlaySettings? OverlaySettings { get; set; }
     public List<Layer> Layers { get; } = new();
 }

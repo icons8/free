@@ -1,7 +1,8 @@
 namespace Free.Schema;
 
-public class RulerData
+public class Rulers
 {
-    public int Base { get; set; }
+    public Point Base { get; set; }
     public List<int> Guides { get; set; } = new();
+    public List<int> VGuides { get; set; } = new();
 }
