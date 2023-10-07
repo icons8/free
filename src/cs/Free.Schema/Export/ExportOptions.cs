@@ -2,8 +2,6 @@ namespace Free.Schema;
 
 public class ExportOptions
 {
-    public List<NodeExportFormat> ExportFormats { get; set; } = new();
-    public List<string> IncludedLayerIds { get; set; } = new();
-    public int LayerOptions { get; set; }
+    public List<NodeExportFormat> Formats { get; set; } = new();
     public bool Trim { get; set; }
 }

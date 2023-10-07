@@ -5,27 +5,33 @@ public class Layer
     public Guid Id { get; set; }
     public string Name { get; set; }
     public bool NameIsFixed { get; set; }
-    public BoolOp BooleanOperation { get; set; }
-    public bool IsPositionFixed { get; set; }
-    public bool IsLocked { get; set; }
-    public bool IsVisible { get; set; }
+    public BoolOp BooleanOp { get; set; }
+    public bool Fixed { get; set; }
+    public bool Locked { get; set; }
+    public bool Hidden { get; set; }
     public bool IsTemplate { get; set; }
-    public LayerExpandedType LayerExpandedType { get; set; }
-    public ResizingConstraintType Constraint { get; set; }
+    public ExpandedType Expand { get; set; }
+    public ConstraintType Constraints { get; set; }
     public bool LockAspect { get; set; }
     public Matrix Transform { get; set; } = Matrix.Identity;
     public Size Size { get; set; } = new(100, 100);
-    public bool IsMask { get; set; }
-    public bool IgnoreMask { get; set; }
-    public FlowConnection? FlowConnection { get; set; }
-    public ExportOptions ExportOptions { get; } = new();
-    public INodeInfo? Info { get; set; }
-    public Dictionary<string, string>? UserInfo { get; set; }
+    public bool Mask { get; set; }
+    public bool BreakMask { get; set; }
+    public Flow? Flow { get; set; }
+    public ExportOptions Export { get; } = new();
+    
     public float MinWidth { get; set; }
     public float MinHeight { get; set; }
     public float MaxWidth { get; set; }
     public float MaxHeight { get; set; }
-    public bool IsLayoutStretch { get; set; }
-    public bool IsLayoutGrowStretch { get; set; }
-    public bool IsLayoutPositionAbsolute { get; set; }
+    public bool LayoutStretch { get; set; }
+    public bool LayoutGrowStretch { get; set; }
+    public bool LayoutFixPos { get; set; }
+    
+    public PhotoInfo? Photo { get; set; }
+    public IllustrationInfo? Illustration { get; set; }
+    public IconInfo? Icon { get; set; }
+    public DataInfo? Data { get; set; }
+    public bool Upscaled { get; set; }
+    public BackgroundRemovalState BackgroundRemove { get; set; }
 }

@@ -2,8 +2,7 @@ namespace Free.Schema;
 
 public enum FillType : byte
 {
-    /// <summary>Specifies that "inside" is computed by a non-zero sum of signed edge crossings.</summary>
-    Winding,
-    /// <summary>Specifies that "inside" is computed by an odd number of edge crossings.</summary>
-    EvenOdd,
+    Color = 0,
+    Gradient = 1,
+    Pattern = 4,
 }

@@ -1,7 +1,11 @@
 namespace Free.Schema;
 
-public class InstanceLayer : BoxLayer
+public class Instance : Styled
 {
+    public float[] CornerRadius { get; set; } = new float[4];
+    public RadiusBehavior RadiusBehavior { get; set; } = RadiusBehavior.Rounded;
+    public ILayoutContainer? LayoutStrategy { get; set; }
+    
     public float Scale { get; set; }
     public Guid ComponentId { get; set; }
     public float VerticalSpacing { get; set; }

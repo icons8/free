@@ -10,9 +10,8 @@ public sealed class BlurEffect
 
     public float Saturation { get; set; } = DefaultSaturation;
     public float Radius { get; set; } = DefaultRadius;
-    public bool IsEnabled { get; set; }
+    public bool Enabled { get; set; }
     public BlurType Type { get; set; } = BlurType.Gaussian;
     public Point Center { get; set; } = new(0.5f, 0.5f);
     public float MotionAngle { get; set; }
-    public bool IsExpanded { get; set; }
 }

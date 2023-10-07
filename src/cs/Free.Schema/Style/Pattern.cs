@@ -18,5 +18,5 @@ public class Pattern
     /// <summary>
     /// Only used in Crop pattern fill type
     /// </summary>
-    public Matrix? ImageTransform { get; set; }
+    public Matrix? Transform { get; set; }
 }

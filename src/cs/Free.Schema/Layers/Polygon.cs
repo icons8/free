@@ -1,6 +1,6 @@
 namespace Free.Schema;
 
-public class PolygonLayer : PathLayer
+public class Polygon : Path
 {
     public float Rays { get; set; }
 }

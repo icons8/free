@@ -11,5 +11,5 @@ public class ForeignSharedStyle
 
     public Guid RemoteID { get; set; }
 
-    public SharedStyle? Style { get; set; }
+    public SharedStyle Style { get; } = new();
 }

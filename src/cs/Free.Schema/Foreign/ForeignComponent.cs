@@ -10,7 +10,7 @@ public class ForeignComponent
 
     public bool ComponentPrivate { get; set; }
 
-    public ComponentLayer? OriginalComponent { get; set; }
+    public Component? Original { get; set; }
 
-    public ComponentLayer? Component { get; set; }
+    public Component? Component { get; set; }
 }

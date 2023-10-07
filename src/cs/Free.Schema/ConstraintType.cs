@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 [Flags]
-public enum ResizingConstraintType : byte
+public enum ConstraintType : byte
 {
     //disable all -63 -‭00111111‬
     //Right - 62 - ‭    00111110‬

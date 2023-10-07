@@ -1,9 +1,9 @@
 namespace Free.Schema;
 
-public class PathLayer : StyledLayer
+public class Path : Styled
 {
-    public bool IsEdited { get; set; }
-    public bool IsClosed { get; set; }
+    public bool Edited { get; set; }
+    public bool Closed { get; set; }
     public List<Vertex> Points { get; } = new();
     public RadiusBehavior RadiusBehavior { get; set; }
 }

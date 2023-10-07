@@ -2,7 +2,7 @@ namespace Free.Schema;
 
 public sealed class ImageFilters
 {
-    public bool IsEnabled { get; set; }
+    public bool Enabled { get; set; }
 
     public const float MinBrightness = -1;
     public const float DefaultBrightness = 0;

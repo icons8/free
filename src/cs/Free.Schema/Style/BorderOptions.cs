@@ -7,5 +7,5 @@ public sealed class BorderOptions
     public LineCap LineCap { get; set; } = LineCap.Butt;
     public LineJoin LineJoin { get; set; } = LineJoin.Miter;
 
-    public float[] DashPattern { get; set; }
+    public float[] Dash { get; set; }
 }

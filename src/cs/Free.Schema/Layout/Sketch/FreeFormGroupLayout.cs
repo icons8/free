@@ -1,6 +1,6 @@
 namespace Free.Schema;
 
-public class FreeFormGroupLayout : GroupLayoutBase
+public class FreeFormGroupLayout : IGroupLayout
 {
     
 }

@@ -1,6 +1,6 @@
 namespace Free.Schema;
 
-public enum LayerExpandedType : byte
+public enum ExpandedType : byte
 {
     Undecided = 0,
     Collapsed = 1,

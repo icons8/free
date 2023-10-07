@@ -1,13 +1,17 @@
 namespace Free.Schema;
 
-public class FrameLayer : BoxLayer
+public class Frame : Styled
 {
+    public float[] CornerRadius { get; set; } = new float[4];
+    public RadiusBehavior RadiusBehavior { get; set; } = RadiusBehavior.Rounded;
+    public ILayoutContainer? LayoutStrategy { get; set; }
+    
     public Style? OverlayStyle { get; set; }
     public bool ClipContent { get; set; }
-    public GroupLayoutBase? GroupLayout { get; set; }
+    public IGroupLayout? GroupLayout { get; set; }
     public bool HasBackground { get; set; }
     public bool BackgroundInExport { get; set; }
-    public bool IsFlowHome { get; set; }
+    public bool FlowHome { get; set; }
     public PrototypeViewport Viewport { get; set; }
     public OverlayBackgroundInteraction OverlayInteraction { get; set; }
     public bool Overlay { get; set; }
