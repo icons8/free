@@ -11,14 +11,19 @@ public class Layer
     public bool Hidden { get; set; }
     public bool IsTemplate { get; set; }
     public ExpandedType Expand { get; set; }
+    public ExportOptions Export { get; } = new();
+    
     public ConstraintType Constraints { get; set; }
-    public bool LockAspect { get; set; }
     public Matrix Transform { get; set; } = Matrix.Identity;
     public Size Size { get; set; } = new(100, 100);
+    public bool LockAspect { get; set; }
+    
     public bool Mask { get; set; }
     public bool BreakMask { get; set; }
-    public Flow? Flow { get; set; }
-    public ExportOptions Export { get; } = new();
+    
+    public bool FixScrollPos { get; set; }
+    public FlowAnimationType Animation { get; set; } = FlowAnimationType.FromRight;
+    public string Link { get; set; } = string.Empty;
     
     public float MinWidth { get; set; }
     public float MinHeight { get; set; }
