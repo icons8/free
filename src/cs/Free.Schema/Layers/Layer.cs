@@ -21,7 +21,7 @@ public class Layer
     public bool Mask { get; set; }
     public bool BreakMask { get; set; }
     
-    public bool FixScrollPos { get; set; }
+    public bool KeepScroll { get; set; }
     public FlowAnimationType Animation { get; set; } = FlowAnimationType.FromRight;
     public string Link { get; set; } = string.Empty;
     
