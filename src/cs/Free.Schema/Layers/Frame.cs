@@ -18,7 +18,7 @@ public class Frame : Styled
     public bool ResizesContent { get; set; }
     public Color Background { get; set; }
     public Guid BackgroundId { get; set; }
-    public List<IFrameLayout> Layouts { get; } = new();
+    public List<IGridLayout> Layouts { get; } = new();
     public Rulers Rulers { get; } = new();
     public OverlaySettings? OverlaySettings { get; set; }
     public List<Layer> Layers { get; } = new();
