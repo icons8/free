@@ -2,6 +2,8 @@ namespace Free.Schema;
 
 public class Frame : Styled
 {
+    public override string Type => "FRAME";
+    
     public float[] CornerRadius { get; set; } = new float[4];
     public RadiusBehavior RadiusBehavior { get; set; } = RadiusBehavior.Rounded;
     public ILayoutContainer? LayoutStrategy { get; set; }

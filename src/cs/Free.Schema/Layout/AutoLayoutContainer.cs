@@ -2,6 +2,8 @@ namespace Free.Schema;
 
 public class AutoLayoutContainer : ILayoutContainer
 {
+    public string Type => "AUTO";
+    
     public LayoutOrientation Orientation { get; set; }
     public float Spacing { get; set; }
     public float WrapSpacing { get; set; }
@@ -15,6 +17,4 @@ public class AutoLayoutContainer : ILayoutContainer
     public bool ReverseZIndex { get; set; }
     public bool Wrap { get; set; }
     public bool WrapDistribute { get; set; }
-    
-    public LayoutType Type => LayoutType.Auto;
 }

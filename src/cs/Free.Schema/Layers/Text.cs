@@ -2,6 +2,8 @@ namespace Free.Schema;
 
 public class Text : Styled
 {
+    public override string Type => "TEXT";
+    
     public string text { get; set; }
     public TextStyle TextStyle { get; } = new();
     public List<InlineStyle> Inlines { get; } = new();

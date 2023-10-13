@@ -1,7 +1,9 @@
 namespace Free.Schema;
 
-public class Layer
+public abstract class Layer
 {
+    public abstract string Type { get; }
+    
     public Guid Id { get; set; }
     public string Name { get; set; }
     public bool NameIsFixed { get; set; }
@@ -13,7 +15,10 @@ public class Layer
     public ExpandedType Expand { get; set; }
     public ExportOptions Export { get; } = new();
     
-    public ConstraintType Constraints { get; set; }
+    /// <summary>
+    /// Possible Flag's values: LEFT, TOP, RIGHT, BOTTOM, FIXW, FIXH, ALL
+    /// </summary>
+    public string[] Constraints { get; set; }
     public Matrix Transform { get; set; } = Matrix.Identity;
     public Size Size { get; set; } = new(100, 100);
     public bool LockAspect { get; set; }
