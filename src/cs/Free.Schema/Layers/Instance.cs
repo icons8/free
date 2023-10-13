@@ -12,5 +12,5 @@ public class Instance : Styled
     public Guid ComponentId { get; set; }
     public float VerticalSpacing { get; set; }
     public float HorizontalSpacing { get; set; }
-    public List<NodeOverride> Overrides { get; } = new();
+    public List<Override> Overrides { get; } = new();
 }
