@@ -1,6 +1,6 @@
 namespace Free.Schema;
 
-public abstract class Override
+public sealed class Override
 {
     public Guid[] Target { get; set; } = Array.Empty<Guid>();
     
@@ -12,10 +12,6 @@ public abstract class Override
     public bool? Hidden { get; set; }
     public bool? ClipContent { get; set; }
     public bool? LockAspect { get; set; }
-    public float? MinWidth { get; set; }
-    public float? MinHeight { get; set; }
-    public float? MaxWidth { get; set; }
-    public float? MaxHeight { get; set; }
     public float? Ratio { get; set; }
     public float? VertexCount { get; set; }
     public float? ArcAngle { get; set; }
@@ -46,10 +42,28 @@ public abstract class Override
     public TextStyle? TextStyle { get; set; }
     public List<InlineStyle>? Inlines { get; set; }
     public TextBehavior? TextBehavior { get; set; }
-    public Size? TextSize { get; set; }
+    public Size? Size { get; set; }
 
     // Layout
-    public LayoutOverride? Layout { get; set; }
+    public LayoutOrientation? Orientation { get; set; }
+    public float? Spacing { get; set; }
+    public float? WrapSpacing { get; set; }
+    public float? MinWidth { get; set; }
+    public float? MinHeight { get; set; }
+    public float? MaxWidth { get; set; }
+    public float? MaxHeight { get; set; }
+    public Thickness? Padding { get; set; }
+    public HorizontalAlignment? Align { get; set; }
+    public VerticalAlignment? VAlign { get; set; }
+    public SizingMode? Sizing { get; set; }
+    public SizingMode? VSizing { get; set; }
+    public bool? TextBaseline { get; set; }
+    public bool? StrokesIncluded { get; set; }
+    public bool? ReverseZIndex { get; set; }
+    public bool? Stretch { get; set; }
+    public bool? GrowStretch { get; set; }
+    public bool? Wrap { get; set; }
+    public bool? WrapDistribute { get; set; }
     
     //sketch legacy support
     public ColorOverride? LegacyColor { get; set; }
