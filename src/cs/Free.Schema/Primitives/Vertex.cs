@@ -67,6 +67,7 @@ public readonly struct Vertex
         Flags = flags;
     }
     
+    [SketchCompatibility]
     public CornerStyle Style
     {
         get

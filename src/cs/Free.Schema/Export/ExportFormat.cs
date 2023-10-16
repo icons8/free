@@ -1,6 +1,6 @@
 namespace Free.Schema;
 
-public class NodeExportFormat
+public class ExportFormat
 {
     public float Size { get; set; }
 
@@ -12,5 +12,5 @@ public class NodeExportFormat
 
     public float Scale { get; set; }
 
-    public VisibleScaleType Type { get; set; } = VisibleScaleType.Scale;
+    public ScaleType Type { get; set; } = ScaleType.Scale;
 }

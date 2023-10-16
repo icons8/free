@@ -11,7 +11,10 @@ public enum VertexFlags : byte
     HasCurveFrom = 1 << 2,
     HasCurveTo = 1 << 3,
     
+    [SketchCompatibility]
     RoundedInverted = 1 << 4, //also named as Inside Arc
+    [SketchCompatibility]
     Angled = 1 << 5,
+    [SketchCompatibility]
     Squared = RoundedInverted | Angled,
 }

@@ -3,6 +3,9 @@ namespace Free.Schema;
 public sealed class TextStyle
 {
     public Color Color { get; set; } = new Color(0, 0, 0);
+    /// <summary>
+    /// Color Variable ID
+    /// </summary>
     public Guid? ColorId { get; set; }
 
     public string Font { get; set; } = "Inter";

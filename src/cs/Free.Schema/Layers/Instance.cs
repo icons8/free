@@ -11,6 +11,9 @@ public class Instance : Styled
     public bool SmoothCorners { get; set; }
     public ILayoutContainer? LayoutStrategy { get; set; }
     
+    /// <summary>
+    /// scale of component
+    /// </summary>
     public float Scale { get; set; }
     public Guid ComponentId { get; set; }
     

@@ -1,5 +1,6 @@
 namespace Free.Schema;
 
+[LunacySpecific]
 public class PhotoInfo
 {
     public string? Id { get; set; }

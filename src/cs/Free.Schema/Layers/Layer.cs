@@ -41,10 +41,15 @@ public abstract class Layer
     public bool LayoutGrowStretch { get; set; }
     public bool LayoutFixPos { get; set; }
     
+    [LunacySpecific]
     public PhotoInfo? Photo { get; set; }
+    [LunacySpecific]
     public IllustrationInfo? Illustration { get; set; }
     public IconInfo? Icon { get; set; }
+    [LunacySpecific]
     public DataInfo? Data { get; set; }
+    [LunacySpecific]
     public bool Upscaled { get; set; }
+    [LunacySpecific]
     public BackgroundRemovalState BackgroundRemove { get; set; }
 }

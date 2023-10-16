@@ -1,5 +1,6 @@
 namespace Free.Schema;
 
+[LunacySpecific]
 public enum DataType : byte
 {
     Unknown,

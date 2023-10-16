@@ -1,6 +1,6 @@
 namespace Free.Schema;
 
-public enum BlendingMode : byte
+public enum BlendMode : byte
 {
     Normal = 0,
 

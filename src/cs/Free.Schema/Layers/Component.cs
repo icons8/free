@@ -15,12 +15,12 @@ public class Component : Frame
     public bool BackgroundInInstance { get; set; }
 
     /// <summary>
-    /// ???????????????
+    /// Is this component from default Lunacy components library, that are available from Component Tools from Toolbar
     /// </summary>
     public bool Predefined { get; set; }
 
     /// <summary>
-    /// Reserved for future use.
+    /// Reserved for future use. Will be used for components filters
     /// </summary>
-    public string ComponentType { get; set; }
+    public ComponentType ComponentType { get; set; }
 }

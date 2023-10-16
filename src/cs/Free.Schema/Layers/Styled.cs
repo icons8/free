@@ -5,7 +5,7 @@ public abstract class Styled : Layer
     public Guid StyleId { get; set; }
     public int MiterLimit { get; set; } = 10;
     public float Opacity { get; set; } = 1;
-    public BlendingMode BlendMode { get; set; }
+    public BlendMode BlendMode { get; set; }
     public Arrowhead StartMarker { get; set; }
     public Arrowhead EndMarker { get; set; }
     public PathFillType Winding { get; set; } = PathFillType.EvenOdd;

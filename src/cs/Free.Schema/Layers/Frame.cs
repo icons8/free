@@ -58,6 +58,9 @@ public class Frame : Styled
     /// </summary>
     [SketchCompatibility]
     public Color Background { get; set; }
+    /// <summary>
+    /// Color Variable ID
+    /// </summary>
     [SketchCompatibility]
     public Guid BackgroundId { get; set; }
     

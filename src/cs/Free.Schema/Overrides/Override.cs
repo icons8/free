@@ -33,7 +33,7 @@ public sealed class Override
     public BlurEffect? Blur { get; set; }
     public ImageFilters? ImageFilters { get; set; }
     public float? Opacity { get; set; }
-    public BlendingMode? BlendMode { get; set; }
+    public BlendMode? BlendMode { get; set; }
     public Arrowhead? StartArrowhead { get; set; }
     public Arrowhead? EndArrowhead { get; set; }
     
