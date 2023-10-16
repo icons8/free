@@ -15,11 +15,40 @@ public readonly struct Matrix
         1f, 0f, 0f,
         0f, 1f, 0f);
     
+    /// <summary>
+    /// Scale by x-coord. Usually should be 1.
+    /// If it's -1 - layer is flipped horizontally.
+    /// If it's some random number - it's a cos(angle).
+    /// </summary>
     public readonly float ScaleX;
+    
+    /// <summary>
+    /// Skew by x-coord. Usually should be 0.
+    /// If it's some random number - it's a -sin(angle).
+    /// </summary>
     public readonly float SkewX;
+    
+    /// <summary>
+    /// Translation by x-coord.
+    /// </summary>
     public readonly float TransX;
+    
+    /// <summary>
+    /// Skew by y-coord. Usually should be 0.
+    /// If it's some random number - it's a sin(angle).
+    /// </summary>
     public readonly float SkewY;
+    
+    /// <summary>
+    /// Scale by y-coord. Usually should be 1.
+    /// If it's -1 - layer is flipped vertically.
+    /// If it's some random number - it's a cos(angle).
+    /// </summary>
     public readonly float ScaleY;
+    
+    /// <summary>
+    /// Translation by y-coord.
+    /// </summary>
     public readonly float TransY;
 
     public Matrix(float scaleX, float skewX, float transX,
