@@ -1,5 +1,8 @@
 namespace Free.Schema.Document;
 
+/// <summary>
+/// Shared fonts are stored in the document 
+/// </summary>
 public class Font
 {
     public string Data { get; set; }
