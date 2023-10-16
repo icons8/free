@@ -10,6 +10,6 @@ public class Text : Styled
     public bool DrawOnPath { get; set; }
     public bool StopSync { get; set; }
     public LineSpacingBehavior LineSpacingBehavior { get; set; } = LineSpacingBehavior.ConstantBaseline;
-    public TextBehavior Behavior { get; set; } = TextBehavior.AutoResizeHorizontal;
+    public TextBehavior Behavior { get; set; } = TextBehavior.Flexible;
     public bool ClipContent { get; set; } = true;
 }

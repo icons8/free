@@ -7,5 +7,5 @@ public class Path : Styled
     public bool Edited { get; set; }
     public bool Open { get; set; }
     public List<Vertex> Points { get; } = new();
-    public RadiusBehavior RadiusBehavior { get; set; }
+    public bool SmoothCorners { get; set; }
 }

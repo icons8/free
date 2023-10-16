@@ -18,7 +18,7 @@ public sealed class Override
     public float? ArcRatio { get; set; }
     public float? ArcStartAngle { get; set; }
     public float[]? CornerRadius { get; set; }
-    public RadiusBehavior? RadiusBehavior { get; set; }
+    public bool SmoothCorners { get; set; }
     
     public Guid? TextStyleId { get; set; }
     public Guid? LayerStyleId { get; set; }

@@ -12,7 +12,7 @@ public class Frame : Styled
     /// Sets the corner radius of the frame.
     /// </summary>
     public float[] CornerRadius { get; set; } = new float[4];
-    public RadiusBehavior RadiusBehavior { get; set; } = RadiusBehavior.Rounded;
+    public bool SmoothCorners { get; set; }
     public ILayoutContainer? LayoutStrategy { get; set; }
     
     public Style? OverlayStyle { get; set; }
