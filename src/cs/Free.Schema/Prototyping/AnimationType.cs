@@ -1,6 +1,6 @@
 namespace Free.Schema;
 
-public enum FlowAnimationType : sbyte
+public enum AnimationType : sbyte
 {
     None = -1,
     FromRight = 0,

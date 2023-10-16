@@ -13,7 +13,9 @@ public class Group : Styled
     /// When enabled, users can select group items without first selecting the group.
     /// </summary>
     public bool SkipSelect { get; set; }
+    [SketchCompatibility]
     public bool SkipConstraints { get; set; }
+    [SketchCompatibility]
     public IGroupLayout? GroupLayout { get; set; }
 
 

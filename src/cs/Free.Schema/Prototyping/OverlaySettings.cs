@@ -1,5 +1,6 @@
 namespace Free.Schema;
 
+[SketchCompatibility]
 public class OverlaySettings
 {
     public Point Offset { get; set; }

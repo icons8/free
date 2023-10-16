@@ -11,6 +11,7 @@ public class Component : Frame
     /// <summary>
     /// Include background in component instances.
     /// </summary>
+    [SketchCompatibility]
     public bool BackgroundInInstance { get; set; }
 
     /// <summary>

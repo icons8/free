@@ -1,5 +1,6 @@
 namespace Free.Schema;
 
+[SketchCompatibility]
 public enum GroupLayoutAnchor : byte
 {
     Begin = 0, //left to right, top to bottom

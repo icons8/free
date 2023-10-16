@@ -15,18 +15,21 @@ public class Frame : Styled
     public bool SmoothCorners { get; set; }
     public ILayoutContainer? LayoutStrategy { get; set; }
     
+    [SketchCompatibility]
     public Style? OverlayStyle { get; set; }
 
     /// <summary>
     /// When enabled, hides the content outside the frame boundaries.
     /// </summary>
     public bool ClipContent { get; set; }
+    
+    [SketchCompatibility]
     public IGroupLayout? GroupLayout { get; set; }
-    public bool HasBackground { get; set; }
 
     /// <summary>
     /// When enabled, the frame background is included into export files.
     /// </summary>
+    [SketchCompatibility]
     public bool BackgroundInExport { get; set; }
 
     /// <summary>
@@ -34,7 +37,11 @@ public class Frame : Styled
     /// </summary>
     public bool FlowHome { get; set; }
     public PrototypeViewport Viewport { get; set; }
+    
+    [SketchCompatibility]
     public OverlayBackgroundInteraction OverlayInteraction { get; set; }
+    
+    [SketchCompatibility]
     public bool Overlay { get; set; }
 
 
@@ -44,13 +51,21 @@ public class Frame : Styled
     public bool ResizesContent { get; set; }
 
 
+    [SketchCompatibility]
+    public bool HasBackground { get; set; }
     /// <summary>
     /// Defines the frame background color.
     /// </summary>
+    [SketchCompatibility]
     public Color Background { get; set; }
+    [SketchCompatibility]
     public Guid BackgroundId { get; set; }
+    
+    
     public List<IGridLayout> Layouts { get; } = new();
     public Rulers Rulers { get; } = new();
+    
+    [SketchCompatibility]
     public OverlaySettings? OverlaySettings { get; set; }
     public List<Layer> Layers { get; } = new();
 }

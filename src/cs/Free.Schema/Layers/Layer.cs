@@ -30,7 +30,7 @@ public abstract class Layer
     public bool BreakMask { get; set; }
     
     public bool KeepScroll { get; set; }
-    public FlowAnimationType Animation { get; set; } = FlowAnimationType.FromRight;
+    public AnimationType Animation { get; set; } = AnimationType.FromRight;
     public string Link { get; set; } = string.Empty;
     
     public float MinWidth { get; set; }

@@ -1,5 +1,6 @@
 namespace Free.Schema;
 
+[SketchCompatibility]
 public class InferredGroupLayout : IGroupLayout
 {
     public GroupLayoutAxis Axis { get; set; } = GroupLayoutAxis.Horizontal;

@@ -8,6 +8,7 @@ public class Rulers
     /// <summary>
     /// Origin for Rulers. Not supported in Lunacy. Sketch Compatibility
     /// </summary>
+    [SketchCompatibility]
     public Point Origin { get; set; }
     /// <summary>
     /// Vertical guidelines positions on Horizontal Ruler

@@ -3,6 +3,7 @@ namespace Free.Schema;
 /// <summary>
 /// Sketch legacy, not supported in Lunacy
 /// </summary>
+[SketchCompatibility]
 public enum CornerStyle : byte
 {
     Rounded = 0,//Smooth are set from PointRadiusBehavior

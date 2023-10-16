@@ -65,8 +65,10 @@ public sealed class Override
     public bool? Wrap { get; set; }
     public bool? WrapDistribute { get; set; }
     
-    //sketch legacy support
+    [SketchCompatibility]
     public ColorOverride? LegacyColor { get; set; }
+    [SketchCompatibility]
     public TextColorOverride? LegacyTextColor { get; set; }
+    [SketchCompatibility]
     public TextWeightOverride? LegacyTextWeight { get; set; }
 }

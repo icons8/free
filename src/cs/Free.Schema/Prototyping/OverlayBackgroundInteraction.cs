@@ -1,5 +1,6 @@
 namespace Free.Schema;
 
+[SketchCompatibility]
 public enum OverlayBackgroundInteraction : byte
 {
     None = 0,

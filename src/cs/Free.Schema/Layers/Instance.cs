@@ -13,7 +13,11 @@ public class Instance : Styled
     
     public float Scale { get; set; }
     public Guid ComponentId { get; set; }
+    
+    [SketchCompatibility]
     public float VerticalSpacing { get; set; }
+    
+    [SketchCompatibility]
     public float HorizontalSpacing { get; set; }
 
     /// <summary>
