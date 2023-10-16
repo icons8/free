@@ -2,6 +2,9 @@ using System.Runtime.CompilerServices;
 
 namespace Free.Schema;
 
+/// <summary>
+/// !most critical moment in wiki doc. [x,y,flags,radius,fromX,fromY,toX,toY]
+/// </summary>
 public readonly struct Vertex
 {
     private readonly Half _radius;
