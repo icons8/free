@@ -6,7 +6,7 @@ namespace Free.Schema;
 
 public class Frame : Styled
 {
-    public override string Type => "FRAME";
+    public override string _t => "FRAME";
     
     /// <summary>
     /// Sets the corner radius of the frame.

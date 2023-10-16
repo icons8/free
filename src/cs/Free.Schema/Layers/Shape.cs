@@ -2,7 +2,7 @@ namespace Free.Schema;
 
 public class Shape : Styled
 {
-    public override string Type => "SHAPE";
+    public override string _t => "SHAPE";
     
     public bool SkipConstraints { get; set; }
     public IGroupLayout? GroupLayout { get; set; }

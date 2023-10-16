@@ -2,7 +2,7 @@ namespace Free.Schema;
 
 public abstract class Layer
 {
-    public abstract string Type { get; }
+    public abstract string _t { get; }
     
     public Guid Id { get; set; }
     public string Name { get; set; }

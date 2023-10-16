@@ -6,7 +6,7 @@ namespace Free.Schema;
 
 public class Group : Styled
 {
-    public override string Type => "GROUP";
+    public override string _t => "GROUP";
 
 
     /// <summary>

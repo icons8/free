@@ -2,7 +2,7 @@ namespace Free.Schema;
 
 public class Columns : IGridLayout
 {
-    public string Type => "COLS";
+    public string _t => "COLS";
     
     public bool Enabled { get; set; }
     public LayoutHorizontalAlignment Align { get; set; }

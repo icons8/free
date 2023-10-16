@@ -2,6 +2,5 @@ namespace Free.Schema;
 
 public class Rectangle : Path
 {
-    public override string Type => "RECTANGLE";
-    
+    public override string _t => "RECT";
 }

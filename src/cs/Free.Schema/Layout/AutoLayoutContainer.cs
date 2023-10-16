@@ -2,7 +2,7 @@ namespace Free.Schema;
 
 public class AutoLayoutContainer : ILayoutContainer
 {
-    public string Type => "AUTO";
+    public string _t => "AUTO";
     
     public LayoutOrientation Orientation { get; set; }
     public float Spacing { get; set; }

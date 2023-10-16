@@ -5,7 +5,7 @@ namespace Free.Schema;
 /// </summary>
 public class Component : Frame
 {
-    public override string Type => "COMPONENT";
+    public override string _t => "COMPONENT";
     public Guid ComponentId { get; set; }
 
     /// <summary>

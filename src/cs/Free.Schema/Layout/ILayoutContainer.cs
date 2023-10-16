@@ -2,5 +2,5 @@ namespace Free.Schema;
 
 public interface ILayoutContainer
 {
-    public string Type { get; }
+    public string _t { get; }
 }

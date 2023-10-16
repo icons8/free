@@ -2,7 +2,7 @@ namespace Free.Schema;
 
 public class Text : Styled
 {
-    public override string Type => "TEXT";
+    public override string _t => "TEXT";
     
     public string text { get; set; }
     public TextStyle TextStyle { get; } = new();

@@ -2,7 +2,7 @@ namespace Free.Schema;
 
 public class Instance : Styled
 {
-    public override string Type => "INSTANCE";
+    public override string _t => "INSTANCE";
     
     /// <summary>
     /// Sets the corner radius of the instance frame.

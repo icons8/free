@@ -2,7 +2,7 @@ namespace Free.Schema;
 
 public class Rows : IGridLayout
 {
-    public string Type => "ROWS";
+    public string _t => "ROWS";
     
     public bool Enabled { get; set; }
     public LayoutVerticalAlignment Align { get; set; }
