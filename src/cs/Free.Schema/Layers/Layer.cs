@@ -12,7 +12,10 @@ public abstract class Layer
     public bool Locked { get; set; }
     public bool Hidden { get; set; }
     public bool IsTemplate { get; set; }
-    public ExpandedType Expand { get; set; }
+    /// <summary>
+    /// Is expanded in layers tree
+    /// </summary>
+    public bool Expand { get; set; }
     public ExportOptions Export { get; } = new();
     
     /// <summary>
