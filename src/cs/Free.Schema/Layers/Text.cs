@@ -9,7 +9,6 @@ public class Text : Styled
     public List<InlineStyle> Inlines { get; } = new();
     public bool DrawOnPath { get; set; }
     public bool StopSync { get; set; }
-    public bool VariableSpacing { get; set; }
     public TextBehavior Behavior { get; set; } = TextBehavior.Flexible;
     public bool ClipContent { get; set; } = true;
 }

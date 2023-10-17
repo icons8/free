@@ -42,10 +42,13 @@ public abstract class Layer
     public bool LayoutFixPos { get; set; }
     
     [LunacySpecific]
-    public PhotoInfo? Photo { get; set; }
+    public string? PhotoId { get; set; }
     [LunacySpecific]
-    public IllustrationInfo? Illustration { get; set; }
-    public IconInfo? Icon { get; set; }
+    public string? IllustrationId { get; set; }
+    [LunacySpecific]
+    public string? IconId { get; set; }
+    [LunacySpecific]
+    public string? AvatarId { get; set; }
     [LunacySpecific]
     public DataInfo? Data { get; set; }
     [LunacySpecific]
