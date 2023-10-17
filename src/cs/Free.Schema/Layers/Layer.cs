@@ -26,11 +26,23 @@ public abstract class Layer
     public Size Size { get; set; } = new(100, 100);
     public bool LockAspect { get; set; }
     
+    /// <summary>
+    /// masking object
+    /// </summary>
     public bool Mask { get; set; }
+    /// <summary>
+    /// ignore clipping mask
+    /// </summary>
     public bool BreakMask { get; set; }
     
+    /// <summary>
+    /// fix position (prototyping)
+    /// </summary>
     public bool KeepScroll { get; set; }
     public AnimationType Animation { get; set; } = AnimationType.FromRight;
+    /// <summary>
+    /// target when clicking on the object (in prototype player)
+    /// </summary>
     public string Link { get; set; } = string.Empty;
     
     public float MinWidth { get; set; }
