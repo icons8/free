@@ -1,5 +1,8 @@
 namespace Free.Schema;
 
+/// <summary>
+/// background removal result
+/// </summary>
 [LunacySpecific]
 public enum BackgroundRemovalState : byte
 {
