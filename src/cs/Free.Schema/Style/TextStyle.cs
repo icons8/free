@@ -27,6 +27,9 @@ public sealed class TextStyle
 
     public ListMarkerType List { get; set; }
 
+    /// <summary>
+    /// todo
+    /// </summary>
     public Dictionary<string, double>? Variation { get; set; }
     
     public bool RTL { get; set; }

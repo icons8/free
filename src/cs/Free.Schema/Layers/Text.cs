@@ -10,5 +10,8 @@ public class Text : Styled
     public bool DrawOnPath { get; set; }
     public bool StopSync { get; set; }
     public TextBehavior Behavior { get; set; } = TextBehavior.Flexible;
+    /// <summary>
+    /// after import from figma
+    /// </summary>
     public bool ClipContent { get; set; } = true;
 }
