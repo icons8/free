@@ -13,8 +13,15 @@ public class Frame : Styled
     /// </summary>
     public float[] CornerRadius { get; set; } = new float[4];
     public bool SmoothCorners { get; set; }
+
+    /// <summary>
+    /// Auto layout settings
+    /// </summary>
     public ILayoutContainer? LayoutStrategy { get; set; }
-    
+
+    /// <summary>
+    /// todo
+    /// </summary>
     [SketchCompatibility]
     public Style? OverlayStyle { get; set; }
 
@@ -23,6 +30,9 @@ public class Frame : Styled
     /// </summary>
     public bool ClipContent { get; set; }
     
+    /// <summary>
+    /// todo
+    /// </summary>
     [SketchCompatibility]
     public IGroupLayout? GroupLayout { get; set; }
 
@@ -36,11 +46,21 @@ public class Frame : Styled
     /// Sets the frame as a prototype starting point.
     /// </summary>
     public bool FlowHome { get; set; }
+
+    /// <summary>
+    /// if frame has type "resized" (what is displayed in the prototype)
+    /// </summary>
     public PrototypeViewport Viewport { get; set; }
     
+    /// <summary>
+    /// todo
+    /// </summary>
     [SketchCompatibility]
     public OverlayBackgroundInteraction OverlayInteraction { get; set; }
     
+    /// <summary>
+    /// todo
+    /// </summary>
     [SketchCompatibility]
     public bool Overlay { get; set; }
 
@@ -68,6 +88,9 @@ public class Frame : Styled
     public List<IGridLayout> Layouts { get; } = new();
     public Rulers Rulers { get; } = new();
     
+    /// <summary>
+    /// todo
+    /// </summary>
     [SketchCompatibility]
     public OverlaySettings? OverlaySettings { get; set; }
     public List<Layer> Layers { get; } = new();
