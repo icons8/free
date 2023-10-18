@@ -2,7 +2,8 @@ namespace Free.Scripts;
 
 public enum XmlItemType
 {
-    Type,
+    Object,
+    Struct,
     Enum,
     Field,
     Property,

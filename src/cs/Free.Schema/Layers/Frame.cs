@@ -73,11 +73,12 @@ public class Frame : Styled
 
     [SketchCompatibility]
     public bool HasBackground { get; set; }
+
     /// <summary>
     /// Defines the frame background color.
     /// </summary>
     [SketchCompatibility]
-    public Color Background { get; set; }
+    public Color Background { get; set; } = new Color(255, 255, 255);
     /// <summary>
     /// Color Variable ID
     /// </summary>

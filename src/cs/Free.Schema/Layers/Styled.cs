@@ -1,6 +1,6 @@
 namespace Free.Schema;
 
-public abstract class Styled : Layer
+public class Styled : Layer
 {
     public Guid StyleId { get; set; }
     public int MiterLimit { get; set; } = 10;

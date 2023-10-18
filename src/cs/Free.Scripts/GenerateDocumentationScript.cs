@@ -1,7 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Collections;
+using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
+using Free.Schema;
+using Path = System.IO.Path;
 
 namespace Free.Scripts;
 
@@ -12,11 +16,106 @@ public static class GenerateDocumentationScript
         var items = FilterItems(GetItemsFromXml());
         ValidateItems(items);
         BuildItemsTree(items);
+        Saturate(items);
         items = OrderItems(items);
 
         var str = BuildMarkdown(items);
         File.WriteAllText("1.txt", str);
         Console.WriteLine(str);
+    }
+
+    private static void Saturate(List<XmlItem> items)
+    {
+        var assembly = Assembly.GetAssembly(typeof(Page)) ?? throw new Exception("assembly not loaded");
+        foreach (var item in items)
+        {
+            var type = assembly.GetTypes().First(x=>x.Name == item.Name) ?? throw new Exception("Type not found: " + item.Name);
+            if (type.IsEnum)
+            {
+                item.Type = XmlItemType.Enum;
+            }
+            else if (type.IsValueType)
+            {
+                item.Type = XmlItemType.Struct;
+            }
+            var instance = Activator.CreateInstance(type);
+            item.Attributes = type.GetCustomAttributes().ToArray();
+            foreach (var child in item.Childs)
+            {
+                if (child.Type == XmlItemType.Property)
+                {
+                    var property = type.GetProperty(child.Name) ?? throw new Exception("Property not found: " + item.Name + "." + child.Name);
+                    child.Attributes = property.GetCustomAttributes().ToArray();
+                    child.DefaultValue = FormatValue(property.GetValue(instance));
+                    child.ValueType = FormatTypeName(property.PropertyType);
+                }
+                else if (child.Type == XmlItemType.Field)
+                {
+                    if (item.Type == XmlItemType.Struct)
+                    {
+                        var field = type.GetField(child.Name) ?? throw new Exception("Field not found: " + item.Name + "." + child.Name);
+                        child.Attributes = field.GetCustomAttributes().ToArray();
+                        child.DefaultValue = FormatValue(field.GetValue(instance));
+                        child.ValueType = FormatTypeName(field.FieldType);
+                    }
+                    else if (item.Type == XmlItemType.Enum)
+                    {
+                        var field = type.GetField(child.Name, BindingFlags.Public | BindingFlags.Static) ?? throw new Exception("Field not found: " + item.Name + "." + child.Name);
+                        child.Attributes = field.GetCustomAttributes().ToArray();
+                        child.DefaultValue = FormatValue(Convert.ChangeType(field.GetValue(null),Enum.GetUnderlyingType(type)));
+                    }
+                }
+            }
+        }
+    }
+    
+    private static string? FormatValue(object? value)
+    {
+        if (value == null)
+        {
+            return null;
+        }
+        if (value is Point p)
+        {
+            return "[" + p.X + "," + p.Y + "]";
+        }
+
+        if (value is ICollection { Count: 0 })
+        {
+            return null;
+        }
+        if (value is float[] f)
+        {
+            return "float[" + f.Length + "]";
+        }
+
+        if (value is Guid)
+        {
+            return null;
+        }
+
+        return value.ToString();
+    }
+
+    private static string FormatTypeName(Type propertyType)
+    {
+        var name = propertyType.Name;
+        if (name == "List`1")
+        {
+            name = propertyType.GenericTypeArguments[0].Name + "[]";
+        }
+        if (name == "Nullable`1")
+        {
+            name = propertyType.GenericTypeArguments[0].Name + "?";
+        }
+        name = name
+            .Replace("Int32", "int")
+            .Replace("Byte", "byte")
+            .Replace("Guid", "GUID")
+            .Replace("Single", "float")
+            .Replace("Boolean", "bool")
+            .Replace("String", "string");
+        return name;
     }
 
     private static List<XmlItem> OrderItems(List<XmlItem> items)
@@ -42,7 +141,29 @@ public static class GenerateDocumentationScript
             }
             foreach (var child in item.Childs)
             {
-                sb.AppendLine("* " + child.Name + (child.Summary.Length == 0 ? "" : " - " + child.Summary));
+                sb.Append("* ").Append(child.Name);
+                if (child.Type == XmlItemType.Field)
+                {
+                    if (child.DefaultValue != null)
+                    {
+                        sb.Append(" = ").Append(child.DefaultValue);
+                    }
+                }
+                else if (child.Type == XmlItemType.Property)
+                {
+                    sb.Append(": ").Append(child.ValueType);
+                    if (child.DefaultValue != null)
+                    {
+                        sb.Append(" = ").Append(child.DefaultValue);
+                    }
+                }
+
+                if (child.Summary.Length > 0)
+                {
+                    sb.Append(" - ").Append(child.Summary);
+                }
+
+                sb.AppendLine();
             }
             sb.AppendLine();
         }
@@ -63,6 +184,7 @@ public static class GenerateDocumentationScript
                 }
 
                 parent.Childs.Add(item);
+                item.Parent = parent;
                 items.Remove(item);
                 item.Name = split[1];
             }
@@ -76,6 +198,7 @@ public static class GenerateDocumentationScript
 
                 parent.Type = XmlItemType.Enum;
                 parent.Childs.Add(item);
+                item.Parent = parent;
                 items.Remove(item);
                 item.Name = split[1];
             }
