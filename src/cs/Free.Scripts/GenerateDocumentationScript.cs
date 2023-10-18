@@ -96,7 +96,10 @@ public static class GenerateDocumentationScript
 
     private static XmlItem[] GetItemsFromXml()
     {
-        var doc = XDocument.Load("Free.Schema.xml");
+        var path = File.Exists("Free.Schema.xml")
+            ? "Free.Schema.xml"
+            : Path.Combine("bin", "Debug", "net7.0", "Free.Schema.xml");
+        var doc = XDocument.Load(path);
         var ns = doc.Root.GetDefaultNamespace();
         return doc.Root
             .Element(ns + "members")
