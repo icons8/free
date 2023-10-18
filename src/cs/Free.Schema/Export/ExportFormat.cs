@@ -6,7 +6,7 @@ namespace Free.Schema;
 public class ExportFormat
 {
     /// <summary>
-    /// todo
+    /// size with which the object is imported. used in ScaleType is Width or Height
     /// </summary>
     public float Size { get; set; }
     /// <summary>
@@ -22,7 +22,7 @@ public class ExportFormat
     /// </summary>
     public NamingScheme Naming { get; set; } = NamingScheme.Suffix;
     /// <summary>
-    /// scale with which the object is imported
+    /// scale with which the object is imported. used when ScaleType is Scale
     /// </summary>
     public float Scale { get; set; }
     /// <summary>

@@ -13,13 +13,14 @@ public class ForeignSharedStyle
     /// <summary>
     /// ui kit name
     /// </summary>
-    public string? SourceLibraryName { get; set; }
+    public string? LibraryName { get; set; }
     /// <summary>
-    /// todo
+    /// This is sketch flag for private shared styled.
     /// </summary>
+    [SketchCompatibility]
     public bool ComponentPrivate { get; set; }
     /// <summary>
-    /// todo
+    /// ID of Style in Remote Shared Library.
     /// </summary>
     public Guid RemoteID { get; set; }
 

@@ -28,7 +28,7 @@ public sealed class TextStyle
     public ListMarkerType List { get; set; }
 
     /// <summary>
-    /// todo
+    /// Variable Fonts settings. Not supported in Lunacy yet.
     /// </summary>
     public Dictionary<string, double>? Variation { get; set; }
     

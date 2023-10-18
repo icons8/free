@@ -13,15 +13,17 @@ public class ForeignColorVariable
     /// <summary>
     /// ui kit name
     /// </summary>
-    public string? SourceLibraryName { get; set; }
+    public string? LibraryName { get; set; }
     /// <summary>
-    /// todo
+    ///  This is sketch flag for private shared color variables.
     /// </summary>
+    [SketchCompatibility]
     public bool ComponentPrivate { get; set; }
     /// <summary>
-    /// todo
+    /// Id of color variable in shared library
     /// </summary>
+    [SketchCompatibility]
     public Guid RemoteId { get; set; }
 
-    public ColorVariable? LocalColor { get; set; }
+    public ColorVariable? Color { get; set; }
 }

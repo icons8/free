@@ -9,7 +9,7 @@ public class DataInfo
     public DataType Type { get; set; }
     public DataFieldType Field { get; set; }
     /// <summary>
-    /// todo
+    /// String Format for Data Type. Used for Date/Time values.
     /// </summary>
     public string? Format { get; set; }
 }

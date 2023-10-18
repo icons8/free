@@ -20,7 +20,7 @@ public class Frame : Styled
     public ILayoutContainer? LayoutStrategy { get; set; }
 
     /// <summary>
-    /// todo
+    /// Style settings for frame if it's an overlay in sketch prototyping. Only for compatibility.
     /// </summary>
     [SketchCompatibility]
     public Style? OverlayStyle { get; set; }
@@ -31,7 +31,7 @@ public class Frame : Styled
     public bool ClipContent { get; set; }
     
     /// <summary>
-    /// todo
+    /// Sketch Layout settings. Not supported in Lunacy. But keeping data for compatibility.
     /// </summary>
     [SketchCompatibility]
     public IGroupLayout? GroupLayout { get; set; }
@@ -53,13 +53,13 @@ public class Frame : Styled
     public PrototypeViewport Viewport { get; set; }
     
     /// <summary>
-    /// todo
+    /// Overlay Interaction for Sketch Prototyping
     /// </summary>
     [SketchCompatibility]
     public OverlayBackgroundInteraction OverlayInteraction { get; set; }
     
     /// <summary>
-    /// todo
+    /// Is Current frame an overlay in prototyping
     /// </summary>
     [SketchCompatibility]
     public bool Overlay { get; set; }
@@ -89,7 +89,7 @@ public class Frame : Styled
     public Rulers Rulers { get; } = new();
     
     /// <summary>
-    /// todo
+    /// Sketch Prototyping Overlay Feature settings.
     /// </summary>
     [SketchCompatibility]
     public OverlaySettings? OverlaySettings { get; set; }
