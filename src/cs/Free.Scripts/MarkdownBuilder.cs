@@ -101,7 +101,7 @@ public class MarkdownBuilder
 
     private static string? FormatValue(object? value, XmlItemType parentItemType)
     {
-        if (value == null)
+        if (value is null or string{Length:0})
         {
             return null;
         }
