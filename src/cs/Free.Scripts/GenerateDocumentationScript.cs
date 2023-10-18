@@ -1,8 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System.Collections;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 using System.Xml.Linq;
 using Free.Schema;
 using Path = System.IO.Path;
@@ -19,7 +15,7 @@ public static class GenerateDocumentationScript
         Saturate(items);
         items = OrderItems(items);
 
-        var str = BuildMarkdown(items);
+        var str = new MarkdownBuilder(items).Build();
         File.WriteAllText("1.txt", str);
         Console.WriteLine(str);
     }
@@ -46,8 +42,8 @@ public static class GenerateDocumentationScript
                 {
                     var property = type.GetProperty(child.Name) ?? throw new Exception("Property not found: " + item.Name + "." + child.Name);
                     child.Attributes = property.GetCustomAttributes().ToArray();
-                    child.DefaultValue = FormatValue(property.GetValue(instance));
-                    child.ValueType = FormatTypeName(property.PropertyType);
+                    child.DefaultValue = property.GetValue(instance);
+                    child.ValueType = property.PropertyType;
                 }
                 else if (child.Type == XmlItemType.Field)
                 {
@@ -55,67 +51,18 @@ public static class GenerateDocumentationScript
                     {
                         var field = type.GetField(child.Name) ?? throw new Exception("Field not found: " + item.Name + "." + child.Name);
                         child.Attributes = field.GetCustomAttributes().ToArray();
-                        child.DefaultValue = FormatValue(field.GetValue(instance));
-                        child.ValueType = FormatTypeName(field.FieldType);
+                        child.DefaultValue = field.GetValue(instance);
+                        child.ValueType = field.FieldType;
                     }
                     else if (item.Type == XmlItemType.Enum)
                     {
                         var field = type.GetField(child.Name, BindingFlags.Public | BindingFlags.Static) ?? throw new Exception("Field not found: " + item.Name + "." + child.Name);
                         child.Attributes = field.GetCustomAttributes().ToArray();
-                        child.DefaultValue = FormatValue(Convert.ChangeType(field.GetValue(null),Enum.GetUnderlyingType(type)));
+                        child.DefaultValue = Convert.ChangeType(field.GetValue(null),Enum.GetUnderlyingType(type));
                     }
                 }
             }
         }
-    }
-    
-    private static string? FormatValue(object? value)
-    {
-        if (value == null)
-        {
-            return null;
-        }
-        if (value is Point p)
-        {
-            return "[" + p.X + "," + p.Y + "]";
-        }
-
-        if (value is ICollection { Count: 0 })
-        {
-            return null;
-        }
-        if (value is float[] f)
-        {
-            return "float[" + f.Length + "]";
-        }
-
-        if (value is Guid)
-        {
-            return null;
-        }
-
-        return value.ToString();
-    }
-
-    private static string FormatTypeName(Type propertyType)
-    {
-        var name = propertyType.Name;
-        if (name == "List`1")
-        {
-            name = propertyType.GenericTypeArguments[0].Name + "[]";
-        }
-        if (name == "Nullable`1")
-        {
-            name = propertyType.GenericTypeArguments[0].Name + "?";
-        }
-        name = name
-            .Replace("Int32", "int")
-            .Replace("Byte", "byte")
-            .Replace("Guid", "GUID")
-            .Replace("Single", "float")
-            .Replace("Boolean", "bool")
-            .Replace("String", "string");
-        return name;
     }
 
     private static List<XmlItem> OrderItems(List<XmlItem> items)
@@ -126,76 +73,6 @@ public static class GenerateDocumentationScript
             .ThenBy(x => x.Type)
             .ThenBy(x => x.Name)
             .ToList();
-    }
-
-    private static string BuildMarkdown(List<XmlItem> items)
-    {
-        var sb = new StringBuilder();
-        
-        foreach (var item in items)
-        {
-            sb.Append("## ").Append(item.Name);
-            if (item.Type != XmlItemType.Object)
-            {
-                sb.Append(" [").Append(item.Type).Append(']');
-            }
-            if (item.Attributes.OfType<SketchCompatibilityAttribute>().Any())
-            {
-                sb.Append(" //Sketch Compatibility");
-            }
-            if (item.Attributes.OfType<LunacySpecificAttribute>().Any())
-            {
-                sb.Append(" //Lunacy Specific");
-            }
-            sb.AppendLine();
-            sb.AppendLine(item.Summary);
-            if (item.Summary.Length > 0)
-            {
-                sb.AppendLine();
-            }
-            if (item.Childs.Count == 0)
-            {
-                continue;
-            }
-            foreach (var child in item.Childs)
-            {
-                sb.Append("* ").Append(child.Name);
-                if (child.Type == XmlItemType.Field)
-                {
-                    if (child.DefaultValue != null)
-                    {
-                        sb.Append(" = ").Append(child.DefaultValue);
-                    }
-                }
-                else if (child.Type == XmlItemType.Property)
-                {
-                    sb.Append(": ").Append(child.ValueType);
-                    if (child.DefaultValue != null)
-                    {
-                        sb.Append(" = ").Append(child.DefaultValue);
-                    }
-                }
-
-                if (child.Summary.Length > 0)
-                {
-                    sb.Append(" - ").Append(child.Summary);
-                }
-                
-                if (child.Attributes.OfType<SketchCompatibilityAttribute>().Any())
-                {
-                    sb.Append(" //Sketch Compatibility");
-                }
-                if (child.Attributes.OfType<LunacySpecificAttribute>().Any())
-                {
-                    sb.Append(" //Lunacy Specific");
-                }
-
-                sb.AppendLine();
-            }
-            sb.AppendLine();
-        }
-
-        return sb.ToString();
     }
 
     private static void BuildItemsTree(List<XmlItem> items)
