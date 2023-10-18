@@ -7,7 +7,7 @@ public class XmlItem
     public string Summary { get; }
     public string? DefaultValue { get; set; }
     public string? ValueType { get; set; }
-    public Attribute[] Attributes { get; set; }
+    public Attribute[] Attributes { get; set; } = Array.Empty<Attribute>();
 
     public XmlItem? Parent { get; set; }
     public List<XmlItem> Childs { get; } = new();

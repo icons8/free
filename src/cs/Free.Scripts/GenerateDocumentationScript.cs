@@ -120,7 +120,12 @@ public static class GenerateDocumentationScript
 
     private static List<XmlItem> OrderItems(List<XmlItem> items)
     {
-        return items.OrderBy(x => x.Type).ThenBy(x => x.Name).ToList();
+        return items
+            .OrderBy(x => x.Attributes.Any(a => a is SketchCompatibilityAttribute))
+            .ThenBy(x => x.Attributes.Any(a => a is LunacySpecificAttribute))
+            .ThenBy(x => x.Type)
+            .ThenBy(x => x.Name)
+            .ToList();
     }
 
     private static string BuildMarkdown(List<XmlItem> items)
@@ -129,7 +134,20 @@ public static class GenerateDocumentationScript
         
         foreach (var item in items)
         {
-            sb.Append("## ").Append(item.Name).Append(" [").Append(item.Type).Append("] ").AppendLine();
+            sb.Append("## ").Append(item.Name);
+            if (item.Type != XmlItemType.Object)
+            {
+                sb.Append(" [").Append(item.Type).Append(']');
+            }
+            if (item.Attributes.OfType<SketchCompatibilityAttribute>().Any())
+            {
+                sb.Append(" //Sketch Compatibility");
+            }
+            if (item.Attributes.OfType<LunacySpecificAttribute>().Any())
+            {
+                sb.Append(" //Lunacy Specific");
+            }
+            sb.AppendLine();
             sb.AppendLine(item.Summary);
             if (item.Summary.Length > 0)
             {
@@ -161,6 +179,15 @@ public static class GenerateDocumentationScript
                 if (child.Summary.Length > 0)
                 {
                     sb.Append(" - ").Append(child.Summary);
+                }
+                
+                if (child.Attributes.OfType<SketchCompatibilityAttribute>().Any())
+                {
+                    sb.Append(" //Sketch Compatibility");
+                }
+                if (child.Attributes.OfType<LunacySpecificAttribute>().Any())
+                {
+                    sb.Append(" //Lunacy Specific");
                 }
 
                 sb.AppendLine();
@@ -223,11 +250,11 @@ public static class GenerateDocumentationScript
             ? "Free.Schema.xml"
             : Path.Combine("bin", "Debug", "net7.0", "Free.Schema.xml");
         var doc = XDocument.Load(path);
-        var ns = doc.Root.GetDefaultNamespace();
-        return doc.Root
-            .Element(ns + "members")
+        var ns = doc.Root!.GetDefaultNamespace();
+        return doc.Root!
+            .Element(ns + "members")!
             .Elements()
-            .Select(x => new XmlItem(x.Attribute(ns + "name").Value, x.Element(ns + "summary").Value))
+            .Select(x => new XmlItem(x.Attribute(ns + "name")!.Value, x.Element(ns + "summary")!.Value))
             .ToArray();
     }
 }
