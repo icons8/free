@@ -16,7 +16,7 @@ public static class GenerateDocumentationScript
         items = OrderItems(items);
 
         var str = new MarkdownBuilder(items).Build();
-        File.WriteAllText("1.txt", str);
+        File.WriteAllText("1.md", str);
         Console.WriteLine(str);
     }
 

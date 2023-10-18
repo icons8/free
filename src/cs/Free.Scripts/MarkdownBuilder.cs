@@ -19,7 +19,17 @@ public class MarkdownBuilder
         foreach (var item in _items)
         {
             PrintTypeHeader(item);
-            _sb.AppendLine(item.Summary);
+            _sb.Append(item.Summary);
+            if (item.Attributes.OfType<SketchCompatibilityAttribute>().Any())
+            {
+                _sb.Append(" _//Sketch Compatibility_");
+            }
+
+            if (item.Attributes.OfType<LunacySpecificAttribute>().Any())
+            {
+                _sb.Append(" _//Lunacy Specific_");
+            }
+            _sb.AppendLine();
             if (item.Summary.Length > 0)
             {
                 _sb.AppendLine();
@@ -40,22 +50,11 @@ public class MarkdownBuilder
 
     private void PrintTypeHeader(XmlItem item)
     {
-        _sb.Append("## ").Append(item.Name);
+        _sb.Append("## ").Append("<a name=\"").Append(item.Name).Append("\"></a>").Append(item.Name);
         if (item.Type != XmlItemType.Object)
         {
-            _sb.Append(" [").Append(item.Type).Append(']');
+            _sb.Append(' ').Append(item.Type);
         }
-
-        if (item.Attributes.OfType<SketchCompatibilityAttribute>().Any())
-        {
-            _sb.Append(" //Sketch Compatibility");
-        }
-
-        if (item.Attributes.OfType<LunacySpecificAttribute>().Any())
-        {
-            _sb.Append(" //Lunacy Specific");
-        }
-
         _sb.AppendLine();
     }
 
@@ -66,19 +65,19 @@ public class MarkdownBuilder
         {
             if (parentItemType == XmlItemType.Struct)
             {
-                _sb.Append(": ").Append(FormatTypeName(child.ValueType!));
+                PrintTypeName(child.ValueType!);
             }
             if (FormatValue(child.DefaultValue, parentItemType) is {} val)
             {
-                _sb.Append(" = ").Append(val);
+                _sb.Append(" = `").Append(val).Append('`');
             }
         }
         else if (child.Type == XmlItemType.Property)
         {
-            _sb.Append(": ").Append(FormatTypeName(child.ValueType!));
+            PrintTypeName(child.ValueType!);
             if (FormatValue(child.DefaultValue, parentItemType) is {} val)
             {
-                _sb.Append(" = ").Append(val);
+                _sb.Append(" = `").Append(val).Append('`');
             }
         }
 
@@ -89,17 +88,17 @@ public class MarkdownBuilder
 
         if (child.Attributes.OfType<SketchCompatibilityAttribute>().Any())
         {
-            _sb.Append(" //Sketch Compatibility");
+            _sb.Append(" _//Sketch Compatibility_");
         }
 
         if (child.Attributes.OfType<LunacySpecificAttribute>().Any())
         {
-            _sb.Append(" //Lunacy Specific");
+            _sb.Append(" _//Lunacy Specific_");
         }
 
         _sb.AppendLine();
     }
-    
+
     private static string? FormatValue(object? value, XmlItemType parentItemType)
     {
         if (value == null)
@@ -160,4 +159,19 @@ public class MarkdownBuilder
             .Replace("String", "string");
         return name;
     }
+    private void PrintTypeName(Type type)
+    {
+        var name = FormatTypeName(type);
+        var clearName = name.TrimEnd('[', ']', '?');
+        _sb.Append(": ");
+        if (clearName is "int" or "byte" or "GUID" or "float" or "bool" or "string")
+        {
+            _sb.Append(name);
+        }
+        else
+        {
+            _sb.Append('[').Append(name).Append("](#").Append(clearName).Append(')');
+        }
+    }
+
 }
