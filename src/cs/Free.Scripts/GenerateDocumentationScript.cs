@@ -36,6 +36,18 @@ public static class GenerateDocumentationScript
             }
             var instance = Activator.CreateInstance(type);
             item.Attributes = type.GetCustomAttributes().ToArray();
+            if (item is { Type: XmlItemType.Enum, Childs.Count: 0 })
+            {
+                foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Static))
+                {
+                    item.Childs.Add(new XmlItem(field.Name, XmlItemType.Field)
+                    {
+                        Attributes = field.GetCustomAttributes().ToArray(),
+                        DefaultValue = Convert.ChangeType(field.GetValue(null),Enum.GetUnderlyingType(type))
+                    });
+                }
+                continue;
+            }
             foreach (var child in item.Childs)
             {
                 if (child.Type == XmlItemType.Property)

@@ -21,9 +21,9 @@ public class XmlItem
         Summary = summary.Trim();
     }
     
-    public XmlItem(string name)
+    public XmlItem(string name, XmlItemType type = XmlItemType.Object)
     {
-        Type = XmlItemType.Object;
+        Type = type;
         Name = name;
         Summary = "";
     }
