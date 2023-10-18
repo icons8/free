@@ -1,4 +1,4 @@
-namespace Free.Schema.Document;
+namespace Free.Schema;
 
 /// <summary>
 /// document.json structure

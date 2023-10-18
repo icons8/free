@@ -1,4 +1,4 @@
-namespace Free.Schema.Document;
+namespace Free.Schema;
 
 /// <summary>
 /// Document color space (color scheme the document uses)

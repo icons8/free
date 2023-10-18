@@ -1,4 +1,4 @@
-namespace Free.Schema.Document;
+namespace Free.Schema;
 
 /// <summary>
 /// Shared fonts are stored in the document 

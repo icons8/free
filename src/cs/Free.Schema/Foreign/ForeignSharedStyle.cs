@@ -1,4 +1,4 @@
-namespace Free.Schema.Document;
+namespace Free.Schema;
 /// <summary>
 /// shared.json
 /// shared style from ui kit
