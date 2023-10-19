@@ -48,14 +48,48 @@ public class MarkdownBuilder
                 _sb.Append("Has all properties of [`").Append(item.BaseType.Name).Append("`](#").Append(item.BaseType.Name).AppendLine("), plus:");
                 _sb.AppendLine();
             }
-            foreach (var child in item.Childs)
+            PrintFields(item);
+        }
+
+        return _sb.ToString();
+    }
+
+    private void PrintFields(Node item)
+    {
+        var basicFields = item.Childs.Where(x => x.Attributes.Length == 0).ToArray();
+        var sketchFields = item.Childs.Where(x => x.Attributes.OfType<SketchCompatibilityAttribute>().Any()).ToArray();
+        var lunacyFields = item.Childs.Where(x => x.Attributes.OfType<LunacySpecificAttribute>().Any()).ToArray();
+
+        if (basicFields.Length > 0)
+        {
+            foreach (var child in basicFields)
+            {
+                PrintField(child, item.Type);
+            }
+
+            _sb.AppendLine();
+        }
+
+        if (lunacyFields.Length > 0)
+        {
+            _sb.AppendLine("Lunacy specific:");
+            foreach (var child in lunacyFields)
             {
                 PrintField(child, item.Type);
             }
             _sb.AppendLine();
         }
-
-        return _sb.ToString();
+        
+        if (sketchFields.Length > 0)
+        {
+            _sb.AppendLine("Sketch compatibility:");
+            foreach (var child in sketchFields)
+            {
+                PrintField(child, item.Type);
+            }
+            _sb.AppendLine();
+        }
+        
     }
 
     private void PrintTypeHeader(Node item)
@@ -104,15 +138,15 @@ public class MarkdownBuilder
             _sb.Append(" - ").Append(child.Summary);
         }
 
-        if (child.Attributes.OfType<SketchCompatibilityAttribute>().Any())
-        {
-            _sb.Append(" _//Sketch Compatibility_");
-        }
-
-        if (child.Attributes.OfType<LunacySpecificAttribute>().Any())
-        {
-            _sb.Append(" _//Lunacy Specific_");
-        }
+        // if (child.Attributes.OfType<SketchCompatibilityAttribute>().Any())
+        // {
+        //     _sb.Append(" _//Sketch Compatibility_");
+        // }
+        //
+        // if (child.Attributes.OfType<LunacySpecificAttribute>().Any())
+        // {
+        //     _sb.Append(" _//Lunacy Specific_");
+        // }
 
         _sb.AppendLine();
     }

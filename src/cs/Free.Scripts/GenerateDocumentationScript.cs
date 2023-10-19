@@ -38,6 +38,7 @@ public static class GenerateDocumentationScript
         foreach (var item in items)
         {
             var type = types.First(x=>x.Name == item.Name) ?? throw new Exception("Type not found: " + item.Name);
+            item.ObjectType = type;
             if (type.IsEnum)
             {
                 item.Type = NodeType.Enum;
@@ -118,8 +119,27 @@ public static class GenerateDocumentationScript
             .OrderBy(x => x.Attributes.Any(a => a is SketchCompatibilityAttribute))
             .ThenBy(x => x.Attributes.Any(a => a is LunacySpecificAttribute))
             .ThenBy(x => x.Type)
+            .ThenBy(x => !typeof(Layer).IsAssignableFrom(x.ObjectType))
+            .ThenByDescending(GetBaseClassDepth)
             .ThenBy(x => x.Name)
             .ToList();
+    }
+
+    private static int GetBaseClassDepth(Node node)
+    {
+        if (node.Type != NodeType.Object || node.ObjectType?.IsInterface == true)
+        {
+            return 0;
+        }
+        var result = 0;
+        var current = node.ObjectType;
+        while (current != typeof(object))
+        {
+            current = current.BaseType;
+            result++;
+        }
+
+        return result;
     }
 
     private static void BuildItemsTree(List<Node> items)

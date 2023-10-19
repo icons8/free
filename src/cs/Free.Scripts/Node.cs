@@ -8,6 +8,7 @@ public class Node
     public object? DefaultValue { get; set; }
     public Type? ValueType { get; set; }
     public Type? BaseType { get; set; }
+    public Type? ObjectType { get; set; }
     public Attribute[] Attributes { get; set; } = Array.Empty<Attribute>();
 
     public Node? Parent { get; set; }
