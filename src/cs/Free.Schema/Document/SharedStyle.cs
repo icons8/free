@@ -1,18 +1,25 @@
 namespace Free.Schema;
 
 /// <summary>
-/// style saved in the document
+/// Style saved in the document.
 /// </summary>
 public class SharedStyle
 {
+    /// <summary>
+    /// Unique style ID.
+    /// </summary>
     public Guid Id { get; set; }
+
+    /// <summary>
+    /// Style name.
+    /// </summary>
     public string Name { get; set; }
     /// <summary>
-    /// Layer style settings
+    /// Layer style settings.
     /// </summary>
     public Style Style { get; }
     /// <summary>
-    /// If this is a text style, text settings will be available
+    /// Text style settings.
     /// </summary>
     public TextStyle? TextStyle { get; set; }
 }

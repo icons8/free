@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Document color space (color scheme the document uses)
+/// Document color space (color scheme the document uses).
 /// </summary>
 [SketchCompatibility]
 public enum ColorSpace : byte

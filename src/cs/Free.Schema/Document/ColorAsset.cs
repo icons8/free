@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Colors stored in the document (colorpicker>dropdown (global)> document)
+/// Colors stored in the document (color picker > dropdown list (global) > document).
 /// </summary>
 public class ColorAsset : DocumentAssetBase
 {
