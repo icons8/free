@@ -142,7 +142,7 @@ public class MarkdownBuilder
             return null;
         }
 
-        if (parentItemType != NodeType.Enum)
+        if (parentItemType == NodeType.Struct)
         {
             if (value is 0)
             {
@@ -154,7 +154,7 @@ public class MarkdownBuilder
             }
         }
 
-        if (!value.GetType().IsValueType)
+        if (!value.GetType().IsValueType && value is not string)
         {
             return null;
         }
