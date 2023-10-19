@@ -23,8 +23,11 @@ Has all properties of [`Frame`](#Frame), plus:
 * _t: [string](#string) = `COMPONENT`
 * ComponentId: [GUID](#GUID)
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * BackgroundInInstance: [bool](#bool) = `False` - Include background in component instances.
+</details>
 
 ### <a name="Oval"></a>Oval
 
@@ -79,7 +82,9 @@ Has all properties of [`Styled`](#Styled), plus:
 * Rulers: [Rulers](#Rulers)
 * Layers: [Layer[]](#Layer)
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * OverlayStyle: [Style](#Style) - Style settings for frame if it's an overlay in sketch prototyping. Only for compatibility.
 * GroupLayout: [IGroupLayout](#IGroupLayout) - Sketch Layout settings. Not supported in Lunacy. But keeping data for compatibility.
 * BackgroundInExport: [bool](#bool) = `False` - When enabled, the frame background is included into export files.
@@ -89,6 +94,7 @@ Sketch compatibility:
 * BackgroundId: [GUID](#GUID) - Color Variable ID
 * OverlaySettings: [OverlaySettings](#OverlaySettings) - Sketch Prototyping Overlay Feature settings.
 * HasBackground: [bool](#bool) = `False`
+</details>
 
 ### <a name="Group"></a>Group
 A layer group is two and more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
@@ -99,9 +105,12 @@ Has all properties of [`Styled`](#Styled), plus:
 * Layers: [Layer[]](#Layer) - List of layers within the group.
 * _t: [string](#string) = `GROUP`
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * SkipConstraints: [bool](#bool) = `False` - This is for constraints compatibility with sketch. If file is imported from sketch format it should be false to handle constraints properly.
 * GroupLayout: [IGroupLayout](#IGroupLayout) - Sketch Group Layout. We don't support it but keep it for compatibility
+</details>
 
 ### <a name="Instance"></a>Instance
 
@@ -114,9 +123,12 @@ Has all properties of [`Styled`](#Styled), plus:
 * SmoothCorners: [bool](#bool) = `False`
 * ComponentId: [GUID](#GUID)
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * VerticalSpacing: [float](#float) = `0`
 * HorizontalSpacing: [float](#float) = `0`
+</details>
 
 ### <a name="Path"></a>Path
 
@@ -135,9 +147,12 @@ Has all properties of [`Styled`](#Styled), plus:
 * _t: [string](#string) = `SHAPE`
 * Layers: [Layer[]](#Layer)
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * SkipConstraints: [bool](#bool) = `False` - This is for constraints compatibility with sketch. If file is imported from sketch format it should be false to handle constraints properly.
 * GroupLayout: [IGroupLayout](#IGroupLayout) - Sketch Group Layout. We don't support it but keep it for compatibility
+</details>
 
 ### <a name="Text"></a>Text
 
@@ -212,7 +227,9 @@ Has all properties of [`Layer`](#Layer), plus:
 * LayoutGrowStretch: [bool](#bool) = `False`
 * LayoutFixPos: [bool](#bool) = `False`
 
-Lunacy specific:
+<details>
+<summary>Lunacy specific</summary>
+
 * PhotoId: [string](#string)
 * IllustrationId: [string](#string)
 * IconId: [string](#string)
@@ -220,6 +237,7 @@ Lunacy specific:
 * Data: [DataInfo](#DataInfo)
 * Upscaled: [bool](#bool) = `False`
 * BackgroundRemove: [BackgroundRemovalState](#BackgroundRemovalState) = `None`
+</details>
 
 ### <a name="Border"></a>Border
 
@@ -365,9 +383,12 @@ shared.json
 * Id: [GUID](#GUID)
 * Color: [ColorVariable](#ColorVariable)
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * ComponentPrivate: [bool](#bool) = `False` - This is sketch flag for private shared color variables.
 * RemoteId: [GUID](#GUID) - Id of color variable in shared library
+</details>
 
 ### <a name="ForeignComponent"></a>ForeignComponent
 shared.json
@@ -379,8 +400,11 @@ shared.json
 * Component: [Component](#Component) - Current state of component
 * Id: [GUID](#GUID)
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * ComponentPrivate: [bool](#bool) = `False` - This is sketch flag for private shared components.
+</details>
 
 ### <a name="ForeignSharedStyle"></a>ForeignSharedStyle
 shared.json
@@ -391,8 +415,11 @@ shared.json
 * RemoteID: [GUID](#GUID) - ID of Style in Remote Shared Library.
 * Id: [GUID](#GUID)
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * ComponentPrivate: [bool](#bool) = `False` - This is sketch flag for private shared styled.
+</details>
 
 ### <a name="Gradient"></a>Gradient
 An object that represent a Gradient.
@@ -415,8 +442,11 @@ A position color pair representing a gradient stop.
 * Color: [Color](#Color) = `00000000`
 * Size: [int](#int) = `10`
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * ThickTimes: [int](#int) = `10`
+</details>
 
 ### <a name="ImageFilters"></a>ImageFilters
 
@@ -494,10 +524,13 @@ Contains metadata about the document
 * Wrap: [bool?](#bool)
 * WrapDistribute: [bool?](#bool)
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * LegacyColor: [ColorOverride](#ColorOverride)
 * LegacyTextColor: [TextColorOverride](#TextColorOverride)
 * LegacyTextWeight: [TextWeightOverride](#TextWeightOverride)
+</details>
 
 ### <a name="Page"></a>Page
 Document page properties.
@@ -542,8 +575,11 @@ Object containing rulers origin and guidelines positions
 * Guides: [int[]](#int) - Vertical guidelines positions on Horizontal Ruler
 * VGuides: [int[]](#int) - Horizontal guidelines positions on Vertical Ruler
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * Origin: [Point](#Point) = `[0,0]` - Origin for Rulers. Not supported in Lunacy. Sketch Compatibility
+</details>
 
 ### <a name="ShadowEffect"></a>ShadowEffect
 
@@ -944,10 +980,13 @@ Enumeration of the behaviours for text layers
 * `4` HasCurveFrom
 * `8` HasCurveTo
 
-Sketch compatibility:
+<details>
+<summary>Sketch compatibility</summary>
+
 * `16` RoundedInverted
 * `32` Angled
 * `48` Squared
+</details>
 
 ### <a name="VerticalAlignment"></a>VerticalAlignment Enum
 

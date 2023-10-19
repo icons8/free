@@ -75,21 +75,27 @@ public class MarkdownBuilder
 
         if (lunacyFields.Length > 0)
         {
-            _sb.AppendLine("Lunacy specific:");
+            _sb.AppendLine("<details>");
+            _sb.AppendLine("<summary>Lunacy specific</summary>");
+            _sb.AppendLine();
             foreach (var child in lunacyFields)
             {
                 PrintField(child, item.Type);
             }
+            _sb.AppendLine("</details>");
             _sb.AppendLine();
         }
         
         if (sketchFields.Length > 0)
         {
-            _sb.AppendLine("Sketch compatibility:");
+            _sb.AppendLine("<details>");
+            _sb.AppendLine("<summary>Sketch compatibility</summary>");
+            _sb.AppendLine();
             foreach (var child in sketchFields)
             {
                 PrintField(child, item.Type);
             }
+            _sb.AppendLine("</details>");
             _sb.AppendLine();
         }
         
