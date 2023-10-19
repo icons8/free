@@ -16,11 +16,11 @@ public static class GenerateDocumentationScript
         items = OrderItems(items);
 
         var str = new MarkdownBuilder(items).Build();
-        File.WriteAllText("1.md", str);
+        File.WriteAllText("SCHEMA.md", str);
         Console.WriteLine(str);
     }
 
-    private static void Saturate(List<XmlItem> items)
+    private static void Saturate(List<Node> items)
     {
         var assembly = Assembly.GetAssembly(typeof(Page)) ?? throw new Exception("assembly not loaded");
         foreach (var item in items)
@@ -28,19 +28,23 @@ public static class GenerateDocumentationScript
             var type = assembly.GetTypes().First(x=>x.Name == item.Name) ?? throw new Exception("Type not found: " + item.Name);
             if (type.IsEnum)
             {
-                item.Type = XmlItemType.Enum;
+                item.Type = NodeType.Enum;
             }
             else if (type.IsValueType)
             {
-                item.Type = XmlItemType.Struct;
+                item.Type = NodeType.Struct;
+            }
+            else if (type.BaseType != typeof(object))
+            {
+                item.BaseType = type.BaseType;
             }
             var instance = Activator.CreateInstance(type);
             item.Attributes = type.GetCustomAttributes().ToArray();
-            if (item is { Type: XmlItemType.Enum, Childs.Count: 0 })
+            if (item is { Type: NodeType.Enum, Childs.Count: 0 })
             {
                 foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Static))
                 {
-                    item.Childs.Add(new XmlItem(field.Name, XmlItemType.Field)
+                    item.Childs.Add(new Node(field.Name, NodeType.Field)
                     {
                         Attributes = field.GetCustomAttributes().ToArray(),
                         DefaultValue = Convert.ChangeType(field.GetValue(null),Enum.GetUnderlyingType(type))
@@ -50,23 +54,23 @@ public static class GenerateDocumentationScript
             }
             foreach (var child in item.Childs)
             {
-                if (child.Type == XmlItemType.Property)
+                if (child.Type == NodeType.Property)
                 {
                     var property = type.GetProperty(child.Name) ?? throw new Exception("Property not found: " + item.Name + "." + child.Name);
                     child.Attributes = property.GetCustomAttributes().ToArray();
                     child.DefaultValue = property.GetValue(instance);
                     child.ValueType = property.PropertyType;
                 }
-                else if (child.Type == XmlItemType.Field)
+                else if (child.Type == NodeType.Field)
                 {
-                    if (item.Type == XmlItemType.Struct)
+                    if (item.Type == NodeType.Struct)
                     {
                         var field = type.GetField(child.Name) ?? throw new Exception("Field not found: " + item.Name + "." + child.Name);
                         child.Attributes = field.GetCustomAttributes().ToArray();
                         child.DefaultValue = field.GetValue(instance);
                         child.ValueType = field.FieldType;
                     }
-                    else if (item.Type == XmlItemType.Enum)
+                    else if (item.Type == NodeType.Enum)
                     {
                         var field = type.GetField(child.Name, BindingFlags.Public | BindingFlags.Static) ?? throw new Exception("Field not found: " + item.Name + "." + child.Name);
                         child.Attributes = field.GetCustomAttributes().ToArray();
@@ -77,7 +81,7 @@ public static class GenerateDocumentationScript
         }
     }
 
-    private static List<XmlItem> OrderItems(List<XmlItem> items)
+    private static List<Node> OrderItems(List<Node> items)
     {
         return items
             .OrderBy(x => x.Attributes.Any(a => a is SketchCompatibilityAttribute))
@@ -87,16 +91,16 @@ public static class GenerateDocumentationScript
             .ToList();
     }
 
-    private static void BuildItemsTree(List<XmlItem> items)
+    private static void BuildItemsTree(List<Node> items)
     {
         foreach (var item in items.ToArray())
         {
-            if (item.Type == XmlItemType.Property)
+            if (item.Type == NodeType.Property)
             {
                 var split = item.Name.Split('.');
                 if (items.FirstOrDefault(x => x.Name == split[0]) is not { } parent)
                 {
-                    items.Add(parent = new XmlItem(split[0]));
+                    items.Add(parent = new Node(split[0]));
                 }
 
                 parent.Childs.Add(item);
@@ -104,15 +108,15 @@ public static class GenerateDocumentationScript
                 items.Remove(item);
                 item.Name = split[1];
             }
-            else if (item.Type == XmlItemType.Field)
+            else if (item.Type == NodeType.Field)
             {
                 var split = item.Name.Split('.');
                 if (items.FirstOrDefault(x => x.Name == split[0]) is not { } parent)
                 {
-                    items.Add(parent = new XmlItem(split[0]));
+                    items.Add(parent = new Node(split[0]));
                 }
 
-                parent.Type = XmlItemType.Enum;
+                parent.Type = NodeType.Enum;
                 parent.Childs.Add(item);
                 item.Parent = parent;
                 items.Remove(item);
@@ -121,7 +125,7 @@ public static class GenerateDocumentationScript
         }
     }
 
-    private static void ValidateItems(IEnumerable<XmlItem> items)
+    private static void ValidateItems(IEnumerable<Node> items)
     {
         if (items.Any(x => x.Name.Count(c => c == '.') > 2))
         {
@@ -129,11 +133,11 @@ public static class GenerateDocumentationScript
         }
     }
 
-    private static List<XmlItem> FilterItems(XmlItem[] items) => items
-        .Where(x => !x.Name.EndsWith("Attribute") && x.Type != XmlItemType.Method)
+    private static List<Node> FilterItems(Node[] items) => items
+        .Where(x => !x.Name.EndsWith("Attribute") && x.Type != NodeType.Method)
         .ToList();
 
-    private static XmlItem[] GetItemsFromXml()
+    private static Node[] GetItemsFromXml()
     {
         var path = File.Exists("Free.Schema.xml")
             ? "Free.Schema.xml"
@@ -143,7 +147,7 @@ public static class GenerateDocumentationScript
         return doc.Root!
             .Element(ns + "members")!
             .Elements()
-            .Select(x => new XmlItem(x.Attribute(ns + "name")!.Value, x.Element(ns + "summary")!.Value))
+            .Select(x => new Node(x.Attribute(ns + "name")!.Value, x.Element(ns + "summary")!.Value))
             .ToArray();
     }
 }

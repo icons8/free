@@ -30,7 +30,7 @@ public sealed class TextStyle
     /// <summary>
     /// Variable Fonts settings. Not supported in Lunacy yet.
     /// </summary>
-    public Dictionary<string, double>? Variation { get; set; }
+    public Dictionary<string, float>? Variation { get; set; }
     
     public bool RTL { get; set; }
     public bool Underline { get; set; }

@@ -1,27 +1,28 @@
 namespace Free.Scripts;
 
-public class XmlItem
+public class Node
 {
-    public XmlItemType Type { get; set; }
+    public NodeType Type { get; set; }
     public string Name { get; set; }
     public string Summary { get; }
     public object? DefaultValue { get; set; }
     public Type? ValueType { get; set; }
+    public Type? BaseType { get; set; }
     public Attribute[] Attributes { get; set; } = Array.Empty<Attribute>();
 
-    public XmlItem? Parent { get; set; }
-    public List<XmlItem> Childs { get; } = new();
+    public Node? Parent { get; set; }
+    public List<Node> Childs { get; } = new();
 
-    public XmlItem(string name, string summary)
+    public Node(string name, string summary)
     {
-        Type = name.StartsWith("F:") ? XmlItemType.Field : 
-            name.StartsWith("P:") ? XmlItemType.Property : 
-            name.StartsWith("M:") ? XmlItemType.Method : XmlItemType.Object;
+        Type = name.StartsWith("F:") ? NodeType.Field : 
+            name.StartsWith("P:") ? NodeType.Property : 
+            name.StartsWith("M:") ? NodeType.Method : NodeType.Object;
         Name = name[2..].Replace("Free.Schema.", "");
         Summary = summary.Trim();
     }
     
-    public XmlItem(string name, XmlItemType type = XmlItemType.Object)
+    public Node(string name, NodeType type = NodeType.Object)
     {
         Type = type;
         Name = name;

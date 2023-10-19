@@ -1,6 +1,6 @@
 namespace Free.Scripts;
 
-public enum XmlItemType
+public enum NodeType
 {
     Object,
     Struct,

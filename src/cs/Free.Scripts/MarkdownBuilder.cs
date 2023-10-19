@@ -6,10 +6,10 @@ namespace Free.Scripts;
 
 public class MarkdownBuilder
 {
-    private readonly List<XmlItem> _items;
+    private readonly List<Node> _items;
     private readonly StringBuilder _sb = new();
 
-    public MarkdownBuilder(List<XmlItem> items)
+    public MarkdownBuilder(List<Node> items)
     {
         _items = items;
     }
@@ -36,7 +36,17 @@ public class MarkdownBuilder
             }
             if (item.Childs.Count == 0)
             {
+                if (item.BaseType != null)
+                {
+                    _sb.Append("See properties for [`").Append(item.BaseType.Name).Append("`](#").Append(item.BaseType.Name).AppendLine(")");
+                    _sb.AppendLine();
+                }
                 continue;
+            }
+            if (item.BaseType != null)
+            {
+                _sb.Append("Has all properties of [`").Append(item.BaseType.Name).Append("`](#").Append(item.BaseType.Name).AppendLine("), plus:");
+                _sb.AppendLine();
             }
             foreach (var child in item.Childs)
             {
@@ -48,21 +58,21 @@ public class MarkdownBuilder
         return _sb.ToString();
     }
 
-    private void PrintTypeHeader(XmlItem item)
+    private void PrintTypeHeader(Node item)
     {
         _sb.Append("## ").Append("<a name=\"").Append(item.Name).Append("\"></a>").Append(item.Name);
-        if (item.Type != XmlItemType.Object)
+        if (item.Type != NodeType.Object)
         {
             _sb.Append(' ').Append(item.Type);
         }
         _sb.AppendLine();
     }
 
-    private void PrintField(XmlItem child, XmlItemType parentItemType)
+    private void PrintField(Node child, NodeType parentItemType)
     {
         _sb.Append("* ");
 
-        if (parentItemType == XmlItemType.Enum)
+        if (parentItemType == NodeType.Enum)
         {
             if (FormatValue(child.DefaultValue, parentItemType) is { } val)
             {
@@ -70,7 +80,7 @@ public class MarkdownBuilder
             }
             _sb.Append(child.Name);
         }
-        else if (parentItemType == XmlItemType.Struct)
+        else if (parentItemType == NodeType.Struct)
         {
             _sb.Append(child.Name);
             PrintTypeName(child.ValueType!);
@@ -79,7 +89,7 @@ public class MarkdownBuilder
                 _sb.Append(" = `").Append(val).Append('`');
             }
         }
-        else if (child.Type == XmlItemType.Property)
+        else if (child.Type == NodeType.Property)
         {
             _sb.Append(child.Name);
             PrintTypeName(child.ValueType!);
@@ -107,7 +117,7 @@ public class MarkdownBuilder
         _sb.AppendLine();
     }
 
-    private static string? FormatValue(object? value, XmlItemType parentItemType)
+    private static string? FormatValue(object? value, NodeType parentItemType)
     {
         if (value is null or string{Length:0} or Rulers or TextStyle)
         {
@@ -132,7 +142,7 @@ public class MarkdownBuilder
             return null;
         }
 
-        if (parentItemType != XmlItemType.Enum)
+        if (parentItemType != NodeType.Enum)
         {
             if (value is 0)
             {
@@ -157,6 +167,11 @@ public class MarkdownBuilder
         if (name == "Nullable`1")
         {
             name = propertyType.GenericTypeArguments[0].Name + "?";
+        }
+
+        if (name == "Dictionary`2")
+        {
+            name = "[" + propertyType.GenericTypeArguments[0].Name + "," + propertyType.GenericTypeArguments[1].Name + "]";
         }
         name = name
             .Replace("Int32", "int")
