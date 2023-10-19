@@ -23,9 +23,21 @@ public static class GenerateDocumentationScript
     private static void Saturate(List<Node> items)
     {
         var assembly = Assembly.GetAssembly(typeof(Page)) ?? throw new Exception("assembly not loaded");
+        var types = assembly.GetTypes();
+
+        foreach (var t in types)
+        {
+            if (t.FullName?.StartsWith("Free.") == true &&
+                !t.Name.EndsWith("Attribute") &&
+                items.All(x => x.Name != t.Name))
+            {
+                items.Add(new Node(t.Name, t.IsEnum ? NodeType.Enum : t.IsValueType ? NodeType.Struct : NodeType.Object));
+            }
+        }
+        
         foreach (var item in items)
         {
-            var type = assembly.GetTypes().First(x=>x.Name == item.Name) ?? throw new Exception("Type not found: " + item.Name);
+            var type = types.First(x=>x.Name == item.Name) ?? throw new Exception("Type not found: " + item.Name);
             if (type.IsEnum)
             {
                 item.Type = NodeType.Enum;
@@ -38,19 +50,38 @@ public static class GenerateDocumentationScript
             {
                 item.BaseType = type.BaseType;
             }
-            var instance = Activator.CreateInstance(type);
+            var instance = type.IsAbstract || type.IsInterface 
+                ? Activator.CreateInstance(types.First(x=>!x.IsInterface && !x.IsAbstract && type.IsAssignableFrom(x))) 
+                : Activator.CreateInstance(type);
             item.Attributes = type.GetCustomAttributes().ToArray();
-            if (item is { Type: NodeType.Enum, Childs.Count: 0 })
+            
+            if (item.Type == NodeType.Enum)
             {
                 foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Static))
                 {
-                    item.Childs.Add(new Node(field.Name, NodeType.Field)
+                    if (item.Childs.All(x => x.Name != field.Name))
                     {
-                        Attributes = field.GetCustomAttributes().ToArray(),
-                        DefaultValue = Convert.ChangeType(field.GetValue(null),Enum.GetUnderlyingType(type))
-                    });
+                        item.Childs.Add(new Node(field.Name, NodeType.Field)
+                        {
+                            Parent = item
+                        });
+                    }
                 }
-                continue;
+            }
+            else if (item.Type == NodeType.Object)
+            {
+                foreach (var prop in type.GetProperties(BindingFlags.Public
+                                                        | BindingFlags.Instance
+                                                        | BindingFlags.DeclaredOnly))
+                {
+                    if (item.Childs.All(x => x.Name != prop.Name))
+                    {
+                        item.Childs.Add(new Node(prop.Name, NodeType.Property)
+                        {
+                            Parent = item
+                        });
+                    }
+                }
             }
             foreach (var child in item.Childs)
             {

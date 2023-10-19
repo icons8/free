@@ -1,8 +1,8 @@
 namespace Free.Schema;
 
-public class Layer
+public abstract class Layer
 {
-    public virtual string _t { get; }
+    public abstract string _t { get; }
     
     public Guid Id { get; set; }
     public string Name { get; set; }

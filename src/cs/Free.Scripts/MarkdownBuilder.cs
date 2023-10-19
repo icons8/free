@@ -119,7 +119,7 @@ public class MarkdownBuilder
 
     private static string? FormatValue(object? value, NodeType parentItemType)
     {
-        if (value is null or string{Length:0} or Rulers or TextStyle)
+        if (value is null or string{Length:0})
         {
             return null;
         }
@@ -152,6 +152,11 @@ public class MarkdownBuilder
             {
                 return null;
             }
+        }
+
+        if (!value.GetType().IsValueType)
+        {
+            return null;
         }
 
         return value.ToString();
