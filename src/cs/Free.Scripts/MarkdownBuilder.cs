@@ -164,6 +164,14 @@ public class MarkdownBuilder
         {
             return "[" + p.X + "," + p.Y + "]";
         }
+        if (value is Size s)
+        {
+            return "[" + s.Width + "," + s.Height + "]";
+        }
+        if (value is Thickness t)
+        {
+            return "[" + t.Left + "," + t.Top + "," + t.Right + "," + t.Bottom + "]";
+        }
 
         if (value is ICollection { Count: 0 })
         {
