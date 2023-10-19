@@ -190,9 +190,7 @@ public static class GenerateDocumentationScript
 
     private static Node[] GetItemsFromXml()
     {
-        var path = File.Exists("Free.Schema.xml")
-            ? "Free.Schema.xml"
-            : Path.Combine("bin", "Debug", "net7.0", "Free.Schema.xml");
+        var path = PathHelper.FindPath("Free.Schema.xml");
         var doc = XDocument.Load(path);
         var ns = doc.Root!.GetDefaultNamespace();
         return doc.Root!

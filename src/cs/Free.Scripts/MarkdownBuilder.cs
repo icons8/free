@@ -12,6 +12,8 @@ public class MarkdownBuilder
     public MarkdownBuilder(List<Node> items)
     {
         _items = items;
+
+        _sb.Append(File.ReadAllText(PathHelper.FindPath("Header.md")));
     }
 
     public string Build()
@@ -51,6 +53,7 @@ public class MarkdownBuilder
             PrintFields(item);
         }
 
+        _sb.Append(File.ReadAllText(PathHelper.FindPath("Footer.md")));
         return _sb.ToString();
     }
 
@@ -94,7 +97,7 @@ public class MarkdownBuilder
 
     private void PrintTypeHeader(Node item)
     {
-        _sb.Append("## ").Append("<a name=\"").Append(item.Name).Append("\"></a>").Append(item.Name);
+        _sb.Append("### ").Append("<a name=\"").Append(item.Name).Append("\"></a>").Append(item.Name);
         if (item.Type != NodeType.Object)
         {
             _sb.Append(' ').Append(item.Type);
