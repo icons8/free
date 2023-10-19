@@ -16,7 +16,7 @@ public static class GenerateDocumentationScript
         items = OrderItems(items);
 
         var str = new MarkdownBuilder(items).Build();
-        File.WriteAllText("SCHEMA.md", str);
+        File.WriteAllText(PathHelper.GetReadmePath(), str);
         Console.WriteLine(str);
     }
 
