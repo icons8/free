@@ -1,5 +1,6 @@
 namespace Free.Schema;
 
+[SketchCompatibility]
 public enum ColorOverrideType
 {
     Unknown = 0,

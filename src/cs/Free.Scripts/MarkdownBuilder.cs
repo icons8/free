@@ -60,13 +60,20 @@ public class MarkdownBuilder
 
     private void PrintField(XmlItem child, XmlItemType parentItemType)
     {
-        _sb.Append("* ").Append(child.Name);
-        if (child.Type == XmlItemType.Field)
+        _sb.Append("* ");
+
+        if (parentItemType == XmlItemType.Enum)
         {
-            if (parentItemType == XmlItemType.Struct)
+            if (FormatValue(child.DefaultValue, parentItemType) is { } val)
             {
-                PrintTypeName(child.ValueType!);
+                _sb.Append('`').Append(val).Append("` ");
             }
+            _sb.Append(child.Name);
+        }
+        else if (parentItemType == XmlItemType.Struct)
+        {
+            _sb.Append(child.Name);
+            PrintTypeName(child.ValueType!);
             if (FormatValue(child.DefaultValue, parentItemType) is {} val)
             {
                 _sb.Append(" = `").Append(val).Append('`');
@@ -74,6 +81,7 @@ public class MarkdownBuilder
         }
         else if (child.Type == XmlItemType.Property)
         {
+            _sb.Append(child.Name);
             PrintTypeName(child.ValueType!);
             if (FormatValue(child.DefaultValue, parentItemType) is {} val)
             {
@@ -101,7 +109,7 @@ public class MarkdownBuilder
 
     private static string? FormatValue(object? value, XmlItemType parentItemType)
     {
-        if (value is null or string{Length:0})
+        if (value is null or string{Length:0} or Rulers or TextStyle)
         {
             return null;
         }
@@ -163,15 +171,7 @@ public class MarkdownBuilder
     {
         var name = FormatTypeName(type);
         var clearName = name.TrimEnd('[', ']', '?');
-        _sb.Append(": ");
-        if (clearName is "int" or "byte" or "GUID" or "float" or "bool" or "string")
-        {
-            _sb.Append(name);
-        }
-        else
-        {
-            _sb.Append('[').Append(name).Append("](#").Append(clearName).Append(')');
-        }
+        _sb.Append(": [").Append(name).Append("](#").Append(clearName).Append(')');
     }
 
 }

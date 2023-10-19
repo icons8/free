@@ -1,5 +1,6 @@
 namespace Free.Schema;
 
+[SketchCompatibility]
 public sealed class TextColorOverride
 {
     public Color Color { get; set; }

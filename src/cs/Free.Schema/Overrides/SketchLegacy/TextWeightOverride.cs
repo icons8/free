@@ -1,5 +1,6 @@
 namespace Free.Schema;
 
+[SketchCompatibility]
 public sealed class TextWeightOverride
 {
     public float Slant { get; set; }
