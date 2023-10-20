@@ -4,6 +4,8 @@ Open Source Format for a Vector Design Graphics designed to be compact, human-re
 
 ## Base Types
 
+Free format is NULL-free, NaN-free and Infinity-free - if any of this values are in JSON - it's broken. 
+
 * <a name="float"></a>float - 32bit single-precision floating-point number
 * <a name="int"></a>int - 32bit signed integer
 * <a name="byte"></a>byte - 8-bit unsigned integer
