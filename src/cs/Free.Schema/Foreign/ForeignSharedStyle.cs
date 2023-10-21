@@ -1,28 +1,29 @@
 namespace Free.Schema;
 /// <summary>
-/// shared.json
-/// shared style from ui kit
+/// Describes styles from external libraries. 
 /// </summary>
 public class ForeignSharedStyle
 {
     public Guid Id { get; set; }
     /// <summary>
-    /// ui kit id
+    /// Unique library identifier.
     /// </summary>
     public Guid LibraryId { get; set; }
     /// <summary>
-    /// ui kit name
+    /// Library name.
     /// </summary>
     public string? LibraryName { get; set; }
     /// <summary>
-    /// This is sketch flag for private shared styled.
+    /// A sketch flag for private shared styles.
     /// </summary>
     [SketchCompatibility]
     public bool ComponentPrivate { get; set; }
     /// <summary>
-    /// ID of Style in Remote Shared Library.
+    /// Style identifier in the external library.
     /// </summary>
     public Guid RemoteID { get; set; }
-
+    /// <summary>
+    /// Style settings??????????
+    /// </summary>
     public SharedStyle Style { get; } = new();
 }

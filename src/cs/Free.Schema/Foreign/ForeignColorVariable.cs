@@ -1,29 +1,33 @@
 namespace Free.Schema;
 /// <summary>
-/// shared.json
-/// color variable from ui kit
+/// Describes color variables from external libraries.
 /// </summary>
 public class ForeignColorVariable
 {
+    /// <summary>
+    /// Unique variable identifier.
+    /// </summary>
     public Guid Id { get; set; }
     /// <summary>
-    /// ui kit id
+    /// Unique library identifier.
     /// </summary>
     public Guid LibraryId { get; set; }
     /// <summary>
-    /// ui kit name
+    /// Library name.
     /// </summary>
     public string? LibraryName { get; set; }
     /// <summary>
-    ///  This is sketch flag for private shared color variables.
+    ///  A Sketch flag for private shared color variables.
     /// </summary>
     [SketchCompatibility]
     public bool ComponentPrivate { get; set; }
     /// <summary>
-    /// Id of color variable in shared library
+    /// Color variable ID in the external library.
     /// </summary>
     [SketchCompatibility]
     public Guid RemoteId { get; set; }
-
+    /// <summary>
+    /// Value of the color variable.
+    /// </summary>
     public ColorVariable? Color { get; set; }
 }

@@ -4,6 +4,8 @@ Open Source Format for a Vector Design Graphics designed to be compact, human-re
 
 ## Base Types
 
+Free format is NULL-free, NaN-free and Infinity-free - if any of this values are in JSON - it's broken. 
+
 * <a name="float"></a>float - 32bit single-precision floating-point number
 * <a name="int"></a>int - 32bit signed integer
 * <a name="byte"></a>byte - 8-bit unsigned integer
@@ -334,19 +336,20 @@ document.json structure
 * Name: [string](#string)
 
 ### <a name="ExportFormat"></a>ExportFormat
-export setting
+Export settings.
 
-* Size: [float](#float) = `0` - size with which the object is imported. used in ScaleType is Width or Height
-* Format: [string](#string) = `png` - export format, default is png
-* Name: [string](#string) - suffix/preffix (text), default is empty
-* Naming: [NamingScheme](#NamingScheme) = `Suffix` - is suffix or preffix, default is suffix
-* Scale: [float](#float) = `0` - scale with which the object is imported. used when ScaleType is Scale
-* Type: [ScaleType](#ScaleType) = `Scale` - scale(px)/width/height, default is scale, right now we're only supporting the scale
+* Size: [float](#float) = `0` - Defines the width/height of the exported object. Valid only when ScaleType is *Width* or *Height*.
+* Format: [string](#string) = `png` - Export format. Default: PNG.
+* Name: [string](#string) - User-defined suffix/preffix (string) added to the export file name. Default: empty.
+* Naming: [NamingScheme](#NamingScheme) = `Suffix` - Defines whether a suffix or preffix will be added to the export files name. Default: suffix.
+* Scale: [float](#float) = `0` - Defines the scale used when exporting an object. Valid only when ScaleType is set to *Scale*.
+* Type: [ScaleType](#ScaleType) = `Scale` - Defines the scale type: Scale(px)/Width/Height. The Width and Height types are currently not supported.
 
 ### <a name="ExportOptions"></a>ExportOptions
+Export options.
 
-* Trim: [bool](#bool) = `False` - trim empty pixels for exported image
-* Formats: [ExportFormat[]](#ExportFormat)
+* Formats: [ExportFormat[]](#ExportFormat) - List of export formats set by the user.
+* Trim: [bool](#bool) = `False` - When enabled, trims empty pixels in exported images.
 
 ### <a name="Fill"></a>Fill
 
@@ -941,6 +944,7 @@ Enumeration of the positions of a border.
 * `4` Crop
 
 ### <a name="ScaleType"></a>ScaleType Enum
+Defines the scale type for exported objects.
 
 * `0` Scale
 * `1` Width
@@ -1131,11 +1135,11 @@ Sketch legacy, not supported in Lunacy _//Sketch Compatibility_
 * `1` Vertical
 
 ### <a name="NamingScheme"></a>NamingScheme Enum
-scheme for names of imported objects (suffix/preffix) _//Sketch Compatibility_
+Controls the use of suffixes/prefixes in export file names. _//Sketch Compatibility_
 
-* `1` SecondaryPrefix - we use secondary and primary prefix as a prefix
-* `0` Suffix
-* `2` PrimaryPrefix
+* `0` Suffix - Indicates that the file name comes with a user-defined suffix.
+* `1` SecondaryPrefix - Indicates that the file name comes with a user-defined prefix.
+* `2` PrimaryPrefix - Indicates that the file name comes with a user-defined prefix.
 
 ### <a name="OverlayBackgroundInteraction"></a>OverlayBackgroundInteraction Enum
  _//Sketch Compatibility_

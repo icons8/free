@@ -1,31 +1,33 @@
 namespace Free.Schema;
 /// <summary>
-/// shared.json
-/// component from ui kit
+/// Describes color components from external libraries.
 /// </summary>
 public class ForeignComponent
 {
+    /// <summary>
+    /// Unique component identifier.
+    /// </summary>
     public Guid Id { get; set; }
     /// <summary>
-    /// ui kit id
+    /// Unique library identifier.
     /// </summary>
     public Guid LibraryId { get; set; }
     /// <summary>
-    /// ui kit name
+    /// Library name.
     /// </summary>
     public string? LibraryName { get; set; }
     /// <summary>
-    ///  This is sketch flag for private shared components.
+    ///  A sketch flag for private shared components.
     /// </summary>
     [SketchCompatibility]
     public bool ComponentPrivate { get; set; }
     /// <summary>
-    /// Original state of component on import
+    /// Original state of the component upon import.
     /// </summary>
     public Component? Original { get; set; }
 
     /// <summary>
-    /// Current state of component
+    /// Current state of the component.
     /// </summary>
     public Component? Component { get; set; }
 }
