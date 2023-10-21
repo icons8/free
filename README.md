@@ -35,10 +35,10 @@ Has all properties of [`Frame`](#Frame), plus:
 
 Has all properties of [`Path`](#Path), plus:
 
+* Angle: [float](#float) = `0` - End angle for donuts measured clockwise from the X axis.
+* Ratio: [float](#float) = `0` - Inner radius for donuts.
+* StartAngle: [float](#float) = `0` - Start angle for donuts measured clockwise from the X axis.
 * _t: [string](#string) = `OVAL`
-* Angle: [float](#float) = `0`
-* Ratio: [float](#float) = `0`
-* StartAngle: [float](#float) = `0`
 
 ### <a name="Polygon"></a>Polygon
 
@@ -57,9 +57,9 @@ Has all properties of [`Path`](#Path), plus:
 
 Has all properties of [`Path`](#Path), plus:
 
-* Rays: [float](#float) = `0` - number of rays in star
+* Rays: [float](#float) = `0` - Defines the number of rays in a star.
+* Ratio: [float](#float) = `0` - Defines the star ratio value.
 * _t: [string](#string) = `STAR`
-* Ratio: [float](#float) = `0`
 
 ### <a name="Triangle"></a>Triangle
 
@@ -74,6 +74,7 @@ Frames are a special type of layer that serves as a container for other layers o
 Has all properties of [`Styled`](#Styled), plus:
 
 * CornerRadius: [float[]](#float) = `float[4]` - Sets the corner radius of the frame.
+* SmoothCorners: [bool](#bool) = `False` - Enables smooth rounded corners like in iOS interfaces.
 * ClipContent: [bool](#bool) = `False` - When enabled, hides the content outside the frame boundaries.
 * FlowHome: [bool](#bool) = `False` - Sets the frame as a prototype starting point.
 * Viewport: [PrototypeViewport](#PrototypeViewport) - Defines the area that should be displayed on a prototype, if the frame is resized to ensure scrolling effect.
@@ -82,7 +83,6 @@ Has all properties of [`Styled`](#Styled), plus:
 * Rulers: [Rulers](#Rulers) - ?????????????
 * Layers: [Layer[]](#Layer) - List of layers on the frame.
 * _t: [string](#string) = `FRAME`
-* SmoothCorners: [bool](#bool) = `False`
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -111,7 +111,7 @@ Has all properties of [`Styled`](#Styled), plus:
 <summary>Sketch compatibility</summary>
 
 * SkipConstraints: [bool](#bool) = `False` - Serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
-* GroupLayout: [IGroupLayout](#IGroupLayout) - Sketch Group Layout. We don't support it but keep it for compatibility
+* GroupLayout: [IGroupLayout](#IGroupLayout) - Sketch group layout. We don't support it but keep it for compatibility
 </details>
 
 ### <a name="Instance"></a>Instance
@@ -136,11 +136,11 @@ Has all properties of [`Styled`](#Styled), plus:
 
 Has all properties of [`Styled`](#Styled), plus:
 
+* Edited: [bool](#bool) = `False` - ???????
+* Open: [bool](#bool) = `False` - Indicates whether the path is open.
+* Points: [Vertex[]](#Vertex) - List of path's points.
+* SmoothCorners: [bool](#bool) = `False` - Why is it here???? Paths have corner radius, but don't have the smooth corner option???????
 * _t: [string](#string) = `PATH`
-* Edited: [bool](#bool) = `False`
-* Open: [bool](#bool) = `False`
-* Points: [Vertex[]](#Vertex)
-* SmoothCorners: [bool](#bool) = `False`
 
 ### <a name="Shape"></a>Shape
 

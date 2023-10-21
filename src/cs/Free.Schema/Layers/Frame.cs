@@ -12,6 +12,9 @@ public class Frame : Styled
     /// Sets the corner radius of the frame.
     /// </summary>
     public float[] CornerRadius { get; set; } = new float[4];
+    /// <summary>
+    /// Enables smooth rounded corners like in iOS interfaces.
+    /// </summary>
     public bool SmoothCorners { get; set; }
 
     /// <summary>

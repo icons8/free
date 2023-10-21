@@ -19,7 +19,7 @@ public class Group : Styled
     [SketchCompatibility]
     public bool SkipConstraints { get; set; }
     /// <summary>
-    /// Sketch Group Layout. We don't support it but keep it for compatibility
+    /// Sketch group layout. We don't support it but keep it for compatibility
     /// </summary>
     [SketchCompatibility]
     public IGroupLayout? GroupLayout { get; set; }
