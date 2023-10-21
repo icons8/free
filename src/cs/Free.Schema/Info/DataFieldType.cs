@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// text generation type
+/// Defines the type of generated text.
 /// </summary>
 [LunacySpecific]
 public enum DataFieldType : byte
