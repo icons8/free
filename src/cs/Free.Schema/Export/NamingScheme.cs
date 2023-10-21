@@ -1,15 +1,22 @@
 namespace Free.Schema;
 
 /// <summary>
-/// scheme for names of imported objects (suffix/preffix)
+/// Controls the use of suffixes/prefixes in export file names.
 /// </summary>
 [SketchCompatibility]
 public enum NamingScheme : byte
 {
+    /// <summary>
+    /// Indicates that the file name comes with a user-defined suffix.
+    /// </summary>
     Suffix = 0,
     /// <summary>
-    /// we use secondary and primary prefix as a prefix
+    /// Indicates that the file name comes with a user-defined prefix.
     /// </summary>
     SecondaryPrefix = 1,
+
+    /// <summary>
+    /// Indicates that the file name comes with a user-defined prefix.
+    /// </summary>
     PrimaryPrefix = 2,
 }
