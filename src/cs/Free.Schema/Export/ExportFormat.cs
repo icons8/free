@@ -1,32 +1,32 @@
 namespace Free.Schema;
 
 /// <summary>
-/// export setting
+/// Export settings.
 /// </summary>
 public class ExportFormat
 {
     /// <summary>
-    /// size with which the object is imported. used in ScaleType is Width or Height
+    /// Defines the width/height of the exported object. Valid only when ScaleType is *Width* or *Height*.
     /// </summary>
     public float Size { get; set; }
     /// <summary>
-    /// export format, default is png
+    /// Export format. Default: PNG.
     /// </summary>
     public string Format { get; set; } = "png";
     /// <summary>
-    /// suffix/preffix (text), default is empty
+    /// User-defined suffix/preffix (string) added to the export file name. Default: empty.
     /// </summary>
     public string Name { get; set; } = "";
     /// <summary>
-    /// is suffix or preffix, default is suffix
+    /// Defines whether a suffix or preffix will be added to the export files name. Default: suffix.
     /// </summary>
     public NamingScheme Naming { get; set; } = NamingScheme.Suffix;
     /// <summary>
-    /// scale with which the object is imported. used when ScaleType is Scale
+    /// Defines the scale used when exporting an object. Valid only when ScaleType is set to *Scale*.
     /// </summary>
     public float Scale { get; set; }
     /// <summary>
-    /// scale(px)/width/height, default is scale, right now we're only supporting the scale
+    /// Defines the scale type: Scale(px)/Width/Height. The Width and Height types are currently not supported.
     /// </summary>
     public ScaleType Type { get; set; } = ScaleType.Scale;
 }
