@@ -66,7 +66,7 @@ public class Frame : Styled
 
 
     /// <summary>
-    /// Enables adjusting and resizing the frame content as the framed is resized.
+    /// Enables adjusting and resizing the frame content as the frame is resized.
     /// </summary>
     public bool ResizesContent { get; set; }
 

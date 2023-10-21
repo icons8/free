@@ -36,7 +36,7 @@ public abstract class Layer
     /// </summary>
     public bool Hidden { get; set; }
     /// <summary>
-    /// ???????
+    /// Defines whether tha layer is marked as a template.
     /// </summary>
     public bool IsTemplate { get; set; }
     /// <summary>
@@ -87,28 +87,68 @@ public abstract class Layer
     /// </summary>
     public string Link { get; set; } = string.Empty;
     /// <summary>
-    /// Define the minimum la
+    /// Defines the minimum layer width (auto layout).
     /// </summary>
     public float MinWidth { get; set; }
+    /// <summary>
+    /// Defines the minimum layer height (auto layout).
+    /// </summary>
     public float MinHeight { get; set; }
+    /// <summary>
+    /// Defines the maximum layer width (auto layout).
+    /// </summary>
     public float MaxWidth { get; set; }
+    /// <summary>
+    /// Defines the maximum layer height (auto layout).
+    /// </summary>
     public float MaxHeight { get; set; }
+    /// <summary>
+    /// ???????
+    /// </summary>
     public bool LayoutStretch { get; set; }
+    /// <summary>
+    /// ???????????
+    /// </summary>
     public bool LayoutGrowStretch { get; set; }
+    /// <summary>
+    /// Enables absolute position for the layer (auto layout).
+    /// </summary>
     public bool LayoutFixPos { get; set; }
     
+    /// <summary>
+    /// Identifier of a photo from the Lunacy gallery.
+    /// </summary>
     [LunacySpecific]
     public string? PhotoId { get; set; }
+    /// <summary>
+    /// Identifier of an illustraion from the Lunacy gallery.
+    /// </summary>
     [LunacySpecific]
     public string? IllustrationId { get; set; }
+
+    /// <summary>
+    /// Identifier of an icon from the Lunacy gallery.
+    /// </summary>
     [LunacySpecific]
     public string? IconId { get; set; }
+    /// <summary>
+    /// Identifier of a Lunacy-generated avatar.
+    /// </summary>
     [LunacySpecific]
     public string? AvatarId { get; set; }
+    /// <summary>
+    /// Information about auto generated texts.
+    /// </summary>
     [LunacySpecific]
     public DataInfo? Data { get; set; }
+    /// <summary>
+    /// If the image has been upscaled in Lunacy.
+    /// </summary>
     [LunacySpecific]
     public bool Upscaled { get; set; }
+    /// <summary>
+    /// Background removal procedure info.
+    /// </summary>
     [LunacySpecific]
     public BackgroundRemovalState BackgroundRemove { get; set; }
 }

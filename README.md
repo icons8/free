@@ -77,7 +77,7 @@ Has all properties of [`Styled`](#Styled), plus:
 * ClipContent: [bool](#bool) = `False` - When enabled, hides the content outside the frame boundaries.
 * FlowHome: [bool](#bool) = `False` - Sets the frame as a prototype starting point.
 * Viewport: [PrototypeViewport](#PrototypeViewport) - Defines the area that should be displayed on a prototype, if the frame is resized to ensure scrolling effect.
-* ResizesContent: [bool](#bool) = `False` - Enables adjusting and resizing the frame content as the framed is resized.
+* ResizesContent: [bool](#bool) = `False` - Enables adjusting and resizing the frame content as the frame is resized.
 * Layouts: [IGridLayout[]](#IGridLayout) - ????????
 * Rulers: [Rulers](#Rulers) - ?????????????
 * Layers: [Layer[]](#Layer) - List of layers on the frame.
@@ -213,33 +213,33 @@ A layer is any ungrouped element available on the canvas.
 * Fixed: [bool](#bool) = `False` - ???????
 * Locked: [bool](#bool) = `False` - Defines whether the layer is locked.
 * Hidden: [bool](#bool) = `False` - Defines whether the layer is hidden.
-* IsTemplate: [bool](#bool) = `False` - ???????
+* IsTemplate: [bool](#bool) = `False` - Defines whether tha layer is marked as a template.
 * Expand: [bool](#bool) = `False` - Defines whether the layer is expanded in Layer List.??????? But that's a layer, not a group???
 * Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - ???????????
 * Size: [Size](#Size) = `[100,100]` - Defines the layer size.
 * LockAspect: [bool](#bool) = `False` - Defines whether the layer's aspect ratio should be remain unchanged upon resizing.
-* Mask: [bool](#bool) = `False` - masking object
-* BreakMask: [bool](#bool) = `False` - ignore clipping mask
-* KeepScroll: [bool](#bool) = `False` - fix position (prototyping)
-* Animation: [AnimationType](#AnimationType) = `FromRight`
-* MinWidth: [float](#float) = `0`
-* MinHeight: [float](#float) = `0`
-* MaxWidth: [float](#float) = `0`
-* MaxHeight: [float](#float) = `0`
-* LayoutStretch: [bool](#bool) = `False`
-* LayoutGrowStretch: [bool](#bool) = `False`
-* LayoutFixPos: [bool](#bool) = `False`
+* Mask: [bool](#bool) = `False` - Defines whether the layer is used as a mask.
+* BreakMask: [bool](#bool) = `False` - Defines if the layer is set to ignore the mask.
+* KeepScroll: [bool](#bool) = `False` - If the Fix position on scroll option is enabled (prototyping).
+* Animation: [AnimationType](#AnimationType) = `FromRight` - Defines the animation type (prototyping).
+* MinWidth: [float](#float) = `0` - Defines the minimum layer width (auto layout).
+* MinHeight: [float](#float) = `0` - Defines the minimum layer height (auto layout).
+* MaxWidth: [float](#float) = `0` - Defines the maximum layer width (auto layout).
+* MaxHeight: [float](#float) = `0` - Defines the maximum layer height (auto layout).
+* LayoutStretch: [bool](#bool) = `False` - ???????
+* LayoutGrowStretch: [bool](#bool) = `False` - ???????????
+* LayoutFixPos: [bool](#bool) = `False` - Enables absolute position for the layer (auto layout).
 
 <details>
 <summary>Lunacy specific</summary>
 
-* PhotoId: [string](#string)
-* IllustrationId: [string](#string)
-* IconId: [string](#string)
-* AvatarId: [string](#string)
-* Data: [DataInfo](#DataInfo)
-* Upscaled: [bool](#bool) = `False`
-* BackgroundRemove: [BackgroundRemovalState](#BackgroundRemovalState) = `None`
+* PhotoId: [string](#string) - Identifier of a photo from the Lunacy gallery.
+* IllustrationId: [string](#string) - Identifier of an illustraion from the Lunacy gallery.
+* IconId: [string](#string) - Identifier of an icon from the Lunacy gallery.
+* AvatarId: [string](#string) - Identifier of a Lunacy-generated avatar.
+* Data: [DataInfo](#DataInfo) - Information about auto generated texts.
+* Upscaled: [bool](#bool) = `False` - If the image has been upscaled in Lunacy.
+* BackgroundRemove: [BackgroundRemovalState](#BackgroundRemovalState) = `None` - Background removal procedure info.
 </details>
 
 ### <a name="Border"></a>Border
