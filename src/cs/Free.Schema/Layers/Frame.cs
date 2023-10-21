@@ -15,12 +15,12 @@ public class Frame : Styled
     public bool SmoothCorners { get; set; }
 
     /// <summary>
-    /// Auto layout settings
+    /// Auto layout settings.
     /// </summary>
     public ILayoutContainer? LayoutStrategy { get; set; }
 
     /// <summary>
-    /// Style settings for frame if it's an overlay in sketch prototyping. Only for compatibility.
+    /// Style settings for the frame if it acts an overlay in Sketch prototyping. For compatibility with Sketch only.
     /// </summary>
     [SketchCompatibility]
     public Style? OverlayStyle { get; set; }
@@ -31,7 +31,7 @@ public class Frame : Styled
     public bool ClipContent { get; set; }
     
     /// <summary>
-    /// Sketch Layout settings. Not supported in Lunacy. But keeping data for compatibility.
+    /// Sketch Layout settings. Not supported in Lunacy, but keeping data for compatibility.
     /// </summary>
     [SketchCompatibility]
     public IGroupLayout? GroupLayout { get; set; }
@@ -48,18 +48,18 @@ public class Frame : Styled
     public bool FlowHome { get; set; }
 
     /// <summary>
-    /// if frame has type "resized" (what is displayed in the prototype)
+    /// Defines the area that should be displayed on a prototype, if the frame is resized to ensure scrolling effect.
     /// </summary>
     public PrototypeViewport Viewport { get; set; }
     
     /// <summary>
-    /// Overlay Interaction for Sketch Prototyping
+    /// Overlay interaction for Sketch prototyping.
     /// </summary>
     [SketchCompatibility]
     public OverlayBackgroundInteraction OverlayInteraction { get; set; }
     
     /// <summary>
-    /// Is Current frame an overlay in prototyping
+    /// Defines whether the frame acts as an overlay in prototyping.
     /// </summary>
     [SketchCompatibility]
     public bool Overlay { get; set; }
@@ -70,7 +70,9 @@ public class Frame : Styled
     /// </summary>
     public bool ResizesContent { get; set; }
 
-
+    /// <summary>
+    /// Defines whether the frame has background.
+    /// </summary>
     [SketchCompatibility]
     public bool HasBackground { get; set; }
 
@@ -80,19 +82,27 @@ public class Frame : Styled
     [SketchCompatibility]
     public Color Background { get; set; } = new Color(255, 255, 255);
     /// <summary>
-    /// Color Variable ID
+    /// Defines the background color variable ID.
     /// </summary>
     [SketchCompatibility]
     public Guid BackgroundId { get; set; }
     
-    
+    /// <summary>
+    /// ????????
+    /// </summary>
     public List<IGridLayout> Layouts { get; } = new();
+    /// <summary>
+    /// ?????????????
+    /// </summary>
     public Rulers Rulers { get; } = new();
     
     /// <summary>
-    /// Sketch Prototyping Overlay Feature settings.
+    /// Sketch prototyping overlay feature settings.
     /// </summary>
     [SketchCompatibility]
     public OverlaySettings? OverlaySettings { get; set; }
+    /// <summary>
+    /// List of layers on the frame.
+    /// </summary>
     public List<Layer> Layers { get; } = new();
 }

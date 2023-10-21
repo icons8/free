@@ -20,15 +20,15 @@ Components are reusable groups of layers.
 
 Has all properties of [`Frame`](#Frame), plus:
 
-* Predefined: [bool](#bool) = `False` - Is this component from default Lunacy components library, that are available from Component Tools from Toolbar
-* ComponentType: [ComponentType](#ComponentType) = `None` - Reserved for future use. Will be used for components filters
+* ComponentId: [GUID](#GUID) - Unique component identifier.
+* Predefined: [bool](#bool) = `False` - Indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
+* ComponentType: [ComponentType](#ComponentType) = `None` - Reserved for future use. Will be used for components filters.
 * _t: [string](#string) = `COMPONENT`
-* ComponentId: [GUID](#GUID)
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* BackgroundInInstance: [bool](#bool) = `False` - Include background in component instances.
+* BackgroundInInstance: [bool](#bool) = `False` - Defines whether to include background in component instances.
 </details>
 
 ### <a name="Oval"></a>Oval
@@ -76,26 +76,26 @@ Has all properties of [`Styled`](#Styled), plus:
 * CornerRadius: [float[]](#float) = `float[4]` - Sets the corner radius of the frame.
 * ClipContent: [bool](#bool) = `False` - When enabled, hides the content outside the frame boundaries.
 * FlowHome: [bool](#bool) = `False` - Sets the frame as a prototype starting point.
-* Viewport: [PrototypeViewport](#PrototypeViewport) - if frame has type "resized" (what is displayed in the prototype)
+* Viewport: [PrototypeViewport](#PrototypeViewport) - Defines the area that should be displayed on a prototype, if the frame is resized to ensure scrolling effect.
 * ResizesContent: [bool](#bool) = `False` - Enables adjusting and resizing the frame content as the framed is resized.
+* Layouts: [IGridLayout[]](#IGridLayout) - ????????
+* Rulers: [Rulers](#Rulers) - ?????????????
+* Layers: [Layer[]](#Layer) - List of layers on the frame.
 * _t: [string](#string) = `FRAME`
 * SmoothCorners: [bool](#bool) = `False`
-* Layouts: [IGridLayout[]](#IGridLayout)
-* Rulers: [Rulers](#Rulers)
-* Layers: [Layer[]](#Layer)
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* OverlayStyle: [Style](#Style) - Style settings for frame if it's an overlay in sketch prototyping. Only for compatibility.
-* GroupLayout: [IGroupLayout](#IGroupLayout) - Sketch Layout settings. Not supported in Lunacy. But keeping data for compatibility.
+* OverlayStyle: [Style](#Style) - Style settings for the frame if it acts an overlay in Sketch prototyping. For compatibility with Sketch only.
+* GroupLayout: [IGroupLayout](#IGroupLayout) - Sketch Layout settings. Not supported in Lunacy, but keeping data for compatibility.
 * BackgroundInExport: [bool](#bool) = `False` - When enabled, the frame background is included into export files.
-* OverlayInteraction: [OverlayBackgroundInteraction](#OverlayBackgroundInteraction) = `None` - Overlay Interaction for Sketch Prototyping
-* Overlay: [bool](#bool) = `False` - Is Current frame an overlay in prototyping
+* OverlayInteraction: [OverlayBackgroundInteraction](#OverlayBackgroundInteraction) = `None` - Overlay interaction for Sketch prototyping.
+* Overlay: [bool](#bool) = `False` - Defines whether the frame acts as an overlay in prototyping.
+* HasBackground: [bool](#bool) = `False` - Defines whether the frame has background.
 * Background: [Color](#Color) = `ffffffff` - Defines the frame background color.
-* BackgroundId: [GUID](#GUID) - Color Variable ID
-* OverlaySettings: [OverlaySettings](#OverlaySettings) - Sketch Prototyping Overlay Feature settings.
-* HasBackground: [bool](#bool) = `False`
+* BackgroundId: [GUID](#GUID) - Defines the background color variable ID.
+* OverlaySettings: [OverlaySettings](#OverlaySettings) - Sketch prototyping overlay feature settings.
 </details>
 
 ### <a name="Group"></a>Group
@@ -110,7 +110,7 @@ Has all properties of [`Styled`](#Styled), plus:
 <details>
 <summary>Sketch compatibility</summary>
 
-* SkipConstraints: [bool](#bool) = `False` - This is for constraints compatibility with sketch. If file is imported from sketch format it should be false to handle constraints properly.
+* SkipConstraints: [bool](#bool) = `False` - Serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
 * GroupLayout: [IGroupLayout](#IGroupLayout) - Sketch Group Layout. We don't support it but keep it for compatibility
 </details>
 
@@ -119,17 +119,17 @@ Has all properties of [`Styled`](#Styled), plus:
 Has all properties of [`Styled`](#Styled), plus:
 
 * CornerRadius: [float[]](#float) = `float[4]` - Sets the corner radius of the instance frame.
-* Scale: [float](#float) = `0` - scale of component
+* SmoothCorners: [bool](#bool) = `False` - Enables smooth rounded corners like in iOS interfaces.
+* Scale: [float](#float) = `0` - Scale of the instance.
+* ComponentId: [GUID](#GUID) - Unique component identifier.
 * Overrides: [Override[]](#Override) - Defines the overrides applied to the instance.
 * _t: [string](#string) = `INSTANCE`
-* SmoothCorners: [bool](#bool) = `False`
-* ComponentId: [GUID](#GUID)
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* VerticalSpacing: [float](#float) = `0`
-* HorizontalSpacing: [float](#float) = `0`
+* VerticalSpacing: [float](#float) = `0` - Defines vertical spacing.
+* HorizontalSpacing: [float](#float) = `0` - Defines horizontal spacing.
 </details>
 
 ### <a name="Path"></a>Path
@@ -205,21 +205,22 @@ Has all properties of [`Layer`](#Layer), plus:
 * ImageFilters: [ImageFilters](#ImageFilters)
 
 ### <a name="Layer"></a>Layer
+A layer is any ungrouped element available on the canvas.
 
-* Expand: [bool](#bool) = `False` - Is expanded in layers tree
+* Id: [GUID](#GUID) - Unique layer identifier.
+* NameIsFixed: [bool](#bool) = `False` - ??????
+* BooleanOp: [BoolOp](#BoolOp) = `Union` - Defines the boolean operation applied to the layer.
+* Fixed: [bool](#bool) = `False` - ???????
+* Locked: [bool](#bool) = `False` - Defines whether the layer is locked.
+* Hidden: [bool](#bool) = `False` - Defines whether the layer is hidden.
+* IsTemplate: [bool](#bool) = `False` - ???????
+* Expand: [bool](#bool) = `False` - Defines whether the layer is expanded in Layer List.??????? But that's a layer, not a group???
+* Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - ???????????
+* Size: [Size](#Size) = `[100,100]` - Defines the layer size.
+* LockAspect: [bool](#bool) = `False` - Defines whether the layer's aspect ratio should be remain unchanged upon resizing.
 * Mask: [bool](#bool) = `False` - masking object
 * BreakMask: [bool](#bool) = `False` - ignore clipping mask
 * KeepScroll: [bool](#bool) = `False` - fix position (prototyping)
-* Id: [GUID](#GUID)
-* NameIsFixed: [bool](#bool) = `False`
-* BooleanOp: [BoolOp](#BoolOp) = `Union`
-* Fixed: [bool](#bool) = `False`
-* Locked: [bool](#bool) = `False`
-* Hidden: [bool](#bool) = `False`
-* IsTemplate: [bool](#bool) = `False`
-* Transform: [Matrix](#Matrix) = `Free.Schema.Matrix`
-* Size: [Size](#Size) = `[100,100]`
-* LockAspect: [bool](#bool) = `False`
 * Animation: [AnimationType](#AnimationType) = `FromRight`
 * MinWidth: [float](#float) = `0`
 * MinHeight: [float](#float) = `0`
@@ -371,57 +372,55 @@ Shared fonts stored in the document. ??? embeded???
 * PostscriptNames: [string[]](#string) - ??????
 
 ### <a name="Foreign"></a>Foreign
+Defines entities from external libraries.
 
-* ColorVariables: [ForeignColorVariable[]](#ForeignColorVariable)
-* LayerStyles: [ForeignSharedStyle[]](#ForeignSharedStyle)
-* TextStyles: [ForeignSharedStyle[]](#ForeignSharedStyle)
-* Components: [ForeignComponent[]](#ForeignComponent)
+* ColorVariables: [ForeignColorVariable[]](#ForeignColorVariable) - Color variables from an external library.
+* LayerStyles: [ForeignSharedStyle[]](#ForeignSharedStyle) - Layer styles from an external library.
+* TextStyles: [ForeignSharedStyle[]](#ForeignSharedStyle) - Text styles from an external library.
+* Components: [ForeignComponent[]](#ForeignComponent) - Components from an external library.
 
 ### <a name="ForeignColorVariable"></a>ForeignColorVariable
-shared.json
-            color variable from ui kit
+Describes color variables from external libraries.
 
-* LibraryId: [GUID](#GUID) - ui kit id
-* LibraryName: [string](#string) - ui kit name
-* Id: [GUID](#GUID)
-* Color: [ColorVariable](#ColorVariable)
+* Id: [GUID](#GUID) - Unique variable identifier.
+* LibraryId: [GUID](#GUID) - Unique library identifier.
+* LibraryName: [string](#string) - Library name.
+* Color: [ColorVariable](#ColorVariable) - Value of the color variable.
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* ComponentPrivate: [bool](#bool) = `False` - This is sketch flag for private shared color variables.
-* RemoteId: [GUID](#GUID) - Id of color variable in shared library
+* ComponentPrivate: [bool](#bool) = `False` - A Sketch flag for private shared color variables.
+* RemoteId: [GUID](#GUID) - Color variable ID in the external library.
 </details>
 
 ### <a name="ForeignComponent"></a>ForeignComponent
-shared.json
-            component from ui kit
+Describes color components from external libraries.
 
-* LibraryId: [GUID](#GUID) - ui kit id
-* LibraryName: [string](#string) - ui kit name
-* Original: [Component](#Component) - Original state of component on import
-* Component: [Component](#Component) - Current state of component
-* Id: [GUID](#GUID)
+* Id: [GUID](#GUID) - Unique component identifier.
+* LibraryId: [GUID](#GUID) - Unique library identifier.
+* LibraryName: [string](#string) - Library name.
+* Original: [Component](#Component) - Original state of the component upon import.
+* Component: [Component](#Component) - Current state of the component.
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* ComponentPrivate: [bool](#bool) = `False` - This is sketch flag for private shared components.
+* ComponentPrivate: [bool](#bool) = `False` - A sketch flag for private shared components.
 </details>
 
 ### <a name="ForeignSharedStyle"></a>ForeignSharedStyle
-shared.json
-            shared style from ui kit
+Describes styles from external libraries.
 
-* LibraryId: [GUID](#GUID) - ui kit id
-* LibraryName: [string](#string) - ui kit name
-* RemoteID: [GUID](#GUID) - ID of Style in Remote Shared Library.
+* LibraryId: [GUID](#GUID) - Unique library identifier.
+* LibraryName: [string](#string) - Library name.
+* RemoteID: [GUID](#GUID) - Style identifier in the external library.
 * Id: [GUID](#GUID)
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* ComponentPrivate: [bool](#bool) = `False` - This is sketch flag for private shared styled.
+* ComponentPrivate: [bool](#bool) = `False` - A sketch flag for private shared styles.
 </details>
 
 ### <a name="Gradient"></a>Gradient
@@ -1000,14 +999,14 @@ Enumeration of the behaviours for text layers
 * `3` Distribute
 
 ### <a name="DataInfo"></a>DataInfo
-text generation settings _//Lunacy Specific_
+Information about auto generated texts. _//Lunacy Specific_
 
-* Format: [string](#string) - String Format for Data Type. Used for Date/Time values.
-* Type: [DataType](#DataType) = `Unknown`
-* Field: [DataFieldType](#DataFieldType) = `Unknown`
+* Type: [DataType](#DataType) = `Unknown` - Category of generated text (person, address, date, etc.).
+* Field: [DataFieldType](#DataFieldType) = `Unknown` - Type of generated text (full name or first name, city or ZIP code, etc.).
+* Format: [string](#string) - String format for Data Type. Used for Date/Time values.
 
 ### <a name="BackgroundRemovalState"></a>BackgroundRemovalState Enum
-background removal result _//Lunacy Specific_
+Background removal procedure info. _//Lunacy Specific_
 
 * `0` None
 * `1` InProgress
@@ -1015,7 +1014,7 @@ background removal result _//Lunacy Specific_
 * `3` Failed
 
 ### <a name="DataFieldType"></a>DataFieldType Enum
-text generation type _//Lunacy Specific_
+Defines the type of generated text. _//Lunacy Specific_
 
 * `0` Unknown
 * `1` FullName
@@ -1051,7 +1050,8 @@ text generation type _//Lunacy Specific_
 * `31` FileName
 
 ### <a name="DataType"></a>DataType Enum
- _//Lunacy Specific_
+Defines the category of generated text. _//Lunacy Specific_
+
 * `0` Unknown
 * `1` Address
 * `2` Article

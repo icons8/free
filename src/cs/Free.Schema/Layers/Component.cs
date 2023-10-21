@@ -6,21 +6,24 @@ namespace Free.Schema;
 public class Component : Frame
 {
     public override string _t => "COMPONENT";
+    /// <summary>
+    /// Unique component identifier.
+    /// </summary>
     public Guid ComponentId { get; set; }
 
     /// <summary>
-    /// Include background in component instances.
+    /// Defines whether to include background in component instances.
     /// </summary>
     [SketchCompatibility]
     public bool BackgroundInInstance { get; set; }
 
     /// <summary>
-    /// Is this component from default Lunacy components library, that are available from Component Tools from Toolbar
+    /// Indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
     /// </summary>
     public bool Predefined { get; set; }
 
     /// <summary>
-    /// Reserved for future use. Will be used for components filters
+    /// Reserved for future use. Will be used for components filters.
     /// </summary>
     public ComponentType ComponentType { get; set; }
 }

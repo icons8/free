@@ -8,18 +8,33 @@ public class Instance : Styled
     /// Sets the corner radius of the instance frame.
     /// </summary>
     public float[] CornerRadius { get; set; } = new float[4];
+
+    /// <summary>
+    /// Enables smooth rounded corners like in iOS interfaces.
+    /// </summary>
     public bool SmoothCorners { get; set; }
+    /// <summary>
+    /// Auto layout settings.
+    /// </summary>
     public ILayoutContainer? LayoutStrategy { get; set; }
     
     /// <summary>
-    /// scale of component
+    /// Scale of the instance.
     /// </summary>
     public float Scale { get; set; }
+    /// <summary>
+    /// Unique component identifier.
+    /// </summary>
     public Guid ComponentId { get; set; }
     
-    [SketchCompatibility]
+    /// <summary>
+    /// Defines vertical spacing.
+    /// </summary>
+    [SketchCompatibility]    
     public float VerticalSpacing { get; set; }
-    
+    /// <summary>
+    /// Defines horizontal spacing.
+    /// </summary>
     [SketchCompatibility]
     public float HorizontalSpacing { get; set; }
 
