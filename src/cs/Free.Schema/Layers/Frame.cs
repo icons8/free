@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Frames are a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
+/// A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
 /// </summary>
 
 public class Frame : Styled

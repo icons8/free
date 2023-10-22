@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Hotspots are a special type of layers that define clickable areas on prototypes.
+/// A hotspot is a special type of layers used to define clickable areas on prototypes.
 /// </summary>
 public class Hotspot : Layer
 {

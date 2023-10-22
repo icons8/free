@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// Instances are copies of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component. 
+/// An instance is a copy of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component. 
 /// </summary>
 public class Instance : Styled
 {

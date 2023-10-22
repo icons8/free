@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Components are reusable groups of layers.
+/// A component is a reusable groups of layers.
 /// </summary>
 public class Component : Frame
 {

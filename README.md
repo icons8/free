@@ -16,7 +16,7 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 ## Layers
 
 ### <a name="Component"></a>Component
-Components are reusable groups of layers.
+A component is a reusable groups of layers.
 
 Has all properties of [`Frame`](#Frame), plus:
 
@@ -74,7 +74,7 @@ Has all properties of [`Path`](#Path), plus:
 * Equilateral: [bool](#bool) = `False`
 
 ### <a name="Frame"></a>Frame
-Frames are a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
+A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
 
 Has all properties of [`Styled`](#Styled), plus:
 
@@ -120,7 +120,7 @@ Has all properties of [`Styled`](#Styled), plus:
 </details>
 
 ### <a name="Instance"></a>Instance
-Instances are copies of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component.
+An instance is a copy of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component.
 
 Has all properties of [`Styled`](#Styled), plus:
 
@@ -139,7 +139,7 @@ Has all properties of [`Styled`](#Styled), plus:
 </details>
 
 ### <a name="Path"></a>Path
-Vector paths determine the outlines and forms of vector objects. Paths are made up of points and segments.
+A vector path determines the outline and form of a vector object. A path is made up of points and segments.
 
 Has all properties of [`Styled`](#Styled), plus:
 
@@ -150,7 +150,7 @@ Has all properties of [`Styled`](#Styled), plus:
 * _t: [string](#string) = `PATH`
 
 ### <a name="Shape"></a>Shape
-Shapes include rectangles, ovals, polygons, triangles, and stars drawn with the respective shape tools. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
+A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
 
 Has all properties of [`Styled`](#Styled), plus:
 
@@ -178,14 +178,14 @@ Has all properties of [`Styled`](#Styled), plus:
 * Behavior: [TextBehavior](#TextBehavior) = `Flexible`
 
 ### <a name="Hotspot"></a>Hotspot
-Hotspots are a special type of layers that define clickable areas on prototypes.
+A hotspot is a special type of layers used to define clickable areas on prototypes.
 
 Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `HOTSPOT`
 
 ### <a name="Slice"></a>Slice
-Slices are a special type of layers used for exporting certaing parts of designs.
+A slice is a special type of layers used for exporting certaing parts of designs.
 
 Has all properties of [`Layer`](#Layer), plus:
 

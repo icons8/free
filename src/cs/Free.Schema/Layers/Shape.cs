@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// Shapes include rectangles, ovals, polygons, triangles, and stars drawn with the respective shape tools. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
+/// A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
 /// </summary>
 
 public class Shape : Styled
