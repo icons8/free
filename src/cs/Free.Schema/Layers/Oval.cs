@@ -1,5 +1,7 @@
 namespace Free.Schema;
-
+/// <summary>
+/// An oval is a shape drawn on the canvas with the Oval tool.
+/// </summary>
 public class Oval : Path
 {
     public override string _t => "OVAL";

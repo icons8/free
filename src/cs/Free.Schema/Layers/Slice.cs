@@ -1,5 +1,7 @@
 namespace Free.Schema;
-
+/// <summary>
+/// Slices are a special type of layers used for exporting certaing parts of designs.
+/// </summary>
 public class Slice : Layer
 {
     public override string _t => "SLICE";

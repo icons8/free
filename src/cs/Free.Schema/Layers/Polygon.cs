@@ -1,5 +1,7 @@
 namespace Free.Schema;
-
+/// <summary>
+/// A polygon is a shape drawn on the canvas with the Polygon tool.
+/// </summary>
 public class Polygon : Path
 {
     public override string _t => "POLYGON";
