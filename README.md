@@ -32,6 +32,7 @@ Has all properties of [`Frame`](#Frame), plus:
 </details>
 
 ### <a name="Oval"></a>Oval
+An oval is a shape drawn on the canvas with the Oval tool.
 
 Has all properties of [`Path`](#Path), plus:
 
@@ -41,19 +42,22 @@ Has all properties of [`Path`](#Path), plus:
 * _t: [string](#string) = `OVAL`
 
 ### <a name="Polygon"></a>Polygon
+A polygon is a shape drawn on the canvas with the Polygon tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* Rays: [float](#float) = `0` - Number of corners
+* Rays: [float](#float) = `0` - Defines the number of corners.
 * _t: [string](#string) = `POLYGON`
 
 ### <a name="Rectangle"></a>Rectangle
+A rectangle is a shape drawn on the canvas with the Rectangle tool.
 
 Has all properties of [`Path`](#Path), plus:
 
 * _t: [string](#string) = `RECT`
 
 ### <a name="Star"></a>Star
+A star is a shape drawn on the canvas with the Star tool.
 
 Has all properties of [`Path`](#Path), plus:
 
@@ -62,6 +66,7 @@ Has all properties of [`Path`](#Path), plus:
 * _t: [string](#string) = `STAR`
 
 ### <a name="Triangle"></a>Triangle
+A triangle is a shape drawn on the canvas with the Triangle tool.
 
 Has all properties of [`Path`](#Path), plus:
 
@@ -69,7 +74,7 @@ Has all properties of [`Path`](#Path), plus:
 * Equilateral: [bool](#bool) = `False`
 
 ### <a name="Frame"></a>Frame
-Frames are a special type of layer that serves as a container for other layers or layer groups. Frames are a must for prototypes.
+Frames are a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
 
 Has all properties of [`Styled`](#Styled), plus:
 
@@ -115,6 +120,7 @@ Has all properties of [`Styled`](#Styled), plus:
 </details>
 
 ### <a name="Instance"></a>Instance
+Instances are copies of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component.
 
 Has all properties of [`Styled`](#Styled), plus:
 
@@ -133,6 +139,7 @@ Has all properties of [`Styled`](#Styled), plus:
 </details>
 
 ### <a name="Path"></a>Path
+Vector paths determine the outlines and forms of vector objects. Paths are made up of points and segments.
 
 Has all properties of [`Styled`](#Styled), plus:
 
@@ -143,17 +150,18 @@ Has all properties of [`Styled`](#Styled), plus:
 * _t: [string](#string) = `PATH`
 
 ### <a name="Shape"></a>Shape
+Shapes include rectangles, ovals, polygons, triangles, and stars drawn with the respective shape tools. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
 
 Has all properties of [`Styled`](#Styled), plus:
 
+* Layers: [Layer[]](#Layer) - List of layers.
 * _t: [string](#string) = `SHAPE`
-* Layers: [Layer[]](#Layer)
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* SkipConstraints: [bool](#bool) = `False` - This is for constraints compatibility with sketch. If file is imported from sketch format it should be false to handle constraints properly.
-* GroupLayout: [IGroupLayout](#IGroupLayout) - Sketch Group Layout. We don't support it but keep it for compatibility
+* SkipConstraints: [bool](#bool) = `False` - Serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
+* GroupLayout: [IGroupLayout](#IGroupLayout) - Sketch group layout. We don't support it, but keep it for compatibility.
 </details>
 
 ### <a name="Text"></a>Text
@@ -177,13 +185,14 @@ Has all properties of [`Layer`](#Layer), plus:
 * _t: [string](#string) = `HOTSPOT`
 
 ### <a name="Slice"></a>Slice
+Slices are a special type of layers used for exporting certaing parts of designs.
 
 Has all properties of [`Layer`](#Layer), plus:
 
-* BackgroundId: [GUID?](#GUID) - Color Variable ID
+* HasBackground: [bool](#bool) = `False` - Defines whether the slice includes background.
+* Background: [Color](#Color) = `00000000` - Defines the background color.
+* BackgroundId: [GUID?](#GUID) - Unique color variable ID.
 * _t: [string](#string) = `SLICE`
-* HasBackground: [bool](#bool) = `False`
-* Background: [Color](#Color) = `00000000`
 
 ### <a name="Styled"></a>Styled
 
