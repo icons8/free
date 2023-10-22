@@ -165,17 +165,18 @@ Has all properties of [`Styled`](#Styled), plus:
 </details>
 
 ### <a name="Text"></a>Text
+Text is a block or line of text on the canvas.
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* ClipContent: [bool](#bool) = `True` - after import from figma
+* text: [string](#string) - The content of the text layer.
+* TextStyle: [TextStyle](#TextStyle) - The style applied to the text.
+* Inlines: [InlineStyle[]](#InlineStyle) - Styling options applied to the text within a text block.
+* DrawOnPath: [bool](#bool) = `False` - Reserved for future use.?????????
+* StopSync: [bool](#bool) = `False` - ????????
+* Behavior: [TextBehavior](#TextBehavior) = `Flexible` - ?????????
+* ClipContent: [bool](#bool) = `True` - Valid for files imported from Figma. Defines whether to truncate text content.
 * _t: [string](#string) = `TEXT`
-* text: [string](#string)
-* TextStyle: [TextStyle](#TextStyle)
-* Inlines: [InlineStyle[]](#InlineStyle)
-* DrawOnPath: [bool](#bool) = `False`
-* StopSync: [bool](#bool) = `False`
-* Behavior: [TextBehavior](#TextBehavior) = `Flexible`
 
 ### <a name="Hotspot"></a>Hotspot
 A hotspot is a special type of layers used to define clickable areas on prototypes.
@@ -195,22 +196,23 @@ Has all properties of [`Layer`](#Layer), plus:
 * _t: [string](#string) = `SLICE`
 
 ### <a name="Styled"></a>Styled
+A styled layer is a layer with a style applied to it.????????
 
 Has all properties of [`Layer`](#Layer), plus:
 
-* StyleId: [GUID](#GUID)
-* MiterLimit: [int](#int) = `10`
-* Opacity: [float](#float) = `1`
-* BlendMode: [BlendMode](#BlendMode) = `Normal`
-* StartMarker: [Arrowhead](#Arrowhead) = `None`
-* EndMarker: [Arrowhead](#Arrowhead) = `None`
-* Winding: [PathFillType](#PathFillType) = `EvenOdd`
-* Fills: [Fill[]](#Fill)
-* Borders: [Border[]](#Border)
-* Shadows: [ShadowEffect[]](#ShadowEffect)
-* InnerShadows: [ShadowEffect[]](#ShadowEffect)
-* Blur: [BlurEffect](#BlurEffect)
-* BorderOptions: [BorderOptions](#BorderOptions)
+* StyleId: [GUID](#GUID) - Unique style identifier.
+* MiterLimit: [int](#int) = `10` - ?????
+* Opacity: [float](#float) = `1` - Opacity.
+* BlendMode: [BlendMode](#BlendMode) = `Normal` - Blend mode.
+* StartMarker: [Arrowhead](#Arrowhead) = `None` - Determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - Defines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* Winding: [PathFillType](#PathFillType) = `EvenOdd` - Defines the filling options for overlapping paths.
+* Fills: [Fill[]](#Fill) - List of fills.
+* Borders: [Border[]](#Border) - List of borders.
+* Shadows: [ShadowEffect[]](#ShadowEffect) - List of shadows.
+* InnerShadows: [ShadowEffect[]](#ShadowEffect) - List of inner shadows.
+* Blur: [BlurEffect](#BlurEffect) - Information about blurs.
+* BorderOptions: [BorderOptions](#BorderOptions) - Information about border options.
 * ImageFilters: [ImageFilters](#ImageFilters)
 
 ### <a name="Layer"></a>Layer

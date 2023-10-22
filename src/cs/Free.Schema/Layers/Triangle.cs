@@ -5,6 +5,8 @@ namespace Free.Schema;
 public class Triangle : Path
 {
     public override string _t => "TRIANGLE";
-    
+    /// <summary>
+    ////Defines whether the triangle is equilateral.
+    /// </summary>
     public bool Equilateral { get; set; }
 }
