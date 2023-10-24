@@ -316,14 +316,15 @@ Has all properties of [`DocumentAssetBase`](#DocumentAssetBase), plus:
 * Dash: [float[]](#float)
 
 ### <a name="Columns"></a>Columns
+Defines column settings in a layout grid.
 
-* Enabled: [bool](#bool) = `False`
-* Align: [LayoutHorizontalAlignment](#LayoutHorizontalAlignment) = `Left`
-* Offset: [int](#int) = `0`
-* Count: [int](#int) = `0`
-* Gutter: [int](#int) = `0`
-* Width: [int](#int) = `0`
-* Color: [Color](#Color) = `00000000`
+* Enabled: [bool](#bool) = `False` - If columnns are enabled.
+* Align: [LayoutHorizontalAlignment](#LayoutHorizontalAlignment) = `Left` - Horizontal alignment settings.
+* Offset: [int](#int) = `0` - Offset value.
+* Count: [int](#int) = `0` - Number of columns.
+* Gutter: [int](#int) = `0` - Gutter value.
+* Width: [int](#int) = `0` - Column width.
+* Color: [Color](#Color) = `00000000` - Column color.
 
 ### <a name="Document"></a>Document
 document.json structure
@@ -450,15 +451,16 @@ A position color pair representing a gradient stop.
 * Color: [Color](#Color) = `ffffffff` - Color attached to corresponding position.
 
 ### <a name="Grid"></a>Grid
+Defines square grid settings for a frame.
 
-* Enabled: [bool](#bool) = `False`
-* Color: [Color](#Color) = `00000000`
-* Size: [int](#int) = `10`
+* Enabled: [bool](#bool) = `False` - If the square grid is enabled.
+* Color: [Color](#Color) = `00000000` - Grid color.
+* Size: [int](#int) = `10` - Size of grid cells.
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* ThickTimes: [int](#int) = `10`
+* ThickTimes: [int](#int) = `10` - ???????
 </details>
 
 ### <a name="ImageFilters"></a>ImageFilters
@@ -573,14 +575,15 @@ Document page properties.
 * TemplateId: [GUID](#GUID)
 
 ### <a name="Rows"></a>Rows
+Defines row settings in a layout grid.
 
-* Enabled: [bool](#bool) = `False`
-* Align: [LayoutVerticalAlignment](#LayoutVerticalAlignment) = `Top`
-* Offset: [int](#int) = `0`
-* Count: [int](#int) = `0`
-* Gutter: [int](#int) = `0`
-* Width: [int](#int) = `0`
-* Color: [Color](#Color) = `00000000`
+* Enabled: [bool](#bool) = `False` - If rows are enabled.
+* Align: [LayoutVerticalAlignment](#LayoutVerticalAlignment) = `Top` - Vertical alignment settings.
+* Offset: [int](#int) = `0` - Offset value.
+* Count: [int](#int) = `0` - Number of rows.
+* Gutter: [int](#int) = `0` - Gutter value.
+* Width: [int](#int) = `0` - Row width.
+* Color: [Color](#Color) = `00000000` - Row color.
 
 ### <a name="Rulers"></a>Rulers
 Object containing rulers origin and guidelines positions
@@ -648,8 +651,9 @@ Style saved in the document.
 * BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal`
 
 ### <a name="IGridLayout"></a>IGridLayout
+Defines layout grid settings for a frame.
 
-* Enabled: [bool](#bool) = `False`
+* Enabled: [bool](#bool) = `False` - If layout grid is enabled.
 * _t: [string](#string) = `COLS`
 
 ### <a name="ILayoutContainer"></a>ILayoutContainer
@@ -903,6 +907,7 @@ Enumeration of the type of a Gradient.
 * `3` Distribute
 
 ### <a name="LayoutHorizontalAlignment"></a>LayoutHorizontalAlignment Enum
+Defines horizontal alignment settings in layout grids.
 
 * `0` Left
 * `1` Center
@@ -915,6 +920,7 @@ Enumeration of the type of a Gradient.
 * `1` Vertical
 
 ### <a name="LayoutVerticalAlignment"></a>LayoutVerticalAlignment Enum
+Defines vertical alignment settings in layout grids.
 
 * `0` Top
 * `1` Middle
