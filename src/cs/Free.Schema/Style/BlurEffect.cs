@@ -7,32 +7,11 @@ public sealed class BlurEffect
     /// <summary>
     /// ????
     /// </summary>
-    public const float RenderMultiply = 1.5f;
+    public float Saturation { get; set; } = 1;//max = 2
     /// <summary>
     /// ????
     /// </summary>
-    public const float DefaultRadius = 10;
-    /// <summary>
-    /// ????
-    /// </summary>
-    public const float MinSaturation = 0;
-    /// <summary>
-    /// ????
-    /// </summary>
-    public const float DefaultSaturation = 1;
-    /// <summary>
-    /// ????
-    /// </summary>
-    public const float MaxSaturation = 2;
-    /// <summary>
-    /// ????
-    /// </summary>
-
-    public float Saturation { get; set; } = DefaultSaturation;
-    /// <summary>
-    /// ????
-    /// </summary>
-    public float Radius { get; set; } = DefaultRadius;
+    public float Radius { get; set; } = 10;
     /// <summary>
     /// If the blur is enabled.
     /// </summary>

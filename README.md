@@ -254,11 +254,12 @@ A layer is any ungrouped element available on the canvas.
 </details>
 
 ### <a name="Border"></a>Border
+Defines the appearance of borders.
 
 Has all properties of [`Fill`](#Fill), plus:
 
-* Thickness: [Thickness](#Thickness) = `[0,0,0,0]`
-* Pos: [BorderPosition](#BorderPosition) = `Center`
+* Thickness: [Thickness](#Thickness) = `[0,0,0,0]` - Defines border thickness.
+* Pos: [BorderPosition](#BorderPosition) = `Center` - Defines border position.
 
 ### <a name="ColorAsset"></a>ColorAsset
 Colors stored in the document (color picker > dropdown list (global) > document).
@@ -300,20 +301,22 @@ Has all properties of [`DocumentAssetBase`](#DocumentAssetBase), plus:
 * WrapDistribute: [bool](#bool) = `False`
 
 ### <a name="BlurEffect"></a>BlurEffect
+Defines the settings of the blur effect.
 
-* Saturation: [float](#float) = `1`
-* Radius: [float](#float) = `10`
-* Enabled: [bool](#bool) = `False`
-* Type: [BlurType](#BlurType) = `Gaussian`
-* Center: [Point](#Point) = `[0,5,0,5]`
-* MotionAngle: [float](#float) = `0`
+* Saturation: [float](#float) = `1` - ????
+* Radius: [float](#float) = `10` - ????
+* Enabled: [bool](#bool) = `False` - If the blur is enabled.
+* Type: [BlurType](#BlurType) = `Gaussian` - Sets the blur type. ????
+* Center: [Point](#Point) = `[0,5,0,5]` - ????
+* MotionAngle: [float](#float) = `0` - ????
 
 ### <a name="BorderOptions"></a>BorderOptions
+Defines the advanced options of borders, arrows, lines, and paths drawn with the Pen or Pencil tools.
 
-* IsEnabled: [bool](#bool) = `False`
-* LineCap: [LineCap](#LineCap) = `Butt`
-* LineJoin: [LineJoin](#LineJoin) = `Miter`
-* Dash: [float[]](#float)
+* IsEnabled: [bool](#bool) = `False` - If an advanced option is enabled.
+* LineCap: [LineCap](#LineCap) = `Butt` - Defines the shape of line caps.
+* LineJoin: [LineJoin](#LineJoin) = `Miter` - Defines the appearance of line folds.
+* Dash: [float[]](#float) - Defines the size of dashes.
 
 ### <a name="Columns"></a>Columns
 Defines column settings in a layout grid.
@@ -726,23 +729,26 @@ A utility class to represent a rectangle. Contains some methods to make interact
 * `3` FromTop
 
 ### <a name="Arrowhead"></a>Arrowhead Enum
+Defines the appearance of arrowheads.
 
-* `0` None
-* `1` Arrow
-* `2` ArrowFilled
-* `3` Line
-* `4` Circle
-* `5` CircleFilled
-* `6` Square
-* `7` SquareFilled
+* `0` None - No arrowheads.
+* `1` Arrow - Angle.
+* `2` ArrowFilled - Triangle.
+* `3` Line - ????? What's the difference from None???
+* `4` Circle - Cirlce arrowhead.
+* `5` CircleFilled - Filled circle arrowhead.
+* `6` Square - Square arrowhead.
+* `7` SquareFilled - Filled square arrowhead.
 
 ### <a name="BaselinePosition"></a>BaselinePosition Enum
+Defines text position against the baseline.
 
-* `1` Superscript - small letter on top, like a^2
-* `-1` Subscript - small letter on bottom
-* `0` Normal
+* `0` Normal - Text is aligned with the baseline.
+* `1` Superscript - Text is raised above the baseline.
+* `-1` Subscript - Text is lowered below the baseline.
 
 ### <a name="BlendMode"></a>BlendMode Enum
+Defines the type of blend mode applied to a layer.
 
 * `0` Normal
 * `1` Darken
@@ -764,11 +770,12 @@ A utility class to represent a rectangle. Contains some methods to make interact
 * `17` PlusLighter
 
 ### <a name="BlurType"></a>BlurType Enum
+Defines the blur type.
 
-* `0` Gaussian
-* `1` Motion
-* `2` Zoom
-* `3` Background
+* `0` Gaussian - Gaussian blur.
+* `1` Motion - Motion blur. Currently not supported. ????
+* `2` Zoom - Zoom blur. Currently not supported. ???
+* `3` Background - Background blur.
 
 ### <a name="BoolOp"></a>BoolOp Enum
 The type of operation used to combine the children of this node.
@@ -780,10 +787,11 @@ The type of operation used to combine the children of this node.
 * `3` Difference - Draw shapes difference
 
 ### <a name="BorderPosition"></a>BorderPosition Enum
+Defines the border postion.
 
-* `0` Center
-* `1` Inside
-* `2` Outside
+* `0` Center - Center.
+* `1` Inside - Inside.
+* `2` Outside - Outside.
 
 ### <a name="CharacterCasing"></a>CharacterCasing Enum
 
