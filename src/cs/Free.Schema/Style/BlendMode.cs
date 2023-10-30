@@ -1,5 +1,7 @@
 namespace Free.Schema;
-
+/// <summary>
+/// Defines the type of blend mode applied to a layer.
+/// </summary>
 public enum BlendMode : byte
 {
     Normal = 0,
