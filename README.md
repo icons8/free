@@ -794,11 +794,12 @@ Defines the border postion.
 * `2` Outside - Outside.
 
 ### <a name="CharacterCasing"></a>CharacterCasing Enum
+Defines letter case.
 
-* `0` Normal
-* `1` UpperCase
-* `2` LowerCase
-* `3` TitleCase
+* `0` Normal - Normal letter case.
+* `1` UpperCase - Upper case.
+* `2` LowerCase - Lower case.
+* `3` TitleCase - Title case.
 
 ### <a name="ComponentType"></a>ComponentType Enum
 Type of component. Not all values are used now. This is only for components filtering usage for now.
