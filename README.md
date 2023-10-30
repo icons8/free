@@ -368,15 +368,16 @@ Export options.
 * Trim: [bool](#bool) = `False` - When enabled, trims empty pixels in exported images.
 
 ### <a name="Fill"></a>Fill
+Defines the fill applied to a layer.
 
-* ColorId: [GUID?](#GUID) - Color Variable ID
-* Enabled: [bool](#bool) = `False`
-* Color: [Color](#Color) = `00000000`
-* Type: [FillType](#FillType) = `Color`
-* Opacity: [float](#float) = `0`
-* BlendMode: [BlendMode](#BlendMode) = `Normal`
-* Pattern: [Pattern](#Pattern)
-* Gradient: [Gradient](#Gradient)
+* Enabled: [bool](#bool) = `False` - If a fill is added.
+* Color: [Color](#Color) = `00000000` - Fill color.
+* ColorId: [GUID?](#GUID) - Color variable ID.
+* Type: [FillType](#FillType) = `Color` - Defines the fill type.
+* Opacity: [float](#float) = `0` - Defines the fill opacity.
+* BlendMode: [BlendMode](#BlendMode) = `Normal` - Defines the blend mode.
+* Pattern: [Pattern](#Pattern) - Defines the pattern for image fills: tile, stretch, etc.
+* Gradient: [Gradient](#Gradient) - If the fill is a gradient. ????
 
 ### <a name="Font"></a>Font
 Shared fonts stored in the document. ??? embeded???
@@ -888,12 +889,13 @@ Type of component. Not all values are used now. This is only for components filt
 * `202` DeviceFrame
 
 ### <a name="CurveMode"></a>CurveMode Enum
+Defines the types of points on Bézier curves.
 
-* `0` None
-* `1` Straight
-* `2` Mirrored
-* `3` Asymmetric
-* `4` Disconnected
+* `0` None - undefined.
+* `1` Straight - Straight.
+* `2` Mirrored - Mirrored.
+* `3` Asymmetric - Asymmetric.
+* `4` Disconnected - Disconnected.
 
 ### <a name="FillType"></a>FillType Enum
 
