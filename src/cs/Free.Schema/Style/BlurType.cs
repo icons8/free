@@ -9,11 +9,11 @@ public enum BlurType : byte
     /// </summary>
     Gaussian = 0,
     /// <summary>
-    /// Motion blur. Currently not supported. ????
+    /// Motion blur. Currently not supported. // Sketch Compatibility
     /// </summary>
     Motion = 1,
     /// <summary>
-    /// Zoom blur. Currently not supported. ???
+    /// Zoom blur. Currently not supported. // Sketch Compatibility
     /// </summary>
     Zoom = 2,
     /// <summary>

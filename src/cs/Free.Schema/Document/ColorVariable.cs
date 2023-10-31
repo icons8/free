@@ -3,7 +3,7 @@ namespace Free.Schema;
 /// <summary>
 /// Color variables stored in the document.
 /// </summary>
-public class ColorVariable : DocumentAssetBase
+public class ColorVariable
 {
     /// <summary>
     /// Variable ID.

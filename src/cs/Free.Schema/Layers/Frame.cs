@@ -91,11 +91,11 @@ public class Frame : Styled
     public Guid BackgroundId { get; set; }
     
     /// <summary>
-    /// ????????
+    /// Grid, Row and Column layouts of the frame.
     /// </summary>
     public List<IGridLayout> Layouts { get; } = new();
     /// <summary>
-    /// ?????????????
+    /// Rulers and Guidelines info.
     /// </summary>
     public Rulers Rulers { get; } = new();
     

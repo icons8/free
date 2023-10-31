@@ -6,7 +6,7 @@ public class Path : Styled
 {
     public override string _t => "PATH";
     /// <summary>
-    /// ???????
+    /// Is shape edited in path editor.
     /// </summary>
     public bool Edited { get; set; }
     /// <summary>
@@ -17,8 +17,4 @@ public class Path : Styled
     /// List of path's points.
     /// </summary>
     public List<Vertex> Points { get; } = new();
-    /// <summary>
-    /// Why is it here???? Paths have corner radius, but don't have the smooth corner option???????
-    /// </summary>
-    public bool SmoothCorners { get; set; }
 }

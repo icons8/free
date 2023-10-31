@@ -5,4 +5,9 @@ namespace Free.Schema;
 public class Rectangle : Path
 {
     public override string _t => "RECT";
+    
+    /// <summary>
+    /// Is Smooth corners enabled. Works only if rectangle is not edited.
+    /// </summary>
+    public bool SmoothCorners { get; set; }
 }

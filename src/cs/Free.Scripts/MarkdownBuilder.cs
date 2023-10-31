@@ -144,7 +144,7 @@ public class MarkdownBuilder
 
         if (child.Summary.Length > 0)
         {
-            _sb.Append(" - ").Append(child.Summary);
+            _sb.Append(" - ").Append(char.ToLower(child.Summary[0])).Append(child.Summary.AsSpan(1));
         }
 
         // if (child.Attributes.OfType<SketchCompatibilityAttribute>().Any())

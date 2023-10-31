@@ -16,7 +16,7 @@ public abstract class Layer
     /// </summary>
     public string Name { get; set; }
     /// <summary>
-    /// ??????
+    /// Name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
     /// </summary>
     public bool NameIsFixed { get; set; }
     /// <summary>
@@ -24,7 +24,7 @@ public abstract class Layer
     /// </summary>
     public BoolOp BooleanOp { get; set; }
     /// <summary>
-    /// ???????
+    /// Is Layer fixed when scrolling a prototype.
     /// </summary>
     public bool Fixed { get; set; }
     /// <summary>
@@ -40,7 +40,7 @@ public abstract class Layer
     /// </summary>
     public bool IsTemplate { get; set; }
     /// <summary>
-    /// Defines whether the layer is expanded in Layer List.??????? But that's a layer, not a group???
+    /// Defines whether the layer is expanded in Layer List.
     /// </summary>
     public bool Expand { get; set; }
     /// <summary>
@@ -53,7 +53,7 @@ public abstract class Layer
     /// </summary>
     public string[] Constraints { get; set; }
     /// <summary>
-    /// ???????????
+    /// Position, rotation and flips of an object, stored in a single 3x2 matrix.
     /// </summary>
     public Matrix Transform { get; set; } = Matrix.Identity;
     /// <summary>
@@ -103,11 +103,11 @@ public abstract class Layer
     /// </summary>
     public float MaxHeight { get; set; }
     /// <summary>
-    /// ???????
+    /// Determines if the layer should stretch along the parent’s counter axis (auto layout).
     /// </summary>
     public bool LayoutStretch { get; set; }
     /// <summary>
-    /// ???????????
+    /// Determines whether a layer should stretch along the parent’s primary axis (auto layout).
     /// </summary>
     public bool LayoutGrowStretch { get; set; }
     /// <summary>

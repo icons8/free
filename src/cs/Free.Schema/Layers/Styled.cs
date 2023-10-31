@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// A styled layer is a layer with a style applied to it.????????
+/// A styled layer is a layer that has layer styling options.
 /// </summary>
 public abstract class Styled : Layer
 {
@@ -9,7 +9,7 @@ public abstract class Styled : Layer
     /// </summary>
     public Guid StyleId { get; set; }
     /// <summary>
-    /// ?????
+    /// Limit on the ratio of the miter length to the stroke-width used to draw a miter join. When the limit is exceeded, the join is converted from a miter to a bevel.
     /// </summary>
     public int MiterLimit { get; set; } = 10;
     /// <summary>

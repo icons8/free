@@ -1,12 +1,12 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Shared fonts stored in the document. ??? embeded??? 
+/// Embedded fonts stored in the document.
 /// </summary>
 public class Font
 {
     /// <summary>
-    /// ?????????
+    /// File name of font file in fonts folder.
     /// </summary>
     public string Data { get; set; }
     /// <summary>
@@ -18,7 +18,7 @@ public class Font
     /// </summary>
     public string FileName { get; set; }
     /// <summary>
-    /// ??????
+    /// PostScript names of font.
     /// </summary>
     public List<string> PostscriptNames { get; } = new();
 }

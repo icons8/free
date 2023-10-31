@@ -18,7 +18,7 @@ public class Grid : IGridLayout
     /// </summary>
     public int Size { get; set; } = 10;
     /// <summary>
-    /// ???????
+    /// Every N line should be thick.
     /// </summary>
     [SketchCompatibility]
     public int ThickTimes { get; set; } = 10;

@@ -19,15 +19,12 @@ public class Text : Styled
     /// </summary>
     public List<InlineStyle> Inlines { get; } = new();
     /// <summary>
-    /// Reserved for future use.?????????
+    /// This is property that enabled drawing text on path in sketch.
     /// </summary>
+    [SketchCompatibility]
     public bool DrawOnPath { get; set; }
     /// <summary>
-    /// ????????
-    /// </summary>
-    public bool StopSync { get; set; }
-    /// <summary>
-    /// ?????????
+    /// Behavior of text Layer size on text value change. Can be flexible, fixed-width and fixed.
     /// </summary>
     public TextBehavior Behavior { get; set; } = TextBehavior.Flexible;
     /// <summary>

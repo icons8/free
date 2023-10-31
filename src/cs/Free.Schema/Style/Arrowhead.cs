@@ -17,7 +17,7 @@ public enum Arrowhead : byte
     /// </summary>
     ArrowFilled = 2,
     /// <summary>
-    /// ????? What's the difference from None???
+    /// Perpendicular Line.
     /// </summary>
     Line = 3,
     /// <summary>
