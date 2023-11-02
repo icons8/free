@@ -449,10 +449,10 @@ Gradients stored in the document (color picker > dropdown list (global) > docume
 * Id: [GUID](#GUID)
 
 ### <a name="GradientStop"></a>GradientStop
-A position color pair representing a gradient stop.
+A position-color pair representing a gradient stop.
 
-* Pos: [float](#float) = `0` - value between 0 and 1 representing position along gradient axis.
-* Color: [Color](#Color) = `ffffffff` - color attached to corresponding position.
+* Pos: [float](#float) = `0` - value between 0 and 1 representing a position along gradient axis.
+* Color: [Color](#Color) = `ffffffff` - color attached to a corresponding position.
 
 ### <a name="Grid"></a>Grid
 Defines square grid settings for a frame.
@@ -948,14 +948,14 @@ Defines vertical alignment settings in layout grids.
 * `3` Stretch
 
 ### <a name="LineCap"></a>LineCap Enum
-Define the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
+Defines the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
 
 * `0` Butt - no cap (default).
 * `1` Round - adds a rounded end to a path that extends past the vector point.
 * `2` Square - similar to the rounded cap, but with straight edges.
 
 ### <a name="LineJoin"></a>LineJoin Enum
-Determines the appearance of the corners for arrows and paths with corners drawn with the Pen/Pencil tool.
+Defines the appearance of the corners for arrows and paths with corners drawn with the Pen/Pencil tool.
 
 * `0` Miter - square.
 * `1` Round - rounded.
