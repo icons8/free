@@ -1,22 +1,22 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Style of text part
+/// Style (bold, italic, etc.) applied to a part of text or single word within a text block.
 /// </summary>
 public class InlineStyle
 {
     /// <summary>
-    /// selection start position
+    /// Position where the style starts.
     /// </summary>
     public int Start { get; set; }
 
     /// <summary>
-    /// length of selection
+    /// Length of the selection.
     /// </summary>
     public int Length { get; set; }
 
     /// <summary>
-    /// Selection style
+    /// Style applied to the selection.
     /// </summary>
     public TextStyle Style { get; } = new();
 }

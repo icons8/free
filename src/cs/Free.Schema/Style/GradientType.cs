@@ -1,14 +1,20 @@
 namespace Free.Schema;
 
-/// <summary>Enumeration of the type of a Gradient.</summary>
+/// <summary>
+/// List of Gradient types.
+/// </summary>
 public enum GradientType : byte
 {
-    /// <summary>Linear gradients tend to be the most common, where two colors will appear at opposite points of an object and will blend, or transition into each other.</summary>
+    /// <summary>
+    /// Linear gradient: two colors appear at opposite points of an object and blend, or transition into each other.
+    /// </summary>
     Linear,
 
-    /// <summary>A radial gradient will create an effect where the transition between color stops will be in a circular pattern.</summary>
+    /// <summary>Radial gradient: the transition between color stops is a circular pattern.</summary>
     Radial,
 
-    /// <summary>This effect allows you to create gradients that sweep around the circumference (measured by the maximum width or height of a layer) in a clockwise direction.</summary>
+    /// <summary>
+    /// Angular gradient: sweeps around the circumference.
+    /// </summary>
     Angular
 }

@@ -34,7 +34,7 @@ public class Fill
     /// </summary>
     public Pattern Pattern { get; } = new();
     /// <summary>
-    /// If the fill is a gradient. ????
+    /// Indicates that the fill is a gradient. ????
     /// </summary>
     public Gradient Gradient { get; } = new();
 }

@@ -1,9 +1,15 @@
 namespace Free.Schema;
-
+/// <summary>
+/// Defines the filling options for overlapping paths.
+/// </summary>
 public enum PathFillType : byte
 {
-    /// <summary>Specifies that "inside" is computed by a non-zero sum of signed edge crossings.</summary>
+    /// <summary>
+    /// Applies the non-zero rule.
+    /// </summary>
     Winding,
-    /// <summary>Specifies that "inside" is computed by an odd number of edge crossings.</summary>
+    /// <summary>
+    /// Apllies the even-odd rule.
+    /// </summary>
     EvenOdd,
 }

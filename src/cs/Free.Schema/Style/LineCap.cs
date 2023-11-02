@@ -1,20 +1,20 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Enumeration of the positions of a border.
+/// Define the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
 /// </summary>
 public enum LineCap : byte
 {
     /// <summary>
-    /// This is the default option that’ll draw the border right to the vector point.
+    /// No cap (default).
     /// </summary>
     Butt = 0,
     /// <summary>
-    /// Creates a rounded, semi-circular end to a path that extends past the vector point.
+    /// Adds a rounded end to a path that extends past the vector point.
     /// </summary>
     Round = 1,
     /// <summary>
-    /// Similar to the rounded cap, but with a straight edges.
+    /// Similar to the rounded cap, but with straight edges.
     /// </summary>
     Square = 2,
 }

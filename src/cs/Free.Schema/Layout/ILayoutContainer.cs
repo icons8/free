@@ -1,4 +1,7 @@
 namespace Free.Schema;
+/// <summary>
+/// Defines an auto layout.
+/// </summary>
 
 public interface ILayoutContainer
 {
