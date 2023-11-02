@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// Determines the appearance of the corners for arrows and paths with corners drawn with the Pen/Pencil tool.
+/// Defines the appearance of the corners for arrows and paths with corners drawn with the Pen/Pencil tool.
 /// </summary>
 public enum LineJoin : byte
 {

@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Define the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
+/// Defines the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
 /// </summary>
 public enum LineCap : byte
 {
