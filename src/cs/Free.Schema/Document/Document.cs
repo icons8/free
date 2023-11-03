@@ -10,6 +10,11 @@ public class Document
     /// </summary>
     public Guid Id { get; set; }
     public ColorSpace ColorSpace { get; set; }
+
+    /// <summary>
+    /// Nudge Amount. X - small nudge. Y = large nudge.
+    /// </summary>
+    public Point Nudge { get; set; } = new Point(1, 10);
     /// <summary>
     /// If the document is imported from Figma.
     /// </summary>

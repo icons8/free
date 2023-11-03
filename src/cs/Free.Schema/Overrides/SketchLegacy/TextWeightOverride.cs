@@ -10,4 +10,5 @@ public sealed class TextWeightOverride
     public float Proportion { get; set; }
     public float Symbolic { get; set; }
     public float Weight { get; set; }
+    public string? PostScriptName { get; set; }
 }
