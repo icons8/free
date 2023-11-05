@@ -1135,8 +1135,8 @@ Defines the category of generated text. _//Lunacy Specific_
 ### <a name="TextColorOverride"></a>TextColorOverride
 Defines text color overrides. _//Sketch Compatibility_
 
+* Color: [Color](#Color) = `00000000` - color value.
 * ColorId: [GUID?](#GUID) - color variable ID.
-* Color: [Color](#Color) = `00000000`
 
 ### <a name="TextWeightOverride"></a>TextWeightOverride
 Defines text weight overrides. _//Sketch Compatibility_
