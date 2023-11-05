@@ -28,7 +28,7 @@ public class Document
     /// </summary>
     public List<GradientAsset> Gradients { get; } = new();
     /// <summary>
-    /// Shared fonts stored in the document.
+    /// Embedded fonts stored in the document.
     /// </summary>
     public List<Font> Fonts { get; } = new();
     /// <summary>

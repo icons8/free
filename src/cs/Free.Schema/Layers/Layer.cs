@@ -24,7 +24,7 @@ public abstract class Layer
     /// </summary>
     public BoolOp BooleanOp { get; set; }
     /// <summary>
-    /// If enabled, the layer preserves its position when you scroll the screen of prototype (for instance, a floating button).
+    /// If the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
     /// </summary>
     public bool Fixed { get; set; }
     /// <summary>
@@ -75,7 +75,7 @@ public abstract class Layer
     public bool BreakMask { get; set; }
     
     /// <summary>
-    /// If the Fix position on scroll option is enabled (prototyping).
+    /// If the *Keep scroll position* option is enabled (prototyping).
     /// </summary>
     public bool KeepScroll { get; set; }
     /// <summary>

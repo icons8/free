@@ -225,7 +225,7 @@ A layer is any ungrouped element available on the canvas.
 * Id: [GUID](#GUID) - unique layer identifier.
 * NameIsFixed: [bool](#bool) = `False` - name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
 * BooleanOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
-* Fixed: [bool](#bool) = `False` - if enabled, the layer preserves its position when you scroll the screen of prototype (for instance, a floating button).
+* Fixed: [bool](#bool) = `False` - if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
 * Locked: [bool](#bool) = `False` - defines whether the layer is locked for editing.
 * Hidden: [bool](#bool) = `False` - defines whether the layer is hidden.
 * IsTemplate: [bool](#bool) = `False` - defines whether tha layer is marked as a template.
@@ -235,7 +235,7 @@ A layer is any ungrouped element available on the canvas.
 * LockAspect: [bool](#bool) = `False` - defines whether the layer's aspect ratio should be remain unchanged upon resizing.
 * Mask: [bool](#bool) = `False` - defines whether the layer is used as a mask.
 * BreakMask: [bool](#bool) = `False` - defines if the layer is set to ignore the mask.
-* KeepScroll: [bool](#bool) = `False` - if the Fix position on scroll option is enabled (prototyping).
+* KeepScroll: [bool](#bool) = `False` - if the *Keep scroll position* option is enabled (prototyping).
 * Animation: [AnimationType](#AnimationType) = `FromRight` - defines the animation type (prototyping).
 * MinWidth: [float](#float) = `0` - defines the minimum layer width (auto layout).
 * MinHeight: [float](#float) = `0` - defines the minimum layer height (auto layout).
@@ -338,7 +338,7 @@ The document's .json structure.
 * Images: [string[]](#string) - images stored in the document.
 * Colors: [ColorAsset[]](#ColorAsset) - colors stored in the document (color picker > dropdown list (global) > document).
 * Gradients: [GradientAsset[]](#GradientAsset) - gradients stored in the document (color picker > dropdown list (global) > document).
-* Fonts: [Font[]](#Font) - shared fonts stored in the document.
+* Fonts: [Font[]](#Font) - embedded fonts stored in the document.
 * ColorVariables: [ColorVariable[]](#ColorVariable) - color variables stored in the document.
 * LayerStyles: [SharedStyle[]](#SharedStyle) - layer styles stored in the document.
 * TextStyles: [SharedStyle[]](#SharedStyle) - text styles stored in the document.
