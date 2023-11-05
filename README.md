@@ -54,7 +54,7 @@ A rectangle is a shape drawn on the canvas with the Rectangle tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* SmoothCorners: [bool](#bool) = `False` - is Smooth corners enabled. Works only if rectangle is not edited.
+* SmoothCorners: [bool](#bool) = `False` - if the smooth corners option is enabled. Works only if the rectangle is not edited.
 * _t: [string](#string) = `RECT`
 
 ### <a name="Star"></a>Star
@@ -83,17 +83,17 @@ Has all properties of [`Styled`](#Styled), plus:
 * SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 * ClipContent: [bool](#bool) = `False` - when enabled, hides the content outside the frame boundaries.
 * FlowHome: [bool](#bool) = `False` - sets the frame as a prototype starting point.
-* Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, if the frame is resized to ensure scrolling effect.
+* Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
 * ResizesContent: [bool](#bool) = `False` - enables adjusting and resizing the frame content as the frame is resized.
 * Layouts: [IGridLayout[]](#IGridLayout) - grid, Row and Column layouts of the frame.
-* Rulers: [Rulers](#Rulers) - rulers and Guidelines info.
+* Rulers: [Rulers](#Rulers) - rulers and guidelines info.
 * Layers: [Layer[]](#Layer) - list of layers on the frame.
 * _t: [string](#string) = `FRAME`
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* OverlayStyle: [Style](#Style) - style settings for the frame if it acts an overlay in Sketch prototyping. For compatibility with Sketch only.
+* OverlayStyle: [Style](#Style) - style settings for the frame if it acts as an overlay in Sketch prototyping.
 * GroupLayout: [IGroupLayout](#IGroupLayout) - sketch Layout settings. Not supported in Lunacy, but keeping data for compatibility.
 * BackgroundInExport: [bool](#bool) = `False` - when enabled, the frame background is included into export files.
 * OverlayInteraction: [OverlayBackgroundInteraction](#OverlayBackgroundInteraction) = `None` - overlay interaction for Sketch prototyping.
@@ -105,7 +105,7 @@ Has all properties of [`Styled`](#Styled), plus:
 </details>
 
 ### <a name="Group"></a>Group
-A layer group is two and more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
+A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
 
 Has all properties of [`Styled`](#Styled), plus:
 
@@ -144,7 +144,7 @@ A vector path determines the outline and form of a vector object. A path is made
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* Edited: [bool](#bool) = `False` - is shape edited in path editor.
+* Edited: [bool](#bool) = `False` - if the shape is edited in the path editor.
 * Open: [bool](#bool) = `False` - indicates whether the path is open.
 * Points: [Vertex[]](#Vertex) - list of path's points.
 * _t: [string](#string) = `PATH`
@@ -169,17 +169,17 @@ Text is a block or line of text on the canvas.
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* text: [string](#string) - the content of the text layer.
-* TextStyle: [TextStyle](#TextStyle) - the style applied to the text.
+* text: [string](#string) - content of the text layer.
+* TextStyle: [TextStyle](#TextStyle) - style applied to the text.
 * Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
-* Behavior: [TextBehavior](#TextBehavior) = `Flexible` - behavior of text Layer size on text value change. Can be flexible, fixed-width and fixed.
+* Behavior: [TextBehavior](#TextBehavior) = `Flexible` - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * ClipContent: [bool](#bool) = `True` - valid for files imported from Figma. Defines whether to truncate text content.
 * _t: [string](#string) = `TEXT`
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* DrawOnPath: [bool](#bool) = `False` - this is property that enabled drawing text on path in sketch.
+* DrawOnPath: [bool](#bool) = `False` - this property enabled drawing text on path in Sketch.
 </details>
 
 ### <a name="Hotspot"></a>Hotspot
@@ -205,8 +205,8 @@ A styled layer is a layer that has layer styling options.
 Has all properties of [`Layer`](#Layer), plus:
 
 * StyleId: [GUID](#GUID) - unique style identifier.
-* MiterLimit: [int](#int) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter join. When the limit is exceeded, the join is converted from a miter to a bevel.
-* Opacity: [float](#float) = `1` - opacity.
+* MiterLimit: [int](#int) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
+* Opacity: [float](#float) = `1` - opacity value.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
 * StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * EndMarker: [Arrowhead](#Arrowhead) = `None` - defines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
@@ -217,7 +217,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows.
 * Blur: [BlurEffect](#BlurEffect) - information about blurs.
 * BorderOptions: [BorderOptions](#BorderOptions) - information about border options.
-* ImageFilters: [ImageFilters](#ImageFilters)
+* ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
 
 ### <a name="Layer"></a>Layer
 A layer is any ungrouped element available on the canvas.
@@ -225,8 +225,8 @@ A layer is any ungrouped element available on the canvas.
 * Id: [GUID](#GUID) - unique layer identifier.
 * NameIsFixed: [bool](#bool) = `False` - name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
 * BooleanOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
-* Fixed: [bool](#bool) = `False` - is Layer fixed when scrolling a prototype.
-* Locked: [bool](#bool) = `False` - defines whether the layer is locked.
+* Fixed: [bool](#bool) = `False` - if enabled, the layer preserves its position when you scroll the screen of prototype (for instance, a floating button).
+* Locked: [bool](#bool) = `False` - defines whether the layer is locked for editing.
 * Hidden: [bool](#bool) = `False` - defines whether the layer is hidden.
 * IsTemplate: [bool](#bool) = `False` - defines whether tha layer is marked as a template.
 * Expand: [bool](#bool) = `False` - defines whether the layer is expanded in Layer List.
@@ -266,20 +266,21 @@ Has all properties of [`Fill`](#Fill), plus:
 * Pos: [BorderPosition](#BorderPosition) = `Center` - defines border position.
 
 ### <a name="AutoLayoutContainer"></a>AutoLayoutContainer
+Defines auto layout settings.
 
-* Orientation: [LayoutOrientation](#LayoutOrientation) = `Horizontal`
-* Spacing: [float](#float) = `0`
+* Orientation: [LayoutOrientation](#LayoutOrientation) = `Horizontal` - layout orientation: horizontal or vertical.
+* Spacing: [float](#float) = `0` - spacing value
+* Padding: [Thickness](#Thickness) = `[0,0,0,0]` - padding value.
+* Align: [HorizontalAlignment](#HorizontalAlignment) = `Left` - horizontal alignment settings.???
+* Valign: [VerticalAlignment](#VerticalAlignment) = `Top` - vertical alignment settings.???
+* Sizing: [SizingMode](#SizingMode) = `Auto` - horizontal resizing mode: fixed or hug.???
+* Vsizing: [SizingMode](#SizingMode) = `Auto` - vertical resizing mode: fixed or hug.???
+* TextBaseline: [bool](#bool) = `False` - if text baseline alignment is enabled.
+* StrokesIncluded: [bool](#bool) = `False` - if the Include Borders option is enabled.
+* ReverseZIndex: [bool](#bool) = `False` - if the Last on Top option is enabled. ???
+* Wrap: [bool](#bool) = `False` - if wrapping is enabled.
+* WrapDistribute: [bool](#bool) = `False` - spacing between rows of wrapped content.
 * WrapSpacing: [float](#float) = `0`
-* Padding: [Thickness](#Thickness) = `[0,0,0,0]`
-* Align: [HorizontalAlignment](#HorizontalAlignment) = `Left`
-* Valign: [VerticalAlignment](#VerticalAlignment) = `Top`
-* Sizing: [SizingMode](#SizingMode) = `Auto`
-* Vsizing: [SizingMode](#SizingMode) = `Auto`
-* TextBaseline: [bool](#bool) = `False`
-* StrokesIncluded: [bool](#bool) = `False`
-* ReverseZIndex: [bool](#bool) = `False`
-* Wrap: [bool](#bool) = `False`
-* WrapDistribute: [bool](#bool) = `False`
 
 ### <a name="BlurEffect"></a>BlurEffect
 Defines the settings of the blur effect.
@@ -330,10 +331,10 @@ Defines column settings in a layout grid.
 * Color: [Color](#Color) = `00000000` - column color.
 
 ### <a name="Document"></a>Document
-document.json structure
+The document's .json structure.
 
 * Id: [GUID](#GUID) - unique document ID.
-* FromFigma: [bool](#bool) = `False` - the document is imported from Figma.
+* FromFigma: [bool](#bool) = `False` - if the document is imported from Figma.
 * Images: [string[]](#string) - images stored in the document.
 * Colors: [ColorAsset[]](#ColorAsset) - colors stored in the document (color picker > dropdown list (global) > document).
 * Gradients: [GradientAsset[]](#GradientAsset) - gradients stored in the document (color picker > dropdown list (global) > document).
@@ -376,10 +377,10 @@ Defines the fill applied to a layer.
 ### <a name="Font"></a>Font
 Embedded fonts stored in the document.
 
-* Data: [string](#string) - file name of font file in fonts folder.
+* Data: [string](#string) - name of the font file in the fonts folder.
 * Name: [string](#string) - font name.
 * FileName: [string](#string) - font file name.
-* PostscriptNames: [string[]](#string) - postScript names of font.
+* PostscriptNames: [string[]](#string) - postScript names of the font.
 
 ### <a name="Foreign"></a>Foreign
 Defines entities from external libraries.
@@ -416,7 +417,7 @@ Describes color components from external libraries.
 <details>
 <summary>Sketch compatibility</summary>
 
-* ComponentPrivate: [bool](#bool) = `False` - a sketch flag for private shared components.
+* ComponentPrivate: [bool](#bool) = `False` - a Sketch flag for private shared components.
 </details>
 
 ### <a name="ForeignSharedStyle"></a>ForeignSharedStyle
@@ -430,11 +431,11 @@ Describes styles from external libraries.
 <details>
 <summary>Sketch compatibility</summary>
 
-* ComponentPrivate: [bool](#bool) = `False` - a sketch flag for private shared styles.
+* ComponentPrivate: [bool](#bool) = `False` - a Sketch flag for private shared styles.
 </details>
 
 ### <a name="Gradient"></a>Gradient
-An object that represent a gradient.
+An object that represents a gradient.
 
 * Type: [GradientType](#GradientType) = `Linear` - type of the gradient.
 * From: [Point](#Point) = `[0,5,0]` - position of the gradient start point.
@@ -484,12 +485,12 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * Style: [TextStyle](#TextStyle) - style applied to the selection.
 
 ### <a name="Meta"></a>Meta
-Contains metadata about the document
+Contains metadata about the document.
 
-* Version: [int](#int) = `0` - free Format Version
-* App: [string](#string) - app Name
-* Variant: [string](#string) - app Variant - (beta/standalone/store/web/etc.)
-* AppVersion: [string](#string) - app Version
+* Version: [int](#int) = `0` - free Format version.
+* App: [string](#string) - app name.
+* Variant: [string](#string) - app variant: beta/standalone/store/web/etc.
+* AppVersion: [string](#string) - app version.
 
 ### <a name="Override"></a>Override
 
@@ -1110,10 +1111,10 @@ Defines the category of generated text. _//Lunacy Specific_
 
 ### <a name="ColorOverride"></a>ColorOverride
  _//Sketch Compatibility_
-* ColorId: [GUID?](#GUID) - color Variable ID
+* ColorId: [GUID?](#GUID) - color variable ID.
+* Property: [ColorOverrideType](#ColorOverrideType) = `Unknown` - color override type: none, fill, border, shadow, or inner shadow.
+* Index: [int](#int) = `0` - ????
 * Color: [Color](#Color) = `00000000`
-* Property: [ColorOverrideType](#ColorOverrideType) = `Unknown`
-* Index: [int](#int) = `0`
 
 ### <a name="FreeFormGroupLayout"></a>FreeFormGroupLayout
  _//Sketch Compatibility_
@@ -1132,12 +1133,14 @@ Defines the category of generated text. _//Lunacy Specific_
 * SourceAnchor: [Point](#Point) = `[0,0]`
 
 ### <a name="TextColorOverride"></a>TextColorOverride
- _//Sketch Compatibility_
-* ColorId: [GUID?](#GUID) - color Variable ID
+Defines text color overrides. _//Sketch Compatibility_
+
+* ColorId: [GUID?](#GUID) - color variable ID.
 * Color: [Color](#Color) = `00000000`
 
 ### <a name="TextWeightOverride"></a>TextWeightOverride
- _//Sketch Compatibility_
+Defines text weight overrides. _//Sketch Compatibility_
+
 * Slant: [float](#float) = `0`
 * Proportion: [float](#float) = `0`
 * Symbolic: [float](#float) = `0`
@@ -1146,7 +1149,8 @@ Defines the category of generated text. _//Lunacy Specific_
 ### <a name="IGroupLayout"></a>IGroupLayout
  _//Sketch Compatibility_
 ### <a name="ColorOverrideType"></a>ColorOverrideType Enum
- _//Sketch Compatibility_
+Defines types of color overrides. _//Sketch Compatibility_
+
 * `0` Unknown
 * `1` Fill
 * `2` Border
@@ -1154,7 +1158,7 @@ Defines the category of generated text. _//Lunacy Specific_
 * `4` InnerShadow
 
 ### <a name="ColorSpace"></a>ColorSpace Enum
-Document color space (color scheme the document uses). _//Sketch Compatibility_
+Document's color space (color scheme the document uses). _//Sketch Compatibility_
 
 * `0` Unmanaged
 * `1` sRGB
@@ -1180,7 +1184,7 @@ Sketch legacy, not supported in Lunacy _//Sketch Compatibility_
 * `1` Vertical
 
 ### <a name="NamingScheme"></a>NamingScheme Enum
-Controls the use of suffixes/prefixes in export file names. _//Sketch Compatibility_
+Controls the use of suffixes/prefixes in the names of export files. _//Sketch Compatibility_
 
 * `0` Suffix - indicates that the file name comes with a user-defined suffix.
 * `1` SecondaryPrefix - indicates that the file name comes with a user-defined prefix.
