@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// document.json structure
+/// The document's .json structure.
 /// </summary>
 public class Document
 {
@@ -11,7 +11,7 @@ public class Document
     public Guid Id { get; set; }
     public ColorSpace ColorSpace { get; set; }
     /// <summary>
-    /// The document is imported from Figma.
+    /// If the document is imported from Figma.
     /// </summary>
     public bool FromFigma { get; set; }
     public int CurrentPageIndex { get; set; }

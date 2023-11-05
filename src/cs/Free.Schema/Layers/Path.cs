@@ -6,7 +6,7 @@ public class Path : Styled
 {
     public override string _t => "PATH";
     /// <summary>
-    /// Is shape edited in path editor.
+    /// If the shape is edited in the path editor.
     /// </summary>
     public bool Edited { get; set; }
     /// <summary>

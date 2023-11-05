@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// A layer group is two and more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
+/// A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
 /// </summary>
 
 public class Group : Styled

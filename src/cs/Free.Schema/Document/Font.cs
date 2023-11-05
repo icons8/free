@@ -6,7 +6,7 @@ namespace Free.Schema;
 public class Font
 {
     /// <summary>
-    /// File name of font file in fonts folder.
+    /// Name of the font file in the fonts folder.
     /// </summary>
     public string Data { get; set; }
     /// <summary>
@@ -18,7 +18,7 @@ public class Font
     /// </summary>
     public string FileName { get; set; }
     /// <summary>
-    /// PostScript names of font.
+    /// PostScript names of the font.
     /// </summary>
     public List<string> PostscriptNames { get; } = new();
 }

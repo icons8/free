@@ -23,7 +23,7 @@ public class Frame : Styled
     public ILayoutContainer? LayoutStrategy { get; set; }
 
     /// <summary>
-    /// Style settings for the frame if it acts an overlay in Sketch prototyping. For compatibility with Sketch only.
+    /// Style settings for the frame if it acts as an overlay in Sketch prototyping.
     /// </summary>
     [SketchCompatibility]
     public Style? OverlayStyle { get; set; }
@@ -51,7 +51,7 @@ public class Frame : Styled
     public bool FlowHome { get; set; }
 
     /// <summary>
-    /// Defines the area that should be displayed on a prototype, if the frame is resized to ensure scrolling effect.
+    /// Defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
     /// </summary>
     public PrototypeViewport Viewport { get; set; }
     
@@ -95,7 +95,7 @@ public class Frame : Styled
     /// </summary>
     public List<IGridLayout> Layouts { get; } = new();
     /// <summary>
-    /// Rulers and Guidelines info.
+    /// Rulers and guidelines info.
     /// </summary>
     public Rulers Rulers { get; } = new();
     

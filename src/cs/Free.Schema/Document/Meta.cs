@@ -1,28 +1,28 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Contains metadata about the document
+/// Contains metadata about the document.
 /// </summary>
 public class Meta
 {
     /// <summary>
-    /// Free Format Version
+    /// Free Format version.
     /// </summary>
     public int Version { get; set; }
     /// <summary>
-    /// App Name
+    /// App name.
     /// </summary>
     public string App { get; set; }
     /// <summary>
-    /// App Variant - (beta/standalone/store/web/etc.)
+    /// App variant: beta/standalone/store/web/etc.
     /// </summary>
     public string Variant { get; set; }
     /// <summary>
-    /// App Version
+    /// App version.
     /// </summary>
     public string AppVersion { get; set; }
     /// <summary>
-    /// Saved by who ? email address
+    /// Email address of the user who last saved the document.
     /// </summary>
     public string? By { get; set; }
 }

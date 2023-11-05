@@ -17,7 +17,7 @@ public class ForeignComponent
     /// </summary>
     public string? LibraryName { get; set; }
     /// <summary>
-    ///  A sketch flag for private shared components.
+    ///  A Sketch flag for private shared components.
     /// </summary>
     [SketchCompatibility]
     public bool ComponentPrivate { get; set; }

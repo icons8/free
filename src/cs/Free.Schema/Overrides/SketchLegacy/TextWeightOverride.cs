@@ -1,4 +1,7 @@
 namespace Free.Schema;
+/// <summary>
+/// Defines text weight overrides.
+/// </summary>
 
 [SketchCompatibility]
 public sealed class TextWeightOverride

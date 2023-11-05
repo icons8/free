@@ -24,11 +24,11 @@ public abstract class Layer
     /// </summary>
     public BoolOp BooleanOp { get; set; }
     /// <summary>
-    /// Is Layer fixed when scrolling a prototype.
+    /// If enabled, the layer preserves its position when you scroll the screen of prototype (for instance, a floating button).
     /// </summary>
     public bool Fixed { get; set; }
     /// <summary>
-    /// Defines whether the layer is locked.
+    /// Defines whether the layer is locked for editing.
     /// </summary>
     public bool Locked { get; set; }
     /// <summary>

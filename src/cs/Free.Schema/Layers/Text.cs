@@ -7,11 +7,11 @@ public class Text : Styled
 {
     public override string _t => "TEXT";
     /// <summary>
-    /// The content of the text layer.
+    /// Content of the text layer.
     /// </summary>
     public string text { get; set; }
     /// <summary>
-    /// The style applied to the text.
+    /// Style applied to the text.
     /// </summary>
     public TextStyle TextStyle { get; } = new();
     /// <summary>
@@ -19,12 +19,12 @@ public class Text : Styled
     /// </summary>
     public List<InlineStyle> Inlines { get; } = new();
     /// <summary>
-    /// This is property that enabled drawing text on path in sketch.
+    /// This property enabled drawing text on path in Sketch.
     /// </summary>
     [SketchCompatibility]
     public bool DrawOnPath { get; set; }
     /// <summary>
-    /// Behavior of text Layer size on text value change. Can be flexible, fixed-width and fixed.
+    /// Behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
     /// </summary>
     public TextBehavior Behavior { get; set; } = TextBehavior.Flexible;
     /// <summary>

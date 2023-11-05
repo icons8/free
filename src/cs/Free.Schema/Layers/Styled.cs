@@ -9,11 +9,11 @@ public abstract class Styled : Layer
     /// </summary>
     public Guid StyleId { get; set; }
     /// <summary>
-    /// Limit on the ratio of the miter length to the stroke-width used to draw a miter join. When the limit is exceeded, the join is converted from a miter to a bevel.
+    /// Limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
     /// </summary>
     public int MiterLimit { get; set; } = 10;
     /// <summary>
-    /// Opacity.
+    /// Opacity value.
     /// </summary>
     public float Opacity { get; set; } = 1;
     /// <summary>
@@ -61,7 +61,7 @@ public abstract class Styled : Layer
     /// </summary>
     public BorderOptions BorderOptions { get; } = new();
     /// <summary>
-    ////Filters applied to an image (hue, saturartion, etc.), if any.
+    /// Filters applied to an image (hue, saturartion, etc.), if any.
     /// </summary>
     public ImageFilters ImageFilters { get; } = new();
 }

@@ -1,4 +1,7 @@
 namespace Free.Schema;
+/// <summary>
+/// Defines types of color overrides.
+/// </summary>
 
 [SketchCompatibility]
 public enum ColorOverrideType

@@ -2,7 +2,7 @@ namespace Free.Schema;
 
 
 /// <summary>
-/// An object that represent a gradient.
+/// An object that represents a gradient.
 /// </summary>
 public sealed class Gradient
 {

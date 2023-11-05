@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Controls the use of suffixes/prefixes in export file names.
+/// Controls the use of suffixes/prefixes in the names of export files.
 /// </summary>
 [SketchCompatibility]
 public enum NamingScheme : byte

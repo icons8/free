@@ -14,7 +14,7 @@ public class ForeignSharedStyle
     /// </summary>
     public string? LibraryName { get; set; }
     /// <summary>
-    /// A sketch flag for private shared styles.
+    /// A Sketch flag for private shared styles.
     /// </summary>
     [SketchCompatibility]
     public bool ComponentPrivate { get; set; }
@@ -23,7 +23,7 @@ public class ForeignSharedStyle
     /// </summary>
     public Guid RemoteID { get; set; }
     /// <summary>
-    /// Shared Style value
+    /// Shared style value
     /// </summary>
     public SharedStyle Style { get; } = new();
 }
