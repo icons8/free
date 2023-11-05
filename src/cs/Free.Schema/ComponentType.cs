@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Type of component. Not all values are used now. This is only for components filtering usage for now.
+/// Types of components. Currently used for filtering only. Some of the types are not supported yet.
 /// </summary>
 public enum ComponentType : byte
 {

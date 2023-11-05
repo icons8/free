@@ -592,15 +592,15 @@ Defines row settings in a layout grid.
 * Color: [Color](#Color) = `00000000` - row color.
 
 ### <a name="Rulers"></a>Rulers
-Object containing rulers origin and guidelines positions
+An object containing ruler origins and guideline positions.
 
-* Guides: [int[]](#int) - vertical guidelines positions on Horizontal Ruler
-* VGuides: [int[]](#int) - horizontal guidelines positions on Vertical Ruler
+* Guides: [int[]](#int) - positions of vertical guidelines on the Horizontal Ruler.
+* VGuides: [int[]](#int) - positions of horizontal guidelines on the Vertical Ruler.
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* Origin: [Point](#Point) = `[0,0]` - origin for Rulers. Not supported in Lunacy. Sketch Compatibility
+* Origin: [Point](#Point) = `[0,0]` - ruler origin. Not supported in Lunacy. Sketch Compatibility
 </details>
 
 ### <a name="ShadowEffect"></a>ShadowEffect
@@ -809,7 +809,7 @@ Defines letter case.
 * `3` TitleCase - title case.
 
 ### <a name="ComponentType"></a>ComponentType Enum
-Type of component. Not all values are used now. This is only for components filtering usage for now.
+Types of components. Currently used for filtering only. Some of the types are not supported yet.
 
 * `0` None
 * `10` Button
@@ -997,7 +997,7 @@ Defines the behavior of auto layout containers as their content is changed. ????
 * `1` Fixed - the container has a fixed size (fix).
 
 ### <a name="TextBehavior"></a>TextBehavior Enum
-Enumeration of the behaviours for text layers
+Defines textbox behavior options.
 
 * `1` AutoHeight - the width of the textbox is fixed. Characters wrap to fit in the textbox. The height of the textbox automatically adjusts to fit its content.
 * `2` Fixed - the size of the textbox is fixed and is independent of its content.

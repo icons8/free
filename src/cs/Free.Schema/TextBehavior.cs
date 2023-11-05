@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Enumeration of the behaviours for text layers
+/// Defines textbox behavior options.
 /// </summary>
 public enum TextBehavior : byte
 {
