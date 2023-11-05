@@ -785,13 +785,13 @@ Defines the blur type.
 * `3` Background - background blur.
 
 ### <a name="BoolOp"></a>BoolOp Enum
-The type of operation used to combine the children of this node.
+Types of bollean operations used to combine shapes.
 
-* `-1` None - not set. Works like Difference or like Union depends on context
-* `0` Union - combine
-* `1` Subtract - subtract one from another
-* `2` Intersect - get shapes intersection
-* `3` Difference - draw shapes difference
+* `-1` None - not set. Works like Difference or like Union depending on the context. ????
+* `0` Union - creates a shape from the sum of the areas of the selected shapes.
+* `1` Subtract - the opposite of Union. Removes the overlapping area(s) from the shape layer at the bottom of the selection.
+* `2` Intersect - the resulting shape only includes the area where all selected shapes overlap.
+* `3` Difference - the opposite of Intersect. Creates a shape from the areas where the selected shapes do not overlap.
 
 ### <a name="BorderPosition"></a>BorderPosition Enum
 Defines the border postion.
