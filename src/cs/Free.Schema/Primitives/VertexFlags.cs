@@ -1,4 +1,7 @@
 namespace Free.Schema;
+/// <summary>
+/// Defines vertex flags.
+/// </summary>
 
 [Flags]
 public enum VertexFlags : byte

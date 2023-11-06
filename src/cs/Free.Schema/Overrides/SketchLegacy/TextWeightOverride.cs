@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// Defines text weight overrides.
+/// Defines text weight overrides for components.
 /// </summary>
 
 [SketchCompatibility]

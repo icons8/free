@@ -493,6 +493,7 @@ Contains metadata about the document.
 * AppVersion: [string](#string) - app version.
 
 ### <a name="Override"></a>Override
+Defines overrides for components.
 
 * ComponentId: [GUID?](#GUID)
 * Export: [ExportOptions](#ExportOptions)
@@ -575,6 +576,7 @@ Defines the image fill options.
 * Transform: [Matrix?](#Matrix) - defines how the image is cropped. Applicable to the crop type only.
 
 ### <a name="PrototypeViewport"></a>PrototypeViewport
+????
 
 * Name: [string](#string)
 * Size: [Size](#Size) = `[0,0]`
@@ -722,17 +724,19 @@ A utility class to represent layer size.
 * Height: [float](#float) - layer height.
 
 ### <a name="Thickness"></a>Thickness Struct
+???
 
 ### <a name="Vertex"></a>Vertex Struct
-!most critical moment in wiki doc. [x,y,flags,radius,fromX,fromY,toX,toY]
+A utility class to represent a vertex.
 
-* Point: [Point](#Point) = `[0,0]` - base Point of a Vertex
-* From: [Point](#Point) = `[0,0]` - first Control Point, Curve From
-* To: [Point](#Point) = `[0,0]` - second Control Point, Curve To
-* Radius: [float](#float) - corner Radius of a vertex point. It's stored in half because we don't need that much precision for corner radius
-* Flags: [VertexFlags](#VertexFlags) = `None` - vertex flags, contains: CurveMode, hasFrom, hasTo and CornerStyle
+* Point: [Point](#Point) = `[0,0]` - base point of a vertex
+* From: [Point](#Point) = `[0,0]` - first control point, curve from.
+* To: [Point](#Point) = `[0,0]` - second control point, curve to.
+* Radius: [float](#float) - corner radius of a vertex point. It's stored in half because we don't need that much precision for corner radius.
+* Flags: [VertexFlags](#VertexFlags) = `None` - vertex flags, including: CurveMode, hasFrom, hasTo, and CornerStyle.
 
 ### <a name="AnimationType"></a>AnimationType Enum
+Defines animation types in prototypes.
 
 * `-1` None
 * `0` FromRight
@@ -1024,6 +1028,7 @@ Defines how a text is aligned vertically.
 * `2` Bottom - text is aligned to the bottom.
 
 ### <a name="VertexFlags"></a>VertexFlags Enum
+Defines vertex flags.
 
 * `0` None
 * `1` Mirrored
@@ -1114,7 +1119,7 @@ Defines the category of generated text. _//Lunacy Specific_
 * `9` Time
 
 ### <a name="ColorOverride"></a>ColorOverride
-Defines color overrides. _//Sketch Compatibility_
+Defines color overrides for components. _//Sketch Compatibility_
 
 * ColorId: [GUID?](#GUID) - color variable ID.
 * Property: [ColorOverrideType](#ColorOverrideType) = `Unknown` - color override type: none, fill, border, shadow, or inner shadow.
@@ -1133,20 +1138,21 @@ Defines color overrides. _//Sketch Compatibility_
 * MinSize: [float](#float) = `0`
 
 ### <a name="OverlaySettings"></a>OverlaySettings
- _//Sketch Compatibility_
+Defines overlay settings. _//Sketch Compatibility_
+
 * Offset: [Point](#Point) = `[0,0]`
 * OverlayAnchor: [Point](#Point) = `[0,0]`
 * OverlayType: [OverlayType](#OverlayType) = `0`
 * SourceAnchor: [Point](#Point) = `[0,0]`
 
 ### <a name="TextColorOverride"></a>TextColorOverride
-Defines text color overrides. _//Sketch Compatibility_
+Defines text color overrides for components. _//Sketch Compatibility_
 
 * Color: [Color](#Color) = `00000000` - color value.
 * ColorId: [GUID?](#GUID) - color variable ID.
 
 ### <a name="TextWeightOverride"></a>TextWeightOverride
-Defines text weight overrides. _//Sketch Compatibility_
+Defines text weight overrides for components. _//Sketch Compatibility_
 
 * Slant: [float](#float) = `0`
 * Proportion: [float](#float) = `0`
@@ -1157,7 +1163,7 @@ Defines text weight overrides. _//Sketch Compatibility_
 ???? _//Sketch Compatibility_
 
 ### <a name="ColorOverrideType"></a>ColorOverrideType Enum
-Defines types of color overrides. _//Sketch Compatibility_
+Defines types of color overrides for components. _//Sketch Compatibility_
 
 * `0` Unknown
 * `1` Fill
@@ -1201,13 +1207,15 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `2` PrimaryPrefix - indicates that the file name comes with a user-defined prefix.
 
 ### <a name="OverlayBackgroundInteraction"></a>OverlayBackgroundInteraction Enum
- _//Sketch Compatibility_
+Overlay-background interaction options.??? _//Sketch Compatibility_
+
 * `0` None
 * `1` CrossOverlay
 * `2` AllowAll
 
 ### <a name="OverlayType"></a>OverlayType Enum
- _//Sketch Compatibility_
+Defines overlay types. _//Sketch Compatibility_
+
 * `1` Screen
 * `2` Layer
 

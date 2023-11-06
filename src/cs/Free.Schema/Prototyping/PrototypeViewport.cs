@@ -1,4 +1,7 @@
 namespace Free.Schema;
+/// <summary>
+/// ????
+/// </summary>
 
 public sealed class PrototypeViewport
 {

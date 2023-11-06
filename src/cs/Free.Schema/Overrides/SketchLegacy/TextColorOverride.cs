@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// Defines text color overrides.
+/// Defines text color overrides for components.
 /// </summary>
 
 [SketchCompatibility]

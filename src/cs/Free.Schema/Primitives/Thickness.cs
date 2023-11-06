@@ -1,5 +1,7 @@
 namespace Free.Schema;
-
+/// <summary>
+/// ???
+/// </summary>
 public readonly struct Thickness
 {
     public readonly float Left;

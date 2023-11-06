@@ -1,5 +1,7 @@
 namespace Free.Schema;
-
+/// <summary>
+/// Defines overlay settings.
+/// </summary>
 [SketchCompatibility]
 public class OverlaySettings
 {

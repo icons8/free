@@ -1,4 +1,7 @@
 namespace Free.Schema;
+/// <summary>
+/// Overlay-background interaction options.???
+/// </summary>
 
 [SketchCompatibility]
 public enum OverlayBackgroundInteraction : byte

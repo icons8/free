@@ -3,34 +3,34 @@ using System.Runtime.CompilerServices;
 namespace Free.Schema;
 
 /// <summary>
-/// !most critical moment in wiki doc. [x,y,flags,radius,fromX,fromY,toX,toY]
+/// A utility class to represent a vertex.
 /// </summary>
 public readonly struct Vertex
 {
     private readonly Half _radius;
     
     /// <summary>
-    /// Base Point of a Vertex
+    /// Base point of a vertex
     /// </summary>
     public readonly Point Point;
 
     /// <summary>
-    /// First Control Point, Curve From
+    /// First control point, curve from.
     /// </summary>
     public readonly Point From;
 
     /// <summary>
-    /// Second Control Point, Curve To
+    /// Second control point, curve to.
     /// </summary>
     public readonly Point To;
 
     /// <summary>
-    /// Corner Radius of a vertex point. It's stored in half because we don't need that much precision for corner radius
+    /// Corner radius of a vertex point. It's stored in half because we don't need that much precision for corner radius.
     /// </summary>
     public float Radius => (float)_radius;
 
     /// <summary>
-    /// Vertex flags, contains: CurveMode, hasFrom, hasTo and CornerStyle
+    /// Vertex flags, including: CurveMode, hasFrom, hasTo, and CornerStyle.
     /// </summary>
     public readonly VertexFlags Flags;
 

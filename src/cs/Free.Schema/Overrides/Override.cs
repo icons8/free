@@ -1,5 +1,7 @@
 namespace Free.Schema;
-
+/// <summary>
+/// Defines overrides for components.
+/// </summary>
 public sealed class Override
 {
     public Guid[] Target { get; set; } = Array.Empty<Guid>();
