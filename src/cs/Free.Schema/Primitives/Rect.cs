@@ -1,17 +1,17 @@
 namespace Free.Schema;
 
 /// <summary>
-/// A utility class to represent a rectangle. Contains some methods to make interacting with a rectangle easier.
+/// A utility class to represent a rectangle.
 /// </summary>
 public readonly struct Rect
 {
     /// <summary>
-    /// A utility class to represent a rectangle. Contains some methods to make interacting with a rectangle easier.
+    /// The x coordinate of the top-left corner of the rectangle.
     /// </summary>
     public readonly float Left;
     
     /// <summary>
-    /// The x coordinate of the top-left corner of the rectangle. Or an object with
+    /// The y coordinate of the top-left corner of the rectangle.
     /// </summary>
     public readonly float Top;
     

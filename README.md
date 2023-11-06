@@ -22,7 +22,7 @@ Has all properties of [`Frame`](#Frame), plus:
 
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * Predefined: [bool](#bool) = `False` - indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
-* ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for components filters.
+* ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for component filters.
 * _t: [string](#string) = `COMPONENT`
 
 <details>
@@ -308,15 +308,15 @@ Defines the advanced options of borders, arrows, lines, and paths drawn with the
 ### <a name="ColorAsset"></a>ColorAsset
 Colors stored in the document (color picker > dropdown list (global) > document).
 
-* Id: [GUID](#GUID)
-* Name: [string](#string)
-* Color: [Color](#Color) = `00000000`
+* Id: [GUID](#GUID) - unique color asset ID.
+* Name: [string](#string) - color asset name.
+* Color: [Color](#Color) = `00000000` - color value.
 
 ### <a name="ColorVariable"></a>ColorVariable
 Color variables stored in the document.
 
-* Id: [GUID](#GUID) - variable ID.
-* Name: [string](#string) - variable name.
+* Id: [GUID](#GUID) - unique color variable ID.
+* Name: [string](#string) - color variable name.
 * Value: [Color](#Color) = `00000000` - color value of the variable.
 
 ### <a name="Columns"></a>Columns
@@ -685,11 +685,11 @@ A transformation matrix is standard way in computer graphics to represent transl
             This is known as an affine transform and is enough to represent translation, rotation, and skew.
             The identity transform is [1, 0, 0,   0, 1, 0].
             A translation matrix will typically look like: [1, 0, tx,   0, 1, ty]
-            and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0,   sin(angle), cos(angle), 0]
-            If Matrix contains only translation it will be printed like point [0,5]
+            and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0]
+            If a matrix contains only translation it will be printed like point [0,5]
 
 * ScaleX: [float](#float) - scale by x-coord. Usually should be 1.
-            If it's -1 - layer is flipped horizontally.
+            If it's -1 - the layer is flipped horizontally.
             If it's some random number - it's a cos(angle).
 * SkewX: [float](#float) - skew by x-coord. Usually should be 0.
             If it's some random number - it's a -sin(angle).
@@ -697,7 +697,7 @@ A transformation matrix is standard way in computer graphics to represent transl
 * SkewY: [float](#float) - skew by y-coord. Usually should be 0.
             If it's some random number - it's a sin(angle).
 * ScaleY: [float](#float) - scale by y-coord. Usually should be 1.
-            If it's -1 - layer is flipped vertically.
+            If it's -1 - the layer is flipped vertically.
             If it's some random number - it's a cos(angle).
 * TransY: [float](#float) - translation by y-coord.
 
@@ -708,14 +708,18 @@ A utility class to represent a point.
 * Y: [float](#float) - the y coordinate of the point.
 
 ### <a name="Rect"></a>Rect Struct
-A utility class to represent a rectangle. Contains some methods to make interacting with a rectangle easier.
+A utility class to represent a rectangle.
 
-* Left: [float](#float) - a utility class to represent a rectangle. Contains some methods to make interacting with a rectangle easier.
-* Top: [float](#float) - the x coordinate of the top-left corner of the rectangle. Or an object with
+* Left: [float](#float) - the x coordinate of the top-left corner of the rectangle.
+* Top: [float](#float) - the y coordinate of the top-left corner of the rectangle.
 * Width: [float](#float) - the width of the rectangle.
 * Height: [float](#float) - the height of the rectangle.
 
 ### <a name="Size"></a>Size Struct
+A utility class to represent layer size.
+
+* Width: [float](#float) - layer width.
+* Height: [float](#float) - layer height.
 
 ### <a name="Thickness"></a>Thickness Struct
 
@@ -1049,7 +1053,7 @@ Information about auto generated texts. _//Lunacy Specific_
 
 * Type: [DataType](#DataType) = `Unknown` - category of generated text (person, address, date, etc.).
 * Field: [DataFieldType](#DataFieldType) = `Unknown` - type of generated text (full name or first name, city or ZIP code, etc.).
-* Format: [string](#string) - string format for Data Type. Used for Date/Time values.
+* Format: [string](#string) - format for Data Type. Used for Date/Time values.
 
 ### <a name="BackgroundRemovalState"></a>BackgroundRemovalState Enum
 Background removal procedure info. _//Lunacy Specific_
@@ -1110,16 +1114,19 @@ Defines the category of generated text. _//Lunacy Specific_
 * `9` Time
 
 ### <a name="ColorOverride"></a>ColorOverride
- _//Sketch Compatibility_
+Defines color overrides. _//Sketch Compatibility_
+
 * ColorId: [GUID?](#GUID) - color variable ID.
 * Property: [ColorOverrideType](#ColorOverrideType) = `Unknown` - color override type: none, fill, border, shadow, or inner shadow.
 * Index: [int](#int) = `0` - ????
 * Color: [Color](#Color) = `00000000`
 
 ### <a name="FreeFormGroupLayout"></a>FreeFormGroupLayout
- _//Sketch Compatibility_
+???? _//Sketch Compatibility_
+
 ### <a name="InferredGroupLayout"></a>InferredGroupLayout
- _//Sketch Compatibility_
+??? _//Sketch Compatibility_
+
 * Axis: [GroupLayoutAxis](#GroupLayoutAxis) = `Horizontal`
 * LayoutAnchor: [GroupLayoutAnchor](#GroupLayoutAnchor) = `Begin`
 * MaxSize: [float](#float) = `0`
@@ -1147,7 +1154,8 @@ Defines text weight overrides. _//Sketch Compatibility_
 * Weight: [float](#float) = `0`
 
 ### <a name="IGroupLayout"></a>IGroupLayout
- _//Sketch Compatibility_
+???? _//Sketch Compatibility_
+
 ### <a name="ColorOverrideType"></a>ColorOverrideType Enum
 Defines types of color overrides. _//Sketch Compatibility_
 
@@ -1173,13 +1181,15 @@ Sketch legacy, not supported in Lunacy _//Sketch Compatibility_
 * `3` Squared
 
 ### <a name="GroupLayoutAnchor"></a>GroupLayoutAnchor Enum
- _//Sketch Compatibility_
+??? _//Sketch Compatibility_
+
 * `0` Begin
 * `1` Middle
 * `2` End
 
 ### <a name="GroupLayoutAxis"></a>GroupLayoutAxis Enum
- _//Sketch Compatibility_
+??? _//Sketch Compatibility_
+
 * `0` Horizontal
 * `1` Vertical
 

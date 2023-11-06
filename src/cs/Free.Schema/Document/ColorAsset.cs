@@ -5,7 +5,16 @@ namespace Free.Schema;
 /// </summary>
 public class ColorAsset
 {
+    /// <summary>
+    /// Unique color asset ID.
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// Color asset name.
+    /// </summary>
     public string? Name { get; set; }
+    /// <summary>
+    /// Color value.
+    /// </summary>
     public Color Color { get; set; }
 }

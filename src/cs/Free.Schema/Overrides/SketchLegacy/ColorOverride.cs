@@ -1,4 +1,7 @@
 namespace Free.Schema;
+/// <summary>
+/// Defines color overrides.
+/// </summary>
 
 [SketchCompatibility]
 public sealed class ColorOverride

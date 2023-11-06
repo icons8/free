@@ -23,7 +23,7 @@ public class ForeignSharedStyle
     /// </summary>
     public Guid RemoteID { get; set; }
     /// <summary>
-    /// Shared style value
+    /// Shared style name.
     /// </summary>
     public SharedStyle Style { get; } = new();
 }

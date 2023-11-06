@@ -6,8 +6,8 @@ namespace Free.Schema;
 /// This is known as an affine transform and is enough to represent translation, rotation, and skew.
 /// The identity transform is [1, 0, 0,   0, 1, 0].
 /// A translation matrix will typically look like: [1, 0, tx,   0, 1, ty]
-/// and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0,   sin(angle), cos(angle), 0]
-/// If Matrix contains only translation it will be printed like point [0,5]
+/// and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0]
+/// If a matrix contains only translation it will be printed like point [0,5]
 /// </summary>
 public readonly struct Matrix
 {
@@ -17,7 +17,7 @@ public readonly struct Matrix
     
     /// <summary>
     /// Scale by x-coord. Usually should be 1.
-    /// If it's -1 - layer is flipped horizontally.
+    /// If it's -1 - the layer is flipped horizontally.
     /// If it's some random number - it's a cos(angle).
     /// </summary>
     public readonly float ScaleX;
@@ -41,7 +41,7 @@ public readonly struct Matrix
     
     /// <summary>
     /// Scale by y-coord. Usually should be 1.
-    /// If it's -1 - layer is flipped vertically.
+    /// If it's -1 - the layer is flipped vertically.
     /// If it's some random number - it's a cos(angle).
     /// </summary>
     public readonly float ScaleY;

@@ -6,11 +6,11 @@ namespace Free.Schema;
 public class ColorVariable
 {
     /// <summary>
-    /// Variable ID.
+    /// Unique color variable ID.
     /// </summary>
     public Guid Id { get; set; }
     /// <summary>
-    /// Variable name.
+    /// Color variable name.
     /// </summary>
     public string Name { get; set; }
 

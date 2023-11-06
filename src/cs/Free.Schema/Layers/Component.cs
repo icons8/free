@@ -23,7 +23,7 @@ public class Component : Frame
     public bool Predefined { get; set; }
 
     /// <summary>
-    /// Reserved for future use. Will be used for components filters.
+    /// Reserved for future use. Will be used for component filters.
     /// </summary>
     public ComponentType ComponentType { get; set; }
 }

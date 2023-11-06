@@ -1,4 +1,7 @@
 namespace Free.Schema;
+/// <summary>
+/// ???
+/// </summary>
 
 [SketchCompatibility]
 public class InferredGroupLayout : IGroupLayout
