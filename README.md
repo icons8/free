@@ -986,11 +986,11 @@ Defines the filling options for overlapping paths.
 ### <a name="PatternFillType"></a>PatternFillType Enum
 Defines the image fill type.
 
-* `0` Tile - tile. Duplicates the image in a tile pattern to fit the layer. The size of tiles is adjustable.
-* `1` Fill - fill. Adjusts the image size to the layer’s width.
-* `2` Stretch - stretch. Stretches the image to fit the layer’s width and height.
-* `3` Fit - fit. Adjusts the image size to fit the layer’s height.
-* `4` Crop - crop. Crops the image at user's discretion.
+* `0` Tile - duplicates the image in a tile pattern to fit the layer. The size of tiles is adjustable.
+* `1` Fill - adjusts the image size to the layer’s width.
+* `2` Stretch - stretches the image to fit the layer’s width and height.
+* `3` Fit - adjusts the image size to fit the layer’s height.
+* `4` Crop - crops the image at user's discretion.
 
 ### <a name="ScaleType"></a>ScaleType Enum
 Defines the scale type for exported objects.
