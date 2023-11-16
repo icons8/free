@@ -19,19 +19,19 @@ public class AutoLayoutContainer : ILayoutContainer
     /// </summary>
     public Thickness Padding { get; set; }
     /// <summary>
-    /// Horizontal alignment settings.???
+    /// Horizontal children alignment
     /// </summary>
     public HorizontalAlignment Align { get; set; }
     /// <summary>
-    /// Vertical alignment settings.???
+    /// Vertical children alignment
     /// </summary>
     public VerticalAlignment Valign { get; set; }
     /// <summary>
-    /// Horizontal resizing mode: fixed or hug.???
+    /// Horizontal resizing mode: fixed or hug.
     /// </summary>
     public SizingMode Sizing { get; set; }
     /// <summary>
-    /// Vertical resizing mode: fixed or hug.???
+    /// Vertical resizing mode: fixed or hug.
     /// </summary>
     public SizingMode Vsizing { get; set; }
     /// <summary>
@@ -43,7 +43,7 @@ public class AutoLayoutContainer : ILayoutContainer
     /// </summary>
     public bool StrokesIncluded { get; set; }
     /// <summary>
-    /// If the Last on Top option is enabled. ???
+    /// If the Last on Top option is enabled.
     /// </summary>
     public bool ReverseZIndex { get; set; }
     /// <summary>

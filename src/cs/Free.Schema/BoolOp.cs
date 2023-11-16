@@ -1,12 +1,12 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Types of bollean operations used to combine shapes.
+/// Types of boolean operations used to combine shapes.
 /// </summary>
 public enum BoolOp : sbyte
 {
     /// <summary>
-    /// Not set. Works like Difference or like Union depending on the context. ????
+    /// Not set. Works like Difference or like Union depending on the context.
     /// </summary>
     None = -1,
     /// <summary>

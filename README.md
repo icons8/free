@@ -4,13 +4,13 @@ FREE is an open source format for vector graphic files designed to be compact, h
 
 A FREE file is a ZIP archive with the following structure:
 
-- Pages — folder with JSON files containing layer structure and properties.
-- Images — folder with raster assets. PNG, JPG, BMP, WEBP, GIF, TIFF, and ICO are supported.
-- Fonts — folder with fonts embedded into the document, if any.
-- document.json — file with document info data.
-- foreign.json — file with objects from shared libraries.
-- meta.json — file with app version, file format, last saved by, when, and other info.
-- preview.png — a preview of the file.
+- `pages` — folder with JSON files containing layer structure and properties.
+- `images` — folder with raster assets. PNG, JPG, BMP, WEBP, GIF, TIFF, and ICO are supported.
+- `fonts` — folder with fonts embedded into the document, if any.
+- `document.json` — file with document info data.
+- `foreign.json` — file with objects from shared libraries.
+- `meta.json` — file with app version, file format, last saved by, when, and other info.
+- `preview.png` — a preview of the file.
 
 Lunacy has the support for the Sketch format from the very beginning. Including both opening and saving such files. It's actually a great format with lots of advantages (JSON, everything bundled in a ZIP archive, extensions via UserInfo, a time-proved data structure, and many others) but over time, we've accumulated a long list of drawbacks that have been limiting Lunacy’s growth.
 
@@ -124,7 +124,11 @@ We didn't rush the development and release of this format. We worked on it for a
 
     - Skecth (682 characters)
     ```json 
-    "points":[{"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{0, 0}","curveMode":1,"curveTo":"{0, 0}","hasCurveFrom":false,"hasCurveTo":false,"point":"{0, 0}"},{"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{1, 0}","curveMode":1,"curveTo":"{1, 0}","hasCurveFrom":false,"hasCurveTo":false,"point":"{1, 0}"},{"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{1, 1}","curveMode":1,"curveTo":"{1, 1}","hasCurveFrom":false,"hasCurveTo":false,"point":"{1, 1}"},{"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{0, 1}","curveMode":1,"curveTo":"{0, 1}","hasCurveFrom":false,"hasCurveTo":false,"point":"{0, 1}"}]
+    "points":[
+      {"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{0, 0}","curveMode":1,"curveTo":"{0, 0}","hasCurveFrom":false,"hasCurveTo":false,"point":"{0, 0}"},
+      {"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{1, 0}","curveMode":1,"curveTo":"{1, 0}","hasCurveFrom":false,"hasCurveTo":false,"point":"{1, 0}"},
+      {"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{1, 1}","curveMode":1,"curveTo":"{1, 1}","hasCurveFrom":false,"hasCurveTo":false,"point":"{1, 1}"},
+      {"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{0, 1}","curveMode":1,"curveTo":"{0, 1}","hasCurveFrom":false,"hasCurveTo":false,"point":"{0, 1}"}]
     ```
     - FREE (34 characters)
     ```json 
@@ -141,13 +145,12 @@ We didn't rush the development and release of this format. We worked on it for a
 * Simplified, compact, and unbounded overrides. You can override any value. A single override can affect several values. In Sketch, the set of overrides is limited. Each field requires its own override. The number of fields is also limited and strictly defined. Plus parsing of complex strings can impact performance. The FREE format eliminates all these issues.
 
     ```json
-    "overrides":[
-    {
-    "target":["bmlSSK7GO0SzhLA-YSdg3Q","TE1yOSobJkONa7C7EvKfig"],
-    "locked":true,
-    "hidden":false,
-    "fills":[{"color":"B2EBF2"}],
-    "link":"back"
+    "overrides":[{
+      "target":["bmlSSK7GO0SzhLA-YSdg3Q","TE1yOSobJkONa7C7EvKfig"],
+      "locked":true,
+      "hidden":false,
+      "fills":[{"color":"B2EBF2"}],
+      "link":"back"
     }] 
     ```
 * ``document.json`` does not include any foreign properties. They are stored in a separate file, named ``foreign.json``. This prevents ``document.json`` from growing to enormous sizes, up to several gigabytes in some cases. Instead, it remains small and quick to parse. Foreign objects are parsed in a separate thread, ensuring it doesn't impact the file's opening speed.
@@ -383,7 +386,7 @@ Has all properties of [`Styled`](#Styled), plus:
 <summary>Sketch compatibility</summary>
 
 * OverlayStyle: [Style](#Style) - style settings for the frame if it acts as an overlay in Sketch prototyping.
-* GroupLayout: [IGroupLayout](#IGroupLayout) - sketch Layout settings. Not supported in Lunacy, but keeping data for compatibility.
+* GroupLayout: [SketchGroupLayout](#SketchGroupLayout) - sketch Layout settings. Not supported in Lunacy, but keeping data for compatibility.
 * BackgroundInExport: [bool](#bool) = `False` - when enabled, the frame background is included into export files.
 * OverlayInteraction: [OverlayBackgroundInteraction](#OverlayBackgroundInteraction) = `None` - overlay interaction for Sketch prototyping.
 * Overlay: [bool](#bool) = `False` - defines whether the frame acts as an overlay in prototyping.
@@ -406,7 +409,7 @@ Has all properties of [`Styled`](#Styled), plus:
 <summary>Sketch compatibility</summary>
 
 * SkipConstraints: [bool](#bool) = `False` - serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
-* GroupLayout: [IGroupLayout](#IGroupLayout) - sketch group layout. We don't support it but keep it for compatibility
+* GroupLayout: [SketchGroupLayout](#SketchGroupLayout) - sketch group layout. We don't support it but keep it for compatibility
 </details>
 
 ### <a name="Instance"></a>Instance
@@ -450,7 +453,7 @@ Has all properties of [`Styled`](#Styled), plus:
 <summary>Sketch compatibility</summary>
 
 * SkipConstraints: [bool](#bool) = `False` - serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
-* GroupLayout: [IGroupLayout](#IGroupLayout) - sketch group layout. We don't support it, but keep it for compatibility.
+* GroupLayout: [SketchGroupLayout](#SketchGroupLayout) - sketch group layout. We don't support it, but keep it for compatibility.
 </details>
 
 ### <a name="Text"></a>Text
@@ -560,13 +563,13 @@ Defines auto layout settings.
 * Orientation: [LayoutOrientation](#LayoutOrientation) = `Horizontal` - layout orientation: horizontal or vertical.
 * Spacing: [float](#float) = `0` - spacing value
 * Padding: [Thickness](#Thickness) = `[0,0,0,0]` - padding value.
-* Align: [HorizontalAlignment](#HorizontalAlignment) = `Left` - horizontal alignment settings.???
-* Valign: [VerticalAlignment](#VerticalAlignment) = `Top` - vertical alignment settings.???
-* Sizing: [SizingMode](#SizingMode) = `Auto` - horizontal resizing mode: fixed or hug.???
-* Vsizing: [SizingMode](#SizingMode) = `Auto` - vertical resizing mode: fixed or hug.???
+* Align: [HorizontalAlignment](#HorizontalAlignment) = `Left` - horizontal children alignment
+* Valign: [VerticalAlignment](#VerticalAlignment) = `Top` - vertical children alignment
+* Sizing: [SizingMode](#SizingMode) = `Auto` - horizontal resizing mode: fixed or hug.
+* Vsizing: [SizingMode](#SizingMode) = `Auto` - vertical resizing mode: fixed or hug.
 * TextBaseline: [bool](#bool) = `False` - if text baseline alignment is enabled.
 * StrokesIncluded: [bool](#bool) = `False` - if the Include Borders option is enabled.
-* ReverseZIndex: [bool](#bool) = `False` - if the Last on Top option is enabled. ???
+* ReverseZIndex: [bool](#bool) = `False` - if the Last on Top option is enabled.
 * Wrap: [bool](#bool) = `False` - if wrapping is enabled.
 * WrapDistribute: [bool](#bool) = `False` - spacing between rows of wrapped content.
 * WrapSpacing: [float](#float) = `0`
@@ -623,6 +626,7 @@ Defines column settings in a layout grid.
 The document's .json structure.
 
 * Id: [GUID](#GUID) - unique document ID.
+* Nudge: [Point](#Point) = `[1,10]` - nudge Amount. X - small nudge. Y = large nudge.
 * FromFigma: [bool](#bool) = `False` - if the document is imported from Figma.
 * Images: [string[]](#string) - images stored in the document.
 * Colors: [ColorAsset[]](#ColorAsset) - colors stored in the document (color picker > dropdown list (global) > document).
@@ -660,8 +664,8 @@ Defines the fill applied to a layer.
 * Type: [FillType](#FillType) = `Color` - defines the fill type.
 * Opacity: [float](#float) = `0` - defines the fill opacity.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - defines the blend mode.
-* Pattern: [Pattern](#Pattern) - defines the pattern for image fills: tile, stretch, etc.
-* Gradient: [Gradient](#Gradient) - indicates that the fill is a gradient. ????
+* Pattern: [Pattern](#Pattern) - contains pattern fill properties in case the fill is a pattern fill.
+* Gradient: [Gradient](#Gradient) - contains gradient properties in case the fill is a gradient.
 
 ### <a name="Font"></a>Font
 Embedded fonts stored in the document.
@@ -859,13 +863,13 @@ Document page properties.
 Defines the image fill options.
 
 * Type: [PatternFillType](#PatternFillType) = `Fill` - defines the fill type: tile, fill, stretch, fit, or crop.
-* Image: [string](#string) - defines the image used as a fill.???? path/id or what???
+* Image: [string](#string) - defines the image name used as a fill.
 * Rotation: [float](#float) = `0` - image rotation value, in degrees. Applicable to all types, except for crop.
 * TileScale: [float](#float) = `1` - tile scale value. Applicable to the tile type only.
 * Transform: [Matrix?](#Matrix) - defines how the image is cropped. Applicable to the crop type only.
 
 ### <a name="PrototypeViewport"></a>PrototypeViewport
-????
+This is Frame Preset. Also used to determine viewport size for a large frame to scroll it properly.
 
 * Name: [string](#string)
 * Size: [Size](#Size) = `[0,0]`
@@ -917,7 +921,7 @@ Style saved in the document.
 ### <a name="Style"></a>Style
 Defines a set of properties that make up a style.
 
-* MiterLimit: [int](#int) = `10` - ?????
+* MiterLimit: [int](#int) = `10` - defining a limit on the ratio of the miter length to the border thickness used to draw a miter join.
 * Opacity: [float](#float) = `1` - opacity of a layer.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode: how a layer blends with the layers behind it.
 * StartMarker: [Arrowhead](#Arrowhead) = `None` - defines the appearance of the starting point for arrows, lines, and open paths.
@@ -1013,7 +1017,7 @@ A utility class to represent layer size.
 * Height: [float](#float) - layer height.
 
 ### <a name="Thickness"></a>Thickness Struct
-???
+Thickness struct. Used for Border thickness and Padding values
 
 ### <a name="Vertex"></a>Vertex Struct
 A utility class to represent a vertex.
@@ -1083,9 +1087,9 @@ Defines the blur type.
 * `3` Background - background blur.
 
 ### <a name="BoolOp"></a>BoolOp Enum
-Types of bollean operations used to combine shapes.
+Types of boolean operations used to combine shapes.
 
-* `-1` None - not set. Works like Difference or like Union depending on the context. ????
+* `-1` None - not set. Works like Difference or like Union depending on the context.
 * `0` Union - creates a shape from the sum of the areas of the selected shapes.
 * `1` Subtract - the opposite of Union. Removes the overlapping area(s) from the shape layer at the bottom of the selection.
 * `2` Intersect - the resulting shape only includes the area where all selected shapes overlap.
@@ -1289,7 +1293,7 @@ Defines the scale type for exported objects.
 * `2` Height
 
 ### <a name="SizingMode"></a>SizingMode Enum
-Defines the behavior of auto layout containers as their content is changed. ????
+Defines the behavior of auto layout containers as their content is changed.
 
 * `0` Auto - the container adjusts to the size of the content (hug).
 * `1` Fixed - the container has a fixed size (fix).
@@ -1412,19 +1416,8 @@ Defines color overrides for components. _//Sketch Compatibility_
 
 * ColorId: [GUID?](#GUID) - color variable ID.
 * Property: [ColorOverrideType](#ColorOverrideType) = `Unknown` - color override type: none, fill, border, shadow, or inner shadow.
-* Index: [int](#int) = `0` - ????
+* Index: [int](#int) = `0` - fill index. Starts from 0.
 * Color: [Color](#Color) = `00000000`
-
-### <a name="FreeFormGroupLayout"></a>FreeFormGroupLayout
-???? _//Sketch Compatibility_
-
-### <a name="InferredGroupLayout"></a>InferredGroupLayout
-??? _//Sketch Compatibility_
-
-* Axis: [GroupLayoutAxis](#GroupLayoutAxis) = `Horizontal`
-* LayoutAnchor: [GroupLayoutAnchor](#GroupLayoutAnchor) = `Begin`
-* MaxSize: [float](#float) = `0`
-* MinSize: [float](#float) = `0`
 
 ### <a name="OverlaySettings"></a>OverlaySettings
 Defines overlay settings. _//Sketch Compatibility_
@@ -1433,6 +1426,14 @@ Defines overlay settings. _//Sketch Compatibility_
 * OverlayAnchor: [Point](#Point) = `[0,0]`
 * OverlayType: [OverlayType](#OverlayType) = `0`
 * SourceAnchor: [Point](#Point) = `[0,0]`
+
+### <a name="SketchGroupLayout"></a>SketchGroupLayout
+Sketch Group Layout Properties _//Sketch Compatibility_
+
+* Axis: [GroupLayoutAxis](#GroupLayoutAxis) = `Horizontal` - layout Orientation
+* LayoutAnchor: [GroupLayoutAnchor](#GroupLayoutAnchor) = `Begin` - layout Align
+* MaxSize: [float](#float) = `0` - maximum Container Size
+* MinSize: [float](#float) = `0` - minimum Container Size
 
 ### <a name="TextColorOverride"></a>TextColorOverride
 Defines text color overrides for components. _//Sketch Compatibility_
@@ -1447,9 +1448,7 @@ Defines text weight overrides for components. _//Sketch Compatibility_
 * Proportion: [float](#float) = `0`
 * Symbolic: [float](#float) = `0`
 * Weight: [float](#float) = `0`
-
-### <a name="IGroupLayout"></a>IGroupLayout
-???? _//Sketch Compatibility_
+* PostScriptName: [string](#string)
 
 ### <a name="ColorOverrideType"></a>ColorOverrideType Enum
 Defines types of color overrides for components. _//Sketch Compatibility_
@@ -1476,14 +1475,14 @@ Sketch legacy, not supported in Lunacy _//Sketch Compatibility_
 * `3` Squared
 
 ### <a name="GroupLayoutAnchor"></a>GroupLayoutAnchor Enum
-??? _//Sketch Compatibility_
+Layout alignment on axis. For vertical it's: left, center or right. For horizontal: top, middle or bottom. _//Sketch Compatibility_
 
 * `0` Begin
 * `1` Middle
 * `2` End
 
 ### <a name="GroupLayoutAxis"></a>GroupLayoutAxis Enum
-??? _//Sketch Compatibility_
+Group Layout Orientation _//Sketch Compatibility_
 
 * `0` Horizontal
 * `1` Vertical
@@ -1496,7 +1495,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `2` PrimaryPrefix - indicates that the file name comes with a user-defined prefix.
 
 ### <a name="OverlayBackgroundInteraction"></a>OverlayBackgroundInteraction Enum
-Overlay-background interaction options.??? _//Sketch Compatibility_
+Overlay-background interaction options. _//Sketch Compatibility_
 
 * `0` None
 * `1` CrossOverlay

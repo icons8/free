@@ -16,7 +16,7 @@ public class Shape : Styled
     /// Sketch group layout. We don't support it, but keep it for compatibility.
     /// </summary>
     [SketchCompatibility]
-    public IGroupLayout? GroupLayout { get; set; }
+    public SketchGroupLayout? GroupLayout { get; set; }
     /// <summary>
     /// List of layers.
     /// </summary>

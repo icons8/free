@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// ????
+/// This is Frame Preset. Also used to determine viewport size for a large frame to scroll it properly.
 /// </summary>
 
 public sealed class PrototypeViewport

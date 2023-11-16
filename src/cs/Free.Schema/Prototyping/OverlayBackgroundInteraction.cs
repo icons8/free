@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// Overlay-background interaction options.???
+/// Overlay-background interaction options.
 /// </summary>
 
 [SketchCompatibility]

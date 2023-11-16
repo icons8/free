@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// Defines the behavior of auto layout containers as their content is changed. ????
+/// Defines the behavior of auto layout containers as their content is changed.
 /// </summary>
 public enum SizingMode : byte
 {

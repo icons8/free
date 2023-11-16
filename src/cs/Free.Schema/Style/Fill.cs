@@ -30,11 +30,11 @@ public class Fill
     /// </summary>
     public BlendMode BlendMode { get; set; } 
     /// <summary>
-    /// Defines the pattern for image fills: tile, stretch, etc.
+    /// Contains pattern fill properties in case the fill is a pattern fill.
     /// </summary>
     public Pattern Pattern { get; } = new();
     /// <summary>
-    /// Indicates that the fill is a gradient. ????
+    /// Contains gradient properties in case the fill is a gradient.
     /// </summary>
     public Gradient Gradient { get; } = new();
 }

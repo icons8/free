@@ -8,8 +8,9 @@ public class Pattern
     /// Defines the fill type: tile, fill, stretch, fit, or crop.
     /// </summary>
     public PatternFillType Type { get; set; } = PatternFillType.Fill;
+    
     /// <summary>
-    /// Defines the image used as a fill.???? path/id or what???
+    /// Defines the image name used as a fill.
     /// </summary>
     public string? Image { get; set; }
     

@@ -37,7 +37,7 @@ public class Frame : Styled
     /// Sketch Layout settings. Not supported in Lunacy, but keeping data for compatibility.
     /// </summary>
     [SketchCompatibility]
-    public IGroupLayout? GroupLayout { get; set; }
+    public SketchGroupLayout? GroupLayout { get; set; }
 
     /// <summary>
     /// When enabled, the frame background is included into export files.

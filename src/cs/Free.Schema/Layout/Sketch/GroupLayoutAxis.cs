@@ -1,8 +1,8 @@
 namespace Free.Schema;
-/// <summary>
-/// ???
-/// </summary>
 
+/// <summary>
+/// Group Layout Orientation
+/// </summary>
 [SketchCompatibility]
 public enum GroupLayoutAxis : byte
 {

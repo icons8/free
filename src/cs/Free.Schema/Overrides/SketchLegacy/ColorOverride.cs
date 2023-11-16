@@ -16,7 +16,7 @@ public sealed class ColorOverride
     /// </summary>
     public ColorOverrideType Property { get; set; }
     /// <summary>
-    /// ????
+    /// Fill index. Starts from 0.
     /// </summary>
     public int Index { get; set; }
 }

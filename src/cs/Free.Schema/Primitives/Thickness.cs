@@ -1,6 +1,7 @@
 namespace Free.Schema;
+
 /// <summary>
-/// ???
+/// Thickness struct. Used for Border thickness and Padding values
 /// </summary>
 public readonly struct Thickness
 {

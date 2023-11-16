@@ -5,7 +5,7 @@ namespace Free.Schema;
 public class Style
 {
     /// <summary>
-    /// ?????
+    /// Defining a limit on the ratio of the miter length to the border thickness used to draw a miter join.
     /// </summary>
     public int MiterLimit { get; set; } = 10;
     /// <summary>
