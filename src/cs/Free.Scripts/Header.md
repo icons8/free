@@ -4,13 +4,13 @@ FREE is an open source format for vector graphic files designed to be compact, h
 
 A FREE file is a ZIP archive with the following structure:
 
-- Pages — folder with JSON files containing layer structure and properties.
-- Images — folder with raster assets. PNG, JPG, BMP, WEBP, GIF, TIFF, and ICO are supported.
-- Fonts — folder with fonts embedded into the document, if any.
-- document.json — file with document info data.
-- foreign.json — file with objects from shared libraries.
-- meta.json — file with app version, file format, last saved by, when, and other info.
-- preview.png — a preview of the file.
+- `pages` — folder with JSON files containing layer structure and properties.
+- `images` — folder with raster assets. PNG, JPG, BMP, WEBP, GIF, TIFF, and ICO are supported.
+- `fonts` — folder with fonts embedded into the document, if any.
+- `document.json` — file with document info data.
+- `foreign.json` — file with objects from shared libraries.
+- `meta.json` — file with app version, file format, last saved by, when, and other info.
+- `preview.png` — a preview of the file.
 
 Lunacy has the support for the Sketch format from the very beginning. Including both opening and saving such files. It's actually a great format with lots of advantages (JSON, everything bundled in a ZIP archive, extensions via UserInfo, a time-proved data structure, and many others) but over time, we've accumulated a long list of drawbacks that have been limiting Lunacy’s growth.
 
@@ -124,7 +124,11 @@ We didn't rush the development and release of this format. We worked on it for a
 
     - Skecth (682 characters)
     ```json 
-    "points":[{"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{0, 0}","curveMode":1,"curveTo":"{0, 0}","hasCurveFrom":false,"hasCurveTo":false,"point":"{0, 0}"},{"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{1, 0}","curveMode":1,"curveTo":"{1, 0}","hasCurveFrom":false,"hasCurveTo":false,"point":"{1, 0}"},{"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{1, 1}","curveMode":1,"curveTo":"{1, 1}","hasCurveFrom":false,"hasCurveTo":false,"point":"{1, 1}"},{"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{0, 1}","curveMode":1,"curveTo":"{0, 1}","hasCurveFrom":false,"hasCurveTo":false,"point":"{0, 1}"}]
+    "points":[
+      {"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{0, 0}","curveMode":1,"curveTo":"{0, 0}","hasCurveFrom":false,"hasCurveTo":false,"point":"{0, 0}"},
+      {"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{1, 0}","curveMode":1,"curveTo":"{1, 0}","hasCurveFrom":false,"hasCurveTo":false,"point":"{1, 0}"},
+      {"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{1, 1}","curveMode":1,"curveTo":"{1, 1}","hasCurveFrom":false,"hasCurveTo":false,"point":"{1, 1}"},
+      {"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{0, 1}","curveMode":1,"curveTo":"{0, 1}","hasCurveFrom":false,"hasCurveTo":false,"point":"{0, 1}"}]
     ```
     - FREE (34 characters)
     ```json 
@@ -141,13 +145,12 @@ We didn't rush the development and release of this format. We worked on it for a
 * Simplified, compact, and unbounded overrides. You can override any value. A single override can affect several values. In Sketch, the set of overrides is limited. Each field requires its own override. The number of fields is also limited and strictly defined. Plus parsing of complex strings can impact performance. The FREE format eliminates all these issues.
 
     ```json
-    "overrides":[
-    {
-    "target":["bmlSSK7GO0SzhLA-YSdg3Q","TE1yOSobJkONa7C7EvKfig"],
-    "locked":true,
-    "hidden":false,
-    "fills":[{"color":"B2EBF2"}],
-    "link":"back"
+    "overrides":[{
+      "target":["bmlSSK7GO0SzhLA-YSdg3Q","TE1yOSobJkONa7C7EvKfig"],
+      "locked":true,
+      "hidden":false,
+      "fills":[{"color":"B2EBF2"}],
+      "link":"back"
     }] 
     ```
 * ``document.json`` does not include any foreign properties. They are stored in a separate file, named ``foreign.json``. This prevents ``document.json`` from growing to enormous sizes, up to several gigabytes in some cases. Instead, it remains small and quick to parse. Foreign objects are parsed in a separate thread, ensuring it doesn't impact the file's opening speed.
