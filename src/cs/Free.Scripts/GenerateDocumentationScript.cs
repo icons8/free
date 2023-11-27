@@ -15,9 +15,20 @@ public static class GenerateDocumentationScript
         Saturate(items);
         items = OrderItems(items);
 
-        var str = new MarkdownBuilder(items).Build();
+        var builder = new MarkdownBuilder(items);
+        var str = builder.Build();
         File.WriteAllText(PathHelper.GetReadmePath(), str);
         Console.WriteLine(str);
+
+        if (builder.Missing.Count > 0)
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            foreach (var miss in builder.Missing)
+            {
+                Console.WriteLine("[WARNING] Missing description - " + miss);
+            }
+        }
     }
 
     private static void Saturate(List<Node> items)

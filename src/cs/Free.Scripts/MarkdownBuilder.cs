@@ -6,8 +6,9 @@ namespace Free.Scripts;
 
 public class MarkdownBuilder
 {
-    private readonly List<Node> _items;
-    private readonly StringBuilder _sb = new();
+    private readonly List<Node>    _items;
+    private readonly StringBuilder _sb      = new();
+    public readonly List<string>  Missing = new();
 
     public MarkdownBuilder(List<Node> items)
     {
@@ -59,14 +60,27 @@ public class MarkdownBuilder
 
     private void PrintFields(Node item)
     {
-        var basicFields = item.Childs.Where(x => x.Attributes.Length == 0).ToArray();
-        var sketchFields = item.Childs.Where(x => x.Attributes.OfType<SketchCompatibilityAttribute>().Any()).ToArray();
-        var lunacyFields = item.Childs.Where(x => x.Attributes.OfType<LunacySpecificAttribute>().Any()).ToArray();
+        var basicFields = item.Childs
+            .Where(x => x.Attributes.Length == 0)
+            .OrderByDescending(x => x.Name.StartsWith('_'))
+            .ToArray();
+        var sketchFields = item.Childs
+            .Where(x => x.Attributes.OfType<SketchCompatibilityAttribute>().Any())
+            .ToArray();
+        var lunacyFields = item.Childs
+            .Where(x => x.Attributes.OfType<LunacySpecificAttribute>().Any())
+            .ToArray();
 
         if (basicFields.Length > 0)
         {
             foreach (var child in basicFields)
             {
+                if (!child.Name.StartsWith('_') &&
+                    string.IsNullOrWhiteSpace(child.Summary) &&
+                    child.Parent is not { Type: NodeType.Enum })
+                {
+                    Missing.Add(child.Parent?.Name + "." + child.Name);
+                }
                 PrintField(child, item.Type);
             }
 

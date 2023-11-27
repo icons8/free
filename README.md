@@ -122,7 +122,7 @@ We didn't rush the development and release of this format. We worked on it for a
 
 * **The key difference**. The Vertex data type, which defines path points, and has several notation options. It's simply an array of numbers and can include up to eight values: ``[x, y, flags, radius, fromX, fromY, toX, toY]``. If the points on the right end of the array have default values, they are omitted. So, if toX, toY, fromX, fromY are all zeros, the array will look like ``[x,y,flags,radius]``. And if flags and radius are zeros, it becomes ``[x, y]``. Compare these two definitions of points of a rectangle, the most frequent element in all documents:
 
-    - Skecth (682 characters)
+    - Sketch (682 characters)
     ```json 
     "points":[
       {"_class":"curvePoint","cornerRadius":0,"cornerStyle":0,"curveFrom":"{0, 0}","curveMode":1,"curveTo":"{0, 0}","hasCurveFrom":false,"hasCurveTo":false,"point":"{0, 0}"},
@@ -312,10 +312,10 @@ A component is a reusable groups of layers.
 
 Has all properties of [`Frame`](#Frame), plus:
 
+* _t: [string](#string) = `COMPONENT`
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * Predefined: [bool](#bool) = `False` - indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
 * ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for component filters.
-* _t: [string](#string) = `COMPONENT`
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -328,35 +328,35 @@ An oval is a shape drawn on the canvas with the Oval tool.
 
 Has all properties of [`Path`](#Path), plus:
 
+* _t: [string](#string) = `OVAL`
 * Angle: [float](#float) = `0` - end angle for donuts measured clockwise from the X axis.
 * Ratio: [float](#float) = `0` - inner radius for donuts.
 * StartAngle: [float](#float) = `0` - start angle for donuts measured clockwise from the X axis.
-* _t: [string](#string) = `OVAL`
 
 ### <a name="Polygon"></a>Polygon
 A polygon is a shape drawn on the canvas with the Polygon tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* Rays: [float](#float) = `0` - defines the number of corners.
 * _t: [string](#string) = `POLYGON`
+* Rays: [float](#float) = `0` - defines the number of corners.
 
 ### <a name="Rectangle"></a>Rectangle
 A rectangle is a shape drawn on the canvas with the Rectangle tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* SmoothCorners: [bool](#bool) = `False` - if the smooth corners option is enabled. Works only if the rectangle is not edited.
 * _t: [string](#string) = `RECT`
+* SmoothCorners: [bool](#bool) = `False` - if the smooth corners option is enabled. Works only if the rectangle is not edited.
 
 ### <a name="Star"></a>Star
 A star is a shape drawn on the canvas with the Star tool.
 
 Has all properties of [`Path`](#Path), plus:
 
+* _t: [string](#string) = `STAR`
 * Rays: [float](#float) = `0` - defines the number of rays in a star.
 * Ratio: [float](#float) = `0` - defines the star ratio value.
-* _t: [string](#string) = `STAR`
 
 ### <a name="Triangle"></a>Triangle
 A triangle is a shape drawn on the canvas with the Triangle tool.
@@ -371,6 +371,7 @@ A frame is a special type of layers that serves as a container for other layers 
 
 Has all properties of [`Styled`](#Styled), plus:
 
+* _t: [string](#string) = `FRAME`
 * CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame.
 * SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 * ClipContent: [bool](#bool) = `False` - when enabled, hides the content outside the frame boundaries.
@@ -380,7 +381,6 @@ Has all properties of [`Styled`](#Styled), plus:
 * Layouts: [IGridLayout[]](#IGridLayout) - grid, Row and Column layouts of the frame.
 * Rulers: [Rulers](#Rulers) - rulers and guidelines info.
 * Layers: [Layer[]](#Layer) - list of layers on the frame.
-* _t: [string](#string) = `FRAME`
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -401,9 +401,9 @@ A layer group is two or more layers unified into a single entity that can be man
 
 Has all properties of [`Styled`](#Styled), plus:
 
+* _t: [string](#string) = `GROUP`
 * SkipSelect: [bool](#bool) = `False` - when enabled, users can select group items without first selecting the group.
 * Layers: [Layer[]](#Layer) - list of layers within the group.
-* _t: [string](#string) = `GROUP`
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -417,12 +417,12 @@ An instance is a copy of the main component. With instances, you can reuse the s
 
 Has all properties of [`Styled`](#Styled), plus:
 
+* _t: [string](#string) = `INSTANCE`
 * CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the instance frame.
 * SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 * Scale: [float](#float) = `0` - scale of the instance.
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * Overrides: [Override[]](#Override) - defines the overrides applied to the instance.
-* _t: [string](#string) = `INSTANCE`
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -436,18 +436,18 @@ A vector path determines the outline and form of a vector object. A path is made
 
 Has all properties of [`Styled`](#Styled), plus:
 
+* _t: [string](#string) = `PATH`
 * Edited: [bool](#bool) = `False` - if the shape is edited in the path editor.
 * Open: [bool](#bool) = `False` - indicates whether the path is open.
 * Points: [Vertex[]](#Vertex) - list of path's points.
-* _t: [string](#string) = `PATH`
 
 ### <a name="Shape"></a>Shape
 A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* Layers: [Layer[]](#Layer) - list of layers.
 * _t: [string](#string) = `SHAPE`
+* Layers: [Layer[]](#Layer) - list of layers.
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -461,12 +461,12 @@ Text is a block or line of text on the canvas.
 
 Has all properties of [`Styled`](#Styled), plus:
 
+* _t: [string](#string) = `TEXT`
 * text: [string](#string) - content of the text layer.
 * TextStyle: [TextStyle](#TextStyle) - style applied to the text.
 * Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
 * Behavior: [TextBehavior](#TextBehavior) = `Flexible` - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * ClipContent: [bool](#bool) = `True` - valid for files imported from Figma. Defines whether to truncate text content.
-* _t: [string](#string) = `TEXT`
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -486,10 +486,10 @@ A slice is a special type of layers used for exporting certaing parts of designs
 
 Has all properties of [`Layer`](#Layer), plus:
 
+* _t: [string](#string) = `SLICE`
 * HasBackground: [bool](#bool) = `False` - defines whether the slice includes background.
 * Background: [Color](#Color) = `00000000` - defines the background color.
 * BackgroundId: [GUID?](#GUID) - unique color variable ID.
-* _t: [string](#string) = `SLICE`
 
 ### <a name="Styled"></a>Styled
 A styled layer is a layer that has layer styling options.
@@ -958,8 +958,8 @@ Defines a set of properties that make up a text style.
 ### <a name="IGridLayout"></a>IGridLayout
 Defines layout grid settings for a frame.
 
-* Enabled: [bool](#bool) = `False` - if layout grid is enabled.
 * _t: [string](#string) = `COLS`
+* Enabled: [bool](#bool) = `False` - if layout grid is enabled.
 
 ### <a name="ILayoutContainer"></a>ILayoutContainer
 Defines an auto layout.
