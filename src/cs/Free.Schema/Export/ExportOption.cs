@@ -3,12 +3,12 @@ namespace Free.Schema;
 /// <summary>
 /// Export settings.
 /// </summary>
-public class ExportFormat
+public class ExportOption
 {
     /// <summary>
     /// Defines the width/height of the exported object. Valid only when ScaleType is *Width* or *Height*.
     /// </summary>
-    public float Size { get; set; }
+    public float Size { get; set; } = 0;
     /// <summary>
     /// Export format. Default: PNG.
     /// </summary>
@@ -24,7 +24,7 @@ public class ExportFormat
     /// <summary>
     /// Defines the scale used when exporting an object. Valid only when ScaleType is set to *Scale*.
     /// </summary>
-    public float Scale { get; set; }
+    public float Scale { get; set; } = 1;
     /// <summary>
     /// Defines the scale type: Scale(px)/Width/Height. The Width and Height types are currently not supported.
     /// </summary>

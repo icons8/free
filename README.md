@@ -522,6 +522,7 @@ A layer is any ungrouped element available on the canvas.
 * Hidden: [bool](#bool) = `False` - defines whether the layer is hidden.
 * IsTemplate: [bool](#bool) = `False` - defines whether tha layer is marked as a template.
 * Expand: [bool](#bool) = `False` - defines whether the layer is expanded in Layer List.
+* Trim: [bool](#bool) = `False` - when enabled, trims empty pixels in exported images.
 * Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - position, rotation and flips of an object, stored in a single 3x2 matrix.
 * Size: [Size](#Size) = `[100,100]` - defines the layer size.
 * LockAspect: [bool](#bool) = `False` - defines whether the layer's aspect ratio should be remain unchanged upon resizing.
@@ -639,21 +640,15 @@ The document's .json structure.
 * ColorSpace: [ColorSpace](#ColorSpace) = `Unmanaged`
 * CurrentPageIndex: [int](#int) = `0`
 
-### <a name="ExportFormat"></a>ExportFormat
+### <a name="ExportOption"></a>ExportOption
 Export settings.
 
 * Size: [float](#float) = `0` - defines the width/height of the exported object. Valid only when ScaleType is *Width* or *Height*.
 * Format: [string](#string) = `png` - export format. Default: PNG.
 * Name: [string](#string) - user-defined suffix/preffix (string) added to the export file name. Default: empty.
 * Naming: [NamingScheme](#NamingScheme) = `Suffix` - defines whether a suffix or preffix will be added to the export files name. Default: suffix.
-* Scale: [float](#float) = `0` - defines the scale used when exporting an object. Valid only when ScaleType is set to *Scale*.
+* Scale: [float](#float) = `1` - defines the scale used when exporting an object. Valid only when ScaleType is set to *Scale*.
 * Type: [ScaleType](#ScaleType) = `Scale` - defines the scale type: Scale(px)/Width/Height. The Width and Height types are currently not supported.
-
-### <a name="ExportOptions"></a>ExportOptions
-Export options.
-
-* Formats: [ExportFormat[]](#ExportFormat) - list of export formats set by the user.
-* Trim: [bool](#bool) = `False` - when enabled, trims empty pixels in exported images.
 
 ### <a name="Fill"></a>Fill
 Defines the fill applied to a layer.
@@ -789,7 +784,6 @@ Contains metadata about the document.
 Defines overrides for components.
 
 * ComponentId: [GUID?](#GUID)
-* Export: [ExportOptions](#ExportOptions)
 * Image: [string](#string)
 * Link: [string](#string)
 * Locked: [bool?](#bool)

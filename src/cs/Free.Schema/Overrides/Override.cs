@@ -7,7 +7,7 @@ public sealed class Override
     public Guid[] Target { get; set; } = Array.Empty<Guid>();
     
     public Guid? ComponentId { get; set; }
-    public ExportOptions? Export { get; set; }
+    public List<ExportOption>? Export { get; set; }
     public string? Image { get; set; }
     public string? Link { get; set; }
     public bool? Locked { get; set; }

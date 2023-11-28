@@ -44,9 +44,13 @@ public abstract class Layer
     /// </summary>
     public bool Expand { get; set; }
     /// <summary>
-    /// Defines export settings of the layer.
+    /// When enabled, trims empty pixels in exported images.
     /// </summary>
-    public ExportOptions Export { get; } = new();
+    public bool Trim { get; set; }
+    /// <summary>
+    /// Export options of the layer.
+    /// </summary>
+    public List<ExportOption> Export { get; set; } = new();
     
     /// <summary>
     /// Defines constraint settings of the layer. String with chars where every char means a flag:
