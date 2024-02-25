@@ -8,7 +8,7 @@ A FREE file is a ZIP archive with the following structure:
 - `images` — folder with raster assets. PNG, JPG, BMP, WEBP, GIF, TIFF, and ICO are supported.
 - `fonts` — folder with fonts embedded into the document, if any.
 - `document.json` — file with document info data.
-- `foreign.json` — file with objects from shared libraries.
+- `shared.json` — file with objects from shared libraries.
 - `meta.json` — file with app version, file format, last saved by, when, and other info.
 - `preview.png` — a preview of the file.
 

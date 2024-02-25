@@ -8,7 +8,7 @@ A FREE file is a ZIP archive with the following structure:
 - `images` — folder with raster assets. PNG, JPG, BMP, WEBP, GIF, TIFF, and ICO are supported.
 - `fonts` — folder with fonts embedded into the document, if any.
 - `document.json` — file with document info data.
-- `foreign.json` — file with objects from shared libraries.
+- `shared.json` — file with objects from shared libraries.
 - `meta.json` — file with app version, file format, last saved by, when, and other info.
 - `preview.png` — a preview of the file.
 
@@ -634,8 +634,7 @@ The document's .json structure.
 * Gradients: [GradientAsset[]](#GradientAsset) - gradients stored in the document (color picker > dropdown list (global) > document).
 * Fonts: [Font[]](#Font) - embedded fonts stored in the document.
 * ColorVariables: [ColorVariable[]](#ColorVariable) - color variables stored in the document.
-* LayerStyles: [SharedStyle[]](#SharedStyle) - layer styles stored in the document.
-* TextStyles: [SharedStyle[]](#SharedStyle) - text styles stored in the document.
+* Styles: [SharedStyle[]](#SharedStyle) - styles stored in the document.
 * Pages: [GUID[]](#GUID) - list of document pages.
 * ColorSpace: [ColorSpace](#ColorSpace) = `Unmanaged`
 * CurrentPageIndex: [int](#int) = `0`
@@ -669,14 +668,6 @@ Embedded fonts stored in the document.
 * Name: [string](#string) - font name.
 * FileName: [string](#string) - font file name.
 * PostscriptNames: [string[]](#string) - postScript names of the font.
-
-### <a name="Foreign"></a>Foreign
-Defines entities from external libraries.
-
-* ColorVariables: [ForeignColorVariable[]](#ForeignColorVariable) - color variables from an external library.
-* LayerStyles: [ForeignSharedStyle[]](#ForeignSharedStyle) - layer styles from an external library.
-* TextStyles: [ForeignSharedStyle[]](#ForeignSharedStyle) - text styles from an external library.
-* Components: [ForeignComponent[]](#ForeignComponent) - components from an external library.
 
 ### <a name="ForeignColorVariable"></a>ForeignColorVariable
 Describes color variables from external libraries.
@@ -904,6 +895,13 @@ Defines the shadow options.
 * Offset: [Point](#Point) = `[0,0]` - how far the shadow is projected in the x and y directions.
 * Opacity: [float](#float) = `0` - shadow opacity.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - shadow blend mode.
+
+### <a name="Shared"></a>Shared
+Defines entities from shared libraries.
+
+* ColorVariables: [ForeignColorVariable[]](#ForeignColorVariable) - color variables from an external library.
+* Styles: [ForeignSharedStyle[]](#ForeignSharedStyle) - styles from an external library.
+* Components: [ForeignComponent[]](#ForeignComponent) - components from an external library.
 
 ### <a name="SharedStyle"></a>SharedStyle
 Style saved in the document.

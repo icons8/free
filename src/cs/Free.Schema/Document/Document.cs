@@ -41,13 +41,9 @@ public class Document
     /// </summary>
     public List<ColorVariable> ColorVariables { get; } = new();
     /// <summary>
-    /// Layer styles stored in the document.
+    /// Styles stored in the document.
     /// </summary>
-    public List<SharedStyle> LayerStyles { get; } = new();
-    /// <summary>
-    /// Text styles stored in the document.
-    /// </summary>    
-    public List<SharedStyle> TextStyles { get; } = new();
+    public List<SharedStyle> Styles { get; } = new();
     /// <summary>
     /// List of document pages.
     /// </summary>
