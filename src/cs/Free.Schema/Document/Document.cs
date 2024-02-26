@@ -9,6 +9,7 @@ public class Document
     /// Unique document ID.
     /// </summary>
     public Guid Id { get; set; }
+    [SketchCompatibility]
     public ColorSpace ColorSpace { get; set; }
 
     /// <summary>
@@ -19,6 +20,9 @@ public class Document
     /// If the document is imported from Figma.
     /// </summary>
     public bool FromFigma { get; set; }
+    /// <summary>
+    /// Selected page index!!!!
+    /// </summary>
     public int CurrentPageIndex { get; set; }
     /// <summary>
     /// Images stored in the document.

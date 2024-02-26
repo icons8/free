@@ -364,7 +364,12 @@ A triangle is a shape drawn on the canvas with the Triangle tool.
 Has all properties of [`Path`](#Path), plus:
 
 * _t: [string](#string) = `TRIANGLE`
-* Equilateral: [bool](#bool) = `False`
+
+<details>
+<summary>Sketch compatibility</summary>
+
+* Equilateral: [bool](#bool) = `False` - defines whether the triangle is equilateral.
+</details>
 
 ### <a name="Frame"></a>Frame
 A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
@@ -563,6 +568,7 @@ Defines auto layout settings.
 
 * Orientation: [LayoutOrientation](#LayoutOrientation) = `Horizontal` - layout orientation: horizontal or vertical.
 * Spacing: [float](#float) = `0` - spacing value
+* WrapSpacing: [float](#float) = `0` - spacing between wrapped lines.!!!!
 * Padding: [Thickness](#Thickness) = `[0,0,0,0]` - padding value.
 * Align: [HorizontalAlignment](#HorizontalAlignment) = `Left` - horizontal children alignment
 * Valign: [VerticalAlignment](#VerticalAlignment) = `Top` - vertical children alignment
@@ -573,7 +579,6 @@ Defines auto layout settings.
 * ReverseZIndex: [bool](#bool) = `False` - if the Last on Top option is enabled.
 * Wrap: [bool](#bool) = `False` - if wrapping is enabled.
 * WrapDistribute: [bool](#bool) = `False` - spacing between rows of wrapped content.
-* WrapSpacing: [float](#float) = `0`
 
 ### <a name="BlurEffect"></a>BlurEffect
 Defines the settings of the blur effect.
@@ -629,6 +634,7 @@ The document's .json structure.
 * Id: [GUID](#GUID) - unique document ID.
 * Nudge: [Point](#Point) = `[1,10]` - nudge Amount. X - small nudge. Y = large nudge.
 * FromFigma: [bool](#bool) = `False` - if the document is imported from Figma.
+* CurrentPageIndex: [int](#int) = `0` - selected page index!!!!
 * Images: [string[]](#string) - images stored in the document.
 * Colors: [ColorAsset[]](#ColorAsset) - colors stored in the document (color picker > dropdown list (global) > document).
 * Gradients: [GradientAsset[]](#GradientAsset) - gradients stored in the document (color picker > dropdown list (global) > document).
@@ -636,8 +642,12 @@ The document's .json structure.
 * ColorVariables: [ColorVariable[]](#ColorVariable) - color variables stored in the document.
 * Styles: [SharedStyle[]](#SharedStyle) - styles stored in the document.
 * Pages: [GUID[]](#GUID) - list of document pages.
+
+<details>
+<summary>Sketch compatibility</summary>
+
 * ColorSpace: [ColorSpace](#ColorSpace) = `Unmanaged`
-* CurrentPageIndex: [int](#int) = `0`
+</details>
 
 ### <a name="ExportOption"></a>ExportOption
 Export settings.
@@ -854,10 +864,10 @@ Defines the image fill options.
 ### <a name="PrototypeViewport"></a>PrototypeViewport
 This is Frame Preset. Also used to determine viewport size for a large frame to scroll it properly.
 
+* Id: [GUID](#GUID)
 * Name: [string](#string)
 * Size: [Size](#Size) = `[0,0]`
 * LibraryId: [GUID](#GUID)
-* TemplateId: [GUID](#GUID)
 
 ### <a name="Rows"></a>Rows
 Defines row settings in a layout grid.

@@ -13,6 +13,9 @@ public class AutoLayoutContainer : ILayoutContainer
     /// Spacing value
     /// </summary>
     public float Spacing { get; set; }
+    /// <summary>
+    /// Spacing between wrapped lines.!!!!
+    /// </summary>
     public float WrapSpacing { get; set; }
     /// <summary>
     /// Padding value.
