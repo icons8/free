@@ -22,8 +22,6 @@ public sealed class Override
     public float[]? CornerRadius { get; set; }
     public bool SmoothCorners { get; set; }
     
-    public Guid? TextStyleId { get; set; }
-    public Guid? LayerStyleId { get; set; }
     public Guid? StyleId { get; set; }
     public Color? Tint { get; set; }
     public Guid? TintId { get; set; }

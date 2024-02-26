@@ -788,8 +788,6 @@ Defines overrides for components.
 * ArcStartAngle: [float?](#float)
 * CornerRadius: [float[]](#float)
 * SmoothCorners: [bool](#bool) = `False`
-* TextStyleId: [GUID?](#GUID)
-* LayerStyleId: [GUID?](#GUID)
 * StyleId: [GUID?](#GUID)
 * Tint: [Color?](#Color)
 * TintId: [GUID?](#GUID)
