@@ -7,7 +7,7 @@ public class Triangle : Path
     public override string _t => "TRIANGLE";
     
     /// <summary>
-    /// Defines whether the triangle is equilateral.
+    /// if the triangle is equilateral.
     /// </summary>
     [SketchCompatibility]
     public bool Equilateral { get; set; }

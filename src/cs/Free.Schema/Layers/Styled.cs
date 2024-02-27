@@ -25,7 +25,7 @@ public abstract class Styled : Layer
     /// </summary>
     public Arrowhead StartMarker { get; set; }
     /// <summary>
-    /// Defines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+    /// Determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
     /// </summary>
     public Arrowhead EndMarker { get; set; }
     /// <summary>

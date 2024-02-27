@@ -9,6 +9,10 @@ public class Document
     /// Unique document ID.
     /// </summary>
     public Guid Id { get; set; }
+
+    /// <summary>
+    /// Сolor scheme the document uses.
+    /// </summary>
     [SketchCompatibility]
     public ColorSpace ColorSpace { get; set; }
 
@@ -21,7 +25,7 @@ public class Document
     /// </summary>
     public bool FromFigma { get; set; }
     /// <summary>
-    /// Selected page index!!!!
+    /// Index of the currently open page.
     /// </summary>
     public int CurrentPageIndex { get; set; }
     /// <summary>

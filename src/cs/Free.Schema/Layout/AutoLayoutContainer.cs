@@ -14,7 +14,7 @@ public class AutoLayoutContainer : ILayoutContainer
     /// </summary>
     public float Spacing { get; set; }
     /// <summary>
-    /// Spacing between wrapped lines.!!!!
+    /// Spacing between rows of wrapped content.
     /// </summary>
     public float WrapSpacing { get; set; }
     /// <summary>
@@ -54,7 +54,7 @@ public class AutoLayoutContainer : ILayoutContainer
     /// </summary>
     public bool Wrap { get; set; }
     /// <summary>
-    /// Spacing between rows of wrapped content.
+    /// If auto distribute is enabled for wrapped content.
     /// </summary>
     public bool WrapDistribute { get; set; }
 }

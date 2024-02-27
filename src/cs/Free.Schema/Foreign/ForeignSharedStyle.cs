@@ -4,6 +4,9 @@ namespace Free.Schema;
 /// </summary>
 public class ForeignSharedStyle
 {
+    /// <summary>
+    /// Style identifier in the document.
+    /// </summary>
     public Guid Id { get; set; }
     /// <summary>
     /// Unique library identifier.
