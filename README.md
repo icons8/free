@@ -368,7 +368,7 @@ Has all properties of [`Path`](#Path), plus:
 <details>
 <summary>Sketch compatibility</summary>
 
-* Equilateral: [bool](#bool) = `False` - defines whether the triangle is equilateral.
+* Equilateral: [bool](#bool) = `False` - if the triangle is equilateral.
 </details>
 
 ### <a name="Frame"></a>Frame
@@ -506,7 +506,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Opacity: [float](#float) = `1` - opacity value.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
 * StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* EndMarker: [Arrowhead](#Arrowhead) = `None` - defines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * Winding: [PathFillType](#PathFillType) = `EvenOdd` - defines the filling options for overlapping paths.
 * Fills: [Fill[]](#Fill) - list of fills.
 * Borders: [Border[]](#Border) - list of borders.
@@ -568,7 +568,7 @@ Defines auto layout settings.
 
 * Orientation: [LayoutOrientation](#LayoutOrientation) = `Horizontal` - layout orientation: horizontal or vertical.
 * Spacing: [float](#float) = `0` - spacing value
-* WrapSpacing: [float](#float) = `0` - spacing between wrapped lines.!!!!
+* WrapSpacing: [float](#float) = `0` - spacing between rows of wrapped content.
 * Padding: [Thickness](#Thickness) = `[0,0,0,0]` - padding value.
 * Align: [HorizontalAlignment](#HorizontalAlignment) = `Left` - horizontal children alignment
 * Valign: [VerticalAlignment](#VerticalAlignment) = `Top` - vertical children alignment
@@ -578,7 +578,7 @@ Defines auto layout settings.
 * StrokesIncluded: [bool](#bool) = `False` - if the Include Borders option is enabled.
 * ReverseZIndex: [bool](#bool) = `False` - if the Last on Top option is enabled.
 * Wrap: [bool](#bool) = `False` - if wrapping is enabled.
-* WrapDistribute: [bool](#bool) = `False` - spacing between rows of wrapped content.
+* WrapDistribute: [bool](#bool) = `False` - if auto distribute is enabled for wrapped content.
 
 ### <a name="BlurEffect"></a>BlurEffect
 Defines the settings of the blur effect.
@@ -634,7 +634,7 @@ The document's .json structure.
 * Id: [GUID](#GUID) - unique document ID.
 * Nudge: [Point](#Point) = `[1,10]` - nudge Amount. X - small nudge. Y = large nudge.
 * FromFigma: [bool](#bool) = `False` - if the document is imported from Figma.
-* CurrentPageIndex: [int](#int) = `0` - selected page index!!!!
+* CurrentPageIndex: [int](#int) = `0` - index of the currently open page.
 * Images: [string[]](#string) - images stored in the document.
 * Colors: [ColorAsset[]](#ColorAsset) - colors stored in the document (color picker > dropdown list (global) > document).
 * Gradients: [GradientAsset[]](#GradientAsset) - gradients stored in the document (color picker > dropdown list (global) > document).
@@ -646,7 +646,7 @@ The document's .json structure.
 <details>
 <summary>Sketch compatibility</summary>
 
-* ColorSpace: [ColorSpace](#ColorSpace) = `Unmanaged`
+* ColorSpace: [ColorSpace](#ColorSpace) = `Unmanaged` - сolor scheme the document uses.
 </details>
 
 ### <a name="ExportOption"></a>ExportOption
@@ -712,10 +712,10 @@ Describes color components from external libraries.
 ### <a name="ForeignSharedStyle"></a>ForeignSharedStyle
 Describes styles from external libraries.
 
+* Id: [GUID](#GUID) - style identifier in the document.
 * LibraryId: [GUID](#GUID) - unique library identifier.
 * LibraryName: [string](#string) - library name.
 * RemoteID: [GUID](#GUID) - style identifier in the external library.
-* Id: [GUID](#GUID)
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -735,8 +735,8 @@ An object that represents a gradient.
 ### <a name="GradientAsset"></a>GradientAsset
 Gradients stored in the document (color picker > dropdown list (global) > document).
 
+* Id: [GUID](#GUID) - unique asset id.
 * Value: [Gradient](#Gradient) - values of gradients.
-* Id: [GUID](#GUID)
 
 ### <a name="GradientStop"></a>GradientStop
 A position-color pair representing a gradient stop.
@@ -784,60 +784,60 @@ Contains metadata about the document.
 ### <a name="Override"></a>Override
 Defines overrides for components.
 
-* ComponentId: [GUID?](#GUID)
-* Image: [string](#string)
-* Link: [string](#string)
-* Locked: [bool?](#bool)
-* Hidden: [bool?](#bool)
-* ClipContent: [bool?](#bool)
-* LockAspect: [bool?](#bool)
-* Ratio: [float?](#float)
-* VertexCount: [float?](#float)
-* ArcAngle: [float?](#float)
-* ArcRatio: [float?](#float)
-* ArcStartAngle: [float?](#float)
-* CornerRadius: [float[]](#float)
-* SmoothCorners: [bool](#bool) = `False`
-* StyleId: [GUID?](#GUID)
-* Tint: [Color?](#Color)
-* TintId: [GUID?](#GUID)
-* BorderOptions: [BorderOptions](#BorderOptions)
-* Blur: [BlurEffect](#BlurEffect)
-* ImageFilters: [ImageFilters](#ImageFilters)
-* Opacity: [float?](#float)
-* BlendMode: [BlendMode?](#BlendMode)
-* StartArrowhead: [Arrowhead?](#Arrowhead)
-* EndArrowhead: [Arrowhead?](#Arrowhead)
-* Text: [string](#string)
-* TextStyle: [TextStyle](#TextStyle)
-* TextBehavior: [TextBehavior?](#TextBehavior)
-* Size: [Size?](#Size)
-* Orientation: [LayoutOrientation?](#LayoutOrientation)
-* Spacing: [float?](#float)
-* WrapSpacing: [float?](#float)
-* MinWidth: [float?](#float)
-* MinHeight: [float?](#float)
-* MaxWidth: [float?](#float)
-* MaxHeight: [float?](#float)
-* Padding: [Thickness?](#Thickness)
-* Align: [HorizontalAlignment?](#HorizontalAlignment)
-* VAlign: [VerticalAlignment?](#VerticalAlignment)
-* Sizing: [SizingMode?](#SizingMode)
-* VSizing: [SizingMode?](#SizingMode)
-* TextBaseline: [bool?](#bool)
-* StrokesIncluded: [bool?](#bool)
-* ReverseZIndex: [bool?](#bool)
-* Stretch: [bool?](#bool)
-* GrowStretch: [bool?](#bool)
-* Wrap: [bool?](#bool)
-* WrapDistribute: [bool?](#bool)
+* ComponentId: [GUID?](#GUID) - unique component identifier.
+* Image: [string](#string) - defines the image name used as a fill.
+* Link: [string](#string) - defines the target frame (prototyping).
+* Locked: [bool?](#bool) - if the layer is locked for editing.
+* Hidden: [bool?](#bool) - if the layer is hidden.
+* ClipContent: [bool?](#bool) - if the clip content feature is enabled.
+* LockAspect: [bool?](#bool) - if the aspect ratio is locked.
+* Ratio: [float?](#float) - defines the star ratio value.???
+* VertexCount: [float?](#float) - the number of vertices.
+* ArcAngle: [float?](#float) - end angle for donuts measured clockwise from the X axis.
+* ArcRatio: [float?](#float) - inner radius for donuts.
+* ArcStartAngle: [float?](#float) - start angle for donuts measured clockwise from the X axis.
+* CornerRadius: [float[]](#float) - corner radius value.
+* SmoothCorners: [bool](#bool) = `False` - if smooth corners are enabled.
+* StyleId: [GUID?](#GUID) - identifier of the style applied to a layer.
+* Tint: [Color?](#Color) - defines the tint color.
+* TintId: [GUID?](#GUID) - tint identifier.
+* BorderOptions: [BorderOptions](#BorderOptions) - definition of border options.
+* Blur: [BlurEffect](#BlurEffect) - information about blurs.
+* ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
+* Opacity: [float?](#float) - opacity value.
+* BlendMode: [BlendMode?](#BlendMode) - blend mode.
+* StartArrowhead: [Arrowhead?](#Arrowhead) - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* EndArrowhead: [Arrowhead?](#Arrowhead) - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* Text: [string](#string) - content of the text layer.
+* TextStyle: [TextStyle](#TextStyle) - style applied to the text
+* TextBehavior: [TextBehavior?](#TextBehavior) - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
+* Size: [Size?](#Size) - text size.
+* Orientation: [LayoutOrientation?](#LayoutOrientation) - layout orientation: horizontal or vertical.
+* Spacing: [float?](#float) - spacing value
+* WrapSpacing: [float?](#float) - spacing between rows of wrapped content.
+* MinWidth: [float?](#float) - defines the minimum layer width (auto layout).
+* MinHeight: [float?](#float) - defines the minimum layer height (auto layout).
+* MaxWidth: [float?](#float) - defines the maximum layer width (auto layout).
+* MaxHeight: [float?](#float) - defines the maximum layer height (auto layout).
+* Padding: [Thickness?](#Thickness) - padding value.
+* Align: [HorizontalAlignment?](#HorizontalAlignment) - horizontal children alignment.
+* VAlign: [VerticalAlignment?](#VerticalAlignment) - vertical children alignment.
+* Sizing: [SizingMode?](#SizingMode) - horizontal resizing mode: fixed or hug.
+* VSizing: [SizingMode?](#SizingMode) - vertical resizing mode: fixed or hug.
+* TextBaseline: [bool?](#bool) - if text baseline alignment is enabled.
+* StrokesIncluded: [bool?](#bool) - if the Include Borders option is enabled.
+* ReverseZIndex: [bool?](#bool) - if the Last on Top option is enabled.
+* Stretch: [bool?](#bool) - determines if the layer should stretch along the parent’s counter axis (auto layout).
+* GrowStretch: [bool?](#bool) - determines whether a layer should stretch along the parent’s primary axis (auto layout).
+* Wrap: [bool?](#bool) - if wrapping is enabled.
+* WrapDistribute: [bool?](#bool) - if auto distribute is enabled for wrapped content.
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* LegacyColor: [ColorOverride](#ColorOverride)
-* LegacyTextColor: [TextColorOverride](#TextColorOverride)
-* LegacyTextWeight: [TextWeightOverride](#TextWeightOverride)
+* LegacyColor: [ColorOverride](#ColorOverride) - color override.
+* LegacyTextColor: [TextColorOverride](#TextColorOverride) - text color override.
+* LegacyTextWeight: [TextWeightOverride](#TextWeightOverride) - text weight override.
 </details>
 
 ### <a name="Page"></a>Page
@@ -862,12 +862,12 @@ Defines the image fill options.
 * Transform: [Matrix?](#Matrix) - defines how the image is cropped. Applicable to the crop type only.
 
 ### <a name="PrototypeViewport"></a>PrototypeViewport
-This is Frame Preset. Also used to determine viewport size for a large frame to scroll it properly.
+This is a frame preset. Also used to determine viewport size for a large frame to scroll it properly.
 
-* Id: [GUID](#GUID)
-* Name: [string](#string)
-* Size: [Size](#Size) = `[0,0]`
-* LibraryId: [GUID](#GUID)
+* Id: [GUID](#GUID) - unique frame identifier.
+* Name: [string](#string) - frame name.
+* Size: [Size](#Size) = `[0,0]` - frame size.
+* LibraryId: [GUID](#GUID) - library identifier.
 
 ### <a name="Rows"></a>Rows
 Defines row settings in a layout grid.
@@ -1414,10 +1414,10 @@ Defines the category of generated text. _//Lunacy Specific_
 ### <a name="ColorOverride"></a>ColorOverride
 Defines color overrides for components. _//Sketch Compatibility_
 
+* Color: [Color](#Color) = `00000000` - color value.
 * ColorId: [GUID?](#GUID) - color variable ID.
 * Property: [ColorOverrideType](#ColorOverrideType) = `Unknown` - color override type: none, fill, border, shadow, or inner shadow.
 * Index: [int](#int) = `0` - fill index. Starts from 0.
-* Color: [Color](#Color) = `00000000`
 
 ### <a name="OverlaySettings"></a>OverlaySettings
 Defines overlay settings. _//Sketch Compatibility_
@@ -1460,7 +1460,7 @@ Defines types of color overrides for components. _//Sketch Compatibility_
 * `4` InnerShadow
 
 ### <a name="ColorSpace"></a>ColorSpace Enum
-Document's color space (color scheme the document uses). _//Sketch Compatibility_
+Сolor scheme the document uses. _//Sketch Compatibility_
 
 * `0` Unmanaged
 * `1` sRGB

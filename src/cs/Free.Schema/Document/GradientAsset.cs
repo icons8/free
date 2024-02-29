@@ -5,7 +5,13 @@ namespace Free.Schema;
 /// </summary>
 public class GradientAsset
 {
+    /// <summary>
+    /// Unique asset id.
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// Asset name
+    /// </summary>
     public string? Name { get; set; }
     /// <summary>
     /// Values of gradients.

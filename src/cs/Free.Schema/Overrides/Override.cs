@@ -199,7 +199,7 @@ public sealed class Override
     /// Horizontal resizing mode: fixed or hug.
     /// </summary>
     public SizingMode? Sizing { get; set; }
-    // <summary>
+    /// <summary>
     /// Vertical resizing mode: fixed or hug.
     /// </summary>
     public SizingMode? VSizing { get; set; }
