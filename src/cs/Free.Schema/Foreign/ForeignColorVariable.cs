@@ -5,9 +5,9 @@ namespace Free.Schema;
 public class ForeignColorVariable
 {
     /// <summary>
-    /// Unique variable identifier.
+    /// URL to the Server of Library
     /// </summary>
-    public Guid Id { get; set; }
+    public string? Server { get; set; }
     /// <summary>
     /// Unique library identifier.
     /// </summary>
@@ -16,11 +16,6 @@ public class ForeignColorVariable
     /// Library name.
     /// </summary>
     public string? LibraryName { get; set; }
-    /// <summary>
-    ///  A Sketch flag for private shared color variables.
-    /// </summary>
-    [SketchCompatibility]
-    public bool ComponentPrivate { get; set; }
     /// <summary>
     /// Color variable ID in the external library.
     /// </summary>

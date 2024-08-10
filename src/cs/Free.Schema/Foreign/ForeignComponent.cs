@@ -5,9 +5,9 @@ namespace Free.Schema;
 public class ForeignComponent
 {
     /// <summary>
-    /// Unique component identifier.
+    /// URL to the Server of Library
     /// </summary>
-    public Guid Id { get; set; }
+    public string? Server { get; set; }
     /// <summary>
     /// Unique library identifier.
     /// </summary>
@@ -16,11 +16,6 @@ public class ForeignComponent
     /// Library name.
     /// </summary>
     public string? LibraryName { get; set; }
-    /// <summary>
-    ///  A Sketch flag for private shared components.
-    /// </summary>
-    [SketchCompatibility]
-    public bool ComponentPrivate { get; set; }
     /// <summary>
     /// Original state of the component upon import.
     /// </summary>
