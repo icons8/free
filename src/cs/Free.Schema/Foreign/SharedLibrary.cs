@@ -8,7 +8,7 @@ public class SharedLibrary
     /// <summary>
     /// URL to the Server of Library.
     /// </summary>
-    public string? Server { get; set; }
+    public string? Url { get; set; }
     /// <summary>
     /// Unique library document identifier.
     /// </summary>
