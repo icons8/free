@@ -17,11 +17,6 @@ public class ForeignComponent
     /// </summary>
     public string? LibraryName { get; set; }
     /// <summary>
-    /// Original state of the component upon import.
-    /// </summary>
-    public Component? Original { get; set; }
-
-    /// <summary>
     /// Current state of the component.
     /// </summary>
     public Component? Component { get; set; }

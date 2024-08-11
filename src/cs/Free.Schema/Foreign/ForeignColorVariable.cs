@@ -17,11 +17,6 @@ public class ForeignColorVariable
     /// </summary>
     public string? LibraryName { get; set; }
     /// <summary>
-    /// Color variable ID in the external library.
-    /// </summary>
-    [SketchCompatibility]
-    public Guid RemoteId { get; set; }
-    /// <summary>
     /// Value of the color variable.
     /// </summary>
     public ColorVariable? Color { get; set; }

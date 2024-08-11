@@ -17,10 +17,6 @@ public class ForeignSharedStyle
     /// </summary>
     public string? LibraryName { get; set; }
     /// <summary>
-    /// Style identifier in the external library.
-    /// </summary>
-    public Guid RemoteID { get; set; }
-    /// <summary>
     /// Shared style name.
     /// </summary>
     public SharedStyle Style { get; } = new();
