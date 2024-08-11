@@ -7,8 +7,8 @@ A FREE file is a ZIP archive with the following structure:
 - `pages` — folder with JSON files containing layer structure and properties.
 - `images` — folder with raster assets. PNG, JPG, BMP, WEBP, GIF, TIFF, and ICO are supported.
 - `fonts` — folder with fonts embedded into the document, if any.
+- `shared` — folder with JSON files containing structure and properties of components and styles used from shared libraries.
 - `document.json` — file with document info data.
-- `shared.json` — file with objects from shared libraries.
 - `meta.json` — file with app version, file format, last saved by, when, and other info.
 - `preview.png` — a preview of the file.
 
@@ -860,18 +860,14 @@ Defines the shadow options.
 * Opacity: [float](#float) = `0` - shadow opacity.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - shadow blend mode.
 
-### <a name="Shared"></a>Shared
-Defines entities from shared libraries.
-
-* Libraries: [SharedLibrary[]](#SharedLibrary) - list of shared libraries
-
 ### <a name="SharedLibrary"></a>SharedLibrary
-Contains Assets from External Library
+Contains components, styles and variables from external library that is used in current document.
+            Every file in the shared folder is Shared Library.
 
 * Id: [GUID](#GUID) - unique library document identifier.
-* ColorVariables: [ColorVariable[]](#ColorVariable) - color variables from an external library.
-* Styles: [SharedStyle[]](#SharedStyle) - styles from an external library.
-* Components: [Component[]](#Component) - components from an external library.
+* ColorVariables: [ColorVariable[]](#ColorVariable) - color variables from a shared library.
+* Styles: [SharedStyle[]](#SharedStyle) - styles from a shared library.
+* Components: [Component[]](#Component) - components from a shared library.
 
 ### <a name="SharedStyle"></a>SharedStyle
 Style saved in the document.
@@ -1477,7 +1473,8 @@ Defines overlay types. _//Sketch Compatibility_
 
 ### Version 2 - 11.08.2024
 
-* `Shared.json` structure updated to be more efficient. Some sketch-related fields removed.
+* `Shared.json` is removed. Now all shared libraries data have a new efficient structure and can be found inside `shared` folder. 
+Separate file is created for every library source - this will significantly increase document open speed in multithreaded way if document use a lot of components from different shared libraries.
 * Now `SharedStyle`s are not grouped by text/layer category. All in one container. To check if style is text style - check if it has text `TextStyle` property.
 * `Export` optimized to be a simple list of `ExportOption`. Some sketch-related fields removed.
 

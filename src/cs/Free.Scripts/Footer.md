@@ -6,7 +6,8 @@
 
 ### Version 2 - 11.08.2024
 
-* `Shared.json` structure updated to be more efficient. Some sketch-related fields removed.
+* `Shared.json` is removed. Now all shared libraries data have a new efficient structure and can be found inside `shared` folder. 
+Separate file is created for every library source - this will significantly increase document open speed in multithreaded way if document use a lot of components from different shared libraries.
 * Now `SharedStyle`s are not grouped by text/layer category. All in one container. To check if style is text style - check if it has text `TextStyle` property.
 * `Export` optimized to be a simple list of `ExportOption`. Some sketch-related fields removed.
 
