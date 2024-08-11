@@ -6,15 +6,7 @@ namespace Free.Schema;
 public class Shared
 {
     /// <summary>
-    /// Color variables from an external library. 
+    /// List of shared libraries
     /// </summary>
-    public List<ForeignColorVariable> ColorVariables { get; set; }
-    /// <summary>
-    /// Styles from an external library.
-    /// </summary>
-    public List<ForeignSharedStyle> Styles { get; set; }
-    /// <summary>
-    /// Components from an external library.
-    /// </summary>
-    public List<ForeignComponent> Components { get; set; }
+    public List<SharedLibrary> Libraries { get; set; }
 }
