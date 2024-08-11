@@ -679,50 +679,6 @@ Embedded fonts stored in the document.
 * FileName: [string](#string) - font file name.
 * PostscriptNames: [string[]](#string) - postScript names of the font.
 
-### <a name="ForeignColorVariable"></a>ForeignColorVariable
-Describes color variables from external libraries.
-
-* Id: [GUID](#GUID) - unique variable identifier.
-* LibraryId: [GUID](#GUID) - unique library identifier.
-* LibraryName: [string](#string) - library name.
-* Color: [ColorVariable](#ColorVariable) - value of the color variable.
-
-<details>
-<summary>Sketch compatibility</summary>
-
-* ComponentPrivate: [bool](#bool) = `False` - a Sketch flag for private shared color variables.
-* RemoteId: [GUID](#GUID) - color variable ID in the external library.
-</details>
-
-### <a name="ForeignComponent"></a>ForeignComponent
-Describes color components from external libraries.
-
-* Id: [GUID](#GUID) - unique component identifier.
-* LibraryId: [GUID](#GUID) - unique library identifier.
-* LibraryName: [string](#string) - library name.
-* Original: [Component](#Component) - original state of the component upon import.
-* Component: [Component](#Component) - current state of the component.
-
-<details>
-<summary>Sketch compatibility</summary>
-
-* ComponentPrivate: [bool](#bool) = `False` - a Sketch flag for private shared components.
-</details>
-
-### <a name="ForeignSharedStyle"></a>ForeignSharedStyle
-Describes styles from external libraries.
-
-* Id: [GUID](#GUID) - style identifier in the document.
-* LibraryId: [GUID](#GUID) - unique library identifier.
-* LibraryName: [string](#string) - library name.
-* RemoteID: [GUID](#GUID) - style identifier in the external library.
-
-<details>
-<summary>Sketch compatibility</summary>
-
-* ComponentPrivate: [bool](#bool) = `False` - a Sketch flag for private shared styles.
-</details>
-
 ### <a name="Gradient"></a>Gradient
 An object that represents a gradient.
 
@@ -907,9 +863,15 @@ Defines the shadow options.
 ### <a name="Shared"></a>Shared
 Defines entities from shared libraries.
 
-* ColorVariables: [ForeignColorVariable[]](#ForeignColorVariable) - color variables from an external library.
-* Styles: [ForeignSharedStyle[]](#ForeignSharedStyle) - styles from an external library.
-* Components: [ForeignComponent[]](#ForeignComponent) - components from an external library.
+* Libraries: [SharedLibrary[]](#SharedLibrary) - list of shared libraries
+
+### <a name="SharedLibrary"></a>SharedLibrary
+Contains Assets from External Library
+
+* Id: [GUID](#GUID) - unique library document identifier.
+* ColorVariables: [ColorVariable[]](#ColorVariable) - color variables from an external library.
+* Styles: [SharedStyle[]](#SharedStyle) - styles from an external library.
+* Components: [Component[]](#Component) - components from an external library.
 
 ### <a name="SharedStyle"></a>SharedStyle
 Style saved in the document.
@@ -1507,5 +1469,20 @@ Defines overlay types. _//Sketch Compatibility_
 * `1` Screen
 * `2` Layer
 
+## Changelog
+
+### Version 3 - TBD
+
+* `Link` property is replaced by `Flows` list of prototyping interactions.
+
+### Version 2 - 11.08.2024
+
+* `Shared.json` structure updated to be more efficient. Some sketch-related fields removed.
+* Now `SharedStyle`s are not grouped by text/layer category. All in one container. To check if style is text style - check if it has text `TextStyle` property.
+* `Export` optimized to be a simple list of `ExportOption`. Some sketch-related fields removed.
+
+### Version 1 - 19.03.2024
+
+* Initial Version
 
 by Icons8 LLC 2023
