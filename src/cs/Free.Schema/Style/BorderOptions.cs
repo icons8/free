@@ -5,13 +5,8 @@ namespace Free.Schema;
 public sealed class BorderOptions
 {
     /// <summary>
-    /// If an advanced option is enabled.
-    /// </summary>
-    public bool IsEnabled { get; set; }
-    /// <summary>
     /// Defines the shape of line caps.
     /// </summary>
-
     public LineCap LineCap { get; set; } = LineCap.Butt;
     /// <summary>
     /// Defines the appearance of line folds.
@@ -20,6 +15,5 @@ public sealed class BorderOptions
     /// <summary>
     /// Defines the size of dashes.
     /// </summary>
-
     public float[] Dash { get; set; }
 }
