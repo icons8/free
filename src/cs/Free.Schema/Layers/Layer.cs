@@ -78,6 +78,10 @@ public abstract class Layer
     /// Defines if the layer is set to ignore the mask.
     /// </summary>
     public bool BreakMask { get; set; }
+    /// <summary>
+    /// Type of the Mask - Vector, Alpha or Luminance.
+    /// </summary>
+    public MaskType MaskType { get; set; }
     
     /// <summary>
     /// If the *Keep scroll position* option is enabled (prototyping).
