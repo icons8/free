@@ -19,11 +19,6 @@ public class Text : Styled
     /// </summary>
     public List<InlineStyle> Inlines { get; } = new();
     /// <summary>
-    /// This property enabled drawing text on path in Sketch.
-    /// </summary>
-    [SketchCompatibility]
-    public bool DrawOnPath { get; set; }
-    /// <summary>
     /// Behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
     /// </summary>
     public TextBehavior Behavior { get; set; } = TextBehavior.Flexible;
@@ -31,4 +26,12 @@ public class Text : Styled
     /// Valid for files imported from Figma. Defines whether to truncate text content.
     /// </summary>
     public bool ClipContent { get; set; } = true;
+    /// <summary>
+    /// Trim text with triple dots in the end if content overlaps fixed layer size bounds.
+    /// </summary>
+    public bool Truncate { get; set; } = false;
+    /// <summary>
+    /// Defines whether text draws on underlying path.
+    /// </summary>
+    public bool DrawOnPath { get; set; } = false;
 }
