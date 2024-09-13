@@ -472,12 +472,8 @@ Has all properties of [`Styled`](#Styled), plus:
 * Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
 * Behavior: [TextBehavior](#TextBehavior) = `Flexible` - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * ClipContent: [bool](#bool) = `True` - valid for files imported from Figma. Defines whether to truncate text content.
-
-<details>
-<summary>Sketch compatibility</summary>
-
-* DrawOnPath: [bool](#bool) = `False` - this property enabled drawing text on path in Sketch.
-</details>
+* Truncate: [bool](#bool) = `False` - trim text with triple dots in the end if content overlaps fixed layer size bounds.
+* DrawOnPath: [bool](#bool) = `False` - defines whether text draws on underlying path.
 
 ### <a name="Hotspot"></a>Hotspot
 A hotspot is a special type of layers used to define clickable areas on prototypes.
@@ -533,6 +529,7 @@ A layer is any ungrouped element available on the canvas.
 * LockAspect: [bool](#bool) = `False` - defines whether the layer's aspect ratio should be remain unchanged upon resizing.
 * Mask: [bool](#bool) = `False` - defines whether the layer is used as a mask.
 * BreakMask: [bool](#bool) = `False` - defines if the layer is set to ignore the mask.
+* MaskType: [MaskType](#MaskType) = `Vector` - type of the Mask - Vector, Alpha or Luminance.
 * KeepScroll: [bool](#bool) = `False` - if the *Keep scroll position* option is enabled (prototyping).
 * Animation: [AnimationType](#AnimationType) = `FromRight` - defines the animation type (prototyping).
 * MinWidth: [float](#float) = `0` - defines the minimum layer width (auto layout).
@@ -598,7 +595,6 @@ Defines the settings of the blur effect.
 ### <a name="BorderOptions"></a>BorderOptions
 Defines the advanced options of borders, arrows, lines, and paths drawn with the Pen or Pencil tools.
 
-* IsEnabled: [bool](#bool) = `False` - if an advanced option is enabled.
 * LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
 * LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
 * Dash: [float[]](#float) - defines the size of dashes.
@@ -1227,6 +1223,13 @@ Defines the type of a text list.
 * `0` None - list without markers.
 * `1` Bullet - bulleted list.
 * `2` Numbered - numbered list.
+
+### <a name="MaskType"></a>MaskType Enum
+Type of a mask.
+
+* `0` Vector - this mode indicated that every pixel inside the layer's fill regions will be fully visible in the masked result.
+* `1` Alpha - this mode indicates that the mask layer image's transparency (alpha channel) values should be used as the mask values. This is how masks work in Figma.
+* `2` Luminance - this mode indicates that the luminance values of the mask layer image should be used as the mask values. This is how masks work in SVG.
 
 ### <a name="PathFillType"></a>PathFillType Enum
 Defines the filling options for overlapping paths.

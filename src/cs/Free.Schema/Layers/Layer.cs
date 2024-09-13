@@ -51,12 +51,12 @@ public abstract class Layer
     /// Export options of the layer.
     /// </summary>
     public List<ExportOption> Export { get; set; } = new();
-    
+
     /// <summary>
     /// Defines constraint settings of the layer. String with chars where every char means a flag:
     /// L - left, T - top, R - right, B - bottom, W - fix width, H - fix height.
     /// </summary>
-    public string Constraints { get; set; }
+    public string Constraints { get; set; } = "LTWH";
     /// <summary>
     /// Position, rotation and flips of an object, stored in a single 3x2 matrix.
     /// </summary>
