@@ -1,8 +1,13 @@
 ## Changelog
 
-### Version 3 - TBD
+### Version 4 - TBD
 
 * `Link` property is replaced by `Flows` list of prototyping interactions.
+
+### Version 3 - 25.09.2024
+
+* Preview now in `.webp` format, not `.png`. File name is `preview.webp`.
+* WEBP is now a preferred format for images. New images created in Lunacy will use `.webp`.
 
 ### Version 2 - 11.08.2024
 

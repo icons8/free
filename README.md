@@ -10,7 +10,7 @@ A FREE file is a ZIP archive with the following structure:
 - `shared` — folder with JSON files containing structure and properties of components and styles used from shared libraries.
 - `document.json` — file with document info data.
 - `meta.json` — file with app version, file format, last saved by, when, and other info.
-- `preview.png` — a preview of the file.
+- `preview.webp` — a preview of the file.
 
 Lunacy has the support for the Sketch format from the very beginning. Including both opening and saving such files. It's actually a great format with lots of advantages (JSON, everything bundled in a ZIP archive, extensions via UserInfo, a time-proved data structure, and many others) but over time, we've accumulated a long list of drawbacks that have been limiting Lunacy’s growth.
 
@@ -1470,9 +1470,14 @@ Defines overlay types. _//Sketch Compatibility_
 
 ## Changelog
 
-### Version 3 - TBD
+### Version 4 - TBD
 
 * `Link` property is replaced by `Flows` list of prototyping interactions.
+
+### Version 3 - 25.09.2024
+
+* Preview now in `.webp` format, not `.png`. File name is `preview.webp`.
+* WEBP is now a preferred format for images. New images created in Lunacy will use `.webp`.
 
 ### Version 2 - 11.08.2024
 
