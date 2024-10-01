@@ -473,7 +473,9 @@ Has all properties of [`Styled`](#Styled), plus:
 * Behavior: [TextBehavior](#TextBehavior) = `Flexible` - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * ClipContent: [bool](#bool) = `True` - valid for files imported from Figma. Defines whether to truncate text content.
 * Truncate: [bool](#bool) = `False` - trim text with triple dots in the end if content overlaps fixed layer size bounds.
-* DrawOnPath: [bool](#bool) = `False` - defines whether text draws on underlying path.
+* MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
+* DrawOnPath: [bool](#bool) = `False` - defines whether text draws on the underlying path.
+* Warp: [bool](#bool) = `False` - defines whether text warps when drawn on the underlying path.
 
 ### <a name="Hotspot"></a>Hotspot
 A hotspot is a special type of layers used to define clickable areas on prototypes.

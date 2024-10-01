@@ -31,7 +31,15 @@ public class Text : Styled
     /// </summary>
     public bool Truncate { get; set; } = false;
     /// <summary>
-    /// Defines whether text draws on underlying path.
+    /// Count of lines allowed. If the limit is exceeded, the text will be truncated.
+    /// </summary>
+    public byte MaxLines { get; set; } = 0;
+    /// <summary>
+    /// Defines whether text draws on the underlying path.
     /// </summary>
     public bool DrawOnPath { get; set; } = false;
+    /// <summary>
+    /// Defines whether text warps when drawn on the underlying path.
+    /// </summary>
+    public bool Warp { get; set; } = false;
 }
