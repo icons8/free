@@ -232,6 +232,14 @@ public sealed class Override
     /// </summary>
     public bool? WrapDistribute { get; set; }
     /// <summary>
+    /// Trim text with triple dots in the end if content overlaps fixed layer size bounds.
+    /// </summary>
+    public bool Truncate { get; set; } = false;
+    /// <summary>
+    /// Count of lines allowed. If the limit is exceeded, the text will be truncated.
+    /// </summary>
+    public byte MaxLines { get; set; } = 0;
+    /// <summary>
     /// Color override.
     /// </summary>
     [SketchCompatibility]

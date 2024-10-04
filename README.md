@@ -785,6 +785,8 @@ Defines overrides for components.
 * GrowStretch: [bool?](#bool) - determines whether a layer should stretch along the parent’s primary axis (auto layout).
 * Wrap: [bool?](#bool) - if wrapping is enabled.
 * WrapDistribute: [bool?](#bool) - if auto distribute is enabled for wrapped content.
+* Truncate: [bool](#bool) = `False` - trim text with triple dots in the end if content overlaps fixed layer size bounds.
+* MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
 
 <details>
 <summary>Sketch compatibility</summary>
