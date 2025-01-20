@@ -2,7 +2,7 @@ namespace Free.Schema;
 /// <summary>
 /// Defines auto layout settings. 
 /// </summary>
-public class AutoLayoutContainer : ILayoutContainer
+public class AutoLayoutContainer : LayoutContainerBase
 {
     public string _t => "AUTO";
     /// <summary>

@@ -1,9 +1,9 @@
 namespace Free.Schema;
 /// <summary>
-/// Defines an auto layout.
+/// Defines a container layout.
 /// </summary>
 
-public interface ILayoutContainer
+public abstract class LayoutContainerBase
 {
     public string _t { get; }
 }

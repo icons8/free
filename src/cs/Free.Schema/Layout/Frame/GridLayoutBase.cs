@@ -1,8 +1,9 @@
 namespace Free.Schema;
+
 /// <summary>
 /// Defines layout grid settings for a frame.
 /// </summary>
-public interface IGridLayout
+public abstract class GridLayoutBase
 {
     /// <summary>
     /// If layout grid is enabled.

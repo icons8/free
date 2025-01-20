@@ -2,7 +2,7 @@ namespace Free.Schema;
 /// <summary>
 /// Defines row settings in a layout grid.
 /// </summary>
-public class Rows : IGridLayout
+public class Rows : GridLayoutBase
 {
     public string _t => "ROWS";
     /// <summary>

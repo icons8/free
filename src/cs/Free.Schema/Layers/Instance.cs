@@ -15,10 +15,6 @@ public class Instance : Styled
     /// Enables smooth rounded corners like in iOS interfaces.
     /// </summary>
     public bool SmoothCorners { get; set; }
-    /// <summary>
-    /// Auto layout settings.
-    /// </summary>
-    public ILayoutContainer? LayoutStrategy { get; set; }
     
     /// <summary>
     /// Scale of the instance.

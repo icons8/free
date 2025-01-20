@@ -2,7 +2,7 @@ namespace Free.Schema;
 /// <summary>
 /// Defines column settings in a layout grid.
 /// </summary>
-public class Columns : IGridLayout
+public class Columns : GridLayoutBase
 {
     public string _t => "COLS";
     /// <summary>
