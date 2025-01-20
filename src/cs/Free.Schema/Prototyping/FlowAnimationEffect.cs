@@ -1,5 +1,8 @@
 namespace Free.Schema;
 
+/// <summary>
+/// Prototyping action animation effect.
+/// </summary>
 public enum FlowAnimationEffect : byte
 {
     Linear = 0,

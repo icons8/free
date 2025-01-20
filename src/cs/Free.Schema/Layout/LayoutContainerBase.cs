@@ -5,7 +5,7 @@ namespace Free.Schema;
 public abstract class LayoutContainerBase
 {
     /// <summary>
-    /// Object type
+    /// Object type.
     /// </summary>
     public string _t { get; }
 }

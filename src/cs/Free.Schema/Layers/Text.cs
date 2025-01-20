@@ -6,7 +6,7 @@ namespace Free.Schema;
 public class Text : Styled
 {
     /// <summary>
-    /// Object type
+    /// Object type.
     /// </summary>
     public override string _t => "TEXT";
     /// <summary>

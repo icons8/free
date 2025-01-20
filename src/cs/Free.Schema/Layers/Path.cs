@@ -5,7 +5,7 @@ namespace Free.Schema;
 public class Path : Styled
 {
     /// <summary>
-    /// Object type
+    /// Object type.
     /// </summary>
     public override string _t => "PATH";
     /// <summary>

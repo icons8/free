@@ -5,7 +5,7 @@ namespace Free.Schema;
 public class AutoLayoutContainer : LayoutContainerBase
 {
     /// <summary>
-    /// Object type
+    /// Object type.
     /// </summary>
     public string _t => "AUTO";
     /// <summary>

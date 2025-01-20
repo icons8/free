@@ -5,7 +5,7 @@ namespace Free.Schema;
 public class Slice : Layer
 {
     /// <summary>
-    /// Object type
+    /// Object type.
     /// </summary>
     public override string _t => "SLICE";
     /// <summary>

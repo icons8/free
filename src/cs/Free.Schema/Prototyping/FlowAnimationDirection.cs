@@ -1,5 +1,8 @@
 namespace Free.Schema;
 
+/// <summary>
+/// Prototyping action animation direction.
+/// </summary>
 public enum FlowAnimationDirection
 {
     Left = 0,

@@ -6,7 +6,7 @@ namespace Free.Schema;
 public abstract class Layer
 {
     /// <summary>
-    /// Object type
+    /// Object type.
     /// </summary>
     public abstract string _t { get; }
     /// <summary>

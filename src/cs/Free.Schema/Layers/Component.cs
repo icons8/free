@@ -6,7 +6,7 @@ namespace Free.Schema;
 public class Component : Frame
 {
     /// <summary>
-    /// Object type
+    /// Object type.
     /// </summary>
     public override string _t => "COMPONENT";
     /// <summary>

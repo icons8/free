@@ -5,7 +5,7 @@ namespace Free.Schema;
 public sealed class Grid : GridLayoutBase
 {
     /// <summary>
-    /// Object type
+    /// Object type.
     /// </summary>
     public string _t => "GRID";
     /// <summary>

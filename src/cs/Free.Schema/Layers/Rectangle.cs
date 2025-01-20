@@ -5,7 +5,7 @@ namespace Free.Schema;
 public class Rectangle : Path
 {
     /// <summary>
-    /// Object type
+    /// Object type.
     /// </summary>
     public override string _t => "RECT";
     

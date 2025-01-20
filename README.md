@@ -312,7 +312,7 @@ A component is a reusable groups of layers.
 
 Has all properties of [`Frame`](#Frame), plus:
 
-* _t: [string](#string) = `COMPONENT` - object type
+* _t: [string](#string) = `COMPONENT` - object type.
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * Predefined: [bool](#bool) = `False` - indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
 * ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for component filters.
@@ -328,7 +328,7 @@ An oval is a shape drawn on the canvas with the Oval tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* _t: [string](#string) = `OVAL` - object type
+* _t: [string](#string) = `OVAL` - object type.
 * Angle: [float](#float) = `0` - end angle for donuts measured clockwise from the X axis.
 * Ratio: [float](#float) = `0` - inner radius for donuts.
 * StartAngle: [float](#float) = `0` - start angle for donuts measured clockwise from the X axis.
@@ -338,7 +338,7 @@ A polygon is a shape drawn on the canvas with the Polygon tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* _t: [string](#string) = `POLYGON` - object type
+* _t: [string](#string) = `POLYGON` - object type.
 * Rays: [float](#float) = `0` - defines the number of corners.
 
 ### <a name="Rectangle"></a>Rectangle
@@ -346,7 +346,7 @@ A rectangle is a shape drawn on the canvas with the Rectangle tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* _t: [string](#string) = `RECT` - object type
+* _t: [string](#string) = `RECT` - object type.
 * SmoothCorners: [bool](#bool) = `False` - if the smooth corners option is enabled. Works only if the rectangle is not edited.
 
 ### <a name="Star"></a>Star
@@ -354,7 +354,7 @@ A star is a shape drawn on the canvas with the Star tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* _t: [string](#string) = `STAR` - object type
+* _t: [string](#string) = `STAR` - object type.
 * Rays: [float](#float) = `0` - defines the number of rays in a star.
 * Ratio: [float](#float) = `0` - defines the star ratio value.
 
@@ -363,7 +363,7 @@ A triangle is a shape drawn on the canvas with the Triangle tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* _t: [string](#string) = `TRIANGLE` - object type
+* _t: [string](#string) = `TRIANGLE` - object type.
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -376,7 +376,7 @@ A frame is a special type of layers that serves as a container for other layers 
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `FRAME` - object type
+* _t: [string](#string) = `FRAME` - object type.
 * CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame.
 * SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 * ClipContent: [bool](#bool) = `False` - when enabled, hides the content outside the frame boundaries.
@@ -404,7 +404,7 @@ A layer group is two or more layers unified into a single entity that can be man
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `GROUP` - object type
+* _t: [string](#string) = `GROUP` - object type.
 * SkipSelect: [bool](#bool) = `False` - when enabled, users can select group items without first selecting the group.
 * Layers: [Layer[]](#Layer) - list of layers within the group.
 
@@ -420,7 +420,7 @@ An instance is a copy of the main component. With instances, you can reuse the s
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `INSTANCE` - object type
+* _t: [string](#string) = `INSTANCE` - object type.
 * CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the instance frame.
 * SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 * Scale: [float](#float) = `0` - scale of the instance.
@@ -439,7 +439,7 @@ A vector path determines the outline and form of a vector object. A path is made
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `PATH` - object type
+* _t: [string](#string) = `PATH` - object type.
 * Edited: [bool](#bool) = `False` - if the shape is edited in the path editor.
 * Open: [bool](#bool) = `False` - indicates whether the path is open.
 * Points: [Vertex[]](#Vertex) - list of path's points.
@@ -449,7 +449,7 @@ A shape is a rectangle, oval, polygon, triangle, or star drawn with the respecti
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `SHAPE` - object type
+* _t: [string](#string) = `SHAPE` - object type.
 * Layers: [Layer[]](#Layer) - list of layers.
 
 <details>
@@ -464,7 +464,7 @@ Text is a block or line of text on the canvas.
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `TEXT` - object type
+* _t: [string](#string) = `TEXT` - object type.
 * text: [string](#string) - content of the text layer.
 * TextStyle: [TextStyle](#TextStyle) - style applied to the text.
 * Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
@@ -480,14 +480,14 @@ A hotspot is a special type of layers used to define clickable areas on prototyp
 
 Has all properties of [`Layer`](#Layer), plus:
 
-* _t: [string](#string) = `HOTSPOT` - object type
+* _t: [string](#string) = `HOTSPOT` - object type.
 
 ### <a name="Slice"></a>Slice
 A slice is a special type of layers used for exporting certaing parts of designs.
 
 Has all properties of [`Layer`](#Layer), plus:
 
-* _t: [string](#string) = `SLICE` - object type
+* _t: [string](#string) = `SLICE` - object type.
 * HasBackground: [bool](#bool) = `False` - defines whether the slice includes background.
 * Background: [Color](#Color) = `00000000` - defines the background color.
 * BackgroundId: [GUID?](#GUID) - unique color variable ID.
@@ -553,156 +553,177 @@ A layer is any ungrouped element available on the canvas.
 </details>
 
 ### <a name="BackAction"></a>BackAction
+Action to go to previous frame.
 
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* _t: [string](#string) = `BACK` - object type
-* Animation: [FlowAnimation](#FlowAnimation)
+* _t: [string](#string) = `BACK` - object type.
+* Animation: [FlowAnimation](#FlowAnimation) - action animation.
 
 ### <a name="CloseOverlayAction"></a>CloseOverlayAction
+Action to close current overlay.
 
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* _t: [string](#string) = `CLOSE_OVERLAY` - object type
+* _t: [string](#string) = `CLOSE_OVERLAY` - object type.
 
 ### <a name="NavigateToAction"></a>NavigateToAction
+Action to navigate to target frame.
 
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* _t: [string](#string) = `NAVIGATE` - object type
-* Target: [GUID?](#GUID)
-* Animation: [FlowAnimation](#FlowAnimation)
+* _t: [string](#string) = `NAVIGATE` - object type.
+* Target: [GUID?](#GUID) - id of the target frame.
+* Animation: [FlowAnimation](#FlowAnimation) - id of the target layer.
 
 ### <a name="NoneAction"></a>NoneAction
+Action that does nothing. Exists only to keep complex triggers that temporarily disabled.
 
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* _t: [string](#string) = `NONE` - object type
+* _t: [string](#string) = `NONE` - object type.
 
 ### <a name="OpenOverlayAction"></a>OpenOverlayAction
+Action to open target overlay.
 
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* _t: [string](#string) = `OVERLAY` - object type
-* Target: [GUID?](#GUID)
-* Animation: [FlowAnimation](#FlowAnimation)
-* Position: [FlowOverlayPosition](#FlowOverlayPosition) = `Centered`
-* Offset: [Vector2](#Vector2) = `<0, 0>`
-* CloseByClick: [bool](#bool) = `False`
-* HasBackground: [bool](#bool) = `False`
-* Background: [Color](#Color) = `00000000`
+* _t: [string](#string) = `OVERLAY` - object type.
+* Target: [GUID?](#GUID) - id of the target overlay.
+* Animation: [FlowAnimation](#FlowAnimation) - action animation.
+* Position: [FlowOverlayPosition](#FlowOverlayPosition) = `Centered` - startup location of overlay.
+* Offset: [Vector2](#Vector2) = `<0, 0>` - offset from startup location.
+* CloseByClick: [bool](#bool) = `False` - close by any click.
+* HasBackground: [bool](#bool) = `False` - defines whether the overlay has background.
+* Background: [Color](#Color) = `00000000` - overlay background color.
 
 ### <a name="OpenUrlAction"></a>OpenUrlAction
+Action to open URL.
 
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* _t: [string](#string) = `URL` - object type
-* Link: [string](#string)
+* _t: [string](#string) = `URL` - object type.
+* Url: [string](#string) - target URL.
 
 ### <a name="ScrollToAction"></a>ScrollToAction
+Action to scroll to target layer.
 
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* _t: [string](#string) = `SCROLL` - object type
-* Target: [GUID?](#GUID)
-* Animation: [FlowAnimation](#FlowAnimation)
+* _t: [string](#string) = `SCROLL` - object type.
+* Target: [GUID?](#GUID) - id of the target layer.
+* Animation: [FlowAnimation](#FlowAnimation) - action animation.
 
 ### <a name="SwapOverlayAction"></a>SwapOverlayAction
+Action to swap current overlay to target overlay.
 
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* _t: [string](#string) = `SWAP_OVERLAY` - object type
-* Target: [GUID?](#GUID)
-* Animation: [FlowAnimation](#FlowAnimation)
+* _t: [string](#string) = `SWAP_OVERLAY` - object type.
+* Target: [GUID?](#GUID) - id of the target overlay.
+* Animation: [FlowAnimation](#FlowAnimation) - action animation.
 
 ### <a name="SwitchStateAction"></a>SwitchStateAction
+Action to switch state of a target component instance.
 
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* _t: [string](#string) = `SWITCH_STATE` - object type
-* Target: [GUID?](#GUID)
-* Animation: [FlowAnimation](#FlowAnimation)
+* _t: [string](#string) = `SWITCH_STATE` - object type.
+* Target: [GUID?](#GUID) - id of the target instance.
+* Animation: [FlowAnimation](#FlowAnimation) - id of the target layer.
 
 ### <a name="FlowAction"></a>FlowAction
+Base object of prototyping action.
 
-* _t: [string](#string) = `NONE` - object type
+* _t: [string](#string) = `NONE` - object type.
 
 ### <a name="AfterDelayTrigger"></a>AfterDelayTrigger
+after delay.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
-* _t: [string](#string) = `DELAY` - object type
-* Delay: [int](#int) = `0`
+* _t: [string](#string) = `DELAY` - object type.
+* Delay: [int](#int) = `0` - delay in ms.
 
 ### <a name="ClickTrigger"></a>ClickTrigger
+Mouse click.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
-* _t: [string](#string) = `CLICK` - object type
+* _t: [string](#string) = `CLICK` - object type.
 
 ### <a name="DragTrigger"></a>DragTrigger
+Mouse drag.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
-* _t: [string](#string) = `DRAG` - object type
+* _t: [string](#string) = `DRAG` - object type.
 
 ### <a name="HoldTrigger"></a>HoldTrigger
+Mouse hold - only while you press and hold a mouse button.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
-* _t: [string](#string) = `HOLD` - object type
+* _t: [string](#string) = `HOLD` - object type.
 
 ### <a name="HoverTrigger"></a>HoverTrigger
+Mouse hover - only while mouse pointer is over layer.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
-* _t: [string](#string) = `HOVER` - object type
+* _t: [string](#string) = `HOVER` - object type.
 
 ### <a name="KeyPressTrigger"></a>KeyPressTrigger
+Key down.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
-* Shortcut: [string](#string)
-* Delay: [int](#int) = `0`
+* Shortcut: [string](#string) - string representing a keyboard shortcut. Examples: TAB, C, Ctrl+Shift+T, Alt+F3, Win+\.
+* Delay: [int](#int) = `0` - delay in ms.
 
 ### <a name="MouseDownTrigger"></a>MouseDownTrigger
+Mouse down.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
-* _t: [string](#string) = `MOUSE_DOWN` - object type
-* Delay: [int](#int) = `0`
+* _t: [string](#string) = `MOUSE_DOWN` - object type.
+* Delay: [int](#int) = `0` - delay in ms.
 
 ### <a name="MouseEnterTrigger"></a>MouseEnterTrigger
+Mouse enter.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
-* _t: [string](#string) = `ENTER` - object type
-* Delay: [int](#int) = `0`
+* _t: [string](#string) = `ENTER` - object type.
+* Delay: [int](#int) = `0` - delay in ms.
 
 ### <a name="MouseLeaveTrigger"></a>MouseLeaveTrigger
+Mouse leave.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
-* _t: [string](#string) = `LEAVE` - object type
-* Delay: [int](#int) = `0`
+* _t: [string](#string) = `LEAVE` - object type.
+* Delay: [int](#int) = `0` - delay in ms.
 
 ### <a name="MouseUpTrigger"></a>MouseUpTrigger
+Mouse up.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
-* _t: [string](#string) = `MOUSE_UP` - object type
-* Delay: [int](#int) = `0`
+* _t: [string](#string) = `MOUSE_UP` - object type.
+* Delay: [int](#int) = `0` - delay in ms.
 
 ### <a name="FlowTrigger"></a>FlowTrigger
+Base object of prototyping trigger.
 
-* _t: [string](#string) = `CLICK` - object type
+* _t: [string](#string) = `CLICK` - object type.
 
 ### <a name="AutoLayoutContainer"></a>AutoLayoutContainer
 Defines auto layout settings.
 
 Has all properties of [`LayoutContainerBase`](#LayoutContainerBase), plus:
 
-* _t: [string](#string) = `AUTO` - object type
+* _t: [string](#string) = `AUTO` - object type.
 * Orientation: [LayoutOrientation](#LayoutOrientation) = `Horizontal` - layout orientation: horizontal or vertical.
 * Spacing: [float](#float) = `0` - spacing value
 * WrapSpacing: [float](#float) = `0` - spacing between rows of wrapped content.
@@ -730,7 +751,7 @@ Defines column settings in a layout grid.
 
 Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
 
-* _t: [string](#string) = `COLS` - object type
+* _t: [string](#string) = `COLS` - object type.
 * Enabled: [bool](#bool) = `False` - if columnns are enabled.
 * Align: [LayoutHorizontalAlignment](#LayoutHorizontalAlignment) = `Left` - horizontal alignment settings.
 * Offset: [int](#int) = `0` - offset value.
@@ -744,7 +765,7 @@ Defines square grid settings for a frame.
 
 Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
 
-* _t: [string](#string) = `GRID` - object type
+* _t: [string](#string) = `GRID` - object type.
 * Enabled: [bool](#bool) = `False` - if the square grid is enabled.
 * Color: [Color](#Color) = `00000000` - grid color.
 * Size: [int](#int) = `10` - size of grid cells.
@@ -760,7 +781,7 @@ Defines row settings in a layout grid.
 
 Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
 
-* _t: [string](#string) = `ROWS` - object type
+* _t: [string](#string) = `ROWS` - object type.
 * Enabled: [bool](#bool) = `False` - if rows are enabled.
 * Align: [LayoutVerticalAlignment](#LayoutVerticalAlignment) = `Top` - vertical alignment settings.
 * Offset: [int](#int) = `0` - offset value.
@@ -849,18 +870,20 @@ Defines the fill applied to a layer.
 * Gradient: [Gradient](#Gradient) - contains gradient properties in case the fill is a gradient.
 
 ### <a name="Flow"></a>Flow
+Prototyping interaction element
 
-* Action: [FlowAction](#FlowAction)
-* Trigger: [FlowTrigger](#FlowTrigger)
+* Trigger: [FlowTrigger](#FlowTrigger) - trigger that will fire an action. Examples: CLICK, DRAG, HOLD.
+* Action: [FlowAction](#FlowAction) - action. Examples: NAVIGATE, SCROLL, URL, BACK.
 
 ### <a name="FlowAnimation"></a>FlowAnimation
+Prototyping action animation.
 
-* Enabled: [bool](#bool) = `False`
-* Type: [FlowAnimationType](#FlowAnimationType) = `Instant`
-* Effect: [FlowAnimationEffect](#FlowAnimationEffect) = `Linear`
-* Direction: [FlowAnimationDirection](#FlowAnimationDirection) = `Left`
-* Duration: [int](#int) = `0`
-* Curve: [float[]](#float)
+* Enabled: [bool](#bool) = `False` - if animation is enabled.
+* Type: [FlowAnimationType](#FlowAnimationType) = `Instant` - animation type.
+* Effect: [FlowAnimationEffect](#FlowAnimationEffect) = `Linear` - animation effect.
+* Direction: [FlowAnimationDirection](#FlowAnimationDirection) = `Left` - animation direction.
+* Duration: [int](#int) = `0` - animation duration in ms.
+* Curve: [float[]](#float) - animation curve float point array.
 
 ### <a name="Font"></a>Font
 Embedded fonts stored in the document.
@@ -894,7 +917,7 @@ A position-color pair representing a gradient stop.
 ### <a name="GridLayoutBase"></a>GridLayoutBase
 Defines layout grid settings for a frame.
 
-* _t: [string](#string) - object type
+* _t: [string](#string) - object type.
 * Enabled: [bool](#bool) = `False` - if layout grid is enabled.
 
 ### <a name="ImageFilters"></a>ImageFilters
@@ -916,7 +939,7 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 ### <a name="LayoutContainerBase"></a>LayoutContainerBase
 Defines a container layout.
 
-* _t: [string](#string) - object type
+* _t: [string](#string) - object type.
 
 ### <a name="Meta"></a>Meta
 Contains metadata about the document.
@@ -1331,6 +1354,7 @@ Defines the fill type.
 * `4` Pattern - image fill.
 
 ### <a name="FlowAnimationDirection"></a>FlowAnimationDirection Enum
+Prototyping action animation direction.
 
 * `0` Left
 * `1` Right
@@ -1339,6 +1363,7 @@ Defines the fill type.
 * `4` Scroll
 
 ### <a name="FlowAnimationEffect"></a>FlowAnimationEffect Enum
+Prototyping action animation effect.
 
 * `0` Linear
 * `1` EaseIn
@@ -1353,6 +1378,7 @@ Defines the fill type.
 * `10` CustomSpring
 
 ### <a name="FlowAnimationType"></a>FlowAnimationType Enum
+Prototyping action animation type.
 
 * `0` Instant
 * `1` Dissolve
@@ -1365,6 +1391,7 @@ Defines the fill type.
 * `8` Scroll
 
 ### <a name="FlowOverlayPosition"></a>FlowOverlayPosition Enum
+Prototyping overlay position.
 
 * `0` Centered
 * `1` TopLeft
@@ -1376,10 +1403,11 @@ Defines the fill type.
 * `7` Manual
 
 ### <a name="FlowScrollBehavior"></a>FlowScrollBehavior Enum
+Prototyping scroll behavior of a layer.
 
-* `0` Scroll
-* `1` Fixed
-* `2` Sticky
+* `0` Scroll - regular behavior of a layer.
+* `1` Fixed - fixed position on scroll.
+* `2` Sticky - stick to the edge on scroll.
 
 ### <a name="GradientType"></a>GradientType Enum
 List of Gradient types.

@@ -1,5 +1,8 @@
 namespace Free.Schema;
 
+/// <summary>
+/// Prototyping action animation type.
+/// </summary>
 public enum FlowAnimationType : byte
 {
     Instant = 0,

@@ -1,5 +1,8 @@
 namespace Free.Schema;
 
+/// <summary>
+/// Prototyping overlay position.
+/// </summary>
 public enum FlowOverlayPosition : byte
 {
     Centered = 0,

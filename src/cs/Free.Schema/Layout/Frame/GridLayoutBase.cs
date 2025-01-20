@@ -6,7 +6,7 @@ namespace Free.Schema;
 public abstract class GridLayoutBase
 {
     /// <summary>
-    /// Object type
+    /// Object type.
     /// </summary>
     public string _t { get; }
     
