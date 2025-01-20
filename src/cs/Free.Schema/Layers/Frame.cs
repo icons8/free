@@ -18,11 +18,6 @@ public class Frame : Styled
     public bool SmoothCorners { get; set; }
 
     /// <summary>
-    /// Auto layout settings.
-    /// </summary>
-    public ILayoutContainer? LayoutStrategy { get; set; }
-
-    /// <summary>
     /// Style settings for the frame if it acts as an overlay in Sketch prototyping.
     /// </summary>
     [SketchCompatibility]
@@ -56,12 +51,6 @@ public class Frame : Styled
     public PrototypeViewport Viewport { get; set; }
     
     /// <summary>
-    /// Overlay interaction for Sketch prototyping.
-    /// </summary>
-    [SketchCompatibility]
-    public OverlayBackgroundInteraction OverlayInteraction { get; set; }
-    
-    /// <summary>
     /// Defines whether the frame acts as an overlay in prototyping.
     /// </summary>
     [SketchCompatibility]
@@ -93,17 +82,11 @@ public class Frame : Styled
     /// <summary>
     /// Grid, Row and Column layouts of the frame.
     /// </summary>
-    public List<IGridLayout> Layouts { get; } = new();
+    public List<LayoutContainerBase> Layouts { get; } = new();
     /// <summary>
     /// Rulers and guidelines info.
     /// </summary>
     public Rulers Rulers { get; } = new();
-    
-    /// <summary>
-    /// Sketch prototyping overlay feature settings.
-    /// </summary>
-    [SketchCompatibility]
-    public OverlaySettings? OverlaySettings { get; set; }
     /// <summary>
     /// List of layers on the frame.
     /// </summary>

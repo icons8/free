@@ -3,7 +3,6 @@ namespace Free.Schema;
 /// <summary>
 /// A layer is any ungrouped element available on the canvas.
 /// </summary>
-
 public abstract class Layer
 {
     public abstract string _t { get; }
@@ -88,13 +87,13 @@ public abstract class Layer
     /// </summary>
     public bool KeepScroll { get; set; }
     /// <summary>
-    /// Defines the animation type (prototyping).
+    /// Defines scroll behavior (prototyping).
     /// </summary>
-    public AnimationType Animation { get; set; } = AnimationType.FromRight;
+    public FlowScrollBehavior ScrollBehavior { get; set; }
     /// <summary>
-    /// Defines the target frame (prototyping).
+    /// Defines flows (prototyping).
     /// </summary>
-    public string Link { get; set; } = string.Empty;
+    public List<Flow> Flows { get; set; } = new();
     /// <summary>
     /// Defines the minimum layer width (auto layout).
     /// </summary>
