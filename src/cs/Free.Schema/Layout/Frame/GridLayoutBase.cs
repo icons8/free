@@ -6,8 +6,12 @@ namespace Free.Schema;
 public abstract class GridLayoutBase
 {
     /// <summary>
+    /// Object type
+    /// </summary>
+    public string _t { get; }
+    
+    /// <summary>
     /// If layout grid is enabled.
     /// </summary>
-    bool Enabled { get; set; }
-    string _t { get; }
+    public bool Enabled { get; set; }
 }

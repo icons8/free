@@ -1,8 +1,8 @@
 ## Changelog
 
-### Version 4 - TBD
+### Version 4 - 20.01.2025
 
-* `Link` property is replaced by `Flows` list of prototyping interactions.
+* `Link` property is replaced by `Flows` list of prototyping triggers and actions.
 
 ### Version 3 - 25.09.2024
 

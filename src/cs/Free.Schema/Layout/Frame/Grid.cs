@@ -2,8 +2,11 @@ namespace Free.Schema;
 /// <summary>
 /// Defines square grid settings for a frame.
 /// </summary>
-public class Grid : GridLayoutBase
+public sealed class Grid : GridLayoutBase
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public string _t => "GRID";
     /// <summary>
     /// If the square grid is enabled.

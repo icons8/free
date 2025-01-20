@@ -4,6 +4,9 @@ namespace Free.Schema;
 /// </summary>
 public class Oval : Path
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public override string _t => "OVAL";
     /// <summary>
     /// End angle for donuts measured clockwise from the X axis.

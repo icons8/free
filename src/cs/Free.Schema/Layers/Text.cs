@@ -5,6 +5,9 @@ namespace Free.Schema;
 
 public class Text : Styled
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public override string _t => "TEXT";
     /// <summary>
     /// Content of the text layer.

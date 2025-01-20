@@ -312,7 +312,7 @@ A component is a reusable groups of layers.
 
 Has all properties of [`Frame`](#Frame), plus:
 
-* _t: [string](#string) = `COMPONENT`
+* _t: [string](#string) = `COMPONENT` - object type
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * Predefined: [bool](#bool) = `False` - indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
 * ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for component filters.
@@ -328,7 +328,7 @@ An oval is a shape drawn on the canvas with the Oval tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* _t: [string](#string) = `OVAL`
+* _t: [string](#string) = `OVAL` - object type
 * Angle: [float](#float) = `0` - end angle for donuts measured clockwise from the X axis.
 * Ratio: [float](#float) = `0` - inner radius for donuts.
 * StartAngle: [float](#float) = `0` - start angle for donuts measured clockwise from the X axis.
@@ -338,7 +338,7 @@ A polygon is a shape drawn on the canvas with the Polygon tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* _t: [string](#string) = `POLYGON`
+* _t: [string](#string) = `POLYGON` - object type
 * Rays: [float](#float) = `0` - defines the number of corners.
 
 ### <a name="Rectangle"></a>Rectangle
@@ -346,7 +346,7 @@ A rectangle is a shape drawn on the canvas with the Rectangle tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* _t: [string](#string) = `RECT`
+* _t: [string](#string) = `RECT` - object type
 * SmoothCorners: [bool](#bool) = `False` - if the smooth corners option is enabled. Works only if the rectangle is not edited.
 
 ### <a name="Star"></a>Star
@@ -354,7 +354,7 @@ A star is a shape drawn on the canvas with the Star tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* _t: [string](#string) = `STAR`
+* _t: [string](#string) = `STAR` - object type
 * Rays: [float](#float) = `0` - defines the number of rays in a star.
 * Ratio: [float](#float) = `0` - defines the star ratio value.
 
@@ -363,7 +363,7 @@ A triangle is a shape drawn on the canvas with the Triangle tool.
 
 Has all properties of [`Path`](#Path), plus:
 
-* _t: [string](#string) = `TRIANGLE`
+* _t: [string](#string) = `TRIANGLE` - object type
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -376,14 +376,14 @@ A frame is a special type of layers that serves as a container for other layers 
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `FRAME`
+* _t: [string](#string) = `FRAME` - object type
 * CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame.
 * SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 * ClipContent: [bool](#bool) = `False` - when enabled, hides the content outside the frame boundaries.
 * FlowHome: [bool](#bool) = `False` - sets the frame as a prototype starting point.
 * Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
 * ResizesContent: [bool](#bool) = `False` - enables adjusting and resizing the frame content as the frame is resized.
-* Layouts: [IGridLayout[]](#IGridLayout) - grid, Row and Column layouts of the frame.
+* Layouts: [LayoutContainerBase[]](#LayoutContainerBase) - grid, Row and Column layouts of the frame.
 * Rulers: [Rulers](#Rulers) - rulers and guidelines info.
 * Layers: [Layer[]](#Layer) - list of layers on the frame.
 
@@ -393,12 +393,10 @@ Has all properties of [`Styled`](#Styled), plus:
 * OverlayStyle: [Style](#Style) - style settings for the frame if it acts as an overlay in Sketch prototyping.
 * GroupLayout: [SketchGroupLayout](#SketchGroupLayout) - sketch Layout settings. Not supported in Lunacy, but keeping data for compatibility.
 * BackgroundInExport: [bool](#bool) = `False` - when enabled, the frame background is included into export files.
-* OverlayInteraction: [OverlayBackgroundInteraction](#OverlayBackgroundInteraction) = `None` - overlay interaction for Sketch prototyping.
 * Overlay: [bool](#bool) = `False` - defines whether the frame acts as an overlay in prototyping.
 * HasBackground: [bool](#bool) = `False` - defines whether the frame has background.
 * Background: [Color](#Color) = `ffffffff` - defines the frame background color.
 * BackgroundId: [GUID](#GUID) - defines the background color variable ID.
-* OverlaySettings: [OverlaySettings](#OverlaySettings) - sketch prototyping overlay feature settings.
 </details>
 
 ### <a name="Group"></a>Group
@@ -406,7 +404,7 @@ A layer group is two or more layers unified into a single entity that can be man
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `GROUP`
+* _t: [string](#string) = `GROUP` - object type
 * SkipSelect: [bool](#bool) = `False` - when enabled, users can select group items without first selecting the group.
 * Layers: [Layer[]](#Layer) - list of layers within the group.
 
@@ -422,7 +420,7 @@ An instance is a copy of the main component. With instances, you can reuse the s
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `INSTANCE`
+* _t: [string](#string) = `INSTANCE` - object type
 * CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the instance frame.
 * SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 * Scale: [float](#float) = `0` - scale of the instance.
@@ -441,7 +439,7 @@ A vector path determines the outline and form of a vector object. A path is made
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `PATH`
+* _t: [string](#string) = `PATH` - object type
 * Edited: [bool](#bool) = `False` - if the shape is edited in the path editor.
 * Open: [bool](#bool) = `False` - indicates whether the path is open.
 * Points: [Vertex[]](#Vertex) - list of path's points.
@@ -451,7 +449,7 @@ A shape is a rectangle, oval, polygon, triangle, or star drawn with the respecti
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `SHAPE`
+* _t: [string](#string) = `SHAPE` - object type
 * Layers: [Layer[]](#Layer) - list of layers.
 
 <details>
@@ -466,7 +464,7 @@ Text is a block or line of text on the canvas.
 
 Has all properties of [`Styled`](#Styled), plus:
 
-* _t: [string](#string) = `TEXT`
+* _t: [string](#string) = `TEXT` - object type
 * text: [string](#string) - content of the text layer.
 * TextStyle: [TextStyle](#TextStyle) - style applied to the text.
 * Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
@@ -482,14 +480,14 @@ A hotspot is a special type of layers used to define clickable areas on prototyp
 
 Has all properties of [`Layer`](#Layer), plus:
 
-* _t: [string](#string) = `HOTSPOT`
+* _t: [string](#string) = `HOTSPOT` - object type
 
 ### <a name="Slice"></a>Slice
 A slice is a special type of layers used for exporting certaing parts of designs.
 
 Has all properties of [`Layer`](#Layer), plus:
 
-* _t: [string](#string) = `SLICE`
+* _t: [string](#string) = `SLICE` - object type
 * HasBackground: [bool](#bool) = `False` - defines whether the slice includes background.
 * Background: [Color](#Color) = `00000000` - defines the background color.
 * BackgroundId: [GUID?](#GUID) - unique color variable ID.
@@ -533,7 +531,7 @@ A layer is any ungrouped element available on the canvas.
 * BreakMask: [bool](#bool) = `False` - defines if the layer is set to ignore the mask.
 * MaskType: [MaskType](#MaskType) = `Vector` - type of the Mask - Vector, Alpha or Luminance.
 * KeepScroll: [bool](#bool) = `False` - if the *Keep scroll position* option is enabled (prototyping).
-* Animation: [AnimationType](#AnimationType) = `FromRight` - defines the animation type (prototyping).
+* ScrollBehavior: [FlowScrollBehavior](#FlowScrollBehavior) = `Scroll` - defines scroll behavior (prototyping).
 * MinWidth: [float](#float) = `0` - defines the minimum layer width (auto layout).
 * MinHeight: [float](#float) = `0` - defines the minimum layer height (auto layout).
 * MaxWidth: [float](#float) = `0` - defines the maximum layer width (auto layout).
@@ -554,17 +552,157 @@ A layer is any ungrouped element available on the canvas.
 * BackgroundRemove: [BackgroundRemovalState](#BackgroundRemovalState) = `None` - background removal procedure info.
 </details>
 
-### <a name="Border"></a>Border
-Defines the appearance of borders.
+### <a name="BackAction"></a>BackAction
 
-Has all properties of [`Fill`](#Fill), plus:
+Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* Thickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines border thickness.
-* Pos: [BorderPosition](#BorderPosition) = `Center` - defines border position.
+* _t: [string](#string) = `BACK` - object type
+* Animation: [FlowAnimation](#FlowAnimation)
+
+### <a name="CloseOverlayAction"></a>CloseOverlayAction
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `CLOSE_OVERLAY` - object type
+
+### <a name="NavigateToAction"></a>NavigateToAction
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `NAVIGATE` - object type
+* Target: [GUID?](#GUID)
+* Animation: [FlowAnimation](#FlowAnimation)
+
+### <a name="NoneAction"></a>NoneAction
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `NONE` - object type
+
+### <a name="OpenOverlayAction"></a>OpenOverlayAction
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `OVERLAY` - object type
+* Target: [GUID?](#GUID)
+* Animation: [FlowAnimation](#FlowAnimation)
+* Position: [FlowOverlayPosition](#FlowOverlayPosition) = `Centered`
+* Offset: [Vector2](#Vector2) = `<0, 0>`
+* CloseByClick: [bool](#bool) = `False`
+* HasBackground: [bool](#bool) = `False`
+* Background: [Color](#Color) = `00000000`
+
+### <a name="OpenUrlAction"></a>OpenUrlAction
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `URL` - object type
+* Link: [string](#string)
+
+### <a name="ScrollToAction"></a>ScrollToAction
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `SCROLL` - object type
+* Target: [GUID?](#GUID)
+* Animation: [FlowAnimation](#FlowAnimation)
+
+### <a name="SwapOverlayAction"></a>SwapOverlayAction
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `SWAP_OVERLAY` - object type
+* Target: [GUID?](#GUID)
+* Animation: [FlowAnimation](#FlowAnimation)
+
+### <a name="SwitchStateAction"></a>SwitchStateAction
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `SWITCH_STATE` - object type
+* Target: [GUID?](#GUID)
+* Animation: [FlowAnimation](#FlowAnimation)
+
+### <a name="FlowAction"></a>FlowAction
+
+* _t: [string](#string) = `NONE` - object type
+
+### <a name="AfterDelayTrigger"></a>AfterDelayTrigger
+
+Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
+
+* _t: [string](#string) = `DELAY` - object type
+* Delay: [int](#int) = `0`
+
+### <a name="ClickTrigger"></a>ClickTrigger
+
+Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
+
+* _t: [string](#string) = `CLICK` - object type
+
+### <a name="DragTrigger"></a>DragTrigger
+
+Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
+
+* _t: [string](#string) = `DRAG` - object type
+
+### <a name="HoldTrigger"></a>HoldTrigger
+
+Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
+
+* _t: [string](#string) = `HOLD` - object type
+
+### <a name="HoverTrigger"></a>HoverTrigger
+
+Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
+
+* _t: [string](#string) = `HOVER` - object type
+
+### <a name="KeyPressTrigger"></a>KeyPressTrigger
+
+Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
+
+* Shortcut: [string](#string)
+* Delay: [int](#int) = `0`
+
+### <a name="MouseDownTrigger"></a>MouseDownTrigger
+
+Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
+
+* _t: [string](#string) = `MOUSE_DOWN` - object type
+* Delay: [int](#int) = `0`
+
+### <a name="MouseEnterTrigger"></a>MouseEnterTrigger
+
+Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
+
+* _t: [string](#string) = `ENTER` - object type
+* Delay: [int](#int) = `0`
+
+### <a name="MouseLeaveTrigger"></a>MouseLeaveTrigger
+
+Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
+
+* _t: [string](#string) = `LEAVE` - object type
+* Delay: [int](#int) = `0`
+
+### <a name="MouseUpTrigger"></a>MouseUpTrigger
+
+Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
+
+* _t: [string](#string) = `MOUSE_UP` - object type
+* Delay: [int](#int) = `0`
+
+### <a name="FlowTrigger"></a>FlowTrigger
+
+* _t: [string](#string) = `CLICK` - object type
 
 ### <a name="AutoLayoutContainer"></a>AutoLayoutContainer
 Defines auto layout settings.
 
+Has all properties of [`LayoutContainerBase`](#LayoutContainerBase), plus:
+
+* _t: [string](#string) = `AUTO` - object type
 * Orientation: [LayoutOrientation](#LayoutOrientation) = `Horizontal` - layout orientation: horizontal or vertical.
 * Spacing: [float](#float) = `0` - spacing value
 * WrapSpacing: [float](#float) = `0` - spacing between rows of wrapped content.
@@ -579,6 +717,58 @@ Defines auto layout settings.
 * Wrap: [bool](#bool) = `False` - if wrapping is enabled.
 * WrapDistribute: [bool](#bool) = `False` - if auto distribute is enabled for wrapped content.
 
+### <a name="Border"></a>Border
+Defines the appearance of borders.
+
+Has all properties of [`Fill`](#Fill), plus:
+
+* Thickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines border thickness.
+* Pos: [BorderPosition](#BorderPosition) = `Center` - defines border position.
+
+### <a name="Columns"></a>Columns
+Defines column settings in a layout grid.
+
+Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
+
+* _t: [string](#string) = `COLS` - object type
+* Enabled: [bool](#bool) = `False` - if columnns are enabled.
+* Align: [LayoutHorizontalAlignment](#LayoutHorizontalAlignment) = `Left` - horizontal alignment settings.
+* Offset: [int](#int) = `0` - offset value.
+* Count: [int](#int) = `0` - number of columns.
+* Gutter: [int](#int) = `0` - gutter value.
+* Width: [int](#int) = `0` - column width.
+* Color: [Color](#Color) = `00000000` - column color.
+
+### <a name="Grid"></a>Grid
+Defines square grid settings for a frame.
+
+Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
+
+* _t: [string](#string) = `GRID` - object type
+* Enabled: [bool](#bool) = `False` - if the square grid is enabled.
+* Color: [Color](#Color) = `00000000` - grid color.
+* Size: [int](#int) = `10` - size of grid cells.
+
+<details>
+<summary>Sketch compatibility</summary>
+
+* ThickTimes: [int](#int) = `10` - every N line should be thick.
+</details>
+
+### <a name="Rows"></a>Rows
+Defines row settings in a layout grid.
+
+Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
+
+* _t: [string](#string) = `ROWS` - object type
+* Enabled: [bool](#bool) = `False` - if rows are enabled.
+* Align: [LayoutVerticalAlignment](#LayoutVerticalAlignment) = `Top` - vertical alignment settings.
+* Offset: [int](#int) = `0` - offset value.
+* Count: [int](#int) = `0` - number of rows.
+* Gutter: [int](#int) = `0` - gutter value.
+* Width: [int](#int) = `0` - row width.
+* Color: [Color](#Color) = `00000000` - row color.
+
 ### <a name="BlurEffect"></a>BlurEffect
 Defines the settings of the blur effect.
 
@@ -590,7 +780,7 @@ Defines the settings of the blur effect.
 <details>
 <summary>Sketch compatibility</summary>
 
-* Center: [Point](#Point) = `[0,5,0,5]` - center point of motion blur.
+* Center: [Point](#Point) = `[0.5,0.5]` - center point of motion blur.
 * MotionAngle: [float](#float) = `0` - angle of motion for motion blur.
 </details>
 
@@ -614,17 +804,6 @@ Color variables stored in the document.
 * Id: [GUID](#GUID) - unique color variable ID.
 * Name: [string](#string) - color variable name.
 * Value: [Color](#Color) = `00000000` - color value of the variable.
-
-### <a name="Columns"></a>Columns
-Defines column settings in a layout grid.
-
-* Enabled: [bool](#bool) = `False` - if columnns are enabled.
-* Align: [LayoutHorizontalAlignment](#LayoutHorizontalAlignment) = `Left` - horizontal alignment settings.
-* Offset: [int](#int) = `0` - offset value.
-* Count: [int](#int) = `0` - number of columns.
-* Gutter: [int](#int) = `0` - gutter value.
-* Width: [int](#int) = `0` - column width.
-* Color: [Color](#Color) = `00000000` - column color.
 
 ### <a name="Document"></a>Document
 The document's .json structure.
@@ -669,6 +848,20 @@ Defines the fill applied to a layer.
 * Pattern: [Pattern](#Pattern) - contains pattern fill properties in case the fill is a pattern fill.
 * Gradient: [Gradient](#Gradient) - contains gradient properties in case the fill is a gradient.
 
+### <a name="Flow"></a>Flow
+
+* Action: [FlowAction](#FlowAction)
+* Trigger: [FlowTrigger](#FlowTrigger)
+
+### <a name="FlowAnimation"></a>FlowAnimation
+
+* Enabled: [bool](#bool) = `False`
+* Type: [FlowAnimationType](#FlowAnimationType) = `Instant`
+* Effect: [FlowAnimationEffect](#FlowAnimationEffect) = `Linear`
+* Direction: [FlowAnimationDirection](#FlowAnimationDirection) = `Left`
+* Duration: [int](#int) = `0`
+* Curve: [float[]](#float)
+
 ### <a name="Font"></a>Font
 Embedded fonts stored in the document.
 
@@ -681,8 +874,8 @@ Embedded fonts stored in the document.
 An object that represents a gradient.
 
 * Type: [GradientType](#GradientType) = `Linear` - type of the gradient.
-* From: [Point](#Point) = `[0,5,0]` - position of the gradient start point.
-* To: [Point](#Point) = `[0,5,1]` - position of the gradient end point.
+* From: [Point](#Point) = `[0.5,0]` - position of the gradient start point.
+* To: [Point](#Point) = `[0.5,1]` - position of the gradient end point.
 * Side: [Point](#Point) = `[0,0]` - position of the gradient side point. Valid for radial and angular gragients.
 * Stops: [GradientStop[]](#GradientStop) - list of other gradient points.
 
@@ -698,18 +891,11 @@ A position-color pair representing a gradient stop.
 * Pos: [float](#float) = `0` - value between 0 and 1 representing a position along gradient axis.
 * Color: [Color](#Color) = `ffffffff` - color attached to a corresponding position.
 
-### <a name="Grid"></a>Grid
-Defines square grid settings for a frame.
+### <a name="GridLayoutBase"></a>GridLayoutBase
+Defines layout grid settings for a frame.
 
-* Enabled: [bool](#bool) = `False` - if the square grid is enabled.
-* Color: [Color](#Color) = `00000000` - grid color.
-* Size: [int](#int) = `10` - size of grid cells.
-
-<details>
-<summary>Sketch compatibility</summary>
-
-* ThickTimes: [int](#int) = `10` - every N line should be thick.
-</details>
+* _t: [string](#string) - object type
+* Enabled: [bool](#bool) = `False` - if layout grid is enabled.
 
 ### <a name="ImageFilters"></a>ImageFilters
 Defines filters that can be applied to images.
@@ -726,6 +912,11 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * Start: [int](#int) = `0` - position where the style starts.
 * Length: [int](#int) = `0` - length of the selection.
 * Style: [TextStyle](#TextStyle) - style applied to the selection.
+
+### <a name="LayoutContainerBase"></a>LayoutContainerBase
+Defines a container layout.
+
+* _t: [string](#string) - object type
 
 ### <a name="Meta"></a>Meta
 Contains metadata about the document.
@@ -825,17 +1016,6 @@ This is a frame preset. Also used to determine viewport size for a large frame t
 * Size: [Size](#Size) = `[0,0]` - frame size.
 * LibraryId: [GUID](#GUID) - library identifier.
 
-### <a name="Rows"></a>Rows
-Defines row settings in a layout grid.
-
-* Enabled: [bool](#bool) = `False` - if rows are enabled.
-* Align: [LayoutVerticalAlignment](#LayoutVerticalAlignment) = `Top` - vertical alignment settings.
-* Offset: [int](#int) = `0` - offset value.
-* Count: [int](#int) = `0` - number of rows.
-* Gutter: [int](#int) = `0` - gutter value.
-* Width: [int](#int) = `0` - row width.
-* Color: [Color](#Color) = `00000000` - row color.
-
 ### <a name="Rulers"></a>Rulers
 An object containing ruler origins and guideline positions.
 
@@ -913,17 +1093,6 @@ Defines a set of properties that make up a text style.
 * Strikethrough: [bool](#bool) = `False` - if the strikethrough option is applied to the text.
 * BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
 
-### <a name="IGridLayout"></a>IGridLayout
-Defines layout grid settings for a frame.
-
-* _t: [string](#string) = `COLS`
-* Enabled: [bool](#bool) = `False` - if layout grid is enabled.
-
-### <a name="ILayoutContainer"></a>ILayoutContainer
-Defines an auto layout.
-
-* _t: [string](#string) = `AUTO`
-
 ### <a name="Color"></a>Color Struct
 32-bit ARGB unpremultiplied color value.
 
@@ -985,15 +1154,6 @@ A utility class to represent a vertex.
 * To: [Point](#Point) = `[0,0]` - second control point, curve to.
 * Radius: [float](#float) - corner radius of a vertex point. It's stored in half because we don't need that much precision for corner radius.
 * Flags: [VertexFlags](#VertexFlags) = `None` - vertex flags, including: CurveMode, hasFrom, hasTo, and CornerStyle.
-
-### <a name="AnimationType"></a>AnimationType Enum
-Defines animation types in prototypes.
-
-* `-1` None
-* `0` FromRight
-* `1` FromLeft
-* `2` FromBottom
-* `3` FromTop
 
 ### <a name="Arrowhead"></a>Arrowhead Enum
 Defines the appearance of arrowheads.
@@ -1169,6 +1329,57 @@ Defines the fill type.
 * `0` Color - solid color fill.
 * `1` Gradient - gradient fill.
 * `4` Pattern - image fill.
+
+### <a name="FlowAnimationDirection"></a>FlowAnimationDirection Enum
+
+* `0` Left
+* `1` Right
+* `2` Up
+* `3` Down
+* `4` Scroll
+
+### <a name="FlowAnimationEffect"></a>FlowAnimationEffect Enum
+
+* `0` Linear
+* `1` EaseIn
+* `2` EaseOut
+* `3` EaseInBack
+* `4` EaseOutBack
+* `5` Gentle
+* `6` Quick
+* `7` Slow
+* `8` Bounce
+* `9` Custom
+* `10` CustomSpring
+
+### <a name="FlowAnimationType"></a>FlowAnimationType Enum
+
+* `0` Instant
+* `1` Dissolve
+* `2` SmartAnimate
+* `3` MoveIn
+* `4` MoveOut
+* `5` Push
+* `6` SlideIn
+* `7` SlideOut
+* `8` Scroll
+
+### <a name="FlowOverlayPosition"></a>FlowOverlayPosition Enum
+
+* `0` Centered
+* `1` TopLeft
+* `2` TopCenter
+* `3` TopRight
+* `4` BottomLeft
+* `5` BottomCenter
+* `6` BottomRight
+* `7` Manual
+
+### <a name="FlowScrollBehavior"></a>FlowScrollBehavior Enum
+
+* `0` Scroll
+* `1` Fixed
+* `2` Sticky
 
 ### <a name="GradientType"></a>GradientType Enum
 List of Gradient types.
@@ -1384,14 +1595,6 @@ Defines color overrides for components. _//Sketch Compatibility_
 * Property: [ColorOverrideType](#ColorOverrideType) = `Unknown` - color override type: none, fill, border, shadow, or inner shadow.
 * Index: [int](#int) = `0` - fill index. Starts from 0.
 
-### <a name="OverlaySettings"></a>OverlaySettings
-Defines overlay settings. _//Sketch Compatibility_
-
-* Offset: [Point](#Point) = `[0,0]`
-* OverlayAnchor: [Point](#Point) = `[0,0]`
-* OverlayType: [OverlayType](#OverlayType) = `0`
-* SourceAnchor: [Point](#Point) = `[0,0]`
-
 ### <a name="SketchGroupLayout"></a>SketchGroupLayout
 Sketch Group Layout Properties _//Sketch Compatibility_
 
@@ -1459,24 +1662,11 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `1` SecondaryPrefix - indicates that the file name comes with a user-defined prefix.
 * `2` PrimaryPrefix - indicates that the file name comes with a user-defined prefix.
 
-### <a name="OverlayBackgroundInteraction"></a>OverlayBackgroundInteraction Enum
-Overlay-background interaction options. _//Sketch Compatibility_
-
-* `0` None
-* `1` CrossOverlay
-* `2` AllowAll
-
-### <a name="OverlayType"></a>OverlayType Enum
-Defines overlay types. _//Sketch Compatibility_
-
-* `1` Screen
-* `2` Layer
-
 ## Changelog
 
-### Version 4 - TBD
+### Version 4 - 20.01.2025
 
-* `Link` property is replaced by `Flows` list of prototyping interactions.
+* `Link` property is replaced by `Flows` list of prototyping triggers and actions.
 
 ### Version 3 - 25.09.2024
 

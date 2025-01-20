@@ -4,6 +4,9 @@ namespace Free.Schema;
 /// </summary>
 public class Polygon : Path
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public override string _t => "POLYGON";
     
     /// <summary>

@@ -5,6 +5,9 @@ namespace Free.Schema;
 /// </summary>
 public abstract class Layer
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public abstract string _t { get; }
     /// <summary>
     /// Unique layer identifier.

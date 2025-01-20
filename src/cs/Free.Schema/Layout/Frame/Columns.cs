@@ -2,8 +2,11 @@ namespace Free.Schema;
 /// <summary>
 /// Defines column settings in a layout grid.
 /// </summary>
-public class Columns : GridLayoutBase
+public sealed class Columns : GridLayoutBase
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public string _t => "COLS";
     /// <summary>
     /// If columnns are enabled.

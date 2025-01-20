@@ -5,6 +5,9 @@ namespace Free.Schema;
 /// </summary>
 public class Hotspot : Layer
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public override string _t => "HOTSPOT";
     
 }

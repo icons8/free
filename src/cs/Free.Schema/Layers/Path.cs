@@ -4,6 +4,9 @@ namespace Free.Schema;
 /// </summary>
 public class Path : Styled
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public override string _t => "PATH";
     /// <summary>
     /// If the shape is edited in the path editor.

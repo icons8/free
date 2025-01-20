@@ -4,6 +4,9 @@ namespace Free.Schema;
 /// </summary>
 public class Star : Path
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public override string _t => "STAR";
     
     /// <summary>

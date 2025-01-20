@@ -2,8 +2,11 @@ namespace Free.Schema;
 /// <summary>
 /// Defines row settings in a layout grid.
 /// </summary>
-public class Rows : GridLayoutBase
+public sealed class Rows : GridLayoutBase
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public string _t => "ROWS";
     /// <summary>
     /// If rows are enabled.

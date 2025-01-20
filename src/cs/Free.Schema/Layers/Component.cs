@@ -5,6 +5,9 @@ namespace Free.Schema;
 /// </summary>
 public class Component : Frame
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public override string _t => "COMPONENT";
     /// <summary>
     /// Unique component identifier.

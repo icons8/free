@@ -4,6 +4,9 @@ namespace Free.Schema;
 /// </summary>
 public class Slice : Layer
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public override string _t => "SLICE";
     /// <summary>
     /// Defines whether the slice includes background.

@@ -4,6 +4,9 @@ namespace Free.Schema;
 /// </summary>
 public class AutoLayoutContainer : LayoutContainerBase
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public string _t => "AUTO";
     /// <summary>
     /// Layout orientation: horizontal or vertical.

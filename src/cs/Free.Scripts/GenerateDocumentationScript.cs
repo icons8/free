@@ -131,6 +131,8 @@ public static class GenerateDocumentationScript
             .ThenBy(x => x.Attributes.Any(a => a is LunacySpecificAttribute))
             .ThenBy(x => x.Type)
             .ThenBy(x => !typeof(Layer).IsAssignableFrom(x.ObjectType))
+            .ThenBy(x => !typeof(FlowAction).IsAssignableFrom(x.ObjectType))
+            .ThenBy(x => !typeof(FlowTrigger).IsAssignableFrom(x.ObjectType))
             .ThenByDescending(GetBaseClassDepth)
             .ThenBy(x => x.Name)
             .ToList();

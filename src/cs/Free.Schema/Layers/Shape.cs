@@ -5,6 +5,9 @@ namespace Free.Schema;
 
 public class Shape : Styled
 {
+    /// <summary>
+    /// Object type
+    /// </summary>
     public override string _t => "SHAPE";
     
     /// <summary>
