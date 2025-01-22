@@ -3,7 +3,7 @@ namespace Free.Schema;
 /// <summary>
 /// Prototyping interaction element
 /// </summary>
-public class Flow
+public sealed class Flow
 {
     /// <summary>
     /// Trigger that will fire an action. Examples: CLICK, DRAG, HOLD.

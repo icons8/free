@@ -1,0 +1,4 @@
+﻿<Solution>
+  <Project Path="Free.Schema/Free.Schema.csproj" Type="Classic C#" />
+  <Project Path="Free.Scripts/Free.Scripts.csproj" Type="Classic C#" />
+</Solution>

@@ -3,7 +3,7 @@ namespace Free.Schema;
 /// <summary>
 /// Prototyping action animation.
 /// </summary>
-public class FlowAnimation
+public struct FlowAnimation
 {
     /// <summary>
     /// If animation is enabled.
@@ -26,7 +26,7 @@ public class FlowAnimation
     /// </summary>
     public int Duration { get; set; }
     /// <summary>
-    /// Animation curve float point array.
+    /// Animation curve point array. Array length is always 2. Point values are between 0 and 1.
     /// </summary>
-    public float[] Curve { get; set; }
+    public Point[] Curve { get; set; }
 }
