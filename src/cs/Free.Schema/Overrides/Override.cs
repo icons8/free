@@ -69,7 +69,7 @@ public sealed class Override
     /// <summary>
     /// If smooth corners are enabled.
     /// </summary>
-    public bool SmoothCorners { get; set; }
+    public bool? SmoothCorners { get; set; }
     /// <summary>
     /// Identifier of the style applied to a layer.
     /// </summary>
@@ -234,11 +234,19 @@ public sealed class Override
     /// <summary>
     /// Trim text with triple dots in the end if content overlaps fixed layer size bounds.
     /// </summary>
-    public bool Truncate { get; set; } = false;
+    public bool? Truncate { get; set; }
     /// <summary>
     /// Count of lines allowed. If the limit is exceeded, the text will be truncated.
     /// </summary>
     public byte MaxLines { get; set; } = 0;
+    /// <summary>
+    /// If the *Keep scroll position* option is enabled (prototyping).
+    /// </summary>
+    public bool? KeepScroll { get; set; }
+    /// <summary>
+    /// Defines scroll behavior (prototyping).
+    /// </summary>
+    public FlowScrollBehavior? ScrollBehavior { get; set; }
     /// <summary>
     /// Color override.
     /// </summary>

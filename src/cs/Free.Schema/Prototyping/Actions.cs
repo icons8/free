@@ -14,17 +14,6 @@ public abstract class FlowAction
 }
 
 /// <summary>
-/// Action that does nothing. Exists only to keep complex triggers that temporarily disabled.
-/// </summary>
-public sealed class NoneAction : FlowAction
-{
-    /// <summary>
-    /// Object type.
-    /// </summary>
-    public override string _t => "NONE";
-}
-
-/// <summary>
 /// Action to navigate to target frame.
 /// </summary>
 public sealed class NavigateToAction : FlowAction
