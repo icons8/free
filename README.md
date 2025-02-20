@@ -558,7 +558,7 @@ Action to go to previous frame.
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
 * _t: [string](#string) = `BACK` - object type.
-* Animation: [FlowAnimation](#FlowAnimation) - action animation.
+* Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - action animation.
 
 ### <a name="CloseOverlayAction"></a>CloseOverlayAction
 Action to close current overlay.
@@ -574,14 +574,7 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 
 * _t: [string](#string) = `NAVIGATE` - object type.
 * Target: [GUID?](#GUID) - id of the target frame.
-* Animation: [FlowAnimation](#FlowAnimation) - id of the target layer.
-
-### <a name="NoneAction"></a>NoneAction
-Action that does nothing. Exists only to keep complex triggers that temporarily disabled.
-
-Has all properties of [`FlowAction`](#FlowAction), plus:
-
-* _t: [string](#string) = `NONE` - object type.
+* Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - id of the target layer.
 
 ### <a name="OpenOverlayAction"></a>OpenOverlayAction
 Action to open target overlay.
@@ -590,7 +583,7 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 
 * _t: [string](#string) = `OVERLAY` - object type.
 * Target: [GUID?](#GUID) - id of the target overlay.
-* Animation: [FlowAnimation](#FlowAnimation) - action animation.
+* Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - action animation.
 * Position: [FlowOverlayPosition](#FlowOverlayPosition) = `Centered` - startup location of overlay.
 * Offset: [Vector2](#Vector2) = `<0, 0>` - offset from startup location.
 * CloseByClick: [bool](#bool) = `False` - close by any click.
@@ -612,7 +605,7 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 
 * _t: [string](#string) = `SCROLL` - object type.
 * Target: [GUID?](#GUID) - id of the target layer.
-* Animation: [FlowAnimation](#FlowAnimation) - action animation.
+* Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - action animation.
 
 ### <a name="SwapOverlayAction"></a>SwapOverlayAction
 Action to swap current overlay to target overlay.
@@ -621,7 +614,7 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 
 * _t: [string](#string) = `SWAP_OVERLAY` - object type.
 * Target: [GUID?](#GUID) - id of the target overlay.
-* Animation: [FlowAnimation](#FlowAnimation) - action animation.
+* Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - action animation.
 
 ### <a name="SwitchStateAction"></a>SwitchStateAction
 Action to switch state of a target component instance.
@@ -630,12 +623,12 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 
 * _t: [string](#string) = `SWITCH_STATE` - object type.
 * Target: [GUID?](#GUID) - id of the target instance.
-* Animation: [FlowAnimation](#FlowAnimation) - id of the target layer.
+* Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - id of the target layer.
 
 ### <a name="FlowAction"></a>FlowAction
 Base object of prototyping action.
 
-* _t: [string](#string) = `NONE` - object type.
+* _t: [string](#string) = `NAVIGATE` - object type.
 
 ### <a name="AfterDelayTrigger"></a>AfterDelayTrigger
 after delay.
@@ -812,13 +805,6 @@ Defines the advanced options of borders, arrows, lines, and paths drawn with the
 * LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
 * Dash: [float[]](#float) - defines the size of dashes.
 
-### <a name="ColorAsset"></a>ColorAsset
-Colors stored in the document (color picker > dropdown list (global) > document).
-
-* Id: [GUID](#GUID) - unique color asset ID.
-* Name: [string](#string) - color asset name.
-* Color: [Color](#Color) = `00000000` - color value.
-
 ### <a name="ColorVariable"></a>ColorVariable
 Color variables stored in the document.
 
@@ -833,9 +819,6 @@ The document's .json structure.
 * Nudge: [Point](#Point) = `[1,10]` - nudge Amount. X - small nudge. Y = large nudge.
 * FromFigma: [bool](#bool) = `False` - if the document is imported from Figma.
 * CurrentPageIndex: [int](#int) = `0` - index of the currently open page.
-* Images: [string[]](#string) - images stored in the document.
-* Colors: [ColorAsset[]](#ColorAsset) - colors stored in the document (color picker > dropdown list (global) > document).
-* Gradients: [GradientAsset[]](#GradientAsset) - gradients stored in the document (color picker > dropdown list (global) > document).
 * Fonts: [Font[]](#Font) - embedded fonts stored in the document.
 * ColorVariables: [ColorVariable[]](#ColorVariable) - color variables stored in the document.
 * Styles: [SharedStyle[]](#SharedStyle) - styles stored in the document.
@@ -875,16 +858,6 @@ Prototyping interaction element
 * Trigger: [FlowTrigger](#FlowTrigger) - trigger that will fire an action. Examples: CLICK, DRAG, HOLD.
 * Action: [FlowAction](#FlowAction) - action. Examples: NAVIGATE, SCROLL, URL, BACK.
 
-### <a name="FlowAnimation"></a>FlowAnimation
-Prototyping action animation.
-
-* Enabled: [bool](#bool) = `False` - if animation is enabled.
-* Type: [FlowAnimationType](#FlowAnimationType) = `Instant` - animation type.
-* Effect: [FlowAnimationEffect](#FlowAnimationEffect) = `Linear` - animation effect.
-* Direction: [FlowAnimationDirection](#FlowAnimationDirection) = `Left` - animation direction.
-* Duration: [int](#int) = `0` - animation duration in ms.
-* Curve: [float[]](#float) - animation curve float point array.
-
 ### <a name="Font"></a>Font
 Embedded fonts stored in the document.
 
@@ -901,12 +874,6 @@ An object that represents a gradient.
 * To: [Point](#Point) = `[0.5,1]` - position of the gradient end point.
 * Side: [Point](#Point) = `[0,0]` - position of the gradient side point. Valid for radial and angular gragients.
 * Stops: [GradientStop[]](#GradientStop) - list of other gradient points.
-
-### <a name="GradientAsset"></a>GradientAsset
-Gradients stored in the document (color picker > dropdown list (global) > document).
-
-* Id: [GUID](#GUID) - unique asset id.
-* Value: [Gradient](#Gradient) - values of gradients.
 
 ### <a name="GradientStop"></a>GradientStop
 A position-color pair representing a gradient stop.
@@ -965,7 +932,7 @@ Defines overrides for components.
 * ArcRatio: [float?](#float) - inner radius for donuts.
 * ArcStartAngle: [float?](#float) - start angle for donuts measured clockwise from the X axis.
 * CornerRadius: [float[]](#float) - corner radius value.
-* SmoothCorners: [bool](#bool) = `False` - if smooth corners are enabled.
+* SmoothCorners: [bool?](#bool) - if smooth corners are enabled.
 * StyleId: [GUID?](#GUID) - identifier of the style applied to a layer.
 * Tint: [Color?](#Color) - defines the tint color.
 * TintId: [GUID?](#GUID) - tint identifier.
@@ -999,8 +966,10 @@ Defines overrides for components.
 * GrowStretch: [bool?](#bool) - determines whether a layer should stretch along the parent’s primary axis (auto layout).
 * Wrap: [bool?](#bool) - if wrapping is enabled.
 * WrapDistribute: [bool?](#bool) - if auto distribute is enabled for wrapped content.
-* Truncate: [bool](#bool) = `False` - trim text with triple dots in the end if content overlaps fixed layer size bounds.
+* Truncate: [bool?](#bool) - trim text with triple dots in the end if content overlaps fixed layer size bounds.
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
+* KeepScroll: [bool?](#bool) - if the *Keep scroll position* option is enabled (prototyping).
+* ScrollBehavior: [FlowScrollBehavior?](#FlowScrollBehavior) - defines scroll behavior (prototyping).
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -1060,7 +1029,6 @@ Defines the shadow options.
 * ColorId: [GUID?](#GUID) - color variable ID.
 * Spread: [float](#float) = `0` - shadow spread value.
 * Offset: [Point](#Point) = `[0,0]` - how far the shadow is projected in the x and y directions.
-* Opacity: [float](#float) = `0` - shadow opacity.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - shadow blend mode.
 
 ### <a name="SharedLibrary"></a>SharedLibrary
@@ -1123,6 +1091,16 @@ Defines a set of properties that make up a text style.
 * Red: [byte](#byte) = `0` - gets the red component of the color.
 * Green: [byte](#byte) = `0` - gets the green component of the color.
 * Blue: [byte](#byte) = `0` - gets the blue component of the color.
+
+### <a name="FlowAnimation"></a>FlowAnimation Struct
+Prototyping action animation.
+
+* Enabled: [bool](#bool) = `False` - if animation is enabled.
+* Type: [FlowAnimationType](#FlowAnimationType) = `Instant` - animation type.
+* Effect: [FlowAnimationEffect](#FlowAnimationEffect) = `Linear` - animation effect.
+* Direction: [FlowAnimationDirection](#FlowAnimationDirection) = `Left` - animation direction.
+* Duration: [int](#int) - animation duration in ms.
+* Curve: [Point[]](#Point) - animation curve point array. Array length is always 2. Point values are between 0 and 1.
 
 ### <a name="Matrix"></a>Matrix Struct
 A transformation matrix is standard way in computer graphics to represent translation and rotation.

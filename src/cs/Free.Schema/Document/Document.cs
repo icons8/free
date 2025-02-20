@@ -29,18 +29,6 @@ public class Document
     /// </summary>
     public int CurrentPageIndex { get; set; }
     /// <summary>
-    /// Images stored in the document.
-    /// </summary>
-    public List<string> Images { get; } = new();
-    /// <summary>
-    /// Colors stored in the document (color picker > dropdown list (global) > document).
-    /// </summary>
-    public List<ColorAsset> Colors { get; } = new();
-    /// <summary>
-    /// Gradients stored in the document (color picker > dropdown list (global) > document).
-    /// </summary>
-    public List<GradientAsset> Gradients { get; } = new();
-    /// <summary>
     /// Embedded fonts stored in the document.
     /// </summary>
     public List<Font> Fonts { get; } = new();
