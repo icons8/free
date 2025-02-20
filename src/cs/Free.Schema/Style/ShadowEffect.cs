@@ -29,10 +29,6 @@ public sealed class ShadowEffect
     /// </summary>
     public Point Offset { get; set; }
     /// <summary>
-    /// Shadow opacity.
-    /// </summary>
-    public float Opacity { get; set; }
-    /// <summary>
     /// Shadow blend mode.
     /// </summary>
     public BlendMode BlendMode { get; set; }
