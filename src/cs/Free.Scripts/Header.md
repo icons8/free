@@ -153,7 +153,7 @@ We didn't rush the development and release of this format. We worked on it for a
       "link":"back"
     }] 
     ```
-* ``document.json`` does not include any foreign properties. They are stored in a separate file, named ``foreign.json``. This prevents ``document.json`` from growing to enormous sizes, up to several gigabytes in some cases. Instead, it remains small and quick to parse. Foreign objects are parsed in a separate thread, ensuring it doesn't impact the file's opening speed.
+* ``document.json`` does not include any properties from shared libraries. They are stored in a separate folder, named ``shared``. This prevents ``document.json`` from growing to enormous sizes, up to several gigabytes in some cases. Instead, it remains small and quick to parse. Shared Libraries objects are parsed in a separate threads, ensuring it doesn't impact the file's opening speed.
 * [Currently not implemented, coming soon] If a page size exceeds 20MB, it will be divided into 20MB parts, with the division occurring at the top-level artboards. For example, if a page features top-level artboards of 30MB, 10MB, 5MB, 1MB, and 10MB in size, it will be split into parts of 30MB, 16MB, and 10MB. We've observed that in very large files, there's typically one page that is 5-50 times larger than the others. Consequently, parsing it takes N times longer, monopolizes one execution thread, and significantly slows down the file opening. This approach will allow parallel parsing of large pages across multiple CPU threads, and greatly improve the opening speed of such files.
 
 ## Results
