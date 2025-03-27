@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace Free.Schema;
 
@@ -30,116 +30,66 @@ public readonly struct Vertex
     public float Radius => (float)_radius;
 
     /// <summary>
-    /// Vertex flags, including: CurveMode, hasFrom, hasTo, and CornerStyle.
+    /// Mode of vertex.
     /// </summary>
-    public readonly VertexFlags Flags;
+    public readonly CurveMode Mode;
 
     public Vertex(Point point, CurveMode mode = CurveMode.Straight, float radius = 0)
     {
-        Point = point;
-        From = To = default;
+        Point = From = To = point;
         _radius = (Half)radius;
-        Flags = ToFlags(mode);
-    }
-
-    public Vertex(Point point, Point from, Point to, CurveMode mode = CurveMode.Disconnected,
-        float radius = 0f, bool hasFrom = true, bool hasTo = true, CornerStyle style = CornerStyle.Rounded)
-    {
-        Point = point;
-        From = from;
-        To = to;
-        _radius = (Half)radius;
-        Flags = ToFlags(mode) | ToFlags(style);
-        if (hasFrom)
-        {
-            Flags |= VertexFlags.HasCurveFrom;
-        }
-
-        if (hasTo)
-        {
-            Flags |= VertexFlags.HasCurveTo;
-        }
-    }
-
-    public Vertex(Point point, Point from, Point to, float radius, VertexFlags flags)
-    {
-        Point = point;
-        From = from;
-        To = to;
-        _radius = (Half)radius;
-        Flags = flags;
+        Mode = mode;
     }
     
-    [SketchCompatibility]
-    public CornerStyle Style
+    public Vertex(Point point, Point from, Point to, CurveMode mode = CurveMode.Disconnected,
+        float radius = 0f, bool hasFrom = true, bool hasTo = true)
     {
-        get
+        Point = point;
+        From = from;
+        To = to;
+        _radius = (Half)radius;
+        Mode = mode;
+
+        if (Mode == CurveMode.Straight && (hasTo || hasFrom))
         {
-            if (HasFlag(VertexFlags.Squared))
-            {
-                return CornerStyle.Squared;
-            }
-
-            if (HasFlag(VertexFlags.Angled))
-            {
-                return CornerStyle.Angled;
-            }
-
-            if (HasFlag(VertexFlags.RoundedInverted))
-            {
-                return CornerStyle.RoundedInverted;
-            }
-
-            return CornerStyle.Rounded;
+            Mode = CurveMode.Disconnected;
+        }
+        if (Mode == CurveMode.Disconnected && (!hasFrom || !hasTo))
+        {
+            Mode = hasFrom ? CurveMode.OnlyFrom : CurveMode.OnlyTo;
         }
     }
-
-    public CurveMode Mode
+    
+    public Vertex(Point point, Point from, Point to, float radius, CurveMode mode)
     {
-        get
-        {
-            if (HasFlag(VertexFlags.Disconnected))
-            {
-                return CurveMode.Disconnected;
-            }
-
-            if (HasFlag(VertexFlags.Asymmetric))
-            {
-                return CurveMode.Asymmetric;
-            }
-
-            if (HasFlag(VertexFlags.Mirrored))
-            {
-                return CurveMode.Mirrored;
-            }
-
-            return CurveMode.Straight;
-        }
+        Point = point;
+        From = from;
+        To = to;
+        _radius = (Half)radius;
+        Mode = mode;
     }
+    
  
-    public bool HasFrom => HasFlag(VertexFlags.HasCurveFrom);
-    public bool HasTo => HasFlag(VertexFlags.HasCurveTo);
+    public bool HasFrom => Mode is CurveMode.Mirrored or CurveMode.Disconnected or CurveMode.Asymmetric or CurveMode.OnlyFrom;
+    public bool HasTo => Mode is CurveMode.Mirrored or CurveMode.Disconnected or CurveMode.Asymmetric or CurveMode.OnlyTo;
     public bool HasCornerRadius => Radius > 0 && Mode == CurveMode.Straight;
     public Point HandleIn => To - Point;
     public Point HandleOut => From - Point;
     
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private bool HasFlag(VertexFlags flag) => (Flags & flag) == flag;
-    
-    internal static VertexFlags ToFlags(CurveMode curveMode) => curveMode switch
+    public override string ToString()
     {
-        CurveMode.Straight => VertexFlags.None,
-        CurveMode.Mirrored => VertexFlags.Mirrored,
-        CurveMode.Asymmetric => VertexFlags.Asymmetric,
-        CurveMode.Disconnected => VertexFlags.Disconnected,
-        _ => VertexFlags.None,
-    };
-    
-    internal static VertexFlags ToFlags(CornerStyle cornerStyle) => cornerStyle switch
-    {
-        CornerStyle.RoundedInverted => VertexFlags.RoundedInverted,
-        CornerStyle.Angled => VertexFlags.Angled,
-        CornerStyle.Squared => VertexFlags.Squared,
-        _ => VertexFlags.None,
-    };
+        var sb = new StringBuilder(Point.ToString()).Append(' ').Append(Mode);
+
+        if (HasFrom)
+        {
+            sb.Append(", From ").Append(From);
+        }
+
+        if (HasTo)
+        {
+            sb.Append(", To ").Append(To);
+        }
+
+        return sb.Append(", r=").Append(Radius).ToString();
+    }
 }
