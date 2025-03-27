@@ -125,6 +125,11 @@ public abstract class Layer
     /// Enables absolute position for the layer (auto layout).
     /// </summary>
     public bool LayoutFixPos { get; set; }
+    /// <summary>
+    /// Key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
+    /// </summary>
+    public Dictionary<string, string> Custom { get; set; } = new();
+    
     
     /// <summary>
     /// Identifier of a photo from the Lunacy gallery.

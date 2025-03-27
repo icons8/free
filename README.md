@@ -515,7 +515,9 @@ Has all properties of [`Layer`](#Layer), plus:
 ### <a name="Layer"></a>Layer
 A layer is any ungrouped element available on the canvas.
 
+* _t: [string](#string) = `COMPONENT` - object type.
 * Id: [GUID](#GUID) - unique layer identifier.
+* Name: [string](#string) - defines layer name.
 * NameIsFixed: [bool](#bool) = `False` - name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
 * BooleanOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
 * Fixed: [bool](#bool) = `False` - if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
@@ -524,6 +526,9 @@ A layer is any ungrouped element available on the canvas.
 * IsTemplate: [bool](#bool) = `False` - defines whether tha layer is marked as a template.
 * Expand: [bool](#bool) = `False` - defines whether the layer is expanded in Layer List.
 * Trim: [bool](#bool) = `False` - when enabled, trims empty pixels in exported images.
+* Export: [ExportOption[]](#ExportOption) - export options of the layer.
+* Constraints: [string](#string) = `LTWH` - defines constraint settings of the layer. String with chars where every char means a flag:
+            L - left, T - top, R - right, B - bottom, W - fix width, H - fix height.
 * Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - position, rotation and flips of an object, stored in a single 3x2 matrix.
 * Size: [Size](#Size) = `[100,100]` - defines the layer size.
 * LockAspect: [bool](#bool) = `False` - defines whether the layer's aspect ratio should be remain unchanged upon resizing.
@@ -532,6 +537,7 @@ A layer is any ungrouped element available on the canvas.
 * MaskType: [MaskType](#MaskType) = `Vector` - type of the Mask - Vector, Alpha or Luminance.
 * KeepScroll: [bool](#bool) = `False` - if the *Keep scroll position* option is enabled (prototyping).
 * ScrollBehavior: [FlowScrollBehavior](#FlowScrollBehavior) = `Scroll` - defines scroll behavior (prototyping).
+* Flows: [Flow[]](#Flow) - defines flows (prototyping).
 * MinWidth: [float](#float) = `0` - defines the minimum layer width (auto layout).
 * MinHeight: [float](#float) = `0` - defines the minimum layer height (auto layout).
 * MaxWidth: [float](#float) = `0` - defines the maximum layer width (auto layout).
@@ -539,6 +545,7 @@ A layer is any ungrouped element available on the canvas.
 * LayoutStretch: [bool](#bool) = `False` - determines if the layer should stretch along the parent’s counter axis (auto layout).
 * LayoutGrowStretch: [bool](#bool) = `False` - determines whether a layer should stretch along the parent’s primary axis (auto layout).
 * LayoutFixPos: [bool](#bool) = `False` - enables absolute position for the layer (auto layout).
+* Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 
 <details>
 <summary>Lunacy specific</summary>
