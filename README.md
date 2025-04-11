@@ -475,13 +475,6 @@ Has all properties of [`Styled`](#Styled), plus:
 * DrawOnPath: [bool](#bool) = `False` - defines whether text draws on the underlying path.
 * Warp: [bool](#bool) = `False` - defines whether text warps when drawn on the underlying path.
 
-### <a name="Hotspot"></a>Hotspot
-A hotspot is a special type of layers used to define clickable areas on prototypes.
-
-Has all properties of [`Layer`](#Layer), plus:
-
-* _t: [string](#string) = `HOTSPOT` - object type.
-
 ### <a name="Slice"></a>Slice
 A slice is a special type of layers used for exporting certaing parts of designs.
 
