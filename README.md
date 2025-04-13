@@ -391,7 +391,6 @@ Has all properties of [`Styled`](#Styled), plus:
 <summary>Sketch compatibility</summary>
 
 * OverlayStyle: [Style](#Style) - style settings for the frame if it acts as an overlay in Sketch prototyping.
-* GroupLayout: [SketchGroupLayout](#SketchGroupLayout) - sketch Layout settings. Not supported in Lunacy, but keeping data for compatibility.
 * BackgroundInExport: [bool](#bool) = `False` - when enabled, the frame background is included into export files.
 * Overlay: [bool](#bool) = `False` - defines whether the frame acts as an overlay in prototyping.
 * HasBackground: [bool](#bool) = `False` - defines whether the frame has background.
@@ -412,7 +411,6 @@ Has all properties of [`Styled`](#Styled), plus:
 <summary>Sketch compatibility</summary>
 
 * SkipConstraints: [bool](#bool) = `False` - serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
-* GroupLayout: [SketchGroupLayout](#SketchGroupLayout) - sketch group layout. We don't support it but keep it for compatibility
 </details>
 
 ### <a name="Instance"></a>Instance
@@ -456,7 +454,6 @@ Has all properties of [`Styled`](#Styled), plus:
 <summary>Sketch compatibility</summary>
 
 * SkipConstraints: [bool](#bool) = `False` - serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
-* GroupLayout: [SketchGroupLayout](#SketchGroupLayout) - sketch group layout. We don't support it, but keep it for compatibility.
 </details>
 
 ### <a name="Text"></a>Text
@@ -1603,14 +1600,6 @@ Defines color overrides for components. _//Sketch Compatibility_
 * Property: [ColorOverrideType](#ColorOverrideType) = `Unknown` - color override type: none, fill, border, shadow, or inner shadow.
 * Index: [int](#int) = `0` - fill index. Starts from 0.
 
-### <a name="SketchGroupLayout"></a>SketchGroupLayout
-Sketch Group Layout Properties _//Sketch Compatibility_
-
-* Axis: [GroupLayoutAxis](#GroupLayoutAxis) = `Horizontal` - layout Orientation
-* LayoutAnchor: [GroupLayoutAnchor](#GroupLayoutAnchor) = `Begin` - layout Align
-* MaxSize: [float](#float) = `0` - maximum Container Size
-* MinSize: [float](#float) = `0` - minimum Container Size
-
 ### <a name="TextColorOverride"></a>TextColorOverride
 Defines text color overrides for components. _//Sketch Compatibility_
 
@@ -1649,19 +1638,6 @@ Sketch legacy, not supported in Lunacy _//Sketch Compatibility_
 * `1` RoundedInverted
 * `2` Angled
 * `3` Squared
-
-### <a name="GroupLayoutAnchor"></a>GroupLayoutAnchor Enum
-Layout alignment on axis. For vertical it's: left, center or right. For horizontal: top, middle or bottom. _//Sketch Compatibility_
-
-* `0` Begin
-* `1` Middle
-* `2` End
-
-### <a name="GroupLayoutAxis"></a>GroupLayoutAxis Enum
-Group Layout Orientation _//Sketch Compatibility_
-
-* `0` Horizontal
-* `1` Vertical
 
 ### <a name="NamingScheme"></a>NamingScheme Enum
 Controls the use of suffixes/prefixes in the names of export files. _//Sketch Compatibility_

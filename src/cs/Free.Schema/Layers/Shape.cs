@@ -16,11 +16,6 @@ public class Shape : Styled
     [SketchCompatibility]
     public bool SkipConstraints { get; set; }
     /// <summary>
-    /// Sketch group layout. We don't support it, but keep it for compatibility.
-    /// </summary>
-    [SketchCompatibility]
-    public SketchGroupLayout? GroupLayout { get; set; }
-    /// <summary>
     /// List of layers.
     /// </summary>
     public List<Layer> Layers { get; } = new();

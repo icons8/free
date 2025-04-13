@@ -21,11 +21,6 @@ public class Group : Styled
     /// </summary>
     [SketchCompatibility]
     public bool SkipConstraints { get; set; }
-    /// <summary>
-    /// Sketch group layout. We don't support it but keep it for compatibility
-    /// </summary>
-    [SketchCompatibility]
-    public SketchGroupLayout? GroupLayout { get; set; }
 
 
     /// <summary>

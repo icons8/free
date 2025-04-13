@@ -30,12 +30,6 @@ public class Frame : Styled
     /// When enabled, hides the content outside the frame boundaries.
     /// </summary>
     public bool ClipContent { get; set; }
-    
-    /// <summary>
-    /// Sketch Layout settings. Not supported in Lunacy, but keeping data for compatibility.
-    /// </summary>
-    [SketchCompatibility]
-    public SketchGroupLayout? GroupLayout { get; set; }
 
     /// <summary>
     /// When enabled, the frame background is included into export files.
