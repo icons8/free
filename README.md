@@ -390,9 +390,7 @@ Has all properties of [`Styled`](#Styled), plus:
 <details>
 <summary>Sketch compatibility</summary>
 
-* OverlayStyle: [Style](#Style) - style settings for the frame if it acts as an overlay in Sketch prototyping.
 * BackgroundInExport: [bool](#bool) = `False` - when enabled, the frame background is included into export files.
-* Overlay: [bool](#bool) = `False` - defines whether the frame acts as an overlay in prototyping.
 * HasBackground: [bool](#bool) = `False` - defines whether the frame has background.
 * Background: [Color](#Color) = `ffffffff` - defines the frame background color.
 * BackgroundId: [GUID](#GUID) - defines the background color variable ID.

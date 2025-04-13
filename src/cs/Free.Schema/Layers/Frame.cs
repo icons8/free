@@ -21,12 +21,6 @@ public class Frame : Styled
     public bool SmoothCorners { get; set; }
 
     /// <summary>
-    /// Style settings for the frame if it acts as an overlay in Sketch prototyping.
-    /// </summary>
-    [SketchCompatibility]
-    public Style? OverlayStyle { get; set; }
-
-    /// <summary>
     /// When enabled, hides the content outside the frame boundaries.
     /// </summary>
     public bool ClipContent { get; set; }
@@ -47,13 +41,6 @@ public class Frame : Styled
     /// </summary>
     public PrototypeViewport Viewport { get; set; }
     
-    /// <summary>
-    /// Defines whether the frame acts as an overlay in prototyping.
-    /// </summary>
-    [SketchCompatibility]
-    public bool Overlay { get; set; }
-
-
     /// <summary>
     /// Enables adjusting and resizing the frame content as the frame is resized.
     /// </summary>
