@@ -1,5 +1,12 @@
 ## Changelog
 
+### Version 5 - 14.04.2025
+
+* New layer types: `Section` and `States`.
+* `Hotspot` layer type is removed.
+* We are dropping support for sketch smart layout fields and sketch overlay fields.
+* New `Custom` field for `Layer`. It is for plugin data and for anything that's not specified in a FREE format.
+
 ### Version 4 - 20.01.2025
 
 * `Link` property is replaced by `Flows` list of prototyping triggers and actions.

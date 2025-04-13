@@ -358,6 +358,13 @@ Has all properties of [`Path`](#Path), plus:
 * Rays: [float](#float) = `0` - defines the number of rays in a star.
 * Ratio: [float](#float) = `0` - defines the star ratio value.
 
+### <a name="States"></a>States
+Set of a states of the component.
+
+Has all properties of [`Frame`](#Frame), plus:
+
+* _t: [string](#string) = `STATES`
+
 ### <a name="Triangle"></a>Triangle
 A triangle is a shape drawn on the canvas with the Triangle tool.
 
@@ -439,6 +446,15 @@ Has all properties of [`Styled`](#Styled), plus:
 * Edited: [bool](#bool) = `False` - if the shape is edited in the path editor.
 * Open: [bool](#bool) = `False` - indicates whether the path is open.
 * Points: [Vertex[]](#Vertex) - list of path's points.
+
+### <a name="Section"></a>Section
+Root group of layers. Can be a child of a page or another section.
+            Does not support rotation, flips, effects.
+
+Has all properties of [`Styled`](#Styled), plus:
+
+* _t: [string](#string) = `SECTION`
+* Layers: [Layer[]](#Layer) - list of layers within the section.
 
 ### <a name="Shape"></a>Shape
 A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
@@ -1645,6 +1661,13 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `2` PrimaryPrefix - indicates that the file name comes with a user-defined prefix.
 
 ## Changelog
+
+### Version 5 - 14.04.2025
+
+* New layer types: `Section` and `States`.
+* `Hotspot` layer type is removed.
+* We are dropping support for sketch smart layout fields and sketch overlay fields.
+* New `Custom` field for `Layer`. It is for plugin data and for anything that's not specified in a FREE format.
 
 ### Version 4 - 20.01.2025
 
