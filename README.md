@@ -316,6 +316,7 @@ Has all properties of [`Frame`](#Frame), plus:
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * Predefined: [bool](#bool) = `False` - indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
 * ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for component filters.
+* FigmaId: [string](#string) - unique Figma Component Id. Used to connect shared libraries and documents imported from figma.
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -1668,6 +1669,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `Hotspot` layer type is removed.
 * We are dropping support for sketch smart layout fields and sketch overlay fields.
 * New `Custom` field for `Layer`. It is for plugin data and for anything that's not specified in a FREE format.
+* `FigmaId` field added to the `Component`.
 
 ### Version 4 - 20.01.2025
 

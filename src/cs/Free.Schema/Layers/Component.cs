@@ -29,4 +29,9 @@ public class Component : Frame
     /// Reserved for future use. Will be used for component filters.
     /// </summary>
     public ComponentType ComponentType { get; set; }
+
+    /// <summary>
+    /// Unique Figma Component Id. Used to connect shared libraries and documents imported from figma. 
+    /// </summary>
+    public string FigmaId { get; set; }
 }
