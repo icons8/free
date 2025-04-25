@@ -17,12 +17,6 @@ public class Frame : Styled
     public bool ClipContent { get; set; }
 
     /// <summary>
-    /// When enabled, the frame background is included into export files.
-    /// </summary>
-    [SketchCompatibility]
-    public bool BackgroundInExport { get; set; }
-
-    /// <summary>
     /// Sets the frame as a prototype starting point.
     /// </summary>
     public bool FlowHome { get; set; }
@@ -36,23 +30,6 @@ public class Frame : Styled
     /// Enables adjusting and resizing the frame content as the frame is resized.
     /// </summary>
     public bool ResizesContent { get; set; }
-
-    /// <summary>
-    /// Defines whether the frame has background.
-    /// </summary>
-    [SketchCompatibility]
-    public bool HasBackground { get; set; }
-
-    /// <summary>
-    /// Defines the frame background color.
-    /// </summary>
-    [SketchCompatibility]
-    public Color Background { get; set; } = new Color(255, 255, 255);
-    /// <summary>
-    /// Defines the background color variable ID.
-    /// </summary>
-    [SketchCompatibility]
-    public Guid BackgroundId { get; set; }
     
     /// <summary>
     /// Grid, Row and Column layouts of the frame.

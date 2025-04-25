@@ -393,15 +393,6 @@ Has all properties of [`Styled`](#Styled), plus:
 * Rulers: [Rulers](#Rulers) - rulers and guidelines info.
 * Layers: [Layer[]](#Layer) - list of layers on the frame.
 
-<details>
-<summary>Sketch compatibility</summary>
-
-* BackgroundInExport: [bool](#bool) = `False` - when enabled, the frame background is included into export files.
-* HasBackground: [bool](#bool) = `False` - defines whether the frame has background.
-* Background: [Color](#Color) = `ffffffff` - defines the frame background color.
-* BackgroundId: [GUID](#GUID) - defines the background color variable ID.
-</details>
-
 ### <a name="Group"></a>Group
 A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
 
@@ -1672,6 +1663,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `FigmaId` field added to the `Component`.
 * `Component` now can be inside any group/frame/section.
 * `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
+* We are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`.
 
 ### Version 4 - 20.01.2025
 
