@@ -10,16 +10,6 @@ public class Instance : Styled
     public override string _t => "INSTANCE";
     
     /// <summary>
-    /// Sets the corner radius of the instance frame.
-    /// </summary>
-    public float[] CornerRadius { get; set; } = new float[4];
-
-    /// <summary>
-    /// Enables smooth rounded corners like in iOS interfaces.
-    /// </summary>
-    public bool SmoothCorners { get; set; }
-    
-    /// <summary>
     /// Scale of the instance.
     /// </summary>
     public float Scale { get; set; }

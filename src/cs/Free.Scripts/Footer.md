@@ -7,6 +7,8 @@
 * We are dropping support for sketch smart layout fields and sketch overlay fields.
 * New `Custom` field for `Layer`. It is for plugin data and for anything that's not specified in a FREE format.
 * `FigmaId` field added to the `Component`.
+* `Component` now can be inside any group/frame/section.
+* `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
 
 ### Version 4 - 20.01.2025
 

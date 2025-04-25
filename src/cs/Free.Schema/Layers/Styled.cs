@@ -64,4 +64,12 @@ public abstract class Styled : Layer
     /// Filters applied to an image (hue, saturartion, etc.), if any.
     /// </summary>
     public ImageFilters ImageFilters { get; } = new();
+    /// <summary>
+    /// Sets the corner radius of the frame/instance/component/states/section.
+    /// </summary>
+    public float[] CornerRadius { get; set; } = new float[4];
+    /// <summary>
+    /// Enables smooth rounded corners like in iOS interfaces.
+    /// </summary>
+    public bool SmoothCorners { get; set; }
 }

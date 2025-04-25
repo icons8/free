@@ -385,8 +385,6 @@ A frame is a special type of layers that serves as a container for other layers 
 Has all properties of [`Styled`](#Styled), plus:
 
 * _t: [string](#string) = `FRAME` - object type.
-* CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame.
-* SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 * ClipContent: [bool](#bool) = `False` - when enabled, hides the content outside the frame boundaries.
 * FlowHome: [bool](#bool) = `False` - sets the frame as a prototype starting point.
 * Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
@@ -425,8 +423,6 @@ An instance is a copy of the main component. With instances, you can reuse the s
 Has all properties of [`Styled`](#Styled), plus:
 
 * _t: [string](#string) = `INSTANCE` - object type.
-* CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the instance frame.
-* SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 * Scale: [float](#float) = `0` - scale of the instance.
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * Overrides: [Override[]](#Override) - defines the overrides applied to the instance.
@@ -516,6 +512,8 @@ Has all properties of [`Layer`](#Layer), plus:
 * Blur: [BlurEffect](#BlurEffect) - information about blurs.
 * BorderOptions: [BorderOptions](#BorderOptions) - information about border options.
 * ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
+* CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame/instance/component/states/section.
+* SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 
 ### <a name="Layer"></a>Layer
 A layer is any ungrouped element available on the canvas.
@@ -1075,6 +1073,8 @@ Defines a set of properties that make up a style.
 * Blur: [BlurEffect](#BlurEffect) - definition of the blur effect applied to a layer.
 * BorderOptions: [BorderOptions](#BorderOptions) - definition of border options.
 * ImageFilters: [ImageFilters](#ImageFilters) - image filters applied to a layer.
+* CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame/instance/component/states/section.
+* SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 
 ### <a name="TextStyle"></a>TextStyle
 Defines a set of properties that make up a text style.
@@ -1670,6 +1670,8 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * We are dropping support for sketch smart layout fields and sketch overlay fields.
 * New `Custom` field for `Layer`. It is for plugin data and for anything that's not specified in a FREE format.
 * `FigmaId` field added to the `Component`.
+* `Component` now can be inside any group/frame/section.
+* `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
 
 ### Version 4 - 20.01.2025
 

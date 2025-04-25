@@ -10,15 +10,6 @@ public class Frame : Styled
     /// Object type.
     /// </summary>
     public override string _t => "FRAME";
-    
-    /// <summary>
-    /// Sets the corner radius of the frame.
-    /// </summary>
-    public float[] CornerRadius { get; set; } = new float[4];
-    /// <summary>
-    /// Enables smooth rounded corners like in iOS interfaces.
-    /// </summary>
-    public bool SmoothCorners { get; set; }
 
     /// <summary>
     /// When enabled, hides the content outside the frame boundaries.
