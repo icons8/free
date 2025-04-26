@@ -17,17 +17,6 @@ public class Instance : Styled
     /// Unique component identifier.
     /// </summary>
     public Guid ComponentId { get; set; }
-    
-    /// <summary>
-    /// Defines vertical spacing.
-    /// </summary>
-    [SketchCompatibility]    
-    public float VerticalSpacing { get; set; }
-    /// <summary>
-    /// Defines horizontal spacing.
-    /// </summary>
-    [SketchCompatibility]
-    public float HorizontalSpacing { get; set; }
 
     /// <summary>
     /// Defines the overrides applied to the instance.

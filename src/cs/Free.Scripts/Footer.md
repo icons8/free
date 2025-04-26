@@ -4,12 +4,12 @@
 
 * New layer types: `Section` and `States`.
 * `Hotspot` layer type is removed.
-* We are dropping support for sketch smart layout fields and sketch overlay fields.
+* We are dropping compatibility for sketch smart layout fields, sketch overlay fields, and sketch instance spacing fields.
 * New `Custom` field for `Layer`. It is for plugin data and for anything that's not specified in a FREE format.
 * `FigmaId` field added to the `Component`.
 * `Component` now can be inside any group/frame/section.
 * `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
-* We are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
+* Also we are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
 
 ### Version 4 - 20.01.2025
 

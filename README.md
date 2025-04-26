@@ -412,13 +412,6 @@ Has all properties of [`Styled`](#Styled), plus:
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * Overrides: [Override[]](#Override) - defines the overrides applied to the instance.
 
-<details>
-<summary>Sketch compatibility</summary>
-
-* VerticalSpacing: [float](#float) = `0` - defines vertical spacing.
-* HorizontalSpacing: [float](#float) = `0` - defines horizontal spacing.
-</details>
-
 ### <a name="Path"></a>Path
 A vector path determines the outline and form of a vector object. A path is made up of points and segments.
 
@@ -1501,24 +1494,6 @@ Defines how a text is aligned vertically.
 * `1` Middle - text is vertically centered.
 * `2` Bottom - text is aligned to the bottom.
 
-### <a name="VertexFlags"></a>VertexFlags Enum
-Defines vertex flags.
-
-* `0` None
-* `1` Mirrored
-* `2` Asymmetric
-* `3` Disconnected
-* `4` HasCurveFrom
-* `8` HasCurveTo
-
-<details>
-<summary>Sketch compatibility</summary>
-
-* `16` RoundedInverted
-* `32` Angled
-* `48` Squared
-</details>
-
 ### <a name="VerticalAlignment"></a>VerticalAlignment Enum
 Defines how a set of layers is aligned vertically.
 
@@ -1631,14 +1606,6 @@ Defines types of color overrides for components. _//Sketch Compatibility_
 * `1` sRGB
 * `2` P3
 
-### <a name="CornerStyle"></a>CornerStyle Enum
-Sketch legacy, not supported in Lunacy _//Sketch Compatibility_
-
-* `0` Rounded
-* `1` RoundedInverted
-* `2` Angled
-* `3` Squared
-
 ### <a name="NamingScheme"></a>NamingScheme Enum
 Controls the use of suffixes/prefixes in the names of export files. _//Sketch Compatibility_
 
@@ -1652,12 +1619,12 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 
 * New layer types: `Section` and `States`.
 * `Hotspot` layer type is removed.
-* We are dropping support for sketch smart layout fields and sketch overlay fields.
+* We are dropping compatibility for sketch smart layout fields, sketch overlay fields, and sketch instance spacing fields.
 * New `Custom` field for `Layer`. It is for plugin data and for anything that's not specified in a FREE format.
 * `FigmaId` field added to the `Component`.
 * `Component` now can be inside any group/frame/section.
 * `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
-* We are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
+* Also we are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
 
 ### Version 4 - 20.01.2025
 
