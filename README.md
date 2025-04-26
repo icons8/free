@@ -318,12 +318,6 @@ Has all properties of [`Frame`](#Frame), plus:
 * ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for component filters.
 * FigmaId: [string](#string) - unique Figma Component Id. Used to connect shared libraries and documents imported from figma.
 
-<details>
-<summary>Sketch compatibility</summary>
-
-* BackgroundInInstance: [bool](#bool) = `False` - defines whether to include background in component instances.
-</details>
-
 ### <a name="Oval"></a>Oval
 An oval is a shape drawn on the canvas with the Oval tool.
 
@@ -1663,7 +1657,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `FigmaId` field added to the `Component`.
 * `Component` now can be inside any group/frame/section.
 * `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
-* We are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`.
+* We are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
 
 ### Version 4 - 20.01.2025
 

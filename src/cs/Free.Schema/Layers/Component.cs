@@ -15,12 +15,6 @@ public class Component : Frame
     public Guid ComponentId { get; set; }
 
     /// <summary>
-    /// Defines whether to include background in component instances.
-    /// </summary>
-    [SketchCompatibility]
-    public bool BackgroundInInstance { get; set; }
-
-    /// <summary>
     /// Indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
     /// </summary>
     public bool Predefined { get; set; }

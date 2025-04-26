@@ -9,7 +9,7 @@
 * `FigmaId` field added to the `Component`.
 * `Component` now can be inside any group/frame/section.
 * `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
-* We are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`.
+* We are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
 
 ### Version 4 - 20.01.2025
 
