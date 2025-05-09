@@ -11,7 +11,7 @@ public abstract class Styled : Layer
     /// <summary>
     /// Limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
     /// </summary>
-    public int MiterLimit { get; set; } = 10;
+    public float MiterLimit { get; set; } = 10;
     /// <summary>
     /// Opacity value.
     /// </summary>

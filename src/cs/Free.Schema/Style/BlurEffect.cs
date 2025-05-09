@@ -20,14 +20,4 @@ public sealed class BlurEffect
     /// Sets the blur type.
     /// </summary>
     public BlurType Type { get; set; } = BlurType.Gaussian;
-    /// <summary>
-    /// Center point of motion blur.
-    /// </summary>
-    [SketchCompatibility]
-    public Point Center { get; set; } = new(0.5f, 0.5f);
-    /// <summary>
-    /// Angle of motion for motion blur.
-    /// </summary>
-    [SketchCompatibility]
-    public float MotionAngle { get; set; }
 }

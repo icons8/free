@@ -477,7 +477,7 @@ A styled layer is a layer that has layer styling options.
 Has all properties of [`Layer`](#Layer), plus:
 
 * StyleId: [GUID](#GUID) - unique style identifier.
-* MiterLimit: [int](#int) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
+* MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 * Opacity: [float](#float) = `1` - opacity value.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
 * StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
@@ -778,13 +778,6 @@ Defines the settings of the blur effect.
 * Radius: [float](#float) = `10` - blur Radius.
 * Enabled: [bool](#bool) = `False` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
-
-<details>
-<summary>Sketch compatibility</summary>
-
-* Center: [Point](#Point) = `[0.5,0.5]` - center point of motion blur.
-* MotionAngle: [float](#float) = `0` - angle of motion for motion blur.
-</details>
 
 ### <a name="BorderOptions"></a>BorderOptions
 Defines the advanced options of borders, arrows, lines, and paths drawn with the Pen or Pencil tools.
@@ -1191,8 +1184,6 @@ Defines the type of blend mode applied to a layer.
 Defines the blur type.
 
 * `0` Gaussian - gaussian blur.
-* `1` Motion - motion blur. Currently not supported. // Sketch Compatibility
-* `2` Zoom - zoom blur. Currently not supported. // Sketch Compatibility
 * `3` Background - background blur.
 
 ### <a name="BoolOp"></a>BoolOp Enum
