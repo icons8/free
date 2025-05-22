@@ -9,8 +9,9 @@ public sealed class Flow
     /// Trigger that will fire an action. Examples: CLICK, DRAG, HOLD.
     /// </summary>
     public FlowTrigger Trigger { get; set; }
+
     /// <summary>
-    /// Action. Examples: NAVIGATE, SCROLL, URL, BACK.
+    /// List of Actions. Examples: NAVIGATE, SCROLL, URL, BACK.
     /// </summary>
-    public FlowAction Action { get; set; }
+    public List<FlowAction> Actions { get; set; } = new();
 }

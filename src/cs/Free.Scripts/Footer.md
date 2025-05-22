@@ -10,6 +10,7 @@
 * `Component` now can be inside any group/frame/section.
 * `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
 * Also we are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
+* `Flow` now contains not one, but a list of actions.
 
 ### Version 4 - 20.01.2025
 

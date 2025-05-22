@@ -837,7 +837,7 @@ Defines the fill applied to a layer.
 Prototyping interaction element
 
 * Trigger: [FlowTrigger](#FlowTrigger) - trigger that will fire an action. Examples: CLICK, DRAG, HOLD.
-* Action: [FlowAction](#FlowAction) - action. Examples: NAVIGATE, SCROLL, URL, BACK.
+* Actions: [FlowAction[]](#FlowAction) - list of Actions. Examples: NAVIGATE, SCROLL, URL, BACK.
 
 ### <a name="Font"></a>Font
 Embedded fonts stored in the document.
@@ -1616,6 +1616,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `Component` now can be inside any group/frame/section.
 * `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
 * Also we are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
+* `Flow` now contains not one, but a list of actions.
 
 ### Version 4 - 20.01.2025
 
