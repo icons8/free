@@ -814,12 +814,11 @@ The document's .json structure.
 ### <a name="ExportOption"></a>ExportOption
 Export settings.
 
-* Size: [float](#float) = `0` - defines the width/height of the exported object. Valid only when ScaleType is *Width* or *Height*.
-* Format: [string](#string) = `png` - export format. Default: PNG.
+* Format: [string](#string) = `PNG` - export format. Default: PNG.
+* Type: [ScaleType](#ScaleType) = `Scale` - defines the scale type: Scale/Width/Height. The Width and Height types are currently not supported.
+* Size: [float](#float) = `0` - defines the width/height/scale of the exported object. Dependent on the type of the scale.
 * Name: [string](#string) - user-defined suffix/preffix (string) added to the export file name. Default: empty.
 * Naming: [NamingScheme](#NamingScheme) = `Suffix` - defines whether a suffix or preffix will be added to the export files name. Default: suffix.
-* Scale: [float](#float) = `1` - defines the scale used when exporting an object. Valid only when ScaleType is set to *Scale*.
-* Type: [ScaleType](#ScaleType) = `Scale` - defines the scale type: Scale(px)/Width/Height. The Width and Height types are currently not supported.
 
 ### <a name="Fill"></a>Fill
 Defines the fill applied to a layer.
