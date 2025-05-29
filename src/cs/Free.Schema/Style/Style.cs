@@ -63,7 +63,7 @@ public class Style
     /// <summary>
     /// Defines the size of dashes.
     /// </summary>
-    public float[] Dash { get; set; }
+    public float[] Dash { get; set; } = [];
     /// <summary>
     /// List of shadows applied to a layer.
     /// </summary>

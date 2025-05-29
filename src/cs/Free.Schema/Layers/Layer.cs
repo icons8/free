@@ -173,10 +173,6 @@ public abstract class Layer
     /// </summary>
     public Guid StyleId { get; set; }
     /// <summary>
-    /// Limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
-    /// </summary>
-    public float MiterLimit { get; set; } = 10;
-    /// <summary>
     /// Opacity value.
     /// </summary>
     public float Opacity { get; set; } = 1;
@@ -184,14 +180,6 @@ public abstract class Layer
     /// Blend mode.
     /// </summary>
     public BlendMode BlendMode { get; set; }
-    /// <summary>
-    /// Determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool. 
-    /// </summary>
-    public Arrowhead StartMarker { get; set; }
-    /// <summary>
-    /// Determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-    /// </summary>
-    public Arrowhead EndMarker { get; set; }
     /// <summary>
     /// Defines the filling options for overlapping paths.
     /// </summary>
@@ -231,7 +219,7 @@ public abstract class Layer
     /// <summary>
     /// Defines the size of dashes.
     /// </summary>
-    public float[] Dash { get; set; }
+    public float[] Dash { get; set; } = [];
     /// <summary>
     /// List of shadows.
     /// </summary>

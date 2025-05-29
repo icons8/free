@@ -420,6 +420,9 @@ A vector path determines the outline and form of a vector object. A path is made
 Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `PATH` - object type.
+* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 * Edited: [bool](#bool) = `False` - if the shape is edited in the path editor.
 * Open: [bool](#bool) = `False` - indicates whether the path is open.
 * Points: [Vertex[]](#Vertex) - list of path's points.
@@ -439,6 +442,9 @@ A shape is a rectangle, oval, polygon, triangle, or star drawn with the respecti
 Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `SHAPE` - object type.
+* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 * Layers: [Layer[]](#Layer) - list of layers.
 
 <details>
@@ -508,11 +514,8 @@ A layer is any ungrouped element available on the canvas.
 * LayoutFixPos: [bool](#bool) = `False` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 * StyleId: [GUID](#GUID) - unique style identifier.
-* MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 * Opacity: [float](#float) = `1` - opacity value.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
-* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * Winding: [PathFillType](#PathFillType) = `EvenOdd` - defines the filling options for overlapping paths.
 * Fills: [Fill[]](#Fill) - list of fills.
 * Borders: [Fill[]](#Fill) - list of borders.
