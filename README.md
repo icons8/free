@@ -484,11 +484,16 @@ Has all properties of [`Layer`](#Layer), plus:
 * EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * Winding: [PathFillType](#PathFillType) = `EvenOdd` - defines the filling options for overlapping paths.
 * Fills: [Fill[]](#Fill) - list of fills.
-* Borders: [Border[]](#Border) - list of borders.
+* Borders: [Fill[]](#Fill) - list of borders.
+* Thickness: [float](#float) = `0` - defines border thickness.
+* CustomThickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines custom border thickness.
+* LinePos: [LinePosition](#LinePosition) = `Center` - defines border position.
+* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
+* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
+* Dash: [float[]](#float) - defines the size of dashes.
 * Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows.
 * InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows.
 * Blur: [BlurEffect](#BlurEffect) - information about blurs.
-* BorderOptions: [BorderOptions](#BorderOptions) - information about border options.
 * ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
 * CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame/instance/component/states/section.
 * SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
@@ -573,7 +578,7 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 * Target: [GUID?](#GUID) - id of the target overlay.
 * Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - action animation.
 * Position: [FlowOverlayPosition](#FlowOverlayPosition) = `Centered` - startup location of overlay.
-* Offset: [Vector2](#Vector2) = `<0, 0>` - offset from startup location.
+* Offset: [Vector2](#Vector2) = `<0  0>` - offset from startup location.
 * CloseByClick: [bool](#bool) = `False` - close by any click.
 * HasBackground: [bool](#bool) = `False` - defines whether the overlay has background.
 * Background: [Color](#Color) = `00000000` - overlay background color.
@@ -719,14 +724,6 @@ Has all properties of [`LayoutContainerBase`](#LayoutContainerBase), plus:
 * Wrap: [bool](#bool) = `False` - if wrapping is enabled.
 * WrapDistribute: [bool](#bool) = `False` - if auto distribute is enabled for wrapped content.
 
-### <a name="Border"></a>Border
-Defines the appearance of borders.
-
-Has all properties of [`Fill`](#Fill), plus:
-
-* Thickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines border thickness.
-* Pos: [BorderPosition](#BorderPosition) = `Center` - defines border position.
-
 ### <a name="Columns"></a>Columns
 Defines column settings in a layout grid.
 
@@ -778,13 +775,6 @@ Defines the settings of the blur effect.
 * Radius: [float](#float) = `10` - blur Radius.
 * Enabled: [bool](#bool) = `False` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
-
-### <a name="BorderOptions"></a>BorderOptions
-Defines the advanced options of borders, arrows, lines, and paths drawn with the Pen or Pencil tools.
-
-* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
-* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
-* Dash: [float[]](#float) - defines the size of dashes.
 
 ### <a name="ColorVariable"></a>ColorVariable
 Color variables stored in the document.
@@ -850,8 +840,8 @@ Embedded fonts stored in the document.
 An object that represents a gradient.
 
 * Type: [GradientType](#GradientType) = `Linear` - type of the gradient.
-* From: [Point](#Point) = `[0.5,0]` - position of the gradient start point.
-* To: [Point](#Point) = `[0.5,1]` - position of the gradient end point.
+* From: [Point](#Point) = `[0,5,0]` - position of the gradient start point.
+* To: [Point](#Point) = `[0,5,1]` - position of the gradient end point.
 * Side: [Point](#Point) = `[0,0]` - position of the gradient side point. Valid for radial and angular gragients.
 * Stops: [GradientStop[]](#GradientStop) - list of other gradient points.
 
@@ -916,7 +906,11 @@ Defines overrides for components.
 * StyleId: [GUID?](#GUID) - identifier of the style applied to a layer.
 * Tint: [Color?](#Color) - defines the tint color.
 * TintId: [GUID?](#GUID) - tint identifier.
-* BorderOptions: [BorderOptions](#BorderOptions) - definition of border options.
+* Thickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines border thickness.
+* CustomThickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines custom border thickness.
+* LinePos: [LinePosition](#LinePosition) = `Center` - defines border position.
+* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
+* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
 * Blur: [BlurEffect](#BlurEffect) - information about blurs.
 * ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
 * Opacity: [float?](#float) - opacity value.
@@ -1037,11 +1031,16 @@ Defines a set of properties that make up a style.
 * EndMarker: [Arrowhead](#Arrowhead) = `None` - defines the appearance of the end point for arrows, lines, and open paths.
 * Winding: [PathFillType](#PathFillType) = `EvenOdd` - fill options for overlapping paths: non-zero or even-odd.
 * Fills: [Fill[]](#Fill) - list of fills applied to a layer.
-* Borders: [Border[]](#Border) - list of borders applied to a layer.
+* Borders: [Fill[]](#Fill) - list of borders applied to a layer.
+* Thickness: [float](#float) = `0` - defines border thickness.
+* CustomThickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines custom border thickness.
+* LinePos: [LinePosition](#LinePosition) = `Center` - defines border position.
+* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
+* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
+* Dash: [float[]](#float) - defines the size of dashes.
 * Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows applied to a layer.
 * InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows applied to a layer.
 * Blur: [BlurEffect](#BlurEffect) - definition of the blur effect applied to a layer.
-* BorderOptions: [BorderOptions](#BorderOptions) - definition of border options.
 * ImageFilters: [ImageFilters](#ImageFilters) - image filters applied to a layer.
 * CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame/instance/component/states/section.
 * SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
@@ -1193,13 +1192,6 @@ Types of boolean operations used to combine shapes.
 * `1` Subtract - the opposite of Union. Removes the overlapping area(s) from the shape layer at the bottom of the selection.
 * `2` Intersect - the resulting shape only includes the area where all selected shapes overlap.
 * `3` Difference - the opposite of Intersect. Creates a shape from the areas where the selected shapes do not overlap.
-
-### <a name="BorderPosition"></a>BorderPosition Enum
-Defines the border postion.
-
-* `0` Center - center.
-* `1` Inside - inside.
-* `2` Outside - outside.
 
 ### <a name="CharacterCasing"></a>CharacterCasing Enum
 Defines letter case.
@@ -1420,6 +1412,13 @@ Defines the appearance of the corners for arrows and paths with corners drawn wi
 * `1` Round - rounded.
 * `2` Bevel - bevelled.
 
+### <a name="LinePosition"></a>LinePosition Enum
+Defines the border postion.
+
+* `0` Center - center.
+* `1` Inside - inside.
+* `2` Outside - outside.
+
 ### <a name="ListMarkerType"></a>ListMarkerType Enum
 Defines the type of a text list.
 
@@ -1616,6 +1615,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
 * Also we are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
 * `Flow` now contains not one, but a list of actions.
+* `Border` and `Fill` now sharing the same `Fill` object. `Thickness` and `LinePos` now in the Layer.
 
 ### Version 4 - 20.01.2025
 

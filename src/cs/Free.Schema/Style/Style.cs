@@ -39,7 +39,31 @@ public class Style
     /// <summary>
     /// List of borders applied to a layer.
     /// </summary>
-    public List<Border> Borders { get; } = new();
+    public List<Fill> Borders { get; } = new();
+    /// <summary>
+    /// Defines border thickness.
+    /// </summary>
+    public float Thickness { get; set; }
+    /// <summary>
+    /// Defines custom border thickness.
+    /// </summary>
+    public Thickness CustomThickness { get; set; }
+    /// <summary>
+    /// Defines border position.
+    /// </summary>
+    public LinePosition LinePos { get; set; } = LinePosition.Center;
+    /// <summary>
+    /// Defines the shape of line caps.
+    /// </summary>
+    public LineCap LineCap { get; set; } = LineCap.Butt;
+    /// <summary>
+    /// Defines the appearance of line folds.
+    /// </summary>
+    public LineJoin LineJoin { get; set; } = LineJoin.Miter;
+    /// <summary>
+    /// Defines the size of dashes.
+    /// </summary>
+    public float[] Dash { get; set; }
     /// <summary>
     /// List of shadows applied to a layer.
     /// </summary>
@@ -52,10 +76,6 @@ public class Style
     /// Definition of the blur effect applied to a layer.
     /// </summary>
     public BlurEffect Blur { get; } = new();
-    /// <summary>
-    /// Definition of border options.
-    /// </summary>
-    public BorderOptions BorderOptions { get; } = new();
     /// <summary>
     /// Image filters applied to a layer.
     /// </summary>

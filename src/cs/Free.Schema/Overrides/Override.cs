@@ -89,11 +89,31 @@ public sealed class Override
     /// <summary>
     /// List of borders applied to a layer.
     /// </summary>
-    public List<Border>? Borders { get; set; }
+    public List<Fill>? Borders { get; set; }
     /// <summary>
-    /// Definition of border options.
+    /// Defines border thickness.
     /// </summary>
-    public BorderOptions? BorderOptions { get; set; }
+    public Thickness Thickness { get; set; }
+    /// <summary>
+    /// Defines custom border thickness.
+    /// </summary>
+    public Thickness CustomThickness { get; set; }
+    /// <summary>
+    /// Defines border position.
+    /// </summary>
+    public LinePosition LinePos { get; set; } = LinePosition.Center;
+    /// <summary>
+    /// Defines the shape of line caps.
+    /// </summary>
+    public LineCap LineCap { get; set; } = LineCap.Butt;
+    /// <summary>
+    /// Defines the appearance of line folds.
+    /// </summary>
+    public LineJoin LineJoin { get; set; } = LineJoin.Miter;
+    /// <summary>
+    /// Defines the size of dashes.
+    /// </summary>
+    public float[] Dash { get; set; }
     /// <summary>
     /// List of shadows.
     /// </summary>

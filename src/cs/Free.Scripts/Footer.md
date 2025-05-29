@@ -11,6 +11,7 @@
 * `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
 * Also we are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
 * `Flow` now contains not one, but a list of actions.
+* `Border` and `Fill` now sharing the same `Fill` object. `Thickness` and `LinePos` now in the `Layer`. `BorderOptions` are inside `Layer` too.
 
 ### Version 4 - 20.01.2025
 

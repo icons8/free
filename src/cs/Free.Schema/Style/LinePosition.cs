@@ -3,7 +3,7 @@ namespace Free.Schema;
 /// Defines the border postion.
 /// </summary>
 
-public enum BorderPosition : byte
+public enum LinePosition : byte
 {
     /// <summary>
     /// Center.
