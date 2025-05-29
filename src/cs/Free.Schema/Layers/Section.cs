@@ -4,7 +4,7 @@ namespace Free.Schema;
 /// Root group of layers. Can be a child of a page or another section.
 /// Does not support rotation, flips, effects.
 /// </summary>
-public class Section : Styled
+public class Section : Layer
 {
     public override string _t => "SECTION";
     

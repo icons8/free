@@ -4,7 +4,7 @@ namespace Free.Schema;
 /// A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
 /// </summary>
 
-public class Frame : Styled
+public class Frame : Layer
 {
     /// <summary>
     /// Object type.
@@ -32,9 +32,14 @@ public class Frame : Styled
     public bool ResizesContent { get; set; }
     
     /// <summary>
+    /// Auto Layout Properties
+    /// </summary>
+    public AutoLayoutContainer Container { get; set; }
+    
+    /// <summary>
     /// Grid, Row and Column layouts of the frame.
     /// </summary>
-    public List<LayoutContainerBase> Layouts { get; } = new();
+    public List<GridLayoutBase> Layouts { get; } = new();
     /// <summary>
     /// Rulers and guidelines info.
     /// </summary>

@@ -3,7 +3,7 @@ namespace Free.Schema;
 /// Text is a block or line of text on the canvas.
 /// </summary>
 
-public class Text : Styled
+public class Text : Layer
 {
     /// <summary>
     /// Object type.

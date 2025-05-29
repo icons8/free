@@ -3,7 +3,7 @@ namespace Free.Schema;
 /// A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
 /// </summary>
 
-public class Shape : Styled
+public class Shape : Layer
 {
     /// <summary>
     /// Object type.

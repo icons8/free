@@ -376,21 +376,22 @@ Has all properties of [`Path`](#Path), plus:
 ### <a name="Frame"></a>Frame
 A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
 
-Has all properties of [`Styled`](#Styled), plus:
+Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `FRAME` - object type.
 * ClipContent: [bool](#bool) = `False` - when enabled, hides the content outside the frame boundaries.
 * FlowHome: [bool](#bool) = `False` - sets the frame as a prototype starting point.
 * Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
 * ResizesContent: [bool](#bool) = `False` - enables adjusting and resizing the frame content as the frame is resized.
-* Layouts: [LayoutContainerBase[]](#LayoutContainerBase) - grid, Row and Column layouts of the frame.
+* Container: [AutoLayoutContainer](#AutoLayoutContainer) - auto Layout Properties
+* Layouts: [GridLayoutBase[]](#GridLayoutBase) - grid, Row and Column layouts of the frame.
 * Rulers: [Rulers](#Rulers) - rulers and guidelines info.
 * Layers: [Layer[]](#Layer) - list of layers on the frame.
 
 ### <a name="Group"></a>Group
 A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
 
-Has all properties of [`Styled`](#Styled), plus:
+Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `GROUP` - object type.
 * SkipSelect: [bool](#bool) = `False` - when enabled, users can select group items without first selecting the group.
@@ -405,17 +406,18 @@ Has all properties of [`Styled`](#Styled), plus:
 ### <a name="Instance"></a>Instance
 An instance is a copy of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component.
 
-Has all properties of [`Styled`](#Styled), plus:
+Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `INSTANCE` - object type.
 * Scale: [float](#float) = `0` - scale of the instance.
 * ComponentId: [GUID](#GUID) - unique component identifier.
+* Container: [AutoLayoutContainer](#AutoLayoutContainer) - auto Layout Properties
 * Overrides: [Override[]](#Override) - defines the overrides applied to the instance.
 
 ### <a name="Path"></a>Path
 A vector path determines the outline and form of a vector object. A path is made up of points and segments.
 
-Has all properties of [`Styled`](#Styled), plus:
+Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `PATH` - object type.
 * Edited: [bool](#bool) = `False` - if the shape is edited in the path editor.
@@ -426,7 +428,7 @@ Has all properties of [`Styled`](#Styled), plus:
 Root group of layers. Can be a child of a page or another section.
             Does not support rotation, flips, effects.
 
-Has all properties of [`Styled`](#Styled), plus:
+Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `SECTION`
 * Layers: [Layer[]](#Layer) - list of layers within the section.
@@ -434,7 +436,7 @@ Has all properties of [`Styled`](#Styled), plus:
 ### <a name="Shape"></a>Shape
 A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
 
-Has all properties of [`Styled`](#Styled), plus:
+Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `SHAPE` - object type.
 * Layers: [Layer[]](#Layer) - list of layers.
@@ -444,22 +446,6 @@ Has all properties of [`Styled`](#Styled), plus:
 
 * SkipConstraints: [bool](#bool) = `False` - serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
 </details>
-
-### <a name="Text"></a>Text
-Text is a block or line of text on the canvas.
-
-Has all properties of [`Styled`](#Styled), plus:
-
-* _t: [string](#string) = `TEXT` - object type.
-* text: [string](#string) - content of the text layer.
-* TextStyle: [TextStyle](#TextStyle) - style applied to the text.
-* Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
-* Behavior: [TextBehavior](#TextBehavior) = `Flexible` - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
-* ClipContent: [bool](#bool) = `True` - valid for files imported from Figma. Defines whether to truncate text content.
-* Truncate: [bool](#bool) = `False` - trim text with triple dots in the end if content overlaps fixed layer size bounds.
-* MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
-* DrawOnPath: [bool](#bool) = `False` - defines whether text draws on the underlying path.
-* Warp: [bool](#bool) = `False` - defines whether text warps when drawn on the underlying path.
 
 ### <a name="Slice"></a>Slice
 A slice is a special type of layers used for exporting certaing parts of designs.
@@ -471,32 +457,21 @@ Has all properties of [`Layer`](#Layer), plus:
 * Background: [Color](#Color) = `00000000` - defines the background color.
 * BackgroundId: [GUID?](#GUID) - unique color variable ID.
 
-### <a name="Styled"></a>Styled
-A styled layer is a layer that has layer styling options.
+### <a name="Text"></a>Text
+Text is a block or line of text on the canvas.
 
 Has all properties of [`Layer`](#Layer), plus:
 
-* StyleId: [GUID](#GUID) - unique style identifier.
-* MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
-* Opacity: [float](#float) = `1` - opacity value.
-* BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
-* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* Winding: [PathFillType](#PathFillType) = `EvenOdd` - defines the filling options for overlapping paths.
-* Fills: [Fill[]](#Fill) - list of fills.
-* Borders: [Fill[]](#Fill) - list of borders.
-* Thickness: [float](#float) = `0` - defines border thickness.
-* CustomThickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines custom border thickness.
-* LinePos: [LinePosition](#LinePosition) = `Center` - defines border position.
-* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
-* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
-* Dash: [float[]](#float) - defines the size of dashes.
-* Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows.
-* InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows.
-* Blur: [BlurEffect](#BlurEffect) - information about blurs.
-* ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
-* CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame/instance/component/states/section.
-* SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
+* _t: [string](#string) = `TEXT` - object type.
+* text: [string](#string) - content of the text layer.
+* TextStyle: [TextStyle](#TextStyle) - style applied to the text.
+* Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
+* Behavior: [TextBehavior](#TextBehavior) = `Flexible` - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
+* ClipContent: [bool](#bool) = `True` - valid for files imported from Figma. Defines whether to truncate text content.
+* Truncate: [bool](#bool) = `False` - trim text with triple dots in the end if content overlaps fixed layer size bounds.
+* MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
+* DrawOnPath: [bool](#bool) = `False` - defines whether text draws on the underlying path.
+* Warp: [bool](#bool) = `False` - defines whether text warps when drawn on the underlying path.
 
 ### <a name="Layer"></a>Layer
 A layer is any ungrouped element available on the canvas.
@@ -532,6 +507,27 @@ A layer is any ungrouped element available on the canvas.
 * LayoutGrowStretch: [bool](#bool) = `False` - determines whether a layer should stretch along the parent’s primary axis (auto layout).
 * LayoutFixPos: [bool](#bool) = `False` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
+* StyleId: [GUID](#GUID) - unique style identifier.
+* MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
+* Opacity: [float](#float) = `1` - opacity value.
+* BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
+* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* Winding: [PathFillType](#PathFillType) = `EvenOdd` - defines the filling options for overlapping paths.
+* Fills: [Fill[]](#Fill) - list of fills.
+* Borders: [Fill[]](#Fill) - list of borders.
+* Thickness: [float](#float) = `0` - defines border thickness.
+* CustomThickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines custom border thickness.
+* LinePos: [LinePosition](#LinePosition) = `Center` - defines border position.
+* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
+* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
+* Dash: [float[]](#float) - defines the size of dashes.
+* Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows.
+* InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows.
+* Blur: [BlurEffect](#BlurEffect) - information about blurs.
+* ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
+* CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame/instance/component/states/section.
+* SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
 
 <details>
 <summary>Lunacy specific</summary>
@@ -1615,7 +1611,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `CornerRadius` and `SmoothCorners` fields are now in `Style` and `Styled` layers.
 * Also we are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
 * `Flow` now contains not one, but a list of actions.
-* `Border` and `Fill` now sharing the same `Fill` object. `Thickness` and `LinePos` now in the Layer.
+* `Border` and `Fill` now sharing the same `Fill` object. `Thickness` and `LinePos` now in the `Layer`. `BorderOptions` are inside `Layer` too.
 
 ### Version 4 - 20.01.2025
 

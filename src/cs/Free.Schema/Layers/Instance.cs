@@ -2,7 +2,7 @@ namespace Free.Schema;
 /// <summary>
 /// An instance is a copy of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component. 
 /// </summary>
-public class Instance : Styled
+public class Instance : Layer
 {
     /// <summary>
     /// Object type.
@@ -18,6 +18,11 @@ public class Instance : Styled
     /// </summary>
     public Guid ComponentId { get; set; }
 
+    /// <summary>
+    /// Auto Layout Properties
+    /// </summary>
+    public AutoLayoutContainer Container { get; set; }
+    
     /// <summary>
     /// Defines the overrides applied to the instance.
     /// </summary>
