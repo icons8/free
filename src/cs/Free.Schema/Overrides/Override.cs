@@ -156,7 +156,7 @@ public sealed class Override
     /// <summary>
     /// Style applied to the text
     /// </summary>
-    public TextStyle? TextStyle { get; set; }
+    public TextProperties? TextStyle { get; set; }
     /// <summary>
     /// Styling options applied to the text within a text block.
     /// </summary>

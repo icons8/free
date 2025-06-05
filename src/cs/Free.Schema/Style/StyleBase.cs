@@ -1,9 +1,9 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Style saved in the document.
+/// Base class for a shared style
 /// </summary>
-public class SharedStyle
+public abstract class StyleBase
 {
     /// <summary>
     /// Unique style ID.
@@ -14,12 +14,14 @@ public class SharedStyle
     /// Style name.
     /// </summary>
     public string Name { get; set; }
+    
     /// <summary>
-    /// Layer style settings.
+    /// Style version.
     /// </summary>
-    public Style Style { get; }
+    public int Version { get; set; }
+    
     /// <summary>
-    /// Text style settings.
+    /// Unique Figma Style Id. Used to connect shared libraries and documents imported from figma. 
     /// </summary>
-    public TextStyle? TextStyle { get; set; }
+    public string FigmaId { get; set; }
 }

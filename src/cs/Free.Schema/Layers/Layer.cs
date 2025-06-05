@@ -169,9 +169,17 @@ public abstract class Layer
     public BackgroundRemovalState BackgroundRemove { get; set; }
     
     /// <summary>
-    /// Unique style identifier.
+    /// Fill style id for fills.
     /// </summary>
-    public Guid StyleId { get; set; }
+    public Guid FillsId { get; set; }
+    /// <summary>
+    /// Fill style id for borders.
+    /// </summary>
+    public Guid BordersId { get; set; }
+    /// <summary>
+    /// Effect style id.
+    /// </summary>
+    public Guid EffectsId { get; set; }
     /// <summary>
     /// Opacity value.
     /// </summary>

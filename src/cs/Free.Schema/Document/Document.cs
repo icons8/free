@@ -37,9 +37,21 @@ public class Document
     /// </summary>
     public List<ColorVariable> ColorVariables { get; } = new();
     /// <summary>
-    /// Styles stored in the document.
+    /// Fill styles stored in the document.
     /// </summary>
-    public List<SharedStyle> Styles { get; } = new();
+    public List<FillStyle> FillStyles { get; } = new();
+    /// <summary>
+    /// Effect styles stored in the document.
+    /// </summary>
+    public List<EffectStyle> EffectStyles { get; } = new();
+    /// <summary>
+    /// Text styles stored in the document.
+    /// </summary>
+    public List<TextStyle> TextStyles { get; } = new();
+    /// <summary>
+    /// Grid layout styles stored in the document.
+    /// </summary>
+    public List<GridLayoutStyle> GridStyles { get; } = new();
     /// <summary>
     /// List of document pages.
     /// </summary>

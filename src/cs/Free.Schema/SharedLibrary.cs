@@ -23,9 +23,21 @@ public class SharedLibrary
     /// </summary>
     public List<ColorVariable> ColorVariables { get; set; }
     /// <summary>
-    /// Styles from a shared library.
+    /// Fill styles stored in the document.
     /// </summary>
-    public List<SharedStyle> Styles { get; set; }
+    public List<FillStyle> FillStyles { get; } = new();
+    /// <summary>
+    /// Effect styles stored in the document.
+    /// </summary>
+    public List<EffectStyle> EffectStyles { get; } = new();
+    /// <summary>
+    /// Text styles stored in the document.
+    /// </summary>
+    public List<TextStyle> TextStyles { get; } = new();
+    /// <summary>
+    /// Grid layout styles stored in the document.
+    /// </summary>
+    public List<GridLayoutStyle> GridStyles { get; } = new();
     /// <summary>
     /// Components from a shared library.
     /// </summary>

@@ -18,5 +18,5 @@ public class InlineStyle
     /// <summary>
     /// Style applied to the selection.
     /// </summary>
-    public TextStyle Style { get; } = new();
+    public TextProperties Style { get; } = new();
 }

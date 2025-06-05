@@ -16,7 +16,7 @@ public class Text : Layer
     /// <summary>
     /// Style applied to the text.
     /// </summary>
-    public TextStyle TextStyle { get; } = new();
+    public TextProperties TextStyle { get; } = new();
     /// <summary>
     /// Styling options applied to the text within a text block. 
     /// </summary>
@@ -45,4 +45,8 @@ public class Text : Layer
     /// Defines whether text warps when drawn on the underlying path.
     /// </summary>
     public bool Warp { get; set; } = false;
+    /// <summary>
+    /// Text style id.
+    /// </summary>
+    public Guid PropsId { get; set; }
 }

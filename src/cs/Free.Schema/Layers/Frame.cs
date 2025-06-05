@@ -41,6 +41,10 @@ public class Frame : Layer
     /// </summary>
     public List<GridLayoutBase> Layouts { get; } = new();
     /// <summary>
+    /// Grid Layout style id.
+    /// </summary>
+    public Guid GridsId { get; set; }
+    /// <summary>
     /// Rulers and guidelines info.
     /// </summary>
     public Rulers Rulers { get; } = new();

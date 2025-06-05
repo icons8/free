@@ -385,6 +385,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * ResizesContent: [bool](#bool) = `False` - enables adjusting and resizing the frame content as the frame is resized.
 * Container: [AutoLayoutContainer](#AutoLayoutContainer) - auto Layout Properties
 * Layouts: [GridLayoutBase[]](#GridLayoutBase) - grid, Row and Column layouts of the frame.
+* GridsId: [GUID](#GUID) - grid Layout style id.
 * Rulers: [Rulers](#Rulers) - rulers and guidelines info.
 * Layers: [Layer[]](#Layer) - list of layers on the frame.
 
@@ -470,7 +471,7 @@ Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `TEXT` - object type.
 * text: [string](#string) - content of the text layer.
-* TextStyle: [TextStyle](#TextStyle) - style applied to the text.
+* TextStyle: [TextProperties](#TextProperties) - style applied to the text.
 * Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
 * Behavior: [TextBehavior](#TextBehavior) = `Flexible` - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * ClipContent: [bool](#bool) = `True` - valid for files imported from Figma. Defines whether to truncate text content.
@@ -478,6 +479,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
 * DrawOnPath: [bool](#bool) = `False` - defines whether text draws on the underlying path.
 * Warp: [bool](#bool) = `False` - defines whether text warps when drawn on the underlying path.
+* PropsId: [GUID](#GUID) - text style id.
 
 ### <a name="Layer"></a>Layer
 A layer is any ungrouped element available on the canvas.
@@ -513,7 +515,9 @@ A layer is any ungrouped element available on the canvas.
 * LayoutGrowStretch: [bool](#bool) = `False` - determines whether a layer should stretch along the parent’s primary axis (auto layout).
 * LayoutFixPos: [bool](#bool) = `False` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
-* StyleId: [GUID](#GUID) - unique style identifier.
+* FillsId: [GUID](#GUID) - fill style id for fills.
+* BordersId: [GUID](#GUID) - fill style id for borders.
+* EffectsId: [GUID](#GUID) - effect style id.
 * Opacity: [float](#float) = `1` - opacity value.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
 * Winding: [PathFillType](#PathFillType) = `EvenOdd` - defines the filling options for overlapping paths.
@@ -737,6 +741,21 @@ Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
 * Width: [int](#int) = `0` - column width.
 * Color: [Color](#Color) = `00000000` - column color.
 
+### <a name="EffectStyle"></a>EffectStyle
+
+Has all properties of [`StyleBase`](#StyleBase), plus:
+
+* Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows of the style.
+* InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows of the style.
+* Blur: [BlurEffect](#BlurEffect) - definition of the blur effect of the style.
+
+### <a name="FillStyle"></a>FillStyle
+Style of fills. Can be set to borders and fills.
+
+Has all properties of [`StyleBase`](#StyleBase), plus:
+
+* Fills: [Fill[]](#Fill) - list of fills applied to a style.
+
 ### <a name="Grid"></a>Grid
 Defines square grid settings for a frame.
 
@@ -753,6 +772,12 @@ Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
 * ThickTimes: [int](#int) = `10` - every N line should be thick.
 </details>
 
+### <a name="GridLayoutStyle"></a>GridLayoutStyle
+
+Has all properties of [`StyleBase`](#StyleBase), plus:
+
+* Layouts: [GridLayoutBase[]](#GridLayoutBase) - grid, Row and Column layouts of the style.
+
 ### <a name="Rows"></a>Rows
 Defines row settings in a layout grid.
 
@@ -766,6 +791,21 @@ Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
 * Gutter: [int](#int) = `0` - gutter value.
 * Width: [int](#int) = `0` - row width.
 * Color: [Color](#Color) = `00000000` - row color.
+
+### <a name="TextStyle"></a>TextStyle
+Text Style
+
+Has all properties of [`StyleBase`](#StyleBase), plus:
+
+* Font: [string](#string) = `Inter` - text font.
+* Size: [float](#float) = `12` - text size.
+* ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
+* Kerning: [float](#float) = `0` - letter spacing.
+* BaselineOffset: [float](#float) = `0` - text offset from the baseline.
+* LineHeight: [float?](#float) - line spacing.
+* Underline: [bool](#bool) = `False` - if the text is underlined.
+* Strikethrough: [bool](#bool) = `False` - if the strikethrough option is applied to the text.
+* Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
 
 ### <a name="BlurEffect"></a>BlurEffect
 Defines the settings of the blur effect.
@@ -791,7 +831,10 @@ The document's .json structure.
 * CurrentPageIndex: [int](#int) = `0` - index of the currently open page.
 * Fonts: [Font[]](#Font) - embedded fonts stored in the document.
 * ColorVariables: [ColorVariable[]](#ColorVariable) - color variables stored in the document.
-* Styles: [SharedStyle[]](#SharedStyle) - styles stored in the document.
+* FillStyles: [FillStyle[]](#FillStyle) - fill styles stored in the document.
+* EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
+* TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
+* GridStyles: [GridLayoutStyle[]](#GridLayoutStyle) - grid layout styles stored in the document.
 * Pages: [GUID[]](#GUID) - list of document pages.
 
 <details>
@@ -870,7 +913,7 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 
 * Start: [int](#int) = `0` - position where the style starts.
 * Length: [int](#int) = `0` - length of the selection.
-* Style: [TextStyle](#TextStyle) - style applied to the selection.
+* Style: [TextProperties](#TextProperties) - style applied to the selection.
 
 ### <a name="LayoutContainerBase"></a>LayoutContainerBase
 Defines a container layout.
@@ -917,7 +960,7 @@ Defines overrides for components.
 * StartArrowhead: [Arrowhead?](#Arrowhead) - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * EndArrowhead: [Arrowhead?](#Arrowhead) - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * Text: [string](#string) - content of the text layer.
-* TextStyle: [TextStyle](#TextStyle) - style applied to the text
+* TextStyle: [TextProperties](#TextProperties) - style applied to the text
 * TextBehavior: [TextBehavior?](#TextBehavior) - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * Size: [Size?](#Size) - text size.
 * Orientation: [LayoutOrientation?](#LayoutOrientation) - layout orientation: horizontal or vertical.
@@ -1010,41 +1053,21 @@ Contains components, styles and variables from external library that is used in 
 
 * Id: [GUID](#GUID) - unique library document identifier.
 * ColorVariables: [ColorVariable[]](#ColorVariable) - color variables from a shared library.
-* Styles: [SharedStyle[]](#SharedStyle) - styles from a shared library.
+* FillStyles: [FillStyle[]](#FillStyle) - fill styles stored in the document.
+* EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
+* TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
+* GridStyles: [GridLayoutStyle[]](#GridLayoutStyle) - grid layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
 
-### <a name="SharedStyle"></a>SharedStyle
-Style saved in the document.
+### <a name="StyleBase"></a>StyleBase
+Base class for a shared style
 
 * Id: [GUID](#GUID) - unique style ID.
 * Name: [string](#string) - style name.
-* Style: [Style](#Style) - layer style settings.
+* Version: [int](#int) = `0` - style version.
+* FigmaId: [string](#string) - unique Figma Style Id. Used to connect shared libraries and documents imported from figma.
 
-### <a name="Style"></a>Style
-Defines a set of properties that make up a style.
-
-* MiterLimit: [int](#int) = `10` - defining a limit on the ratio of the miter length to the border thickness used to draw a miter join.
-* Opacity: [float](#float) = `1` - opacity of a layer.
-* BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode: how a layer blends with the layers behind it.
-* StartMarker: [Arrowhead](#Arrowhead) = `None` - defines the appearance of the starting point for arrows, lines, and open paths.
-* EndMarker: [Arrowhead](#Arrowhead) = `None` - defines the appearance of the end point for arrows, lines, and open paths.
-* Winding: [PathFillType](#PathFillType) = `EvenOdd` - fill options for overlapping paths: non-zero or even-odd.
-* Fills: [Fill[]](#Fill) - list of fills applied to a layer.
-* Borders: [Fill[]](#Fill) - list of borders applied to a layer.
-* Thickness: [float](#float) = `0` - defines border thickness.
-* CustomThickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines custom border thickness.
-* LinePos: [LinePosition](#LinePosition) = `Center` - defines border position.
-* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
-* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
-* Dash: [float[]](#float) - defines the size of dashes.
-* Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows applied to a layer.
-* InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows applied to a layer.
-* Blur: [BlurEffect](#BlurEffect) - definition of the blur effect applied to a layer.
-* ImageFilters: [ImageFilters](#ImageFilters) - image filters applied to a layer.
-* CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame/instance/component/states/section.
-* SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
-
-### <a name="TextStyle"></a>TextStyle
+### <a name="TextProperties"></a>TextProperties
 Defines a set of properties that make up a text style.
 
 * Color: [Color](#Color) = `ff000000` - text color.
@@ -1615,6 +1638,9 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * Also we are dropping support for `Frame` fields: `HasBackgound`, `Background`, `BackgroundInExport`, `BackgroundInInstance`.
 * `Flow` now contains not one, but a list of actions.
 * `Border` and `Fill` now sharing the same `Fill` object. `Thickness` and `LinePos` now in the `Layer`. `BorderOptions` are inside `Layer` too.
+* `SharedStyle` and `Style` objects is removed. `FillStyle`, `TextStyle`, `EffectStyle`, `GridLayoutStyle` objects are added instead.
+* `StyleId` is removed from `Layer`. `FillsId`, `BordersId`, `EffectsId` properties are added to a `Layer`, `GridsId` to `Frame` and `PropsId` to `Text` instead.
+
 
 ### Version 4 - 20.01.2025
 
