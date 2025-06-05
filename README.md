@@ -1662,4 +1662,4 @@ Separate file is created for every library source - this will significantly incr
 
 * Initial Version
 
-by Icons8 LLC 2023
+by Icons8 LLC 2025

@@ -54,7 +54,7 @@ public class MarkdownBuilder
             PrintFields(item);
         }
 
-        _sb.Append(File.ReadAllText(PathHelper.FindPath("Footer.md")));
+        _sb.Append(File.ReadAllText(PathHelper.FindPath("Footer.md")).Replace("by Icons8 LLC", "by Icons8 LLC " + DateTime.Now.Year));
         return _sb.ToString();
     }
 
