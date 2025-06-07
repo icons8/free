@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// Defines horizontal alignment settings in layout grids.
+/// Defines horizontal alignment settings in layout guide.
 /// </summary>
 public enum LayoutHorizontalAlignment : byte
 {

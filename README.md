@@ -97,7 +97,7 @@ We didn't rush the development and release of this format. We worked on it for a
 ## Key differences from the Sketch format
 
 * All fields have short, understandable names. For example, ``"hidden": true``.
-* The object type field is given a concise name, ``"_t,"`` and is only specified where necessary, which is in just three places: layer type, grid layout type, and layout type.
+* The object type field is given a concise name, ``"_t,"`` and is only specified where necessary, which is in just three places: layer type, layout guide type, and layout type.
 * If a value is default, it is simply omitted from the file, even for complex objects.
 * All GUIDs are written as ShortGUIDs, which are the base64 serialization of the byte data of the GUID. They retain all the GUID data but occupy 39% less space:
 
@@ -728,9 +728,9 @@ Has all properties of [`LayoutContainerBase`](#LayoutContainerBase), plus:
 * WrapDistribute: [bool](#bool) = `False` - if auto distribute is enabled for wrapped content.
 
 ### <a name="Columns"></a>Columns
-Defines column settings in a layout grid.
+Defines column settings in a layout guide.
 
-Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
+Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 
 * _t: [string](#string) = `COLS` - object type.
 * Enabled: [bool](#bool) = `False` - if columnns are enabled.
@@ -759,7 +759,7 @@ Has all properties of [`StyleBase`](#StyleBase), plus:
 ### <a name="Grid"></a>Grid
 Defines square grid settings for a frame.
 
-Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
+Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 
 * _t: [string](#string) = `GRID` - object type.
 * Enabled: [bool](#bool) = `False` - if the square grid is enabled.
@@ -779,9 +779,9 @@ Has all properties of [`StyleBase`](#StyleBase), plus:
 * Layouts: [GridLayoutBase[]](#GridLayoutBase) - grid, Row and Column layouts of the style.
 
 ### <a name="Rows"></a>Rows
-Defines row settings in a layout grid.
+Defines row settings in a layout guide.
 
-Has all properties of [`GridLayoutBase`](#GridLayoutBase), plus:
+Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 
 * _t: [string](#string) = `ROWS` - object type.
 * Enabled: [bool](#bool) = `False` - if rows are enabled.
@@ -893,12 +893,6 @@ A position-color pair representing a gradient stop.
 * Pos: [float](#float) = `0` - value between 0 and 1 representing a position along gradient axis.
 * Color: [Color](#Color) = `ffffffff` - color attached to a corresponding position.
 
-### <a name="GridLayoutBase"></a>GridLayoutBase
-Defines layout grid settings for a frame.
-
-* _t: [string](#string) - object type.
-* Enabled: [bool](#bool) = `False` - if layout grid is enabled.
-
 ### <a name="ImageFilters"></a>ImageFilters
 Defines filters that can be applied to images.
 
@@ -919,6 +913,12 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 Defines a container layout.
 
 * _t: [string](#string) - object type.
+
+### <a name="LayoutGuideBase"></a>LayoutGuideBase
+Defines layout guide settings for a frame.
+
+* _t: [string](#string) - object type.
+* Enabled: [bool](#bool) = `False` - if layout guide is enabled.
 
 ### <a name="Meta"></a>Meta
 Contains metadata about the document.
@@ -1399,7 +1399,7 @@ Defines how a set of layers is aligned horizontally.
 * `3` Distribute - layers are horizontally justified.
 
 ### <a name="LayoutHorizontalAlignment"></a>LayoutHorizontalAlignment Enum
-Defines horizontal alignment settings in layout grids.
+Defines horizontal alignment settings in layout guide.
 
 * `0` Left
 * `1` Center
@@ -1413,7 +1413,7 @@ Orientation of an auto layout.
 * `1` Vertical - vertical orientation.
 
 ### <a name="LayoutVerticalAlignment"></a>LayoutVerticalAlignment Enum
-Defines vertical alignment settings in layout grids.
+Defines vertical alignment settings in layout guides.
 
 * `0` Top
 * `1` Middle

@@ -2,7 +2,7 @@ namespace Free.Schema;
 /// <summary>
 /// Defines square grid settings for a frame.
 /// </summary>
-public sealed class Grid : GridLayoutBase
+public sealed class Grid : LayoutGuideBase
 {
     /// <summary>
     /// Object type.

@@ -1,8 +1,8 @@
 namespace Free.Schema;
 /// <summary>
-/// Defines row settings in a layout grid.
+/// Defines row settings in a layout guide.
 /// </summary>
-public sealed class Rows : GridLayoutBase
+public sealed class Rows : LayoutGuideBase
 {
     /// <summary>
     /// Object type.

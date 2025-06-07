@@ -97,7 +97,7 @@ We didn't rush the development and release of this format. We worked on it for a
 ## Key differences from the Sketch format
 
 * All fields have short, understandable names. For example, ``"hidden": true``.
-* The object type field is given a concise name, ``"_t,"`` and is only specified where necessary, which is in just three places: layer type, grid layout type, and layout type.
+* The object type field is given a concise name, ``"_t,"`` and is only specified where necessary, which is in just three places: layer type, layout guide type, and layout type.
 * If a value is default, it is simply omitted from the file, even for complex objects.
 * All GUIDs are written as ShortGUIDs, which are the base64 serialization of the byte data of the GUID. They retain all the GUID data but occupy 39% less space:
 

@@ -1,9 +1,9 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Defines layout grid settings for a frame.
+/// Defines layout guide settings for a frame.
 /// </summary>
-public abstract class GridLayoutBase
+public abstract class LayoutGuideBase
 {
     /// <summary>
     /// Object type.
@@ -11,7 +11,7 @@ public abstract class GridLayoutBase
     public string _t { get; }
     
     /// <summary>
-    /// If layout grid is enabled.
+    /// If layout guide is enabled.
     /// </summary>
     public bool Enabled { get; set; }
 }

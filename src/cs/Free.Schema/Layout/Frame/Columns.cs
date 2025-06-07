@@ -1,8 +1,8 @@
 namespace Free.Schema;
 /// <summary>
-/// Defines column settings in a layout grid.
+/// Defines column settings in a layout guide.
 /// </summary>
-public sealed class Columns : GridLayoutBase
+public sealed class Columns : LayoutGuideBase
 {
     /// <summary>
     /// Object type.
