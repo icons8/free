@@ -359,6 +359,7 @@ Set of a states of the component.
 Has all properties of [`Frame`](#Frame), plus:
 
 * _t: [string](#string) = `STATES`
+* Properties: [StateProperty[]](#StateProperty) - properties of states
 
 ### <a name="Triangle"></a>Triangle
 A triangle is a shape drawn on the canvas with the Triangle tool.
@@ -384,7 +385,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
 * ResizesContent: [bool](#bool) = `False` - enables adjusting and resizing the frame content as the frame is resized.
 * Container: [AutoLayoutContainer](#AutoLayoutContainer) - auto Layout Properties
-* Layouts: [GridLayoutBase[]](#GridLayoutBase) - grid, Row and Column layouts of the frame.
+* Layouts: [LayoutGuideBase[]](#LayoutGuideBase) - grid, Row and Column layouts of the frame.
 * GridsId: [GUID](#GUID) - grid Layout style id.
 * Rulers: [Rulers](#Rulers) - rulers and guidelines info.
 * Layers: [Layer[]](#Layer) - list of layers on the frame.
@@ -581,7 +582,7 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 * Target: [GUID?](#GUID) - id of the target overlay.
 * Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - action animation.
 * Position: [FlowOverlayPosition](#FlowOverlayPosition) = `Centered` - startup location of overlay.
-* Offset: [Vector2](#Vector2) = `<0  0>` - offset from startup location.
+* Offset: [Vector2](#Vector2) = `<0, 0>` - offset from startup location.
 * CloseByClick: [bool](#bool) = `False` - close by any click.
 * HasBackground: [bool](#bool) = `False` - defines whether the overlay has background.
 * Background: [Color](#Color) = `00000000` - overlay background color.
@@ -776,7 +777,7 @@ Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 
 Has all properties of [`StyleBase`](#StyleBase), plus:
 
-* Layouts: [GridLayoutBase[]](#GridLayoutBase) - grid, Row and Column layouts of the style.
+* Layouts: [LayoutGuideBase[]](#LayoutGuideBase) - grid, Row and Column layouts of the style.
 
 ### <a name="Rows"></a>Rows
 Defines row settings in a layout guide.
@@ -882,8 +883,8 @@ Embedded fonts stored in the document.
 An object that represents a gradient.
 
 * Type: [GradientType](#GradientType) = `Linear` - type of the gradient.
-* From: [Point](#Point) = `[0,5,0]` - position of the gradient start point.
-* To: [Point](#Point) = `[0,5,1]` - position of the gradient end point.
+* From: [Point](#Point) = `[0.5,0]` - position of the gradient start point.
+* To: [Point](#Point) = `[0.5,1]` - position of the gradient end point.
 * Side: [Point](#Point) = `[0,0]` - position of the gradient side point. Valid for radial and angular gragients.
 * Stops: [GradientStop[]](#GradientStop) - list of other gradient points.
 
@@ -1058,6 +1059,12 @@ Contains components, styles and variables from external library that is used in 
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GridStyles: [GridLayoutStyle[]](#GridLayoutStyle) - grid layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
+
+### <a name="StateProperty"></a>StateProperty
+States Property
+
+* Name: [string](#string) - name of the property
+* Values: [string[]](#string) - string values of a property
 
 ### <a name="StyleBase"></a>StyleBase
 Base class for a shared style

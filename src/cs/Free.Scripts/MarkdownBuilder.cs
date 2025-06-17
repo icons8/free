@@ -247,6 +247,7 @@ public class MarkdownBuilder
             .Replace("Int32", "int")
             .Replace("Byte", "byte")
             .Replace("Guid", "GUID")
+            .Replace("GUIDe", "Guide")
             .Replace("Single", "float")
             .Replace("Boolean", "bool")
             .Replace("String", "string");

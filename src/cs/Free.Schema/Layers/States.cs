@@ -6,4 +6,9 @@ namespace Free.Schema;
 public class States : Frame
 {
     public override string _t => "STATES";
+
+    /// <summary>
+    /// Properties of states
+    /// </summary>
+    public List<StateProperty> Properties { get; set; } = new();
 }

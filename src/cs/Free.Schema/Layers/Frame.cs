@@ -39,7 +39,7 @@ public class Frame : Layer
     /// <summary>
     /// Grid, Row and Column layouts of the frame.
     /// </summary>
-    public List<GridLayoutBase> Layouts { get; } = new();
+    public List<LayoutGuideBase> Layouts { get; } = new();
     /// <summary>
     /// Grid Layout style id.
     /// </summary>
