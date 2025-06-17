@@ -359,7 +359,7 @@ Set of a states of the component.
 Has all properties of [`Frame`](#Frame), plus:
 
 * _t: [string](#string) = `STATES`
-* Properties: [StateProperty[]](#StateProperty) - properties of states
+* Properties: [ComponentPropertyBase[]](#ComponentPropertyBase) - component properties of states.
 
 ### <a name="Triangle"></a>Triangle
 A triangle is a shape drawn on the canvas with the Triangle tool.
@@ -728,6 +728,14 @@ Has all properties of [`LayoutContainerBase`](#LayoutContainerBase), plus:
 * Wrap: [bool](#bool) = `False` - if wrapping is enabled.
 * WrapDistribute: [bool](#bool) = `False` - if auto distribute is enabled for wrapped content.
 
+### <a name="BoolComponentProperty"></a>BoolComponentProperty
+Defines boolean component property of components and states.
+
+Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
+
+* _t: [string](#string) = `BOOL` - object type.
+* Value: [bool](#bool) = `False` - initial Value.
+
 ### <a name="Columns"></a>Columns
 Defines column settings in a layout guide.
 
@@ -793,6 +801,32 @@ Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 * Width: [int](#int) = `0` - row width.
 * Color: [Color](#Color) = `00000000` - row color.
 
+### <a name="StateComponentProperty"></a>StateComponentProperty
+Defines state(variant) component property of components and states.
+
+Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
+
+* _t: [string](#string) = `STATE` - object type.
+* Value: [string](#string) - initial Value.
+* Values: [string[]](#string) - preferred Values.
+
+### <a name="SwapComponentProperty"></a>SwapComponentProperty
+Defines swap component property of components and states.
+
+Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
+
+* _t: [string](#string) = `SWAP` - object type.
+* Value: [GUID](#GUID) - initial Value.
+* Values: [GUID[]](#GUID) - preferred Values.
+
+### <a name="TextComponentProperty"></a>TextComponentProperty
+Defines text component property of components and states.
+
+Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
+
+* _t: [string](#string) = `TEXT` - object type.
+* Value: [string](#string) - initial Value.
+
 ### <a name="TextStyle"></a>TextStyle
 Text Style
 
@@ -822,6 +856,14 @@ Color variables stored in the document.
 * Id: [GUID](#GUID) - unique color variable ID.
 * Name: [string](#string) - color variable name.
 * Value: [Color](#Color) = `00000000` - color value of the variable.
+
+### <a name="ComponentPropertyBase"></a>ComponentPropertyBase
+Defines component property of components and states.
+
+* _t: [string](#string) = `BOOL` - object type.
+* Id: [GUID](#GUID) - unique property identifier.
+* Name: [string](#string) - defines property name.
+* Dead: [bool](#bool) = `False` - is already deleted.
 
 ### <a name="Document"></a>Document
 The document's .json structure.
@@ -1059,12 +1101,6 @@ Contains components, styles and variables from external library that is used in 
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GridStyles: [GridLayoutStyle[]](#GridLayoutStyle) - grid layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
-
-### <a name="StateProperty"></a>StateProperty
-States Property
-
-* Name: [string](#string) - name of the property
-* Values: [string[]](#string) - string values of a property
 
 ### <a name="StyleBase"></a>StyleBase
 Base class for a shared style
