@@ -19,11 +19,6 @@ public abstract class Variable
     /// Variable name.
     /// </summary>
     public string Name { get; set; }
-    
-    /// <summary>
-    /// Variable version.
-    /// </summary>
-    public int Version { get; set; }
 }
 
 /// <summary>
@@ -40,6 +35,11 @@ public class ColorVariable : Variable
     /// Color value of the variable.
     /// </summary>
     public Color Value { get; set; }
+    
+    /// <summary>
+    /// Variable version.
+    /// </summary>
+    public int Version { get; set; }
 }
 
 /// <summary>
@@ -56,6 +56,11 @@ public class BoolVariable : Variable
     /// Boolean value of the variable.
     /// </summary>
     public bool Value { get; set; }
+    
+    /// <summary>
+    /// Variable version.
+    /// </summary>
+    public int Version { get; set; }
 }
 
 /// <summary>
@@ -72,6 +77,11 @@ public class StringVariable : Variable
     /// String value of the variable.
     /// </summary>
     public string Value { get; set; }
+    
+    /// <summary>
+    /// Variable version.
+    /// </summary>
+    public int Version { get; set; }
 }
 
 /// <summary>
@@ -88,4 +98,9 @@ public class FloatVariable : Variable
     /// Float value of the variable.
     /// </summary>
     public float Value { get; set; }
+    
+    /// <summary>
+    /// Variable version.
+    /// </summary>
+    public int Version { get; set; }
 }

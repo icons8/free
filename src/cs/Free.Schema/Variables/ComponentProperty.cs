@@ -3,23 +3,8 @@ namespace Free.Schema;
 /// <summary>
 /// Defines component property of components and states.
 /// </summary>
-public abstract class ComponentPropertyBase
+public abstract class ComponentPropertyBase : Variable
 {
-    /// <summary>
-    /// Object type.
-    /// </summary>
-    public abstract string _t { get; }
-    
-    /// <summary>
-    /// Unique property identifier.
-    /// </summary>
-    public Guid Id { get; set; }
-    
-    /// <summary>
-    /// Defines property name.
-    /// </summary>
-    public string Name { get; set; } = "";
-    
     /// <summary>
     /// Is already deleted.
     /// </summary>

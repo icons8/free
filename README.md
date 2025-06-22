@@ -550,6 +550,41 @@ A layer is any ungrouped element available on the canvas.
 * BackgroundRemove: [BackgroundRemovalState](#BackgroundRemovalState) = `None` - background removal procedure info.
 </details>
 
+### <a name="BoolComponentProperty"></a>BoolComponentProperty
+Defines boolean component property of components and states.
+
+Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
+
+* _t: [string](#string) = `BOOL` - object type.
+* Value: [bool](#bool) = `False` - initial Value.
+
+### <a name="StateComponentProperty"></a>StateComponentProperty
+Defines state(variant) component property of components and states.
+            Can be assigned to states layer only.
+
+Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
+
+* _t: [string](#string) = `STATE` - object type.
+* Value: [string](#string) - initial Value.
+* Values: [string[]](#string) - preferred Values.
+
+### <a name="SwapComponentProperty"></a>SwapComponentProperty
+Defines swap component property of components and states.
+
+Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
+
+* _t: [string](#string) = `SWAP` - object type.
+* Value: [GUID](#GUID) - initial Value.
+* Values: [GUID[]](#GUID) - preferred Values.
+
+### <a name="TextComponentProperty"></a>TextComponentProperty
+Defines text component property of components and states.
+
+Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
+
+* _t: [string](#string) = `TEXT` - object type.
+* Value: [string](#string) - initial Value.
+
 ### <a name="BoolVariable"></a>BoolVariable
 Variable with a boolean value.
 
@@ -557,6 +592,7 @@ Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `BOOL` - variable type.
 * Value: [bool](#bool) = `False` - boolean value of the variable.
+* Version: [int](#int) = `0` - variable version.
 
 ### <a name="ColorVariable"></a>ColorVariable
 Variable with a color value.
@@ -565,6 +601,14 @@ Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `COLOR` - variable type.
 * Value: [Color](#Color) = `00000000` - color value of the variable.
+* Version: [int](#int) = `0` - variable version.
+
+### <a name="ComponentPropertyBase"></a>ComponentPropertyBase
+Defines component property of components and states.
+
+Has all properties of [`Variable`](#Variable), plus:
+
+* Dead: [bool](#bool) = `False` - is already deleted.
 
 ### <a name="FloatVariable"></a>FloatVariable
 Variable with a float value.
@@ -573,6 +617,7 @@ Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `FLOAT` - variable type.
 * Value: [float](#float) = `0` - float value of the variable.
+* Version: [int](#int) = `0` - variable version.
 
 ### <a name="StringVariable"></a>StringVariable
 Variable with a string value.
@@ -581,6 +626,7 @@ Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `TEXT` - variable type.
 * Value: [string](#string) - string value of the variable.
+* Version: [int](#int) = `0` - variable version.
 
 ### <a name="Variable"></a>Variable
 Base class of variable.
@@ -588,7 +634,6 @@ Base class of variable.
 * _t: [string](#string) = `COLOR` - variable type.
 * Id: [GUID](#GUID) - unique variable ID.
 * Name: [string](#string) - variable name.
-* Version: [int](#int) = `0` - variable version.
 
 ### <a name="EffectStyle"></a>EffectStyle
 
@@ -863,41 +908,6 @@ Has all properties of [`LayoutContainerBase`](#LayoutContainerBase), plus:
 * Wrap: [bool](#bool) = `False` - if wrapping is enabled.
 * WrapDistribute: [bool](#bool) = `False` - if auto distribute is enabled for wrapped content.
 
-### <a name="BoolComponentProperty"></a>BoolComponentProperty
-Defines boolean component property of components and states.
-
-Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
-
-* _t: [string](#string) = `BOOL` - object type.
-* Value: [bool](#bool) = `False` - initial Value.
-
-### <a name="StateComponentProperty"></a>StateComponentProperty
-Defines state(variant) component property of components and states.
-            Can be assigned to states layer only.
-
-Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
-
-* _t: [string](#string) = `STATE` - object type.
-* Value: [string](#string) - initial Value.
-* Values: [string[]](#string) - preferred Values.
-
-### <a name="SwapComponentProperty"></a>SwapComponentProperty
-Defines swap component property of components and states.
-
-Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
-
-* _t: [string](#string) = `SWAP` - object type.
-* Value: [GUID](#GUID) - initial Value.
-* Values: [GUID[]](#GUID) - preferred Values.
-
-### <a name="TextComponentProperty"></a>TextComponentProperty
-Defines text component property of components and states.
-
-Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
-
-* _t: [string](#string) = `TEXT` - object type.
-* Value: [string](#string) - initial Value.
-
 ### <a name="BlurEffect"></a>BlurEffect
 Defines the settings of the blur effect.
 
@@ -905,14 +915,6 @@ Defines the settings of the blur effect.
 * Radius: [float](#float) = `10` - blur Radius.
 * Enabled: [bool](#bool) = `False` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
-
-### <a name="ComponentPropertyBase"></a>ComponentPropertyBase
-Defines component property of components and states.
-
-* _t: [string](#string) = `BOOL` - object type.
-* Id: [GUID](#GUID) - unique property identifier.
-* Name: [string](#string) - defines property name.
-* Dead: [bool](#bool) = `False` - is already deleted.
 
 ### <a name="Document"></a>Document
 The document's .json structure.
