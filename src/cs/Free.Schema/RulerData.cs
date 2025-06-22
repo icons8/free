@@ -13,9 +13,9 @@ public class Rulers
     /// <summary>
     /// Positions of vertical guidelines on the Horizontal Ruler.
     /// </summary>
-    public List<int> Guides { get; set; } = new();
+    public List<int> Guides { get; } = new();
     /// <summary>
     /// Positions of horizontal guidelines on the Vertical Ruler.
     /// </summary>
-    public List<int> VGuides { get; set; } = new();
+    public List<int> VGuides { get; } = new();
 }

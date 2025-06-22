@@ -33,9 +33,9 @@ public class Document
     /// </summary>
     public List<Font> Fonts { get; } = new();
     /// <summary>
-    /// Color variables stored in the document.
+    /// Variables stored in the document.
     /// </summary>
-    public List<ColorVariable> ColorVariables { get; } = new();
+    public List<Variable> Variables { get; } = new();
     /// <summary>
     /// Fill styles stored in the document.
     /// </summary>

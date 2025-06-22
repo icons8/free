@@ -18,10 +18,11 @@ public class SharedLibrary
     /// Library name.
     /// </summary>
     public string? Name { get; set; }
+
     /// <summary>
-    /// Color variables from a shared library. 
+    /// Variables from a shared library. 
     /// </summary>
-    public List<ColorVariable> ColorVariables { get; set; }
+    public List<Variable> Variables { get; } = new();
     /// <summary>
     /// Fill styles stored in the document.
     /// </summary>

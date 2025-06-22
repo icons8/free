@@ -317,6 +317,7 @@ Has all properties of [`Frame`](#Frame), plus:
 * Predefined: [bool](#bool) = `False` - indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
 * ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for component filters.
 * FigmaId: [string](#string) - unique Figma Component Id. Used to connect shared libraries and documents imported from figma.
+* Properties: [ComponentPropertyBase[]](#ComponentPropertyBase) - component properties.
 
 ### <a name="Oval"></a>Oval
 An oval is a shape drawn on the canvas with the Oval tool.
@@ -549,6 +550,140 @@ A layer is any ungrouped element available on the canvas.
 * BackgroundRemove: [BackgroundRemovalState](#BackgroundRemovalState) = `None` - background removal procedure info.
 </details>
 
+### <a name="BoolVariable"></a>BoolVariable
+Variable with a boolean value.
+
+Has all properties of [`Variable`](#Variable), plus:
+
+* _t: [string](#string) = `BOOL` - variable type.
+* Value: [bool](#bool) = `False` - boolean value of the variable.
+
+### <a name="ColorVariable"></a>ColorVariable
+Variable with a color value.
+
+Has all properties of [`Variable`](#Variable), plus:
+
+* _t: [string](#string) = `COLOR` - variable type.
+* Value: [Color](#Color) = `00000000` - color value of the variable.
+
+### <a name="FloatVariable"></a>FloatVariable
+Variable with a float value.
+
+Has all properties of [`Variable`](#Variable), plus:
+
+* _t: [string](#string) = `FLOAT` - variable type.
+* Value: [float](#float) = `0` - float value of the variable.
+
+### <a name="StringVariable"></a>StringVariable
+Variable with a string value.
+
+Has all properties of [`Variable`](#Variable), plus:
+
+* _t: [string](#string) = `TEXT` - variable type.
+* Value: [string](#string) - string value of the variable.
+
+### <a name="Variable"></a>Variable
+Base class of variable.
+
+* _t: [string](#string) = `COLOR` - variable type.
+* Id: [GUID](#GUID) - unique variable ID.
+* Name: [string](#string) - variable name.
+* Version: [int](#int) = `0` - variable version.
+
+### <a name="EffectStyle"></a>EffectStyle
+
+Has all properties of [`StyleBase`](#StyleBase), plus:
+
+* Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows of the style.
+* InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows of the style.
+* Blur: [BlurEffect](#BlurEffect) - definition of the blur effect of the style.
+
+### <a name="FillStyle"></a>FillStyle
+Style of fills. Can be set to borders and fills.
+
+Has all properties of [`StyleBase`](#StyleBase), plus:
+
+* Fills: [Fill[]](#Fill) - list of fills applied to a style.
+
+### <a name="GridLayoutStyle"></a>GridLayoutStyle
+
+Has all properties of [`StyleBase`](#StyleBase), plus:
+
+* Layouts: [LayoutGuideBase[]](#LayoutGuideBase) - grid, Row and Column layouts of the style.
+
+### <a name="TextStyle"></a>TextStyle
+Text Style
+
+Has all properties of [`StyleBase`](#StyleBase), plus:
+
+* Font: [string](#string) = `Inter` - text font.
+* Size: [float](#float) = `12` - text size.
+* ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
+* Kerning: [float](#float) = `0` - letter spacing.
+* BaselineOffset: [float](#float) = `0` - text offset from the baseline.
+* LineHeight: [float?](#float) - line spacing.
+* Underline: [bool](#bool) = `False` - if the text is underlined.
+* Strikethrough: [bool](#bool) = `False` - if the strikethrough option is applied to the text.
+* Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
+
+### <a name="StyleBase"></a>StyleBase
+Base class for a shared style
+
+* Id: [GUID](#GUID) - unique style ID.
+* Name: [string](#string) - style name.
+* Version: [int](#int) = `0` - style version.
+* FigmaId: [string](#string) - unique Figma Style Id. Used to connect shared libraries and documents imported from figma.
+
+### <a name="Columns"></a>Columns
+Defines column settings in a layout guide.
+
+Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
+
+* _t: [string](#string) = `COLS` - object type.
+* Enabled: [bool](#bool) = `False` - if columnns are enabled.
+* Align: [LayoutHorizontalAlignment](#LayoutHorizontalAlignment) = `Left` - horizontal alignment settings.
+* Offset: [int](#int) = `0` - offset value.
+* Count: [int](#int) = `0` - number of columns.
+* Gutter: [int](#int) = `0` - gutter value.
+* Width: [int](#int) = `0` - column width.
+* Color: [Color](#Color) = `00000000` - column color.
+
+### <a name="Grid"></a>Grid
+Defines square grid settings for a frame.
+
+Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
+
+* _t: [string](#string) = `GRID` - object type.
+* Enabled: [bool](#bool) = `False` - if the square grid is enabled.
+* Color: [Color](#Color) = `00000000` - grid color.
+* Size: [int](#int) = `10` - size of grid cells.
+
+<details>
+<summary>Sketch compatibility</summary>
+
+* ThickTimes: [int](#int) = `10` - every N line should be thick.
+</details>
+
+### <a name="Rows"></a>Rows
+Defines row settings in a layout guide.
+
+Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
+
+* _t: [string](#string) = `ROWS` - object type.
+* Enabled: [bool](#bool) = `False` - if rows are enabled.
+* Align: [LayoutVerticalAlignment](#LayoutVerticalAlignment) = `Top` - vertical alignment settings.
+* Offset: [int](#int) = `0` - offset value.
+* Count: [int](#int) = `0` - number of rows.
+* Gutter: [int](#int) = `0` - gutter value.
+* Width: [int](#int) = `0` - row width.
+* Color: [Color](#Color) = `00000000` - row color.
+
+### <a name="LayoutGuideBase"></a>LayoutGuideBase
+Defines layout guide settings for a frame.
+
+* _t: [string](#string) - object type.
+* Enabled: [bool](#bool) = `False` - if layout guide is enabled.
+
 ### <a name="BackAction"></a>BackAction
 Action to go to previous frame.
 
@@ -736,73 +871,9 @@ Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 * _t: [string](#string) = `BOOL` - object type.
 * Value: [bool](#bool) = `False` - initial Value.
 
-### <a name="Columns"></a>Columns
-Defines column settings in a layout guide.
-
-Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
-
-* _t: [string](#string) = `COLS` - object type.
-* Enabled: [bool](#bool) = `False` - if columnns are enabled.
-* Align: [LayoutHorizontalAlignment](#LayoutHorizontalAlignment) = `Left` - horizontal alignment settings.
-* Offset: [int](#int) = `0` - offset value.
-* Count: [int](#int) = `0` - number of columns.
-* Gutter: [int](#int) = `0` - gutter value.
-* Width: [int](#int) = `0` - column width.
-* Color: [Color](#Color) = `00000000` - column color.
-
-### <a name="EffectStyle"></a>EffectStyle
-
-Has all properties of [`StyleBase`](#StyleBase), plus:
-
-* Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows of the style.
-* InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows of the style.
-* Blur: [BlurEffect](#BlurEffect) - definition of the blur effect of the style.
-
-### <a name="FillStyle"></a>FillStyle
-Style of fills. Can be set to borders and fills.
-
-Has all properties of [`StyleBase`](#StyleBase), plus:
-
-* Fills: [Fill[]](#Fill) - list of fills applied to a style.
-
-### <a name="Grid"></a>Grid
-Defines square grid settings for a frame.
-
-Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
-
-* _t: [string](#string) = `GRID` - object type.
-* Enabled: [bool](#bool) = `False` - if the square grid is enabled.
-* Color: [Color](#Color) = `00000000` - grid color.
-* Size: [int](#int) = `10` - size of grid cells.
-
-<details>
-<summary>Sketch compatibility</summary>
-
-* ThickTimes: [int](#int) = `10` - every N line should be thick.
-</details>
-
-### <a name="GridLayoutStyle"></a>GridLayoutStyle
-
-Has all properties of [`StyleBase`](#StyleBase), plus:
-
-* Layouts: [LayoutGuideBase[]](#LayoutGuideBase) - grid, Row and Column layouts of the style.
-
-### <a name="Rows"></a>Rows
-Defines row settings in a layout guide.
-
-Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
-
-* _t: [string](#string) = `ROWS` - object type.
-* Enabled: [bool](#bool) = `False` - if rows are enabled.
-* Align: [LayoutVerticalAlignment](#LayoutVerticalAlignment) = `Top` - vertical alignment settings.
-* Offset: [int](#int) = `0` - offset value.
-* Count: [int](#int) = `0` - number of rows.
-* Gutter: [int](#int) = `0` - gutter value.
-* Width: [int](#int) = `0` - row width.
-* Color: [Color](#Color) = `00000000` - row color.
-
 ### <a name="StateComponentProperty"></a>StateComponentProperty
 Defines state(variant) component property of components and states.
+            Can be assigned to states layer only.
 
 Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 
@@ -827,21 +898,6 @@ Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 * _t: [string](#string) = `TEXT` - object type.
 * Value: [string](#string) - initial Value.
 
-### <a name="TextStyle"></a>TextStyle
-Text Style
-
-Has all properties of [`StyleBase`](#StyleBase), plus:
-
-* Font: [string](#string) = `Inter` - text font.
-* Size: [float](#float) = `12` - text size.
-* ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
-* Kerning: [float](#float) = `0` - letter spacing.
-* BaselineOffset: [float](#float) = `0` - text offset from the baseline.
-* LineHeight: [float?](#float) - line spacing.
-* Underline: [bool](#bool) = `False` - if the text is underlined.
-* Strikethrough: [bool](#bool) = `False` - if the strikethrough option is applied to the text.
-* Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
-
 ### <a name="BlurEffect"></a>BlurEffect
 Defines the settings of the blur effect.
 
@@ -849,13 +905,6 @@ Defines the settings of the blur effect.
 * Radius: [float](#float) = `10` - blur Radius.
 * Enabled: [bool](#bool) = `False` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
-
-### <a name="ColorVariable"></a>ColorVariable
-Color variables stored in the document.
-
-* Id: [GUID](#GUID) - unique color variable ID.
-* Name: [string](#string) - color variable name.
-* Value: [Color](#Color) = `00000000` - color value of the variable.
 
 ### <a name="ComponentPropertyBase"></a>ComponentPropertyBase
 Defines component property of components and states.
@@ -873,7 +922,7 @@ The document's .json structure.
 * FromFigma: [bool](#bool) = `False` - if the document is imported from Figma.
 * CurrentPageIndex: [int](#int) = `0` - index of the currently open page.
 * Fonts: [Font[]](#Font) - embedded fonts stored in the document.
-* ColorVariables: [ColorVariable[]](#ColorVariable) - color variables stored in the document.
+* Variables: [Variable[]](#Variable) - variables stored in the document.
 * FillStyles: [FillStyle[]](#FillStyle) - fill styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
@@ -956,12 +1005,6 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 Defines a container layout.
 
 * _t: [string](#string) - object type.
-
-### <a name="LayoutGuideBase"></a>LayoutGuideBase
-Defines layout guide settings for a frame.
-
-* _t: [string](#string) - object type.
-* Enabled: [bool](#bool) = `False` - if layout guide is enabled.
 
 ### <a name="Meta"></a>Meta
 Contains metadata about the document.
@@ -1095,20 +1138,12 @@ Contains components, styles and variables from external library that is used in 
             Every file in the shared folder is Shared Library.
 
 * Id: [GUID](#GUID) - unique library document identifier.
-* ColorVariables: [ColorVariable[]](#ColorVariable) - color variables from a shared library.
+* Variables: [Variable[]](#Variable) - variables from a shared library.
 * FillStyles: [FillStyle[]](#FillStyle) - fill styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GridStyles: [GridLayoutStyle[]](#GridLayoutStyle) - grid layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
-
-### <a name="StyleBase"></a>StyleBase
-Base class for a shared style
-
-* Id: [GUID](#GUID) - unique style ID.
-* Name: [string](#string) - style name.
-* Version: [int](#int) = `0` - style version.
-* FigmaId: [string](#string) - unique Figma Style Id. Used to connect shared libraries and documents imported from figma.
 
 ### <a name="TextProperties"></a>TextProperties
 Defines a set of properties that make up a text style.
@@ -1683,7 +1718,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `Border` and `Fill` now sharing the same `Fill` object. `Thickness` and `LinePos` now in the `Layer`. `BorderOptions` are inside `Layer` too.
 * `SharedStyle` and `Style` objects is removed. `FillStyle`, `TextStyle`, `EffectStyle`, `GridLayoutStyle` objects are added instead.
 * `StyleId` is removed from `Layer`. `FillsId`, `BordersId`, `EffectsId` properties are added to a `Layer`, `GridsId` to `Frame` and `PropsId` to `Text` instead.
-
+* New variable types: `BoolVariable`, `StringVariable`, `FloatVariable`. `ColorVariables` properties of a `Document` and `Library` are renamed to `Variables`.
 
 ### Version 4 - 20.01.2025
 

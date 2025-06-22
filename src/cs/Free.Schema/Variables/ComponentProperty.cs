@@ -76,11 +76,12 @@ public class SwapComponentProperty : ComponentPropertyBase
     /// <summary>
     /// Preferred Values.
     /// </summary>
-    public List<Guid> Values { get; set; } = new();
+    public List<Guid> Values { get; } = new();
 }
 
 /// <summary>
 /// Defines state(variant) component property of components and states.
+/// Can be assigned to states layer only.
 /// </summary>
 public class StateComponentProperty : ComponentPropertyBase
 {
@@ -97,5 +98,5 @@ public class StateComponentProperty : ComponentPropertyBase
     /// <summary>
     /// Preferred Values.
     /// </summary>
-    public List<string> Values { get; set; } = new();
+    public List<string> Values { get; } = new();
 }

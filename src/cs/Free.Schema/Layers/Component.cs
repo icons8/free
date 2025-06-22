@@ -28,4 +28,9 @@ public class Component : Frame
     /// Unique Figma Component Id. Used to connect shared libraries and documents imported from figma. 
     /// </summary>
     public string FigmaId { get; set; }
+    
+    /// <summary>
+    /// Component properties.
+    /// </summary>
+    public List<ComponentPropertyBase> Properties { get; } = new();
 }

@@ -10,5 +10,5 @@ public class States : Frame
     /// <summary>
     /// Component properties of states.
     /// </summary>
-    public List<ComponentPropertyBase> Properties { get; set; } = new();
+    public List<ComponentPropertyBase> Properties { get; } = new();
 }

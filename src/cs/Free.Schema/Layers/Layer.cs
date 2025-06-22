@@ -52,7 +52,7 @@ public abstract class Layer
     /// <summary>
     /// Export options of the layer.
     /// </summary>
-    public List<ExportOption> Export { get; set; } = new();
+    public List<ExportOption> Export { get; } = new();
 
     /// <summary>
     /// Defines constraint settings of the layer. String with chars where every char means a flag:
@@ -96,7 +96,7 @@ public abstract class Layer
     /// <summary>
     /// Defines flows (prototyping).
     /// </summary>
-    public List<Flow> Flows { get; set; } = new();
+    public List<Flow> Flows { get; } = new();
     /// <summary>
     /// Defines the minimum layer width (auto layout).
     /// </summary>

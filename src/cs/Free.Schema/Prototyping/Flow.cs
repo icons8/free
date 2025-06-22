@@ -13,5 +13,5 @@ public sealed class Flow
     /// <summary>
     /// List of Actions. Examples: NAVIGATE, SCROLL, URL, BACK.
     /// </summary>
-    public List<FlowAction> Actions { get; set; } = new();
+    public List<FlowAction> Actions { get; } = new();
 }
