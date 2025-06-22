@@ -25,6 +25,11 @@ public class BoolComponentProperty : ComponentPropertyBase
     /// Initial Value.
     /// </summary>
     public bool Value { get; set; }
+    
+    /// <summary>
+    /// Boolean variable ID.
+    /// </summary>
+    public Guid ValueId { get; set; }
 }
 
 /// <summary>
@@ -41,6 +46,11 @@ public class TextComponentProperty : ComponentPropertyBase
     /// Initial Value.
     /// </summary>
     public string Value { get; set; } = "";
+    
+    /// <summary>
+    /// String variable ID.
+    /// </summary>
+    public Guid ValueId { get; set; }
 }
 
 /// <summary>
@@ -79,6 +89,11 @@ public class StateComponentProperty : ComponentPropertyBase
     /// Initial Value.
     /// </summary>
     public string Value { get; set; } = "";
+    
+    /// <summary>
+    /// String variable ID.
+    /// </summary>
+    public Guid ValueId { get; set; }
 
     /// <summary>
     /// Preferred Values.

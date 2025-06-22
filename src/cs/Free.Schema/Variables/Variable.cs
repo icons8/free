@@ -14,11 +14,11 @@ public abstract class Variable
     /// Unique variable ID.
     /// </summary>
     public Guid Id { get; set; }
-    
+
     /// <summary>
     /// Variable name.
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get; set; } = "";
 }
 
 /// <summary>
@@ -35,6 +35,11 @@ public class ColorVariable : Variable
     /// Color value of the variable.
     /// </summary>
     public Color Value { get; set; }
+    
+    /// <summary>
+    /// Color variable ID.
+    /// </summary>
+    public Guid ValueId { get; set; }
     
     /// <summary>
     /// Variable version.
@@ -58,6 +63,11 @@ public class BoolVariable : Variable
     public bool Value { get; set; }
     
     /// <summary>
+    /// Boolean variable ID.
+    /// </summary>
+    public Guid ValueId { get; set; }
+    
+    /// <summary>
     /// Variable version.
     /// </summary>
     public int Version { get; set; }
@@ -72,11 +82,16 @@ public class StringVariable : Variable
     /// Variable type.
     /// </summary>
     public override string _t => "TEXT";
-    
+
     /// <summary>
     /// String value of the variable.
     /// </summary>
-    public string Value { get; set; }
+    public string Value { get; set; } = "";
+    
+    /// <summary>
+    /// String variable ID.
+    /// </summary>
+    public Guid ValueId { get; set; }
     
     /// <summary>
     /// Variable version.
@@ -98,6 +113,11 @@ public class FloatVariable : Variable
     /// Float value of the variable.
     /// </summary>
     public float Value { get; set; }
+    
+    /// <summary>
+    /// Float variable ID.
+    /// </summary>
+    public Guid ValueId { get; set; }
     
     /// <summary>
     /// Variable version.

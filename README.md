@@ -557,6 +557,7 @@ Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 
 * _t: [string](#string) = `BOOL` - object type.
 * Value: [bool](#bool) = `False` - initial Value.
+* ValueId: [GUID](#GUID) - boolean variable ID.
 
 ### <a name="StateComponentProperty"></a>StateComponentProperty
 Defines state(variant) component property of components and states.
@@ -567,6 +568,7 @@ Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 * _t: [string](#string) = `STATE` - object type.
 * Value: [string](#string) - initial Value.
 * Values: [string[]](#string) - preferred Values.
+* ValueId: [GUID](#GUID) - string variable ID.
 
 ### <a name="SwapComponentProperty"></a>SwapComponentProperty
 Defines swap component property of components and states.
@@ -584,6 +586,7 @@ Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 
 * _t: [string](#string) = `TEXT` - object type.
 * Value: [string](#string) - initial Value.
+* ValueId: [GUID](#GUID) - string variable ID.
 
 ### <a name="BoolVariable"></a>BoolVariable
 Variable with a boolean value.
@@ -592,6 +595,7 @@ Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `BOOL` - variable type.
 * Value: [bool](#bool) = `False` - boolean value of the variable.
+* ValueId: [GUID](#GUID) - boolean variable ID.
 * Version: [int](#int) = `0` - variable version.
 
 ### <a name="ColorVariable"></a>ColorVariable
@@ -601,6 +605,7 @@ Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `COLOR` - variable type.
 * Value: [Color](#Color) = `00000000` - color value of the variable.
+* ValueId: [GUID](#GUID) - color variable ID.
 * Version: [int](#int) = `0` - variable version.
 
 ### <a name="ComponentPropertyBase"></a>ComponentPropertyBase
@@ -617,6 +622,7 @@ Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `FLOAT` - variable type.
 * Value: [float](#float) = `0` - float value of the variable.
+* ValueId: [GUID](#GUID) - float variable ID.
 * Version: [int](#int) = `0` - variable version.
 
 ### <a name="StringVariable"></a>StringVariable
@@ -626,12 +632,13 @@ Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `TEXT` - variable type.
 * Value: [string](#string) - string value of the variable.
+* ValueId: [GUID](#GUID) - string variable ID.
 * Version: [int](#int) = `0` - variable version.
 
 ### <a name="Variable"></a>Variable
 Base class of variable.
 
-* _t: [string](#string) = `COLOR` - variable type.
+* _t: [string](#string) = `BOOL` - variable type.
 * Id: [GUID](#GUID) - unique variable ID.
 * Name: [string](#string) - variable name.
 
@@ -1721,6 +1728,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `SharedStyle` and `Style` objects is removed. `FillStyle`, `TextStyle`, `EffectStyle`, `GridLayoutStyle` objects are added instead.
 * `StyleId` is removed from `Layer`. `FillsId`, `BordersId`, `EffectsId` properties are added to a `Layer`, `GridsId` to `Frame` and `PropsId` to `Text` instead.
 * New variable types: `BoolVariable`, `StringVariable`, `FloatVariable`. `ColorVariables` properties of a `Document` and `Library` are renamed to `Variables`.
+* `Component` and `States` now have `Properties`. `Instance` also has `Assigns` to component properties.
 
 ### Version 4 - 20.01.2025
 
