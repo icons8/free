@@ -39,7 +39,7 @@ public class Document
     /// <summary>
     /// Fill styles stored in the document.
     /// </summary>
-    public List<FillStyle> FillStyles { get; } = new();
+    public List<ColorStyle> FillStyles { get; } = new();
     /// <summary>
     /// Effect styles stored in the document.
     /// </summary>
@@ -51,7 +51,7 @@ public class Document
     /// <summary>
     /// Grid layout styles stored in the document.
     /// </summary>
-    public List<GridLayoutStyle> GridStyles { get; } = new();
+    public List<GuideStyle> GridStyles { get; } = new();
     /// <summary>
     /// List of document pages.
     /// </summary>

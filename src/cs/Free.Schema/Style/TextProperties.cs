@@ -5,14 +5,9 @@ namespace Free.Schema;
 public sealed class TextProperties
 {
     /// <summary>
-    /// Text color.
+    /// List of fills.
     /// </summary>
-    public Color Color { get; set; } = new Color(0, 0, 0);
-    
-    /// <summary>
-    /// Color variable ID.
-    /// </summary>
-    public Guid? ColorId { get; set; }
+    public List<Fill> Fills { get; } = new();
     
     /// <summary>
     /// Text font.

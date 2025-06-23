@@ -518,8 +518,8 @@ A layer is any ungrouped element available on the canvas.
 * LayoutFixPos: [bool](#bool) = `False` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 * Modes: [[GUID,GUID]](#[GUID,GUID) - map of variable modes. Key is variable collection ID. Value is variable mode id. If there is no entry in a map - mode is auto.
-* FillsId: [GUID](#GUID) - fill style id for fills.
-* BordersId: [GUID](#GUID) - fill style id for borders.
+* FillsId: [GUID](#GUID) - color style id for fills.
+* BordersId: [GUID](#GUID) - color style id for borders.
 * EffectsId: [GUID](#GUID) - effect style id.
 * Opacity: [float](#float) = `1` - opacity value.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
@@ -637,6 +637,13 @@ Defines component property of components and states.
 * Name: [string](#string) - property name.
 * Dead: [bool](#bool) = `False` - is already deleted.
 
+### <a name="ColorStyle"></a>ColorStyle
+Style of fills. Can be set to borders and fills.
+
+Has all properties of [`StyleBase`](#StyleBase), plus:
+
+* Fills: [Fill[]](#Fill) - list of fills applied to a style.
+
 ### <a name="EffectStyle"></a>EffectStyle
 
 Has all properties of [`StyleBase`](#StyleBase), plus:
@@ -645,14 +652,7 @@ Has all properties of [`StyleBase`](#StyleBase), plus:
 * InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows of the style.
 * Blur: [BlurEffect](#BlurEffect) - definition of the blur effect of the style.
 
-### <a name="FillStyle"></a>FillStyle
-Style of fills. Can be set to borders and fills.
-
-Has all properties of [`StyleBase`](#StyleBase), plus:
-
-* Fills: [Fill[]](#Fill) - list of fills applied to a style.
-
-### <a name="GridLayoutStyle"></a>GridLayoutStyle
+### <a name="GuideStyle"></a>GuideStyle
 
 Has all properties of [`StyleBase`](#StyleBase), plus:
 
@@ -937,10 +937,10 @@ The document's .json structure.
 * CurrentPageIndex: [int](#int) = `0` - index of the currently open page.
 * Fonts: [Font[]](#Font) - embedded fonts stored in the document.
 * Variables: [VariableCollection[]](#VariableCollection) - variables stored in the document.
-* FillStyles: [FillStyle[]](#FillStyle) - fill styles stored in the document.
+* FillStyles: [ColorStyle[]](#ColorStyle) - fill styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
-* GridStyles: [GridLayoutStyle[]](#GridLayoutStyle) - grid layout styles stored in the document.
+* GridStyles: [GuideStyle[]](#GuideStyle) - grid layout styles stored in the document.
 * Pages: [GUID[]](#GUID) - list of document pages.
 
 <details>
@@ -1019,6 +1019,8 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * Start: [int](#int) = `0` - position where the style starts.
 * Length: [int](#int) = `0` - length of the selection.
 * Style: [TextProperties](#TextProperties) - style applied to the selection.
+* FillsId: [GUID](#GUID) - color Style Id.
+* PropsId: [GUID](#GUID) - text style id.
 
 ### <a name="LayoutContainerBase"></a>LayoutContainerBase
 Defines a container layout.
@@ -1158,10 +1160,10 @@ Contains components, styles and variables from external library that is used in 
 
 * Id: [GUID](#GUID) - unique library document identifier.
 * Variables: [VariableCollection[]](#VariableCollection) - variables from a shared library.
-* FillStyles: [FillStyle[]](#FillStyle) - fill styles stored in the document.
+* FillStyles: [ColorStyle[]](#ColorStyle) - fill styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
-* GridStyles: [GridLayoutStyle[]](#GridLayoutStyle) - grid layout styles stored in the document.
+* GridStyles: [GuideStyle[]](#GuideStyle) - grid layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
 
 ### <a name="StringValue"></a>StringValue
@@ -1172,8 +1174,7 @@ Contains components, styles and variables from external library that is used in 
 ### <a name="TextProperties"></a>TextProperties
 Defines a set of properties that make up a text style.
 
-* Color: [Color](#Color) = `ff000000` - text color.
-* ColorId: [GUID?](#GUID) - color variable ID.
+* Fills: [Fill[]](#Fill) - list of fills.
 * Font: [string](#string) = `Inter` - text font.
 * Size: [float](#float) = `12` - text size.
 * ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
@@ -1743,7 +1744,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 
 ## Changelog
 
-### Version 5 - 14.04.2025
+### Version 5 - 11.07.2025
 
 * New layer types: `Section` and `States`.
 * `Hotspot` layer type is removed.
@@ -1759,6 +1760,8 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `StyleId` is removed from `Layer`. `FillsId`, `BordersId`, `EffectsId` properties are added to a `Layer`, `GridsId` to `Frame` and `PropsId` to `Text` instead.
 * New variable types: `BoolVariable`, `StringVariable`, `FloatVariable`. `ColorVariables` properties of a `Document` and `Library` are renamed to `Variables` and now contain a list of `VariableCollection`.
 * `Component` and `States` now have `Properties`. `Instance` also has `Assigns` to component properties.
+* `TextProperties` `Color` and `ColorId` is replaces with array of `Fill`.
+* `InlineStyle` now has `FillsId` and `PropsId` fields.
 
 ### Version 4 - 20.01.2025
 

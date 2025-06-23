@@ -173,11 +173,11 @@ public abstract class Layer
     public BackgroundRemovalState BackgroundRemove { get; set; }
     
     /// <summary>
-    /// Fill style id for fills.
+    /// Color style id for fills.
     /// </summary>
     public Guid FillsId { get; set; }
     /// <summary>
-    /// Fill style id for borders.
+    /// Color style id for borders.
     /// </summary>
     public Guid BordersId { get; set; }
     /// <summary>

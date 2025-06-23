@@ -1,6 +1,6 @@
 ## Changelog
 
-### Version 5 - 14.04.2025
+### Version 5 - 11.07.2025
 
 * New layer types: `Section` and `States`.
 * `Hotspot` layer type is removed.
@@ -16,6 +16,8 @@
 * `StyleId` is removed from `Layer`. `FillsId`, `BordersId`, `EffectsId` properties are added to a `Layer`, `GridsId` to `Frame` and `PropsId` to `Text` instead.
 * New variable types: `BoolVariable`, `StringVariable`, `FloatVariable`. `ColorVariables` properties of a `Document` and `Library` are renamed to `Variables` and now contain a list of `VariableCollection`.
 * `Component` and `States` now have `Properties`. `Instance` also has `Assigns` to component properties.
+* `TextProperties` `Color` and `ColorId` is replaces with array of `Fill`.
+* `InlineStyle` now has `FillsId` and `PropsId` fields.
 
 ### Version 4 - 20.01.2025
 

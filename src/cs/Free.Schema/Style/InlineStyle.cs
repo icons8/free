@@ -19,4 +19,14 @@ public class InlineStyle
     /// Style applied to the selection.
     /// </summary>
     public TextProperties Style { get; } = new();
+    
+    /// <summary>
+    /// Color Style Id.
+    /// </summary>
+    public Guid FillsId { get; set; }
+    
+    /// <summary>
+    /// Text style id.
+    /// </summary>
+    public Guid PropsId { get; set; }
 }

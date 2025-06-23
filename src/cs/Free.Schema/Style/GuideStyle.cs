@@ -1,6 +1,6 @@
 namespace Free.Schema;
 
-public class GridLayoutStyle : StyleBase
+public class GuideStyle : StyleBase
 {
     /// <summary>
     /// Grid, Row and Column layouts of the style.

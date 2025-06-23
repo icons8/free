@@ -26,7 +26,7 @@ public class SharedLibrary
     /// <summary>
     /// Fill styles stored in the document.
     /// </summary>
-    public List<FillStyle> FillStyles { get; } = new();
+    public List<ColorStyle> FillStyles { get; } = new();
     /// <summary>
     /// Effect styles stored in the document.
     /// </summary>
@@ -38,7 +38,7 @@ public class SharedLibrary
     /// <summary>
     /// Grid layout styles stored in the document.
     /// </summary>
-    public List<GridLayoutStyle> GridStyles { get; } = new();
+    public List<GuideStyle> GridStyles { get; } = new();
     /// <summary>
     /// Components from a shared library.
     /// </summary>
