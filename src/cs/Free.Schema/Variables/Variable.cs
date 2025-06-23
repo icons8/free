@@ -30,22 +30,18 @@ public class ColorVariable : Variable
     /// Variable type.
     /// </summary>
     public override string _t => "COLOR";
-    
+
     /// <summary>
-    /// Color value of the variable.
+    /// Variable modes to color values map.
     /// </summary>
-    public Color Value { get; set; }
-    
-    /// <summary>
-    /// Color variable ID.
-    /// </summary>
-    public Guid ValueId { get; set; }
+    public Dictionary<Guid, ColorValue> Values { get; } = new();
     
     /// <summary>
     /// Variable version.
     /// </summary>
     public int Version { get; set; }
 }
+
 
 /// <summary>
 /// Variable with a boolean value.
@@ -58,14 +54,9 @@ public class BoolVariable : Variable
     public override string _t => "BOOL";
     
     /// <summary>
-    /// Boolean value of the variable.
+    /// Variable modes to boolean values map.
     /// </summary>
-    public bool Value { get; set; }
-    
-    /// <summary>
-    /// Boolean variable ID.
-    /// </summary>
-    public Guid ValueId { get; set; }
+    public Dictionary<Guid, BoolValue> Values { get; } = new();
     
     /// <summary>
     /// Variable version.
@@ -84,14 +75,9 @@ public class StringVariable : Variable
     public override string _t => "TEXT";
 
     /// <summary>
-    /// String value of the variable.
+    /// Variable modes to string values map.
     /// </summary>
-    public string Value { get; set; } = "";
-    
-    /// <summary>
-    /// String variable ID.
-    /// </summary>
-    public Guid ValueId { get; set; }
+    public Dictionary<Guid, StringValue> Values { get; } = new();
     
     /// <summary>
     /// Variable version.
@@ -110,14 +96,9 @@ public class FloatVariable : Variable
     public override string _t => "FLOAT";
     
     /// <summary>
-    /// Float value of the variable.
+    /// Variable modes to float values map.
     /// </summary>
-    public float Value { get; set; }
-    
-    /// <summary>
-    /// Float variable ID.
-    /// </summary>
-    public Guid ValueId { get; set; }
+    public Dictionary<Guid, FloatValue> Values { get; } = new();
     
     /// <summary>
     /// Variable version.

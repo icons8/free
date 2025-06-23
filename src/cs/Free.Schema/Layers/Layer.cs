@@ -130,6 +130,10 @@ public abstract class Layer
     /// </summary>
     public Dictionary<string, string> Custom { get; set; } = new();
     
+    /// <summary>
+    /// Map of variable modes. Key is variable collection ID. Value is variable mode id. If there is no entry in a map - mode is auto.
+    /// </summary>
+    public Dictionary<Guid, Guid> Modes { get; set; } = new();
     
     /// <summary>
     /// Identifier of a photo from the Lunacy gallery.

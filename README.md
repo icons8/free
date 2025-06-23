@@ -517,6 +517,7 @@ A layer is any ungrouped element available on the canvas.
 * LayoutGrowStretch: [bool](#bool) = `False` - determines whether a layer should stretch along the parent’s primary axis (auto layout).
 * LayoutFixPos: [bool](#bool) = `False` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
+* Modes: [[GUID,GUID]](#[GUID,GUID) - map of variable modes. Key is variable collection ID. Value is variable mode id. If there is no entry in a map - mode is auto.
 * FillsId: [GUID](#GUID) - fill style id for fills.
 * BordersId: [GUID](#GUID) - fill style id for borders.
 * EffectsId: [GUID](#GUID) - effect style id.
@@ -567,8 +568,8 @@ Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 
 * _t: [string](#string) = `STATE` - object type.
 * Value: [string](#string) - initial Value.
-* Values: [string[]](#string) - preferred Values.
 * ValueId: [GUID](#GUID) - string variable ID.
+* Values: [string[]](#string) - preferred Values.
 
 ### <a name="SwapComponentProperty"></a>SwapComponentProperty
 Defines swap component property of components and states.
@@ -594,8 +595,7 @@ Variable with a boolean value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `BOOL` - variable type.
-* Value: [bool](#bool) = `False` - boolean value of the variable.
-* ValueId: [GUID](#GUID) - boolean variable ID.
+* Values: [[GUID,BoolValue]](#[GUID,BoolValue) - variable modes to boolean values map.
 * Version: [int](#int) = `0` - variable version.
 
 ### <a name="ColorVariable"></a>ColorVariable
@@ -604,8 +604,7 @@ Variable with a color value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `COLOR` - variable type.
-* Value: [Color](#Color) = `00000000` - color value of the variable.
-* ValueId: [GUID](#GUID) - color variable ID.
+* Values: [[GUID,ColorValue]](#[GUID,ColorValue) - variable modes to color values map.
 * Version: [int](#int) = `0` - variable version.
 
 ### <a name="ComponentPropertyBase"></a>ComponentPropertyBase
@@ -621,8 +620,7 @@ Variable with a float value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `FLOAT` - variable type.
-* Value: [float](#float) = `0` - float value of the variable.
-* ValueId: [GUID](#GUID) - float variable ID.
+* Values: [[GUID,FloatValue]](#[GUID,FloatValue) - variable modes to float values map.
 * Version: [int](#int) = `0` - variable version.
 
 ### <a name="StringVariable"></a>StringVariable
@@ -631,8 +629,7 @@ Variable with a string value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `TEXT` - variable type.
-* Value: [string](#string) - string value of the variable.
-* ValueId: [GUID](#GUID) - string variable ID.
+* Values: [[GUID,stringValue]](#[GUID,stringValue) - variable modes to string values map.
 * Version: [int](#int) = `0` - variable version.
 
 ### <a name="Variable"></a>Variable
@@ -923,6 +920,16 @@ Defines the settings of the blur effect.
 * Enabled: [bool](#bool) = `False` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
 
+### <a name="BoolValue"></a>BoolValue
+
+* Value: [bool](#bool) = `False` - boolean value.
+* ValueId: [GUID](#GUID) - boolean variable ID.
+
+### <a name="ColorValue"></a>ColorValue
+
+* Value: [Color](#Color) = `00000000` - color value.
+* ValueId: [GUID](#GUID) - color variable ID.
+
 ### <a name="Document"></a>Document
 The document's .json structure.
 
@@ -931,7 +938,7 @@ The document's .json structure.
 * FromFigma: [bool](#bool) = `False` - if the document is imported from Figma.
 * CurrentPageIndex: [int](#int) = `0` - index of the currently open page.
 * Fonts: [Font[]](#Font) - embedded fonts stored in the document.
-* Variables: [Variable[]](#Variable) - variables stored in the document.
+* Variables: [VariableCollection[]](#VariableCollection) - variables stored in the document.
 * FillStyles: [FillStyle[]](#FillStyle) - fill styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
@@ -964,6 +971,11 @@ Defines the fill applied to a layer.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - defines the blend mode.
 * Pattern: [Pattern](#Pattern) - contains pattern fill properties in case the fill is a pattern fill.
 * Gradient: [Gradient](#Gradient) - contains gradient properties in case the fill is a gradient.
+
+### <a name="FloatValue"></a>FloatValue
+
+* Value: [float](#float) = `0` - float value.
+* ValueId: [GUID](#GUID) - float variable ID.
 
 ### <a name="Flow"></a>Flow
 Prototyping interaction element
@@ -1147,12 +1159,17 @@ Contains components, styles and variables from external library that is used in 
             Every file in the shared folder is Shared Library.
 
 * Id: [GUID](#GUID) - unique library document identifier.
-* Variables: [Variable[]](#Variable) - variables from a shared library.
+* Variables: [VariableCollection[]](#VariableCollection) - variables from a shared library.
 * FillStyles: [FillStyle[]](#FillStyle) - fill styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GridStyles: [GridLayoutStyle[]](#GridLayoutStyle) - grid layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
+
+### <a name="StringValue"></a>StringValue
+
+* Value: [string](#string) - string value.
+* ValueId: [GUID](#GUID) - string variable ID.
 
 ### <a name="TextProperties"></a>TextProperties
 Defines a set of properties that make up a text style.
@@ -1173,6 +1190,21 @@ Defines a set of properties that make up a text style.
 * Underline: [bool](#bool) = `False` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `False` - if the strikethrough option is applied to the text.
 * BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
+
+### <a name="VariableCollection"></a>VariableCollection
+Collection of variables.
+
+* Id: [GUID](#GUID) - unique identifier.
+* Name: [string](#string) - name of variable collection.
+* Variables: [Variable[]](#Variable) - list of variables inside collection.
+* Modes: [VariableMode[]](#VariableMode) - list of variable mode names in this collection.
+* Version: [int](#int) = `0` - version of collection.
+
+### <a name="VariableMode"></a>VariableMode
+Mode of variables. Used to switch all variable values inside specific collection.
+
+* Id: [GUID](#GUID) - unique identifier.
+* Name: [string](#string) - name of mode.
 
 ### <a name="Color"></a>Color Struct
 32-bit ARGB unpremultiplied color value.

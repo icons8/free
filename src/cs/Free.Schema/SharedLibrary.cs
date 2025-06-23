@@ -22,7 +22,7 @@ public class SharedLibrary
     /// <summary>
     /// Variables from a shared library. 
     /// </summary>
-    public List<Variable> Variables { get; } = new();
+    public List<VariableCollection> Variables { get; } = new();
     /// <summary>
     /// Fill styles stored in the document.
     /// </summary>
