@@ -19,6 +19,11 @@ public abstract class Variable
     /// Variable name.
     /// </summary>
     public string Name { get; set; } = "";
+    
+    /// <summary>
+    /// Variable version.
+    /// </summary>
+    public int Version { get; set; }
 }
 
 /// <summary>
@@ -35,11 +40,6 @@ public class ColorVariable : Variable
     /// Variable modes to color values map.
     /// </summary>
     public Dictionary<Guid, ColorValue> Values { get; } = new();
-    
-    /// <summary>
-    /// Variable version.
-    /// </summary>
-    public int Version { get; set; }
 }
 
 
@@ -57,11 +57,6 @@ public class BoolVariable : Variable
     /// Variable modes to boolean values map.
     /// </summary>
     public Dictionary<Guid, BoolValue> Values { get; } = new();
-    
-    /// <summary>
-    /// Variable version.
-    /// </summary>
-    public int Version { get; set; }
 }
 
 /// <summary>
@@ -78,11 +73,6 @@ public class StringVariable : Variable
     /// Variable modes to string values map.
     /// </summary>
     public Dictionary<Guid, StringValue> Values { get; } = new();
-    
-    /// <summary>
-    /// Variable version.
-    /// </summary>
-    public int Version { get; set; }
 }
 
 /// <summary>
@@ -99,9 +89,4 @@ public class FloatVariable : Variable
     /// Variable modes to float values map.
     /// </summary>
     public Dictionary<Guid, FloatValue> Values { get; } = new();
-    
-    /// <summary>
-    /// Variable version.
-    /// </summary>
-    public int Version { get; set; }
 }

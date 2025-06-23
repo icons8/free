@@ -132,6 +132,7 @@ public static class GenerateDocumentationScript
             .ThenBy(x => x.Type)
             .ThenBy(x => !typeof(Layer).IsAssignableFrom(x.ObjectType))
             .ThenBy(x => !typeof(Variable).IsAssignableFrom(x.ObjectType))
+            .ThenBy(x => !typeof(ComponentPropertyBase).IsAssignableFrom(x.ObjectType))
             .ThenBy(x => !typeof(StyleBase).IsAssignableFrom(x.ObjectType))
             .ThenBy(x => !typeof(LayoutGuideBase).IsAssignableFrom(x.ObjectType))
             .ThenBy(x => !typeof(FlowAction).IsAssignableFrom(x.ObjectType))

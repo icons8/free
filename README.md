@@ -551,6 +551,46 @@ A layer is any ungrouped element available on the canvas.
 * BackgroundRemove: [BackgroundRemovalState](#BackgroundRemovalState) = `None` - background removal procedure info.
 </details>
 
+### <a name="BoolVariable"></a>BoolVariable
+Variable with a boolean value.
+
+Has all properties of [`Variable`](#Variable), plus:
+
+* _t: [string](#string) = `BOOL` - variable type.
+* Values: [[GUID,BoolValue]](#[GUID,BoolValue) - variable modes to boolean values map.
+
+### <a name="ColorVariable"></a>ColorVariable
+Variable with a color value.
+
+Has all properties of [`Variable`](#Variable), plus:
+
+* _t: [string](#string) = `COLOR` - variable type.
+* Values: [[GUID,ColorValue]](#[GUID,ColorValue) - variable modes to color values map.
+
+### <a name="FloatVariable"></a>FloatVariable
+Variable with a float value.
+
+Has all properties of [`Variable`](#Variable), plus:
+
+* _t: [string](#string) = `FLOAT` - variable type.
+* Values: [[GUID,FloatValue]](#[GUID,FloatValue) - variable modes to float values map.
+
+### <a name="StringVariable"></a>StringVariable
+Variable with a string value.
+
+Has all properties of [`Variable`](#Variable), plus:
+
+* _t: [string](#string) = `TEXT` - variable type.
+* Values: [[GUID,stringValue]](#[GUID,stringValue) - variable modes to string values map.
+
+### <a name="Variable"></a>Variable
+Base class of variable.
+
+* _t: [string](#string) = `COLOR` - variable type.
+* Id: [GUID](#GUID) - unique variable ID.
+* Name: [string](#string) - variable name.
+* Version: [int](#int) = `0` - variable version.
+
 ### <a name="BoolComponentProperty"></a>BoolComponentProperty
 Defines boolean component property of components and states.
 
@@ -589,55 +629,13 @@ Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 * Value: [string](#string) - initial Value.
 * ValueId: [GUID](#GUID) - string variable ID.
 
-### <a name="BoolVariable"></a>BoolVariable
-Variable with a boolean value.
-
-Has all properties of [`Variable`](#Variable), plus:
-
-* _t: [string](#string) = `BOOL` - variable type.
-* Values: [[GUID,BoolValue]](#[GUID,BoolValue) - variable modes to boolean values map.
-* Version: [int](#int) = `0` - variable version.
-
-### <a name="ColorVariable"></a>ColorVariable
-Variable with a color value.
-
-Has all properties of [`Variable`](#Variable), plus:
-
-* _t: [string](#string) = `COLOR` - variable type.
-* Values: [[GUID,ColorValue]](#[GUID,ColorValue) - variable modes to color values map.
-* Version: [int](#int) = `0` - variable version.
-
 ### <a name="ComponentPropertyBase"></a>ComponentPropertyBase
 Defines component property of components and states.
 
-Has all properties of [`Variable`](#Variable), plus:
-
-* Dead: [bool](#bool) = `False` - is already deleted.
-
-### <a name="FloatVariable"></a>FloatVariable
-Variable with a float value.
-
-Has all properties of [`Variable`](#Variable), plus:
-
-* _t: [string](#string) = `FLOAT` - variable type.
-* Values: [[GUID,FloatValue]](#[GUID,FloatValue) - variable modes to float values map.
-* Version: [int](#int) = `0` - variable version.
-
-### <a name="StringVariable"></a>StringVariable
-Variable with a string value.
-
-Has all properties of [`Variable`](#Variable), plus:
-
-* _t: [string](#string) = `TEXT` - variable type.
-* Values: [[GUID,stringValue]](#[GUID,stringValue) - variable modes to string values map.
-* Version: [int](#int) = `0` - variable version.
-
-### <a name="Variable"></a>Variable
-Base class of variable.
-
 * _t: [string](#string) = `BOOL` - variable type.
-* Id: [GUID](#GUID) - unique variable ID.
-* Name: [string](#string) - variable name.
+* Id: [GUID](#GUID) - unique property ID.
+* Name: [string](#string) - property name.
+* Dead: [bool](#bool) = `False` - is already deleted.
 
 ### <a name="EffectStyle"></a>EffectStyle
 
@@ -1759,7 +1757,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `Border` and `Fill` now sharing the same `Fill` object. `Thickness` and `LinePos` now in the `Layer`. `BorderOptions` are inside `Layer` too.
 * `SharedStyle` and `Style` objects is removed. `FillStyle`, `TextStyle`, `EffectStyle`, `GridLayoutStyle` objects are added instead.
 * `StyleId` is removed from `Layer`. `FillsId`, `BordersId`, `EffectsId` properties are added to a `Layer`, `GridsId` to `Frame` and `PropsId` to `Text` instead.
-* New variable types: `BoolVariable`, `StringVariable`, `FloatVariable`. `ColorVariables` properties of a `Document` and `Library` are renamed to `Variables`.
+* New variable types: `BoolVariable`, `StringVariable`, `FloatVariable`. `ColorVariables` properties of a `Document` and `Library` are renamed to `Variables` and now contain a list of `VariableCollection`.
 * `Component` and `States` now have `Properties`. `Instance` also has `Assigns` to component properties.
 
 ### Version 4 - 20.01.2025
