@@ -481,7 +481,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
 * DrawOnPath: [bool](#bool) = `False` - defines whether text draws on the underlying path.
 * Warp: [bool](#bool) = `False` - defines whether text warps when drawn on the underlying path.
-* PropsId: [GUID](#GUID) - text style id.
+* TextStyleId: [GUID](#GUID) - text style id.
 
 ### <a name="Layer"></a>Layer
 A layer is any ungrouped element available on the canvas.
@@ -1020,7 +1020,7 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * Length: [int](#int) = `0` - length of the selection.
 * Style: [TextProperties](#TextProperties) - style applied to the selection.
 * FillsId: [GUID](#GUID) - color Style Id.
-* PropsId: [GUID](#GUID) - text style id.
+* TextStyleId: [GUID](#GUID) - text style id.
 
 ### <a name="LayoutContainerBase"></a>LayoutContainerBase
 Defines a container layout.
@@ -1757,11 +1757,11 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `Flow` now contains not one, but a list of actions.
 * `Border` and `Fill` now sharing the same `Fill` object. `Thickness` and `LinePos` now in the `Layer`. `BorderOptions` are inside `Layer` too.
 * `SharedStyle` and `Style` objects is removed. `FillStyle`, `TextStyle`, `EffectStyle`, `GridLayoutStyle` objects are added instead.
-* `StyleId` is removed from `Layer`. `FillsId`, `BordersId`, `EffectsId` properties are added to a `Layer`, `GridsId` to `Frame` and `PropsId` to `Text` instead.
+* `StyleId` is removed from `Layer`. `FillsId`, `BordersId`, `EffectsId` properties are added to a `Layer`, `GridsId` to `Frame` and `TextStyleId` to `Text` instead.
 * New variable types: `BoolVariable`, `StringVariable`, `FloatVariable`. `ColorVariables` properties of a `Document` and `Library` are renamed to `Variables` and now contain a list of `VariableCollection`.
 * `Component` and `States` now have `Properties`. `Instance` also has `Assigns` to component properties.
 * `TextProperties` `Color` and `ColorId` is replaces with array of `Fill`.
-* `InlineStyle` now has `FillsId` and `PropsId` fields.
+* `InlineStyle` now has `FillsId` and `TextStyleId` fields.
 
 ### Version 4 - 20.01.2025
 

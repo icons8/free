@@ -48,5 +48,5 @@ public class Text : Layer
     /// <summary>
     /// Text style id.
     /// </summary>
-    public Guid PropsId { get; set; }
+    public Guid TextStyleId { get; set; }
 }
