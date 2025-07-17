@@ -16,14 +16,14 @@ public sealed class VariableCollection
     public string Name { get; set; } = "";
     
     /// <summary>
-    /// List of variables inside collection.
-    /// </summary>
-    public List<Variable> Variables { get; } = new();
-    
-    /// <summary>
     /// List of variable mode names in this collection.
     /// </summary>
     public List<VariableMode> Modes { get; } = new();
+    
+    /// <summary>
+    /// List of variables inside collection.
+    /// </summary>
+    public List<Variable> Variables { get; } = new();
     
     /// <summary>
     /// Version of collection.

@@ -557,7 +557,7 @@ Variable with a boolean value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `BOOL` - variable type.
-* Values: [[GUID,BoolValue]](#[GUID,BoolValue) - variable modes to boolean values map.
+* Values: [BoolValue[]](#BoolValue) - variable modes to boolean values map.
 
 ### <a name="ColorVariable"></a>ColorVariable
 Variable with a color value.
@@ -565,7 +565,7 @@ Variable with a color value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `COLOR` - variable type.
-* Values: [[GUID,ColorValue]](#[GUID,ColorValue) - variable modes to color values map.
+* Values: [ColorValue[]](#ColorValue) - variable modes to color values map.
 
 ### <a name="FloatVariable"></a>FloatVariable
 Variable with a float value.
@@ -573,7 +573,7 @@ Variable with a float value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `FLOAT` - variable type.
-* Values: [[GUID,FloatValue]](#[GUID,FloatValue) - variable modes to float values map.
+* Values: [FloatValue[]](#FloatValue) - variable modes to float values map.
 
 ### <a name="StringVariable"></a>StringVariable
 Variable with a string value.
@@ -581,7 +581,35 @@ Variable with a string value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `TEXT` - variable type.
-* Values: [[GUID,stringValue]](#[GUID,stringValue) - variable modes to string values map.
+* Values: [stringValue[]](#stringValue) - variable modes to string values map.
+
+### <a name="BoolValue"></a>BoolValue
+Value of a boolean variable.
+
+* ModeId: [GUID](#GUID) - mode Unique identifier of a Value.
+* Value: [bool](#bool) = `False` - boolean value.
+* ValueId: [GUID](#GUID) - boolean variable ID.
+
+### <a name="ColorValue"></a>ColorValue
+Value of a color variable.
+
+* ModeId: [GUID](#GUID) - mode Unique identifier of a Value.
+* Value: [Color](#Color) = `00000000` - color value.
+* ValueId: [GUID](#GUID) - color variable ID.
+
+### <a name="FloatValue"></a>FloatValue
+Value of a float variable
+
+* ModeId: [GUID](#GUID) - mode Unique identifier of a Value.
+* Value: [float](#float) = `0` - float value.
+* ValueId: [GUID](#GUID) - float variable ID.
+
+### <a name="StringValue"></a>StringValue
+Value of a string variable
+
+* ModeId: [GUID](#GUID) - mode Unique identifier of a Value.
+* Value: [string](#string) - string value.
+* ValueId: [GUID](#GUID) - string variable ID.
 
 ### <a name="Variable"></a>Variable
 Base class of variable.
@@ -590,6 +618,21 @@ Base class of variable.
 * Id: [GUID](#GUID) - unique variable ID.
 * Name: [string](#string) - variable name.
 * Version: [int](#int) = `0` - variable version.
+
+### <a name="VariableCollection"></a>VariableCollection
+Collection of variables.
+
+* Id: [GUID](#GUID) - unique identifier.
+* Name: [string](#string) - name of variable collection.
+* Modes: [VariableMode[]](#VariableMode) - list of variable mode names in this collection.
+* Variables: [Variable[]](#Variable) - list of variables inside collection.
+* Version: [int](#int) = `0` - version of collection.
+
+### <a name="VariableMode"></a>VariableMode
+Mode of variables. Used to switch all variable values inside specific collection.
+
+* Id: [GUID](#GUID) - unique identifier.
+* Name: [string](#string) - name of mode.
 
 ### <a name="BoolComponentProperty"></a>BoolComponentProperty
 Defines boolean component property of components and states.
@@ -918,16 +961,6 @@ Defines the settings of the blur effect.
 * Enabled: [bool](#bool) = `False` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
 
-### <a name="BoolValue"></a>BoolValue
-
-* Value: [bool](#bool) = `False` - boolean value.
-* ValueId: [GUID](#GUID) - boolean variable ID.
-
-### <a name="ColorValue"></a>ColorValue
-
-* Value: [Color](#Color) = `00000000` - color value.
-* ValueId: [GUID](#GUID) - color variable ID.
-
 ### <a name="Document"></a>Document
 The document's .json structure.
 
@@ -936,11 +969,11 @@ The document's .json structure.
 * FromFigma: [bool](#bool) = `False` - if the document is imported from Figma.
 * CurrentPageIndex: [int](#int) = `0` - index of the currently open page.
 * Fonts: [Font[]](#Font) - embedded fonts stored in the document.
-* Variables: [VariableCollection[]](#VariableCollection) - variables stored in the document.
+* VariableCollections: [VariableCollection[]](#VariableCollection) - variable collections stored in the document.
 * FillStyles: [ColorStyle[]](#ColorStyle) - fill styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
-* GridStyles: [GuideStyle[]](#GuideStyle) - grid layout styles stored in the document.
+* GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
 * Pages: [GUID[]](#GUID) - list of document pages.
 
 <details>
@@ -969,11 +1002,6 @@ Defines the fill applied to a layer.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - defines the blend mode.
 * Pattern: [Pattern](#Pattern) - contains pattern fill properties in case the fill is a pattern fill.
 * Gradient: [Gradient](#Gradient) - contains gradient properties in case the fill is a gradient.
-
-### <a name="FloatValue"></a>FloatValue
-
-* Value: [float](#float) = `0` - float value.
-* ValueId: [GUID](#GUID) - float variable ID.
 
 ### <a name="Flow"></a>Flow
 Prototyping interaction element
@@ -1159,17 +1187,12 @@ Contains components, styles and variables from external library that is used in 
             Every file in the shared folder is Shared Library.
 
 * Id: [GUID](#GUID) - unique library document identifier.
-* Variables: [VariableCollection[]](#VariableCollection) - variables from a shared library.
+* Variables: [VariableCollection[]](#VariableCollection) - variable collections from a shared library.
 * FillStyles: [ColorStyle[]](#ColorStyle) - fill styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
-* GridStyles: [GuideStyle[]](#GuideStyle) - grid layout styles stored in the document.
+* GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
-
-### <a name="StringValue"></a>StringValue
-
-* Value: [string](#string) - string value.
-* ValueId: [GUID](#GUID) - string variable ID.
 
 ### <a name="TextProperties"></a>TextProperties
 Defines a set of properties that make up a text style.
@@ -1189,21 +1212,6 @@ Defines a set of properties that make up a text style.
 * Underline: [bool](#bool) = `False` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `False` - if the strikethrough option is applied to the text.
 * BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
-
-### <a name="VariableCollection"></a>VariableCollection
-Collection of variables.
-
-* Id: [GUID](#GUID) - unique identifier.
-* Name: [string](#string) - name of variable collection.
-* Variables: [Variable[]](#Variable) - list of variables inside collection.
-* Modes: [VariableMode[]](#VariableMode) - list of variable mode names in this collection.
-* Version: [int](#int) = `0` - version of collection.
-
-### <a name="VariableMode"></a>VariableMode
-Mode of variables. Used to switch all variable values inside specific collection.
-
-* Id: [GUID](#GUID) - unique identifier.
-* Name: [string](#string) - name of mode.
 
 ### <a name="Color"></a>Color Struct
 32-bit ARGB unpremultiplied color value.

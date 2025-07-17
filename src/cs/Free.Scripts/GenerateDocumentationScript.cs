@@ -124,6 +124,8 @@ public static class GenerateDocumentationScript
         }
     }
 
+    public static Type[] VariableRelatedTypes = [typeof(VariableCollection), typeof(VariableMode), typeof(ColorValue), typeof(BoolValue), typeof(StringValue), typeof(FloatValue)];
+
     private static List<Node> OrderItems(List<Node> items)
     {
         return items
@@ -131,7 +133,7 @@ public static class GenerateDocumentationScript
             .ThenBy(x => x.Attributes.Any(a => a is LunacySpecificAttribute))
             .ThenBy(x => x.Type)
             .ThenBy(x => !typeof(Layer).IsAssignableFrom(x.ObjectType))
-            .ThenBy(x => !typeof(Variable).IsAssignableFrom(x.ObjectType))
+            .ThenBy(x => !typeof(Variable).IsAssignableFrom(x.ObjectType) && !VariableRelatedTypes.Contains(x.ObjectType))
             .ThenBy(x => !typeof(ComponentPropertyBase).IsAssignableFrom(x.ObjectType))
             .ThenBy(x => !typeof(StyleBase).IsAssignableFrom(x.ObjectType))
             .ThenBy(x => !typeof(LayoutGuideBase).IsAssignableFrom(x.ObjectType))

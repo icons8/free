@@ -39,9 +39,8 @@ public class ColorVariable : Variable
     /// <summary>
     /// Variable modes to color values map.
     /// </summary>
-    public Dictionary<Guid, ColorValue> Values { get; } = new();
+    public List<ColorValue> Values { get; } = new();
 }
-
 
 /// <summary>
 /// Variable with a boolean value.
@@ -56,7 +55,7 @@ public class BoolVariable : Variable
     /// <summary>
     /// Variable modes to boolean values map.
     /// </summary>
-    public Dictionary<Guid, BoolValue> Values { get; } = new();
+    public List<BoolValue> Values { get; } = new();
 }
 
 /// <summary>
@@ -72,7 +71,7 @@ public class StringVariable : Variable
     /// <summary>
     /// Variable modes to string values map.
     /// </summary>
-    public Dictionary<Guid, StringValue> Values { get; } = new();
+    public List<StringValue> Values { get; } = new();
 }
 
 /// <summary>
@@ -88,5 +87,5 @@ public class FloatVariable : Variable
     /// <summary>
     /// Variable modes to float values map.
     /// </summary>
-    public Dictionary<Guid, FloatValue> Values { get; } = new();
+    public List<FloatValue> Values { get; } = new();
 }

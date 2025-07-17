@@ -20,7 +20,7 @@ public class SharedLibrary
     public string? Name { get; set; }
 
     /// <summary>
-    /// Variables from a shared library. 
+    /// Variable collections from a shared library. 
     /// </summary>
     public List<VariableCollection> Variables { get; } = new();
     /// <summary>
@@ -36,11 +36,11 @@ public class SharedLibrary
     /// </summary>
     public List<TextStyle> TextStyles { get; } = new();
     /// <summary>
-    /// Grid layout styles stored in the document.
+    /// Guide layout styles stored in the document.
     /// </summary>
-    public List<GuideStyle> GridStyles { get; } = new();
+    public List<GuideStyle> GuideStyles { get; } = new();
     /// <summary>
     /// Components from a shared library.
     /// </summary>
-    public List<Component> Components { get; set; }
+    public List<Component> Components { get; } = new();
 }

@@ -33,9 +33,9 @@ public class Document
     /// </summary>
     public List<Font> Fonts { get; } = new();
     /// <summary>
-    /// Variables stored in the document.
+    /// Variable collections stored in the document.
     /// </summary>
-    public List<VariableCollection> Variables { get; } = new();
+    public List<VariableCollection> VariableCollections { get; } = new();
     /// <summary>
     /// Fill styles stored in the document.
     /// </summary>
@@ -49,9 +49,9 @@ public class Document
     /// </summary>
     public List<TextStyle> TextStyles { get; } = new();
     /// <summary>
-    /// Grid layout styles stored in the document.
+    /// Guide layout styles stored in the document.
     /// </summary>
-    public List<GuideStyle> GridStyles { get; } = new();
+    public List<GuideStyle> GuideStyles { get; } = new();
     /// <summary>
     /// List of document pages.
     /// </summary>
