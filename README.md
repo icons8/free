@@ -517,7 +517,7 @@ A layer is any ungrouped element available on the canvas.
 * LayoutGrowStretch: [bool](#bool) = `False` - determines whether a layer should stretch along the parent’s primary axis (auto layout).
 * LayoutFixPos: [bool](#bool) = `False` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
-* Modes: [[GUID,GUID]](#[GUID,GUID) - map of variable modes. Key is variable collection ID. Value is variable mode id. If there is no entry in a map - mode is auto.
+* Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
 * FillsId: [GUID](#GUID) - color style id for fills.
 * BordersId: [GUID](#GUID) - color style id for borders.
 * EffectsId: [GUID](#GUID) - effect style id.
@@ -557,7 +557,7 @@ Variable with a boolean value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `BOOL` - variable type.
-* Values: [BoolValue[]](#BoolValue) - variable modes to boolean values map.
+* Values: [BoolValue[]](#BoolValue) - list of values for each theme in collection.
 
 ### <a name="ColorVariable"></a>ColorVariable
 Variable with a color value.
@@ -565,7 +565,7 @@ Variable with a color value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `COLOR` - variable type.
-* Values: [ColorValue[]](#ColorValue) - variable modes to color values map.
+* Values: [ColorValue[]](#ColorValue) - list of values for each theme in collection.
 
 ### <a name="FloatVariable"></a>FloatVariable
 Variable with a float value.
@@ -573,7 +573,7 @@ Variable with a float value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `FLOAT` - variable type.
-* Values: [FloatValue[]](#FloatValue) - variable modes to float values map.
+* Values: [FloatValue[]](#FloatValue) - list of values for each theme in collection.
 
 ### <a name="StringVariable"></a>StringVariable
 Variable with a string value.
@@ -581,33 +581,33 @@ Variable with a string value.
 Has all properties of [`Variable`](#Variable), plus:
 
 * _t: [string](#string) = `TEXT` - variable type.
-* Values: [stringValue[]](#stringValue) - variable modes to string values map.
+* Values: [stringValue[]](#stringValue) - list of values for each theme in collection.
 
 ### <a name="BoolValue"></a>BoolValue
 Value of a boolean variable.
 
-* ModeId: [GUID](#GUID) - mode Unique identifier of a Value.
+* ThemeId: [GUID](#GUID) - theme unique identifier of a Value.
 * Value: [bool](#bool) = `False` - boolean value.
 * ValueId: [GUID](#GUID) - boolean variable ID.
 
 ### <a name="ColorValue"></a>ColorValue
 Value of a color variable.
 
-* ModeId: [GUID](#GUID) - mode Unique identifier of a Value.
+* ThemeId: [GUID](#GUID) - theme unique identifier of a Value.
 * Value: [Color](#Color) = `00000000` - color value.
 * ValueId: [GUID](#GUID) - color variable ID.
 
 ### <a name="FloatValue"></a>FloatValue
 Value of a float variable
 
-* ModeId: [GUID](#GUID) - mode Unique identifier of a Value.
+* ThemeId: [GUID](#GUID) - theme unique identifier of a Value.
 * Value: [float](#float) = `0` - float value.
 * ValueId: [GUID](#GUID) - float variable ID.
 
 ### <a name="StringValue"></a>StringValue
 Value of a string variable
 
-* ModeId: [GUID](#GUID) - mode Unique identifier of a Value.
+* ThemeId: [GUID](#GUID) - theme unique identifier of a Value.
 * Value: [string](#string) - string value.
 * ValueId: [GUID](#GUID) - string variable ID.
 
@@ -624,15 +624,15 @@ Collection of variables.
 
 * Id: [GUID](#GUID) - unique identifier.
 * Name: [string](#string) - name of variable collection.
-* Modes: [VariableMode[]](#VariableMode) - list of variable mode names in this collection.
+* Themes: [VariableTheme[]](#VariableTheme) - list of variable theme names in this collection.
 * Variables: [Variable[]](#Variable) - list of variables inside collection.
 * Version: [int](#int) = `0` - version of collection.
 
-### <a name="VariableMode"></a>VariableMode
-Mode of variables. Used to switch all variable values inside specific collection.
+### <a name="VariableTheme"></a>VariableTheme
+Theme of variables. Used to switch all variable values inside specific collection.
 
 * Id: [GUID](#GUID) - unique identifier.
-* Name: [string](#string) - name of mode.
+* Name: [string](#string) - name of the theme.
 
 ### <a name="BoolComponentProperty"></a>BoolComponentProperty
 Defines boolean component property of components and states.
@@ -1213,6 +1213,12 @@ Defines a set of properties that make up a text style.
 * Underline: [bool](#bool) = `False` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `False` - if the strikethrough option is applied to the text.
 * BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
+
+### <a name="ThemeSelection"></a>ThemeSelection
+Theme Selection of a layer and it's children for a specific theme.
+
+* Id: [GUID](#GUID) - unique identifier of the collection.
+* ThemeId: [GUID](#GUID) - unique identifier of the theme.
 
 ### <a name="Color"></a>Color Struct
 32-bit ARGB unpremultiplied color value.

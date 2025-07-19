@@ -16,9 +16,9 @@ public sealed class VariableCollection
     public string Name { get; set; } = "";
     
     /// <summary>
-    /// List of variable mode names in this collection.
+    /// List of variable theme names in this collection.
     /// </summary>
-    public List<VariableMode> Modes { get; } = new();
+    public List<VariableTheme> Themes { get; } = new();
     
     /// <summary>
     /// List of variables inside collection.

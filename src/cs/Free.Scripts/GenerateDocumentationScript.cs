@@ -124,7 +124,7 @@ public static class GenerateDocumentationScript
         }
     }
 
-    public static Type[] VariableRelatedTypes = [typeof(VariableCollection), typeof(VariableMode), typeof(ColorValue), typeof(BoolValue), typeof(StringValue), typeof(FloatValue)];
+    public static Type[] VariableRelatedTypes = [typeof(VariableCollection), typeof(VariableTheme), typeof(ColorValue), typeof(BoolValue), typeof(StringValue), typeof(FloatValue)];
 
     private static List<Node> OrderItems(List<Node> items)
     {

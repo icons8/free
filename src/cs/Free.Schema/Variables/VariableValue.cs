@@ -6,9 +6,9 @@ namespace Free.Schema;
 public sealed class ColorValue
 {
     /// <summary>
-    /// Mode Unique identifier of a Value.
+    /// Theme unique identifier of a Value.
     /// </summary>
-    public Guid ModeId { get; set; }
+    public Guid ThemeId { get; set; }
     
     /// <summary>
     /// Color value.
@@ -27,9 +27,9 @@ public sealed class ColorValue
 public sealed class BoolValue
 {
     /// <summary>
-    /// Mode Unique identifier of a Value.
+    /// Theme unique identifier of a Value.
     /// </summary>
-    public Guid ModeId { get; set; }
+    public Guid ThemeId { get; set; }
     
     /// <summary>
     /// Boolean value.
@@ -48,9 +48,9 @@ public sealed class BoolValue
 public sealed class FloatValue
 {
     /// <summary>
-    /// Mode Unique identifier of a Value.
+    /// Theme unique identifier of a Value.
     /// </summary>
-    public Guid ModeId { get; set; }
+    public Guid ThemeId { get; set; }
     
     /// <summary>
     /// Float value.
@@ -69,14 +69,14 @@ public sealed class FloatValue
 public sealed class StringValue
 {
     /// <summary>
-    /// Mode Unique identifier of a Value.
+    /// Theme unique identifier of a Value.
     /// </summary>
-    public Guid ModeId { get; set; }
+    public Guid ThemeId { get; set; }
     
     /// <summary>
     /// String value.
     /// </summary>
-    public string Value { get; set; }
+    public string? Value { get; set; }
     
     /// <summary>
     /// String variable ID.

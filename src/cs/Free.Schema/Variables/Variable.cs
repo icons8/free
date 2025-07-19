@@ -37,7 +37,7 @@ public class ColorVariable : Variable
     public override string _t => "COLOR";
 
     /// <summary>
-    /// Variable modes to color values map.
+    /// List of values for each theme in collection.
     /// </summary>
     public List<ColorValue> Values { get; } = new();
 }
@@ -53,7 +53,7 @@ public class BoolVariable : Variable
     public override string _t => "BOOL";
     
     /// <summary>
-    /// Variable modes to boolean values map.
+    /// List of values for each theme in collection.
     /// </summary>
     public List<BoolValue> Values { get; } = new();
 }
@@ -69,7 +69,7 @@ public class StringVariable : Variable
     public override string _t => "TEXT";
 
     /// <summary>
-    /// Variable modes to string values map.
+    /// List of values for each theme in collection.
     /// </summary>
     public List<StringValue> Values { get; } = new();
 }
@@ -85,7 +85,7 @@ public class FloatVariable : Variable
     public override string _t => "FLOAT";
     
     /// <summary>
-    /// Variable modes to float values map.
+    /// List of values for each theme in collection.
     /// </summary>
     public List<FloatValue> Values { get; } = new();
 }
