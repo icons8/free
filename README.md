@@ -1030,7 +1030,8 @@ An object that represents a gradient.
 A position-color pair representing a gradient stop.
 
 * Pos: [float](#float) = `0` - value between 0 and 1 representing a position along gradient axis.
-* Color: [Color](#Color) = `ffffffff` - color attached to a corresponding position.
+* Color: [Color](#Color) = `00000000` - color attached to a corresponding position.
+* ColorId: [GUID?](#GUID) - color variable ID.
 
 ### <a name="ImageFilters"></a>ImageFilters
 Defines filters that can be applied to images.

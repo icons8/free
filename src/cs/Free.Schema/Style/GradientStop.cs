@@ -13,5 +13,10 @@ public sealed class GradientStop
     /// <summary>
     /// Color attached to a corresponding position.
     /// </summary>
-    public Color Color { get; set; } = new(255, 255, 255);
+    public Color Color { get; set; }
+    
+    /// <summary>
+    /// Color variable ID.
+    /// </summary>
+    public Guid? ColorId { get; set; }
 }
