@@ -133,7 +133,12 @@ public abstract class Layer
     /// <summary>
     /// Variable themes selections.
     /// </summary>
-    public List<ThemeSelection> Themes { get; set; } = new();
+    public List<ThemeSelection> Themes { get; } = new();
+    
+    /// <summary>
+    /// Binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
+    /// </summary>
+    public List<Variable> Binds { get; } = new();
     
     /// <summary>
     /// Identifier of a photo from the Lunacy gallery.

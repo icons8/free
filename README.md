@@ -518,6 +518,7 @@ A layer is any ungrouped element available on the canvas.
 * LayoutFixPos: [bool](#bool) = `False` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 * Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
+* Binds: [Variable[]](#Variable) - binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
 * FillsId: [GUID](#GUID) - color style id for fills.
 * BordersId: [GUID](#GUID) - color style id for borders.
 * EffectsId: [GUID](#GUID) - effect style id.
@@ -953,6 +954,13 @@ Has all properties of [`LayoutContainerBase`](#LayoutContainerBase), plus:
 * Wrap: [bool](#bool) = `False` - if wrapping is enabled.
 * WrapDistribute: [bool](#bool) = `False` - if auto distribute is enabled for wrapped content.
 
+### <a name="Bind"></a>Bind
+Bind of a variable into layer property.
+
+* Field: [BindField](#BindField) = `Unknown` - target field
+* Variable: [Variable](#Variable) - variable with a value
+* Expression: [Expression](#Expression) - expression with a value
+
 ### <a name="BlurEffect"></a>BlurEffect
 Defines the settings of the blur effect.
 
@@ -990,6 +998,12 @@ Export settings.
 * Size: [float](#float) = `0` - defines the width/height/scale of the exported object. Dependent on the type of the scale.
 * Name: [string](#string) - user-defined suffix/preffix (string) added to the export file name. Default: empty.
 * Naming: [NamingScheme](#NamingScheme) = `Suffix` - defines whether a suffix or preffix will be added to the export files name. Default: suffix.
+
+### <a name="Expression"></a>Expression
+Expression
+
+* Func: [ExpressionFunction](#ExpressionFunction) = `Add` - expression Function
+* Args: [Object[]](#Object) - list of expression arguments. Can be: bool, float, string and a Variable(bool/float/string).
 
 ### <a name="Fill"></a>Fill
 Defines the fill applied to a layer.
@@ -1311,6 +1325,44 @@ Defines text position against the baseline.
 * `1` Superscript - text is raised above the baseline.
 * `-1` Subscript - text is lowered below the baseline.
 
+### <a name="BindField"></a>BindField Enum
+
+* `0` Unknown
+* `1` Visibility
+* `2` Opacity
+* `10` Width
+* `11` Height
+* `12` MinWidth
+* `13` MinHeight
+* `14` MaxWidth
+* `15` MaxHeight
+* `20` CornerRadiusLeft
+* `21` CornerRadiusTop
+* `22` CornerRadiusRight
+* `23` CornerRadiusBottom
+* `30` ThicknessLeft
+* `31` ThicknessTop
+* `32` ThicknessRight
+* `33` ThicknessBottom
+* `40` PaddingLeft
+* `41` PaddingTop
+* `42` PaddingRight
+* `43` PaddingBottom
+* `44` SpacingHorizontal
+* `45` SpacingVertical
+* `50` ParagraphSpacing
+* `51` ParagraphIndent
+* `52` LineHeight
+* `53` LetterSpacing
+* `54` FontFamily
+* `55` FontStyle
+* `56` FontSize
+* `57` FontVariations
+* `58` Text
+* `100` ComponentId
+* `101` InstanceVariant
+* `102` Hyperlink
+
 ### <a name="BlendMode"></a>BlendMode Enum
 Defines the type of blend mode applied to a layer.
 
@@ -1452,6 +1504,28 @@ Defines the types of points on Bézier curves.
 * `4` Disconnected - disconnected branches.
 * `4` OnlyFrom - only From branch.
 * `5` OnlyTo - only To branch.
+
+### <a name="ExpressionFunction"></a>ExpressionFunction Enum
+
+* `0` Add
+* `1` Subtract
+* `2` Multiply
+* `3` Divide
+* `10` Equals
+* `11` NotEqual
+* `12` LessThan
+* `13` LessThanOrEqual
+* `14` GreaterThan
+* `15` GreaterThanOrEqual
+* `20` And
+* `21` Or
+* `22` Not
+* `23` Negate
+* `24` Ternary
+* `25` IsTruthy
+* `30` Stringify
+* `100` ResolveState
+* `101` ThemeLookup
 
 ### <a name="FillType"></a>FillType Enum
 Defines the fill type.
