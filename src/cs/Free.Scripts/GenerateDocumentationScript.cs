@@ -29,11 +29,59 @@ public static class GenerateDocumentationScript
                 Console.WriteLine("[WARNING] Missing description - " + miss);
             }
         }
+
+        items = FilterItemsForLlm(items);
         
         var llmBuilder = new LlmReadmeBuilder(items);
         str = llmBuilder.Build();
         File.WriteAllText(PathHelper.GetReadmePath("llms.txt"), str);
+
+        Console.WriteLine("README.md size: " + new FileInfo(PathHelper.GetReadmePath("README.md")).Length / 1024 + "kb");
+        Console.WriteLine("llms.txt size: " + new FileInfo(PathHelper.GetReadmePath("llms.txt")).Length / 1024 + "kb");
     }
+
+    private static readonly string[] LlmFilter = [
+        "ComponentType", "Override", 
+        
+        "Meta", "SharedLibrary",
+        
+        "LayoutGuideBase", "Rows", "Columns", "Grid",
+        
+        "ComponentPropertyBase", "TextComponentProperty", "SwapComponentProperty", "StateComponentProperty", "BoolComponentProperty",
+        
+        "VariableTheme", "VariableCollection", "Variable", "StringValue", "FloatValue", "ColorValue", "BoolValue", 
+        "StringVariable", "FloatVariable", "ColorVariable", "BoolVariable",
+        
+        "Flow", "FlowAnimation", "FlowAnimationType", "FlowAnimationEffect", "FlowAnimationDirection", "FlowOverlayPosition", "FlowScrollBehavior",
+        "FlowTrigger", "MouseUpTrigger", "MouseLeaveTrigger", "MouseEnterTrigger", "MouseDownTrigger", "KeyPressTrigger",
+        "HoverTrigger", "HoldTrigger", "DragTrigger", "ClickTrigger", "AfterDelayTrigger",
+        "FlowAction", "SwitchStateAction", "SwapOverlayAction", "ScrollToAction", "OpenUrlAction", "OpenOverlayAction", 
+        "NavigateToAction", "CloseOverlayAction", "BackAction", 
+        
+        "Expression", "ExpressionFunction", "Bind", "BindField", 
+    
+    ];
+
+    private static readonly Type[] LlmTypeFilter = [
+        typeof(List<Flow>), typeof(List<VariableCollection>), typeof(List<Variable>), typeof(List<ThemeSelection>)
+    ];
+    private static List<Node> FilterItemsForLlm(List<Node> items) => items
+        .Where(x => !LlmFilter.Contains(x.Name))
+        .Select(x =>
+        {
+            if (x.Type != NodeType.Enum)
+            {
+                foreach (var toRemove in x.Childs
+                             .Where(c => LlmFilter.Contains(c.ValueType.Name) || 
+                                         LlmTypeFilter.Contains(c.ValueType))
+                             .ToArray())
+                {
+                    x.Childs.Remove(toRemove);
+                }
+            }
+            return x;
+        })
+        .ToList();
 
     private static void Saturate(List<Node> items)
     {

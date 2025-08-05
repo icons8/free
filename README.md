@@ -1642,7 +1642,7 @@ Defines the appearance of the corners for arrows and paths with corners drawn wi
 * `2` Bevel - bevelled.
 
 ### <a name="LinePosition"></a>LinePosition Enum
-Defines the border postion.
+Defines the border position.
 
 * `0` Center - center.
 * `1` Inside - inside.

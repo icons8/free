@@ -1,6 +1,6 @@
 namespace Free.Schema;
 /// <summary>
-/// Defines the border postion.
+/// Defines the border position.
 /// </summary>
 
 public enum LinePosition : byte

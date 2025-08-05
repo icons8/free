@@ -19,7 +19,6 @@ Has all properties of `Frame`, plus:
 * string _t = "COMPONENT" //object type.
 * GUID ComponentId //unique component identifier.
 * bool Predefined = false //indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
-* ComponentType ComponentType = None //reserved for future use. Will be used for component filters.
 * string FigmaId //unique Figma Component Id. Used to connect shared libraries and documents imported from figma.
 * ComponentPropertyBase[] Properties //component properties.
 
@@ -162,8 +161,6 @@ Has all properties of `Layer`, plus:
 * bool BreakMask = false //defines if the layer is set to ignore the mask.
 * MaskType MaskType = Vector //type of the Mask - Vector, Alpha or Luminance.
 * bool KeepScroll = false //if the *Keep scroll position* option is enabled (prototyping).
-* FlowScrollBehavior ScrollBehavior = Scroll //defines scroll behavior (prototyping).
-* Flow[] Flows //defines flows (prototyping).
 * float MinWidth = 0 //defines the minimum layer width (auto layout).
 * float MinHeight = 0 //defines the minimum layer height (auto layout).
 * float MaxWidth = 0 //defines the maximum layer width (auto layout).
@@ -172,8 +169,6 @@ Has all properties of `Layer`, plus:
 * bool LayoutGrowStretch = false //determines whether a layer should stretch along the parent’s primary axis (auto layout).
 * bool LayoutFixPos = false //enables absolute position for the layer (auto layout).
 * [string,string] Custom //key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
-* ThemeSelection[] Themes //variable themes selections.
-* Variable[] Binds //binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
 * GUID FillsId //color style id for fills.
 * GUID BordersId //color style id for borders.
 * GUID EffectsId //effect style id.
@@ -194,110 +189,6 @@ Has all properties of `Layer`, plus:
 * ImageFilters ImageFilters //filters applied to an image (hue, saturartion, etc.), if any.
 * float[] CornerRadius = float[4] //sets the corner radius of the frame/instance/component/states/section.
 * bool SmoothCorners = false //enables smooth rounded corners like in iOS interfaces.
-
-### BoolVariable — Variable with a boolean value.
-
-Has all properties of `Variable`, plus:
-* string _t = "BOOL" //variable type.
-* BoolValue[] Values //list of values for each theme in collection.
-
-### ColorVariable — Variable with a color value.
-
-Has all properties of `Variable`, plus:
-* string _t = "COLOR" //variable type.
-* ColorValue[] Values //list of values for each theme in collection.
-
-### FloatVariable — Variable with a float value.
-
-Has all properties of `Variable`, plus:
-* string _t = "FLOAT" //variable type.
-* FloatValue[] Values //list of values for each theme in collection.
-
-### StringVariable — Variable with a string value.
-
-Has all properties of `Variable`, plus:
-* string _t = "TEXT" //variable type.
-* stringValue[] Values //list of values for each theme in collection.
-
-### BoolValue — Value of a boolean variable.
-
-* GUID ThemeId //theme unique identifier of a Value.
-* bool Value = false //boolean value.
-* GUID ValueId //boolean variable ID.
-
-### ColorValue — Value of a color variable.
-
-* GUID ThemeId //theme unique identifier of a Value.
-* Color Value = 00000000 //color value.
-* GUID ValueId //color variable ID.
-
-### FloatValue — Value of a float variable
-
-* GUID ThemeId //theme unique identifier of a Value.
-* float Value = 0 //float value.
-* GUID ValueId //float variable ID.
-
-### StringValue — Value of a string variable
-
-* GUID ThemeId //theme unique identifier of a Value.
-* string Value //string value.
-* GUID ValueId //string variable ID.
-
-### Variable — Base class of variable.
-
-* string _t = "COLOR" //variable type.
-* GUID Id //unique variable ID.
-* string Name //variable name.
-* int Version = 0 //variable version.
-
-### VariableCollection — Collection of variables.
-
-* GUID Id //unique identifier.
-* string Name //name of variable collection.
-* VariableTheme[] Themes //list of variable theme names in this collection.
-* Variable[] Variables //list of variables inside collection.
-* int Version = 0 //version of collection.
-
-### VariableTheme — Theme of variables. Used to switch all variable values inside specific collection.
-
-* GUID Id //unique identifier.
-* string Name //name of the theme.
-
-### BoolComponentProperty — Defines boolean component property of components and states.
-
-Has all properties of `ComponentPropertyBase`, plus:
-* string _t = "BOOL" //object type.
-* bool Value = false //initial Value.
-* GUID ValueId //boolean variable ID.
-
-### StateComponentProperty — Defines state(variant) component property of components and states.             Can be assigned to states layer only.
-
-Has all properties of `ComponentPropertyBase`, plus:
-* string _t = "STATE" //object type.
-* string Value //initial Value.
-* GUID ValueId //string variable ID.
-* string[] Values //preferred Values.
-
-### SwapComponentProperty — Defines swap component property of components and states.
-
-Has all properties of `ComponentPropertyBase`, plus:
-* string _t = "SWAP" //object type.
-* GUID Value //initial Value.
-* GUID[] Values //preferred Values.
-
-### TextComponentProperty — Defines text component property of components and states.
-
-Has all properties of `ComponentPropertyBase`, plus:
-* string _t = "TEXT" //object type.
-* string Value //initial Value.
-* GUID ValueId //string variable ID.
-
-### ComponentPropertyBase — Defines component property of components and states.
-
-* string _t = "BOOL" //variable type.
-* GUID Id //unique property ID.
-* string Name //property name.
-* bool Dead = false //is already deleted.
 
 ### ColorStyle — Style of fills. Can be set to borders and fills.
 
@@ -336,164 +227,6 @@ Has all properties of `StyleBase`, plus:
 * int Version = 0 //style version.
 * string FigmaId //unique Figma Style Id. Used to connect shared libraries and documents imported from figma.
 
-### Columns — Defines column settings in a layout guide.
-
-Has all properties of `LayoutGuideBase`, plus:
-* string _t = "COLS" //object type.
-* bool Enabled = false //if columnns are enabled.
-* LayoutHorizontalAlignment Align = Left //horizontal alignment settings.
-* int Offset = 0 //offset value.
-* int Count = 0 //number of columns.
-* int Gutter = 0 //gutter value.
-* int Width = 0 //column width.
-* Color Color = 00000000 //column color.
-
-### Grid — Defines square grid settings for a frame.
-
-Has all properties of `LayoutGuideBase`, plus:
-* string _t = "GRID" //object type.
-* bool Enabled = false //if the square grid is enabled.
-* Color Color = 00000000 //grid color.
-* int Size = 10 //size of grid cells.
-
-### Rows — Defines row settings in a layout guide.
-
-Has all properties of `LayoutGuideBase`, plus:
-* string _t = "ROWS" //object type.
-* bool Enabled = false //if rows are enabled.
-* LayoutVerticalAlignment Align = Top //vertical alignment settings.
-* int Offset = 0 //offset value.
-* int Count = 0 //number of rows.
-* int Gutter = 0 //gutter value.
-* int Width = 0 //row width.
-* Color Color = 00000000 //row color.
-
-### LayoutGuideBase — Defines layout guide settings for a frame.
-
-* string _t //object type.
-* bool Enabled = false //if layout guide is enabled.
-
-### BackAction — Action to go to previous frame.
-
-Has all properties of `FlowAction`, plus:
-* string _t = "BACK" //object type.
-* FlowAnimation Animation = Free.Schema.FlowAnimation //action animation.
-
-### CloseOverlayAction — Action to close current overlay.
-
-Has all properties of `FlowAction`, plus:
-* string _t = "CLOSE_OVERLAY" //object type.
-
-### NavigateToAction — Action to navigate to target frame.
-
-Has all properties of `FlowAction`, plus:
-* string _t = "NAVIGATE" //object type.
-* GUID? Target //id of the target frame.
-* FlowAnimation Animation = Free.Schema.FlowAnimation //id of the target layer.
-
-### OpenOverlayAction — Action to open target overlay.
-
-Has all properties of `FlowAction`, plus:
-* string _t = "OVERLAY" //object type.
-* GUID? Target //id of the target overlay.
-* FlowAnimation Animation = Free.Schema.FlowAnimation //action animation.
-* FlowOverlayPosition Position = Centered //startup location of overlay.
-* Vector2 Offset = <0, 0> //offset from startup location.
-* bool CloseByClick = false //close by any click.
-* bool HasBackground = false //defines whether the overlay has background.
-* Color Background = 00000000 //overlay background color.
-
-### OpenUrlAction — Action to open URL.
-
-Has all properties of `FlowAction`, plus:
-* string _t = "URL" //object type.
-* string Url //target URL.
-
-### ScrollToAction — Action to scroll to target layer.
-
-Has all properties of `FlowAction`, plus:
-* string _t = "SCROLL" //object type.
-* GUID? Target //id of the target layer.
-* FlowAnimation Animation = Free.Schema.FlowAnimation //action animation.
-
-### SwapOverlayAction — Action to swap current overlay to target overlay.
-
-Has all properties of `FlowAction`, plus:
-* string _t = "SWAP_OVERLAY" //object type.
-* GUID? Target //id of the target overlay.
-* FlowAnimation Animation = Free.Schema.FlowAnimation //action animation.
-
-### SwitchStateAction — Action to switch state of a target component instance.
-
-Has all properties of `FlowAction`, plus:
-* string _t = "SWITCH_STATE" //object type.
-* GUID? Target //id of the target instance.
-* FlowAnimation Animation = Free.Schema.FlowAnimation //id of the target layer.
-
-### FlowAction — Base object of prototyping action.
-
-* string _t = "NAVIGATE" //object type.
-
-### AfterDelayTrigger — after delay.
-
-Has all properties of `FlowTrigger`, plus:
-* string _t = "DELAY" //object type.
-* int Delay = 0 //delay in ms.
-
-### ClickTrigger — Mouse click.
-
-Has all properties of `FlowTrigger`, plus:
-* string _t = "CLICK" //object type.
-
-### DragTrigger — Mouse drag.
-
-Has all properties of `FlowTrigger`, plus:
-* string _t = "DRAG" //object type.
-
-### HoldTrigger — Mouse hold - only while you press and hold a mouse button.
-
-Has all properties of `FlowTrigger`, plus:
-* string _t = "HOLD" //object type.
-
-### HoverTrigger — Mouse hover - only while mouse pointer is over layer.
-
-Has all properties of `FlowTrigger`, plus:
-* string _t = "HOVER" //object type.
-
-### KeyPressTrigger — Key down.
-
-Has all properties of `FlowTrigger`, plus:
-* string Shortcut //string representing a keyboard shortcut. Examples: TAB, C, Ctrl+Shift+T, Alt+F3, Win+\.
-* int Delay = 0 //delay in ms.
-
-### MouseDownTrigger — Mouse down.
-
-Has all properties of `FlowTrigger`, plus:
-* string _t = "MOUSE_DOWN" //object type.
-* int Delay = 0 //delay in ms.
-
-### MouseEnterTrigger — Mouse enter.
-
-Has all properties of `FlowTrigger`, plus:
-* string _t = "ENTER" //object type.
-* int Delay = 0 //delay in ms.
-
-### MouseLeaveTrigger — Mouse leave.
-
-Has all properties of `FlowTrigger`, plus:
-* string _t = "LEAVE" //object type.
-* int Delay = 0 //delay in ms.
-
-### MouseUpTrigger — Mouse up.
-
-Has all properties of `FlowTrigger`, plus:
-* string _t = "MOUSE_UP" //object type.
-* int Delay = 0 //delay in ms.
-
-### FlowTrigger — Base object of prototyping trigger.
-
-* string _t = "CLICK" //object type.
-
 ### AutoLayoutContainer — Defines auto layout settings.
 
 Has all properties of `LayoutContainerBase`, plus:
@@ -512,12 +245,6 @@ Has all properties of `LayoutContainerBase`, plus:
 * bool Wrap = false //if wrapping is enabled.
 * bool WrapDistribute = false //if auto distribute is enabled for wrapped content.
 
-### Bind — Bind of a variable into layer property.
-
-* BindField Field = Unknown //target field
-* Variable Variable //variable with a value
-* Expression Expression //expression with a value
-
 ### BlurEffect — Defines the settings of the blur effect.
 
 * float Saturation = 1 //saturation. Only for background blur.
@@ -532,7 +259,6 @@ Has all properties of `LayoutContainerBase`, plus:
 * bool FromFigma = false //if the document is imported from Figma.
 * int CurrentPageIndex = 0 //index of the currently open page.
 * Font[] Fonts //embedded fonts stored in the document.
-* VariableCollection[] VariableCollections //variable collections stored in the document.
 * ColorStyle[] FillStyles //fill styles stored in the document.
 * EffectStyle[] EffectStyles //effect styles stored in the document.
 * TextStyle[] TextStyles //text styles stored in the document.
@@ -547,11 +273,6 @@ Has all properties of `LayoutContainerBase`, plus:
 * string Name //user-defined suffix/preffix (string) added to the export file name. Default: empty.
 * NamingScheme Naming = Suffix //defines whether a suffix or preffix will be added to the export files name. Default: suffix.
 
-### Expression — Expression
-
-* ExpressionFunction Func = Add //expression Function
-* Object[] Args //list of expression arguments. Can be: bool, float, string and a Variable(bool/float/string).
-
 ### Fill — Defines the fill applied to a layer.
 
 * bool Enabled = false //if a fill is added.
@@ -562,11 +283,6 @@ Has all properties of `LayoutContainerBase`, plus:
 * BlendMode BlendMode = Normal //defines the blend mode.
 * Pattern Pattern //contains pattern fill properties in case the fill is a pattern fill.
 * Gradient Gradient //contains gradient properties in case the fill is a gradient.
-
-### Flow — Prototyping interaction element
-
-* FlowTrigger Trigger //trigger that will fire an action. Examples: CLICK, DRAG, HOLD.
-* FlowAction[] Actions //list of Actions. Examples: NAVIGATE, SCROLL, URL, BACK.
 
 ### Font — Embedded fonts stored in the document.
 
@@ -609,71 +325,6 @@ Has all properties of `LayoutContainerBase`, plus:
 
 * string _t //object type.
 
-### Meta — Contains metadata about the document.
-
-* int Version = 0 //free Format version.
-* string App //app name.
-* string Variant //app variant: beta/standalone/store/web/etc.
-* string AppVersion //app version.
-
-### Override — Defines overrides for components.
-
-* GUID? ComponentId //unique component identifier.
-* string Image //defines the image name used as a fill.
-* string Link //defines the target frame (prototyping).
-* bool? Locked //if the layer is locked for editing.
-* bool? Hidden //if the layer is hidden.
-* bool? ClipContent //if the clip content feature is enabled.
-* bool? LockAspect //if the aspect ratio is locked.
-* float? Ratio //defines the star ratio value.???
-* float? VertexCount //the number of vertices.
-* float? ArcAngle //end angle for donuts measured clockwise from the X axis.
-* float? ArcRatio //inner radius for donuts.
-* float? ArcStartAngle //start angle for donuts measured clockwise from the X axis.
-* float[] CornerRadius //corner radius value.
-* bool? SmoothCorners //if smooth corners are enabled.
-* GUID? StyleId //identifier of the style applied to a layer.
-* Color? Tint //defines the tint color.
-* GUID? TintId //tint identifier.
-* Thickness Thickness = [0,0,0,0] //defines border thickness.
-* Thickness CustomThickness = [0,0,0,0] //defines custom border thickness.
-* LinePosition LinePos = Center //defines border position.
-* LineCap LineCap = Butt //defines the shape of line caps.
-* LineJoin LineJoin = Miter //defines the appearance of line folds.
-* BlurEffect Blur //information about blurs.
-* ImageFilters ImageFilters //filters applied to an image (hue, saturartion, etc.), if any.
-* float? Opacity //opacity value.
-* BlendMode? BlendMode //blend mode.
-* Arrowhead? StartArrowhead //determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* Arrowhead? EndArrowhead //determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* string Text //content of the text layer.
-* TextProperties TextStyle //style applied to the text
-* TextBehavior? TextBehavior //behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
-* Size? Size //text size.
-* LayoutOrientation? Orientation //layout orientation: horizontal or vertical.
-* float? Spacing //spacing value
-* float? WrapSpacing //spacing between rows of wrapped content.
-* float? MinWidth //defines the minimum layer width (auto layout).
-* float? MinHeight //defines the minimum layer height (auto layout).
-* float? MaxWidth //defines the maximum layer width (auto layout).
-* float? MaxHeight //defines the maximum layer height (auto layout).
-* Thickness? Padding //padding value.
-* HorizontalAlignment? Align //horizontal children alignment.
-* VerticalAlignment? VAlign //vertical children alignment.
-* SizingMode? Sizing //horizontal resizing mode: fixed or hug.
-* SizingMode? VSizing //vertical resizing mode: fixed or hug.
-* bool? TextBaseline //if text baseline alignment is enabled.
-* bool? StrokesIncluded //if the Include Borders option is enabled.
-* bool? ReverseZIndex //if the Last on Top option is enabled.
-* bool? Stretch //determines if the layer should stretch along the parent’s counter axis (auto layout).
-* bool? GrowStretch //determines whether a layer should stretch along the parent’s primary axis (auto layout).
-* bool? Wrap //if wrapping is enabled.
-* bool? WrapDistribute //if auto distribute is enabled for wrapped content.
-* bool? Truncate //trim text with triple dots in the end if content overlaps fixed layer size bounds.
-* byte MaxLines = 0 //count of lines allowed. If the limit is exceeded, the text will be truncated.
-* bool? KeepScroll //if the *Keep scroll position* option is enabled (prototyping).
-* FlowScrollBehavior? ScrollBehavior //defines scroll behavior (prototyping).
-
 ### Page — Document page properties.
 
 * GUID Id //unique page ID.
@@ -715,16 +366,6 @@ Has all properties of `LayoutContainerBase`, plus:
 * Point Offset = [0,0] //how far the shadow is projected in the x and y directions.
 * BlendMode BlendMode = Normal //shadow blend mode.
 
-### SharedLibrary — Contains components, styles and variables from external library that is used in current document.             Every file in the shared folder is Shared Library.
-
-* GUID Id //unique library document identifier.
-* VariableCollection[] Variables //variable collections from a shared library.
-* ColorStyle[] FillStyles //fill styles stored in the document.
-* EffectStyle[] EffectStyles //effect styles stored in the document.
-* TextStyle[] TextStyles //text styles stored in the document.
-* GuideStyle[] GuideStyles //guide layout styles stored in the document.
-* Component[] Components //components from a shared library.
-
 ### TextProperties — Defines a set of properties that make up a text style.
 
 * Fill[] Fills //list of fills.
@@ -748,23 +389,14 @@ Has all properties of `LayoutContainerBase`, plus:
 * GUID Id //unique identifier of the collection.
 * GUID ThemeId //unique identifier of the theme.
 
-### Color Struct — 32-bit ARGB unpremultiplied color value.
+### Struct Color — 32-bit ARGB unpremultiplied color value.
 
 * byte Alpha = 0 //gets the alpha component of the color.
 * byte Red = 0 //gets the red component of the color.
 * byte Green = 0 //gets the green component of the color.
 * byte Blue = 0 //gets the blue component of the color.
 
-### FlowAnimation Struct — Prototyping action animation.
-
-* bool Enabled = false //if animation is enabled.
-* FlowAnimationType Type = Instant //animation type.
-* FlowAnimationEffect Effect = Linear //animation effect.
-* FlowAnimationDirection Direction = Left //animation direction.
-* int Duration //animation duration in ms.
-* Point[] Curve //animation curve point array. Array length is always 2. Point values are between 0 and 1.
-
-### Matrix Struct — A transformation matrix is standard way in computer graphics to represent translation and rotation.             These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1].             This is known as an affine transform and is enough to represent translation, rotation, and skew.             The identity transform is [1, 0, 0,   0, 1, 0].             A translation matrix will typically look like: [1, 0, tx,   0, 1, ty]             and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0]             If a matrix contains only translation it will be printed like point [0,5]
+### Struct Matrix — A transformation matrix is standard way in computer graphics to represent translation and rotation.             These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1].             This is known as an affine transform and is enough to represent translation, rotation, and skew.             The identity transform is [1, 0, 0,   0, 1, 0].             A translation matrix will typically look like: [1, 0, tx,   0, 1, ty]             and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0]             If a matrix contains only translation it will be printed like point [0,5]
 
 * float ScaleX //scale by x-coord. Usually should be 1.             If it's -1 - the layer is flipped horizontally.             If it's some random number - it's a cos(angle).
 * float SkewX //skew by x-coord. Usually should be 0.             If it's some random number - it's a -sin(angle).
@@ -773,26 +405,26 @@ Has all properties of `LayoutContainerBase`, plus:
 * float ScaleY //scale by y-coord. Usually should be 1.             If it's -1 - the layer is flipped vertically.             If it's some random number - it's a cos(angle).
 * float TransY //translation by y-coord.
 
-### Point Struct — A utility class to represent a point.
+### Struct Point — A utility class to represent a point.
 
 * float X //the x coordinate of the point.
 * float Y //the y coordinate of the point.
 
-### Rect Struct — A utility class to represent a rectangle.
+### Struct Rect — A utility class to represent a rectangle.
 
 * float Left //the x coordinate of the top-left corner of the rectangle.
 * float Top //the y coordinate of the top-left corner of the rectangle.
 * float Width //the width of the rectangle.
 * float Height //the height of the rectangle.
 
-### Size Struct — A utility class to represent layer size.
+### Struct Size — A utility class to represent layer size.
 
 * float Width //layer width.
 * float Height //layer height.
 
-### Thickness Struct — Thickness struct. Used for Border thickness and Padding values
+### Struct Thickness — Thickness struct. Used for Border thickness and Padding values
 
-### Vertex Struct — A utility class to represent a vertex.
+### Struct Vertex — A utility class to represent a vertex.
 
 * Point Point = [0,0] //base point of a vertex
 * Point From = [0,0] //first control point, curve from.
@@ -800,385 +432,189 @@ Has all properties of `LayoutContainerBase`, plus:
 * float Radius //corner radius of a vertex point. It's stored in half because we don't need that much precision for corner radius.
 * CurveMode Mode = None //mode of vertex.
 
-### Arrowhead Enum — Defines the appearance of arrowheads.
-
-* "0" None //no arrowheads.
-* "1" Arrow //angle.
-* "2" ArrowFilled //triangle.
-* "3" Line //perpendicular Line.
-* "4" Circle //cirlce arrowhead.
-* "5" CircleFilled //filled circle arrowhead.
-* "6" Square //square arrowhead.
-* "7" SquareFilled //filled square arrowhead.
-
-### BaselinePosition Enum — Defines text position against the baseline.
-
-* "0" Normal //text is aligned with the baseline.
-* "1" Superscript //text is raised above the baseline.
-* "-1" Subscript //text is lowered below the baseline.
-
-### BindField Enum
-
-* "0" Unknown
-* "1" Visibility
-* "2" Opacity
-* "10" Width
-* "11" Height
-* "12" MinWidth
-* "13" MinHeight
-* "14" MaxWidth
-* "15" MaxHeight
-* "20" CornerRadiusLeft
-* "21" CornerRadiusTop
-* "22" CornerRadiusRight
-* "23" CornerRadiusBottom
-* "30" ThicknessLeft
-* "31" ThicknessTop
-* "32" ThicknessRight
-* "33" ThicknessBottom
-* "40" PaddingLeft
-* "41" PaddingTop
-* "42" PaddingRight
-* "43" PaddingBottom
-* "44" SpacingHorizontal
-* "45" SpacingVertical
-* "50" ParagraphSpacing
-* "51" ParagraphIndent
-* "52" LineHeight
-* "53" LetterSpacing
-* "54" FontFamily
-* "55" FontStyle
-* "56" FontSize
-* "57" FontVariations
-* "58" Text
-* "100" ComponentId
-* "101" InstanceVariant
-* "102" Hyperlink
-
-### BlendMode Enum — Defines the type of blend mode applied to a layer.
-
-* "0" Normal
-* "1" Darken
-* "2" Multiply
-* "3" ColorBurn
-* "4" Lighten
-* "5" Screen
-* "6" ColorDodge
-* "7" Overlay
-* "8" SoftLight
-* "9" HardLight
-* "10" Difference
-* "11" Exclusion
-* "12" Hue
-* "13" Saturation
-* "14" Color
-* "15" Luminosity
-* "16" PlusDarker
-* "17" PlusLighter
-
-### BlurType Enum — Defines the blur type.
-
-* "0" Gaussian //gaussian blur.
-* "3" Background //background blur.
-
-### BoolOp Enum — Types of boolean operations used to combine shapes.
-
-* "-1" None //not set. Works like Difference or like Union depending on the context.
-* "0" Union //creates a shape from the sum of the areas of the selected shapes.
-* "1" Subtract //the opposite of Union. Removes the overlapping area(s) from the shape layer at the bottom of the selection.
-* "2" Intersect //the resulting shape only includes the area where all selected shapes overlap.
-* "3" Difference //the opposite of Intersect. Creates a shape from the areas where the selected shapes do not overlap.
-
-### CharacterCasing Enum — Defines letter case.
-
-* "0" Normal //normal letter case.
-* "1" UpperCase //upper case.
-* "2" LowerCase //lower case.
-* "3" TitleCase //title case.
-
-### ComponentType Enum — Types of components. Currently used for filtering only. Some of the types are not supported yet.
-
-* "0" None
-* "10" Button
-* "11" RadioButton
-* "12" CheckBox
-* "13" Toggle
-* "14" ToggleButton
-* "15" SpinButton
-* "16" SplitButton
-* "17" SpeedDial
-* "18" SocialButton
-* "40" TextInput
-* "41" TextArea
-* "42" TextEditor
-* "43" NumberInput
-* "44" DateInput
-* "45" TimeInput
-* "46" DateTimeInput
-* "47" PasswordInput
-* "48" SearchBar
-* "49" DropDownInput
-* "70" DropDown
-* "71" ProgressBar
-* "72" Slider
-* "73" Knob
-* "74" Rating
-* "75" ScrollBar
-* "76" Paginator
-* "77" Preloader
-* "80" NavigationBar
-* "81" StatusBar
-* "82" ToolBar
-* "83" SideBar
-* "90" MenuBar
-* "91" ContextMenu
-* "92" MenuItem
-* "100" Breadcrumbs
-* "101" List
-* "102" ListItem
-* "103" Tree
-* "104" TreeItem
-* "105" TabStrip
-* "106" TabItem
-* "110" Table
-* "111" TreeTable
-* "112" TableHeader
-* "113" TableRow
-* "114" TableCell
-* "120" Window
-* "121" Dialog
-* "122" Popup
-* "123" ToolTip
-* "124" Notification
-* "125" Toast
-* "126" Message
-* "130" Avatar
-* "131" Badge
-* "132" Chip
-* "133" Skeleton
-* "134" Tag
-* "135" Card
-* "136" DropArea
-* "137" Ad
-* "140" Expander
-* "141" Splitter
-* "142" Carousel
-* "143" GroupBox
-* "150" Map
-* "151" Browser
-* "152" Calendar
-* "153" ColorPicker
-* "154" MediaPlayer
-* "155" ImageGallery
-* "156" Timeline
-* "157" Graph
-* "158" Diagram
-* "159" SourceCode
-* "160" Barcode
-* "161" Gauge
-* "162" Captcha
-* "200" Keyboard
-* "201" Cursor
-* "202" DeviceFrame
-
-### CurveMode Enum — Defines the types of points on Bézier curves.
-
-* "0" None //undefined.
-* "1" Straight //straight point.
-* "2" Mirrored //mirrored branches.
-* "3" Asymmetric //asymmetric branches.
-* "4" Disconnected //disconnected branches.
-* "4" OnlyFrom //only From branch.
-* "5" OnlyTo //only To branch.
-
-### ExpressionFunction Enum
-
-* "0" Add
-* "1" Subtract
-* "2" Multiply
-* "3" Divide
-* "10" Equals
-* "11" NotEqual
-* "12" LessThan
-* "13" LessThanOrEqual
-* "14" GreaterThan
-* "15" GreaterThanOrEqual
-* "20" And
-* "21" Or
-* "22" Not
-* "23" Negate
-* "24" Ternary
-* "25" IsTruthy
-* "30" Stringify
-* "100" ResolveState
-* "101" ThemeLookup
-
-### FillType Enum — Defines the fill type.
-
-* "0" Color //solid color fill.
-* "1" Gradient //gradient fill.
-* "4" Pattern //image fill.
-
-### FlowAnimationDirection Enum — Prototyping action animation direction.
-
-* "0" Left
-* "1" Right
-* "2" Up
-* "3" Down
-* "4" Scroll
-
-### FlowAnimationEffect Enum — Prototyping action animation effect.
-
-* "0" Linear
-* "1" EaseIn
-* "2" EaseOut
-* "3" EaseInBack
-* "4" EaseOutBack
-* "5" Gentle
-* "6" Quick
-* "7" Slow
-* "8" Bounce
-* "9" Custom
-* "10" CustomSpring
-
-### FlowAnimationType Enum — Prototyping action animation type.
-
-* "0" Instant
-* "1" Dissolve
-* "2" SmartAnimate
-* "3" MoveIn
-* "4" MoveOut
-* "5" Push
-* "6" SlideIn
-* "7" SlideOut
-* "8" Scroll
-
-### FlowOverlayPosition Enum — Prototyping overlay position.
-
-* "0" Centered
-* "1" TopLeft
-* "2" TopCenter
-* "3" TopRight
-* "4" BottomLeft
-* "5" BottomCenter
-* "6" BottomRight
-* "7" Manual
-
-### FlowScrollBehavior Enum — Prototyping scroll behavior of a layer.
-
-* "0" Scroll //regular behavior of a layer.
-* "1" Fixed //fixed position on scroll.
-* "2" Sticky //stick to the edge on scroll.
-
-### GradientType Enum — List of Gradient types.
-
-* "0" Linear //linear gradient: two colors appear at opposite points of an object and blend, or transition into each other.
-* "1" Radial //radial gradient: the transition between color stops is a circular pattern.
-* "2" Angular //angular gradient: sweeps around the circumference.
-
-### HorizontalAlignment Enum — Defines how a set of layers is aligned horizontally.
-
-* "0" Left //layers are aligned to the left.
-* "1" Center //layers are horizontally centered.
-* "2" Right //layers are aligned to the right.
-* "3" Distribute //layers are horizontally justified.
-
-### LayoutHorizontalAlignment Enum — Defines horizontal alignment settings in layout guide.
-
-* "0" Left
-* "1" Center
-* "2" Right
-* "3" Stretch
-
-### LayoutOrientation Enum — Orientation of an auto layout.
-
-* "0" Horizontal //horizontal orientation.
-* "1" Vertical //vertical orientation.
-
-### LayoutVerticalAlignment Enum — Defines vertical alignment settings in layout guides.
-
-* "0" Top
-* "1" Middle
-* "2" Bottom
-* "3" Stretch
-
-### LineCap Enum — Defines the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
-
-* "0" Butt //no cap (default).
-* "1" Round //adds a rounded end to a path that extends past the vector point.
-* "2" Square //similar to the rounded cap, but with straight edges.
-
-### LineJoin Enum — Defines the appearance of the corners for arrows and paths with corners drawn with the Pen/Pencil tool.
-
-* "0" Miter //square.
-* "1" Round //rounded.
-* "2" Bevel //bevelled.
-
-### LinePosition Enum — Defines the border postion.
-
-* "0" Center //center.
-* "1" Inside //inside.
-* "2" Outside //outside.
-
-### ListMarkerType Enum — Defines the type of a text list.
-
-* "0" None //list without markers.
-* "1" Bullet //bulleted list.
-* "2" Numbered //numbered list.
-
-### MaskType Enum — Type of a mask.
-
-* "0" Vector //this mode indicated that every pixel inside the layer's fill regions will be fully visible in the masked result.
-* "1" Alpha //this mode indicates that the mask layer image's transparency (alpha channel) values should be used as the mask values. This is how masks work in Figma.
-* "2" Luminance //this mode indicates that the luminance values of the mask layer image should be used as the mask values. This is how masks work in SVG.
-
-### PathFillType Enum — Defines the filling options for overlapping paths.
-
-* "0" Winding //applies the non-zero rule.
-* "1" EvenOdd //apllies the even-odd rule.
-
-### PatternFillType Enum — Defines the image fill type.
-
-* "0" Tile //duplicates the image in a tile pattern to fit the layer. The size of tiles is adjustable.
-* "1" Fill //adjusts the image size to the layer’s width.
-* "2" Stretch //stretches the image to fit the layer’s width and height.
-* "3" Fit //adjusts the image size to fit the layer’s height.
-* "4" Crop //crops the image at user's discretion.
-
-### ScaleType Enum — Defines the scale type for exported objects.
-
-* "0" Scale
-* "1" Width
-* "2" Height
-
-### SizingMode Enum — Defines the behavior of auto layout containers as their content is changed.
-
-* "0" Auto //the container adjusts to the size of the content (hug).
-* "1" Fixed //the container has a fixed size (fix).
-
-### TextBehavior Enum — Defines textbox behavior options.
-
-* "1" AutoHeight //the width of the textbox is fixed. Characters wrap to fit in the textbox. The height of the textbox automatically adjusts to fit its content.
-* "2" Fixed //the size of the textbox is fixed and is independent of its content.
-* "0" Flexible
-
-### TextHorizontalAlignment Enum — Defines how a text is aligned horizontally.
-
-* "0" Left //text is aligned to the left.
-* "1" Right //text is aligned to the right.
-* "2" Center //text is horizontally centered.
-* "3" Justify //text is horizontally justified.
-
-### TextVerticalAlignment Enum — Defines how a text is aligned vertically.
-
-* "0" Top //text is aligned to the top.
-* "1" Middle //text is vertically centered.
-* "2" Bottom //text is aligned to the bottom.
-
-### VerticalAlignment Enum — Defines how a set of layers is aligned vertically.
-
-* "0" Top //layers are aligned to the top.
-* "1" Center //layers are vertically centered.
-* "2" Bottom //layers are aligend to the bottom.
-* "3" Distribute //layers are vertically justified.
+### Enum Arrowhead — Defines the appearance of arrowheads.
+
+* 0 None //no arrowheads.
+* 1 Arrow //angle.
+* 2 ArrowFilled //triangle.
+* 3 Line //perpendicular Line.
+* 4 Circle //cirlce arrowhead.
+* 5 CircleFilled //filled circle arrowhead.
+* 6 Square //square arrowhead.
+* 7 SquareFilled //filled square arrowhead.
+
+### Enum BaselinePosition — Defines text position against the baseline.
+
+* 0 Normal //text is aligned with the baseline.
+* 1 Superscript //text is raised above the baseline.
+* -1 Subscript //text is lowered below the baseline.
+
+### Enum BlendMode — Defines the type of blend mode applied to a layer.
+
+* 0 Normal
+* 1 Darken
+* 2 Multiply
+* 3 ColorBurn
+* 4 Lighten
+* 5 Screen
+* 6 ColorDodge
+* 7 Overlay
+* 8 SoftLight
+* 9 HardLight
+* 10 Difference
+* 11 Exclusion
+* 12 Hue
+* 13 Saturation
+* 14 Color
+* 15 Luminosity
+* 16 PlusDarker
+* 17 PlusLighter
+
+### Enum BlurType — Defines the blur type.
+
+* 0 Gaussian //gaussian blur.
+* 3 Background //background blur.
+
+### Enum BoolOp — Types of boolean operations used to combine shapes.
+
+* -1 None //not set. Works like Difference or like Union depending on the context.
+* 0 Union //creates a shape from the sum of the areas of the selected shapes.
+* 1 Subtract //the opposite of Union. Removes the overlapping area(s) from the shape layer at the bottom of the selection.
+* 2 Intersect //the resulting shape only includes the area where all selected shapes overlap.
+* 3 Difference //the opposite of Intersect. Creates a shape from the areas where the selected shapes do not overlap.
+
+### Enum CharacterCasing — Defines letter case.
+
+* 0 Normal //normal letter case.
+* 1 UpperCase //upper case.
+* 2 LowerCase //lower case.
+* 3 TitleCase //title case.
+
+### Enum CurveMode — Defines the types of points on Bézier curves.
+
+* 0 None //undefined.
+* 1 Straight //straight point.
+* 2 Mirrored //mirrored branches.
+* 3 Asymmetric //asymmetric branches.
+* 4 Disconnected //disconnected branches.
+* 4 OnlyFrom //only From branch.
+* 5 OnlyTo //only To branch.
+
+### Enum FillType — Defines the fill type.
+
+* 0 Color //solid color fill.
+* 1 Gradient //gradient fill.
+* 4 Pattern //image fill.
+
+### Enum GradientType — List of Gradient types.
+
+* 0 Linear //linear gradient: two colors appear at opposite points of an object and blend, or transition into each other.
+* 1 Radial //radial gradient: the transition between color stops is a circular pattern.
+* 2 Angular //angular gradient: sweeps around the circumference.
+
+### Enum HorizontalAlignment — Defines how a set of layers is aligned horizontally.
+
+* 0 Left //layers are aligned to the left.
+* 1 Center //layers are horizontally centered.
+* 2 Right //layers are aligned to the right.
+* 3 Distribute //layers are horizontally justified.
+
+### Enum LayoutHorizontalAlignment — Defines horizontal alignment settings in layout guide.
+
+* 0 Left
+* 1 Center
+* 2 Right
+* 3 Stretch
+
+### Enum LayoutOrientation — Orientation of an auto layout.
+
+* 0 Horizontal //horizontal orientation.
+* 1 Vertical //vertical orientation.
+
+### Enum LayoutVerticalAlignment — Defines vertical alignment settings in layout guides.
+
+* 0 Top
+* 1 Middle
+* 2 Bottom
+* 3 Stretch
+
+### Enum LineCap — Defines the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
+
+* 0 Butt //no cap (default).
+* 1 Round //adds a rounded end to a path that extends past the vector point.
+* 2 Square //similar to the rounded cap, but with straight edges.
+
+### Enum LineJoin — Defines the appearance of the corners for arrows and paths with corners drawn with the Pen/Pencil tool.
+
+* 0 Miter //square.
+* 1 Round //rounded.
+* 2 Bevel //bevelled.
+
+### Enum LinePosition — Defines the border position.
+
+* 0 Center //center.
+* 1 Inside //inside.
+* 2 Outside //outside.
+
+### Enum ListMarkerType — Defines the type of a text list.
+
+* 0 None //list without markers.
+* 1 Bullet //bulleted list.
+* 2 Numbered //numbered list.
+
+### Enum MaskType — Type of a mask.
+
+* 0 Vector //this mode indicated that every pixel inside the layer's fill regions will be fully visible in the masked result.
+* 1 Alpha //this mode indicates that the mask layer image's transparency (alpha channel) values should be used as the mask values. This is how masks work in Figma.
+* 2 Luminance //this mode indicates that the luminance values of the mask layer image should be used as the mask values. This is how masks work in SVG.
+
+### Enum PathFillType — Defines the filling options for overlapping paths.
+
+* 0 Winding //applies the non-zero rule.
+* 1 EvenOdd //apllies the even-odd rule.
+
+### Enum PatternFillType — Defines the image fill type.
+
+* 0 Tile //duplicates the image in a tile pattern to fit the layer. The size of tiles is adjustable.
+* 1 Fill //adjusts the image size to the layer’s width.
+* 2 Stretch //stretches the image to fit the layer’s width and height.
+* 3 Fit //adjusts the image size to fit the layer’s height.
+* 4 Crop //crops the image at user's discretion.
+
+### Enum ScaleType — Defines the scale type for exported objects.
+
+* 0 Scale
+* 1 Width
+* 2 Height
+
+### Enum SizingMode — Defines the behavior of auto layout containers as their content is changed.
+
+* 0 Auto //the container adjusts to the size of the content (hug).
+* 1 Fixed //the container has a fixed size (fix).
+
+### Enum TextBehavior — Defines textbox behavior options.
+
+* 1 AutoHeight //the width of the textbox is fixed. Characters wrap to fit in the textbox. The height of the textbox automatically adjusts to fit its content.
+* 2 Fixed //the size of the textbox is fixed and is independent of its content.
+* 0 Flexible
+
+### Enum TextHorizontalAlignment — Defines how a text is aligned horizontally.
+
+* 0 Left //text is aligned to the left.
+* 1 Right //text is aligned to the right.
+* 2 Center //text is horizontally centered.
+* 3 Justify //text is horizontally justified.
+
+### Enum TextVerticalAlignment — Defines how a text is aligned vertically.
+
+* 0 Top //text is aligned to the top.
+* 1 Middle //text is vertically centered.
+* 2 Bottom //text is aligned to the bottom.
+
+### Enum VerticalAlignment — Defines how a set of layers is aligned vertically.
+
+* 0 Top //layers are aligned to the top.
+* 1 Center //layers are vertically centered.
+* 2 Bottom //layers are aligend to the bottom.
+* 3 Distribute //layers are vertically justified.
 

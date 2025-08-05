@@ -75,11 +75,12 @@ public class LlmReadmeBuilder
 
     private void PrintTypeHeader(Node item)
     {
-        _sb.Append("### ").Append(item.Name);
+        _sb.Append("### ");
         if (item.Type != NodeType.Object)
         {
-            _sb.Append(' ').Append(item.Type);
+            _sb.Append(item.Type).Append(' ');
         }
+        _sb.Append(item.Name);
     }
 
     private void PrintField(Node child, NodeType parentItemType)
@@ -90,7 +91,7 @@ public class LlmReadmeBuilder
         {
             if (FormatValue(child.DefaultValue, parentItemType) is { } val)
             {
-                _sb.Append('\"').Append(val).Append("\" ");
+                _sb.Append(val).Append(' ');
             }
             _sb.Append(child.Name);
         }
