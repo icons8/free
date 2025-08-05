@@ -431,8 +431,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Points: [Vertex[]](#Vertex) - list of path's points.
 
 ### <a name="Section"></a>Section
-Root group of layers. Can be a child of a page or another section.
-            Does not support rotation, flips, effects.
+Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
 
 Has all properties of [`Layer`](#Layer), plus:
 
@@ -498,8 +497,7 @@ A layer is any ungrouped element available on the canvas.
 * Expand: [bool](#bool) = `false` - defines whether the layer is expanded in Layer List.
 * Trim: [bool](#bool) = `false` - when enabled, trims empty pixels in exported images.
 * Export: [ExportOption[]](#ExportOption) - export options of the layer.
-* Constraints: [string](#string) = `LTWH` - defines constraint settings of the layer. String with chars where every char means a flag:
-            L - left, T - top, R - right, B - bottom, W - fix width, H - fix height.
+* Constraints: [string](#string) = `LTWH` - defines constraint settings of the layer. String with chars where every char means a flag: L - left, T - top, R - right, B - bottom, W - fix width, H - fix height.
 * Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - position, rotation and flips of an object, stored in a single 3x2 matrix.
 * Size: [Size](#Size) = `[100,100]` - defines the layer size.
 * LockAspect: [bool](#bool) = `false` - defines whether the layer's aspect ratio should be remain unchanged upon resizing.
@@ -645,8 +643,7 @@ Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 * ValueId: [GUID](#GUID) - boolean variable ID.
 
 ### <a name="StateComponentProperty"></a>StateComponentProperty
-Defines state(variant) component property of components and states.
-            Can be assigned to states layer only.
+Defines state(variant) component property of components and states. Can be assigned to states layer only.
 
 Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 
@@ -1198,8 +1195,7 @@ Defines the shadow options.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - shadow blend mode.
 
 ### <a name="SharedLibrary"></a>SharedLibrary
-Contains components, styles and variables from external library that is used in current document.
-            Every file in the shared folder is Shared Library.
+Contains components, styles and variables from external library that is used in current document. Every file in the shared folder is Shared Library.
 
 * Id: [GUID](#GUID) - unique library document identifier.
 * Variables: [VariableCollection[]](#VariableCollection) - variable collections from a shared library.
@@ -1253,25 +1249,13 @@ Prototyping action animation.
 * Curve: [Point[]](#Point) - animation curve point array. Array length is always 2. Point values are between 0 and 1.
 
 ### <a name="Matrix"></a>Matrix Struct
-A transformation matrix is standard way in computer graphics to represent translation and rotation.
-            These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1].
-            This is known as an affine transform and is enough to represent translation, rotation, and skew.
-            The identity transform is [1, 0, 0,   0, 1, 0].
-            A translation matrix will typically look like: [1, 0, tx,   0, 1, ty]
-            and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0]
-            If a matrix contains only translation it will be printed like point [0,5]
+A transformation matrix is standard way in computer graphics to represent translation and rotation. These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1]. This is known as an affine transform and is enough to represent translation, rotation, and skew. The identity transform is [1, 0, 0,  0, 1, 0]. A translation matrix will typically look like: [1, 0, tx,  0, 1, ty] and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0] If a matrix contains only translation it will be printed like point [0,5]
 
-* ScaleX: [float](#float) - scale by x-coord. Usually should be 1.
-            If it's -1 - the layer is flipped horizontally.
-            If it's some random number - it's a cos(angle).
-* SkewX: [float](#float) - skew by x-coord. Usually should be 0.
-            If it's some random number - it's a -sin(angle).
+* ScaleX: [float](#float) - scale by x-coord. Usually should be 1. If it's -1 - the layer is flipped horizontally. If it's some random number - it's a cos(angle).
+* SkewX: [float](#float) - skew by x-coord. Usually should be 0. If it's some random number - it's a -sin(angle).
 * TransX: [float](#float) - translation by x-coord.
-* SkewY: [float](#float) - skew by y-coord. Usually should be 0.
-            If it's some random number - it's a sin(angle).
-* ScaleY: [float](#float) - scale by y-coord. Usually should be 1.
-            If it's -1 - the layer is flipped vertically.
-            If it's some random number - it's a cos(angle).
+* SkewY: [float](#float) - skew by y-coord. Usually should be 0. If it's some random number - it's a sin(angle).
+* ScaleY: [float](#float) - scale by y-coord. Usually should be 1. If it's -1 - the layer is flipped vertically. If it's some random number - it's a cos(angle).
 * TransY: [float](#float) - translation by y-coord.
 
 ### <a name="Point"></a>Point Struct
@@ -1303,7 +1287,7 @@ Thickness struct. Used for Border thickness and Padding values
 * Bottom: [float](#float) - bottom thickness.
 
 ### <a name="Vertex"></a>Vertex Struct
-A utility class to represent a vertex.
+The Vertex data type, which defines path points, and has several notation options. It's simply an array of numbers and can include up to eight values: ``[x, y, mode, radius, fromX, fromY, toX, toY]``. If the points on the right end of the array have default values, they are omitted. So, if toX, toY, fromX, fromY are all zeros, the array will look like ``[x,y,mode,radius]``. And if mode and radius are zeros, it becomes ``[x, y]``
 
 * Point: [Point](#Point) = `[0,0]` - base point of a vertex
 * From: [Point](#Point) = `[0,0]` - first control point, curve from.

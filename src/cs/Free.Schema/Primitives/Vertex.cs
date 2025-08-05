@@ -3,7 +3,11 @@ using System.Text;
 namespace Free.Schema;
 
 /// <summary>
-/// A utility class to represent a vertex.
+/// The Vertex data type, which defines path points, and has several notation options.
+/// It's simply an array of numbers and can include up to eight values: ``[x, y, mode, radius, fromX, fromY, toX, toY]``.
+/// If the points on the right end of the array have default values, they are omitted.
+/// So, if toX, toY, fromX, fromY are all zeros, the array will look like ``[x,y,mode,radius]``.
+/// And if mode and radius are zeros, it becomes ``[x, y]``
 /// </summary>
 public readonly struct Vertex
 {

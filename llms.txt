@@ -101,7 +101,7 @@ Has all properties of `Layer`, plus:
 * bool Open = false
 * Vertex[] Points
 
-### Object Section — Root group of layers. Can be a child of a page or another section.             Does not support rotation, flips, effects.
+### Object Section — Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
 
 Has all properties of `Layer`, plus:
 * string _t = "SECTION"
@@ -373,7 +373,7 @@ Has all properties of `LayoutContainerBase`, plus:
 * byte Green = 0
 * byte Blue = 0
 
-### Struct Matrix — A transformation matrix is standard way in computer graphics to represent translation and rotation.             These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1].             This is known as an affine transform and is enough to represent translation, rotation, and skew.             The identity transform is [1, 0, 0,   0, 1, 0].             A translation matrix will typically look like: [1, 0, tx,   0, 1, ty]             and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0]             If a matrix contains only translation it will be printed like point [0,5]
+### Struct Matrix — A transformation matrix is standard way in computer graphics to represent translation and rotation. These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1]. This is known as an affine transform and is enough to represent translation, rotation, and skew. The identity transform is [1, 0, 0,  0, 1, 0]. A translation matrix will typically look like: [1, 0, tx,  0, 1, ty] and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0] If a matrix contains only translation it will be printed like point [0,5]
 
 * float ScaleX
 * float SkewX
@@ -406,7 +406,7 @@ Has all properties of `LayoutContainerBase`, plus:
 * float Right
 * float Bottom
 
-### Struct Vertex — A utility class to represent a vertex.
+### Struct Vertex — The Vertex data type, which defines path points, and has several notation options. It's simply an array of numbers and can include up to eight values: ``[x, y, mode, radius, fromX, fromY, toX, toY]``. If the points on the right end of the array have default values, they are omitted. So, if toX, toY, fromX, fromY are all zeros, the array will look like ``[x,y,mode,radius]``. And if mode and radius are zeros, it becomes ``[x, y]``
 
 * Point Point = [0,0]
 * Point From = [0,0]

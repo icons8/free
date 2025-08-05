@@ -20,7 +20,8 @@ public class Node
             name.StartsWith("P:") ? NodeType.Property : 
             name.StartsWith("M:") ? NodeType.Method : NodeType.Object;
         Name = name[2..].Replace("Free.Schema.", "");
-        Summary = summary.Trim();
+        Summary = summary.Trim().Replace(Environment.NewLine, " ").Replace("\t"," ")
+            .Replace("    ", " ").Replace("    ", " ").Replace("  ", " ");
     }
     
     public Node(string name, NodeType type = NodeType.Object)
