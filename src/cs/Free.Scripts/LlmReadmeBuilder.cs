@@ -76,10 +76,7 @@ public class LlmReadmeBuilder
     private void PrintTypeHeader(Node item)
     {
         _sb.Append("### ");
-        if (item.Type != NodeType.Object)
-        {
-            _sb.Append(item.Type).Append(' ');
-        }
+        _sb.Append(item.Type).Append(' ');
         _sb.Append(item.Name);
     }
 
@@ -113,11 +110,11 @@ public class LlmReadmeBuilder
                 _sb.Append(" = ").Append(val);
             }
         }
-
-        if (child.Summary.Length > 0 && parentItemType != NodeType.Enum)
-        {
-            _sb.Append(" //").Append(char.ToLower(child.Summary[0])).Append(child.Summary.Replace(Environment.NewLine, " ").AsSpan(1));
-        }
+        //
+        // if (child.Summary.Length > 0 && parentItemType != NodeType.Enum)
+        // {
+        //     _sb.Append(" //").Append(char.ToLower(child.Summary[0])).Append(child.Summary.Replace(Environment.NewLine, " ").AsSpan(1));
+        // }
 
         _sb.AppendLine();
     }

@@ -13,419 +13,406 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 
 ## Layers
 
-### Component — A component is a reusable groups of layers.
+### Object Component — A component is a reusable groups of layers.
 
 Has all properties of `Frame`, plus:
-* string _t = "COMPONENT" //object type.
-* GUID ComponentId //unique component identifier.
-* bool Predefined = false //indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
-* string FigmaId //unique Figma Component Id. Used to connect shared libraries and documents imported from figma.
-* ComponentPropertyBase[] Properties //component properties.
+* string _t = "COMPONENT"
+* GUID ComponentId
+* bool Predefined = false
+* string FigmaId
+* ComponentPropertyBase[] Properties
 
-### Oval — An oval is a shape drawn on the canvas with the Oval tool.
-
-Has all properties of `Path`, plus:
-* string _t = "OVAL" //object type.
-* float Angle = 0 //end angle for donuts measured clockwise from the X axis.
-* float Ratio = 0 //inner radius for donuts.
-* float StartAngle = 0 //start angle for donuts measured clockwise from the X axis.
-
-### Polygon — A polygon is a shape drawn on the canvas with the Polygon tool.
+### Object Oval — An oval is a shape drawn on the canvas with the Oval tool.
 
 Has all properties of `Path`, plus:
-* string _t = "POLYGON" //object type.
-* float Rays = 0 //defines the number of corners.
+* string _t = "OVAL"
+* float Angle = 0
+* float Ratio = 0
+* float StartAngle = 0
 
-### Rectangle — A rectangle is a shape drawn on the canvas with the Rectangle tool.
-
-Has all properties of `Path`, plus:
-* string _t = "RECT" //object type.
-* bool SmoothCorners = false //if the smooth corners option is enabled. Works only if the rectangle is not edited.
-
-### Star — A star is a shape drawn on the canvas with the Star tool.
+### Object Polygon — A polygon is a shape drawn on the canvas with the Polygon tool.
 
 Has all properties of `Path`, plus:
-* string _t = "STAR" //object type.
-* float Rays = 0 //defines the number of rays in a star.
-* float Ratio = 0 //defines the star ratio value.
+* string _t = "POLYGON"
+* float Rays = 0
 
-### States — Set of a states of the component.
+### Object Rectangle — A rectangle is a shape drawn on the canvas with the Rectangle tool.
+
+Has all properties of `Path`, plus:
+* string _t = "RECT"
+* bool SmoothCorners = false
+
+### Object Star — A star is a shape drawn on the canvas with the Star tool.
+
+Has all properties of `Path`, plus:
+* string _t = "STAR"
+* float Rays = 0
+* float Ratio = 0
+
+### Object States — Set of a states of the component.
 
 Has all properties of `Frame`, plus:
 * string _t = "STATES"
-* ComponentPropertyBase[] Properties //component properties of states.
+* ComponentPropertyBase[] Properties
 
-### Triangle — A triangle is a shape drawn on the canvas with the Triangle tool.
+### Object Triangle — A triangle is a shape drawn on the canvas with the Triangle tool.
 
 Has all properties of `Path`, plus:
-* string _t = "TRIANGLE" //object type.
+* string _t = "TRIANGLE"
 
-### Frame — A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
-
-Has all properties of `Layer`, plus:
-* string _t = "FRAME" //object type.
-* bool ClipContent = false //when enabled, hides the content outside the frame boundaries.
-* bool FlowHome = false //sets the frame as a prototype starting point.
-* PrototypeViewport Viewport //defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
-* bool ResizesContent = false //enables adjusting and resizing the frame content as the frame is resized.
-* AutoLayoutContainer Container //auto Layout Properties
-* LayoutGuideBase[] Layouts //grid, Row and Column layouts of the frame.
-* GUID GridsId //grid Layout style id.
-* Rulers Rulers //rulers and guidelines info.
-* Layer[] Layers //list of layers on the frame.
-
-### Group — A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
+### Object Frame — A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
 
 Has all properties of `Layer`, plus:
-* string _t = "GROUP" //object type.
-* bool SkipSelect = false //when enabled, users can select group items without first selecting the group.
-* Layer[] Layers //list of layers within the group.
+* string _t = "FRAME"
+* bool ClipContent = false
+* bool FlowHome = false
+* PrototypeViewport Viewport
+* bool ResizesContent = false
+* AutoLayoutContainer Container
+* LayoutGuideBase[] Layouts
+* GUID GridsId
+* Rulers Rulers
+* Layer[] Layers
 
-### Instance — An instance is a copy of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component.
-
-Has all properties of `Layer`, plus:
-* string _t = "INSTANCE" //object type.
-* float Scale = 0 //scale of the instance.
-* GUID ComponentId //unique component identifier.
-* AutoLayoutContainer Container //auto Layout Properties
-* Override[] Overrides //defines the overrides applied to the instance.
-
-### Path — A vector path determines the outline and form of a vector object. A path is made up of points and segments.
+### Object Group — A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
 
 Has all properties of `Layer`, plus:
-* string _t = "PATH" //object type.
-* Arrowhead StartMarker = 0 //determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* Arrowhead EndMarker = 0 //determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* float MiterLimit = 10 //limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
-* bool Edited = false //if the shape is edited in the path editor.
-* bool Open = false //indicates whether the path is open.
-* Vertex[] Points //list of path's points.
+* string _t = "GROUP"
+* bool SkipSelect = false
+* Layer[] Layers
 
-### Section — Root group of layers. Can be a child of a page or another section.             Does not support rotation, flips, effects.
+### Object Instance — An instance is a copy of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component.
+
+Has all properties of `Layer`, plus:
+* string _t = "INSTANCE"
+* float Scale = 0
+* GUID ComponentId
+* AutoLayoutContainer Container
+* Override[] Overrides
+
+### Object Path — A vector path determines the outline and form of a vector object. A path is made up of points and segments.
+
+Has all properties of `Layer`, plus:
+* string _t = "PATH"
+* Arrowhead StartMarker = 0
+* Arrowhead EndMarker = 0
+* float MiterLimit = 10
+* bool Edited = false
+* bool Open = false
+* Vertex[] Points
+
+### Object Section — Root group of layers. Can be a child of a page or another section.             Does not support rotation, flips, effects.
 
 Has all properties of `Layer`, plus:
 * string _t = "SECTION"
-* Layer[] Layers //list of layers within the section.
+* Layer[] Layers
 
-### Shape — A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
-
-Has all properties of `Layer`, plus:
-* string _t = "SHAPE" //object type.
-* Arrowhead StartMarker = 0 //determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* Arrowhead EndMarker = 0 //determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* float MiterLimit = 10 //limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
-* Layer[] Layers //list of layers.
-
-### Slice — A slice is a special type of layers used for exporting certaing parts of designs.
+### Object Shape — A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
 
 Has all properties of `Layer`, plus:
-* string _t = "SLICE" //object type.
-* bool HasBackground = false //defines whether the slice includes background.
-* Color Background = "00000000" //defines the background color.
-* GUID? BackgroundId //unique color variable ID.
+* string _t = "SHAPE"
+* Arrowhead StartMarker = 0
+* Arrowhead EndMarker = 0
+* float MiterLimit = 10
+* Layer[] Layers
 
-### Text — Text is a block or line of text on the canvas.
+### Object Slice — A slice is a special type of layers used for exporting certaing parts of designs.
 
 Has all properties of `Layer`, plus:
-* string _t = "TEXT" //object type.
-* string text //content of the text layer.
-* TextProperties TextStyle //style applied to the text.
-* InlineStyle[] Inlines //styling options applied to the text within a text block.
-* TextBehavior Behavior = 0 //behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
-* bool ClipContent = true //valid for files imported from Figma. Defines whether to truncate text content.
-* bool Truncate = false //trim text with triple dots in the end if content overlaps fixed layer size bounds.
-* byte MaxLines = 0 //count of lines allowed. If the limit is exceeded, the text will be truncated.
-* bool DrawOnPath = false //defines whether text draws on the underlying path.
-* bool Warp = false //defines whether text warps when drawn on the underlying path.
-* GUID TextStyleId //text style id.
+* string _t = "SLICE"
+* bool HasBackground = false
+* Color Background = "00000000"
+* GUID? BackgroundId
 
-### Layer — A layer is any ungrouped element available on the canvas.
+### Object Text — Text is a block or line of text on the canvas.
 
-* string _t = "COMPONENT" //object type.
-* GUID Id //unique layer identifier.
-* string Name //defines layer name.
-* bool NameIsFixed = false //name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
-* BoolOp BooleanOp = 0 //defines the boolean operation applied to the layer.
-* bool Fixed = false //if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
-* bool Locked = false //defines whether the layer is locked for editing.
-* bool Hidden = false //defines whether the layer is hidden.
-* bool IsTemplate = false //defines whether tha layer is marked as a template.
-* bool Expand = false //defines whether the layer is expanded in Layer List.
-* bool Trim = false //when enabled, trims empty pixels in exported images.
-* ExportOption[] Export //export options of the layer.
-* string Constraints = "LTWH" //defines constraint settings of the layer. String with chars where every char means a flag:             L - left, T - top, R - right, B - bottom, W - fix width, H - fix height.
-* Matrix Transform = Free.Schema.Matrix //position, rotation and flips of an object, stored in a single 3x2 matrix.
-* Size Size = [100,100] //defines the layer size.
-* bool LockAspect = false //defines whether the layer's aspect ratio should be remain unchanged upon resizing.
-* bool Mask = false //defines whether the layer is used as a mask.
-* bool BreakMask = false //defines if the layer is set to ignore the mask.
-* MaskType MaskType = 0 //type of the Mask - Vector, Alpha or Luminance.
-* bool KeepScroll = false //if the *Keep scroll position* option is enabled (prototyping).
-* float MinWidth = 0 //defines the minimum layer width (auto layout).
-* float MinHeight = 0 //defines the minimum layer height (auto layout).
-* float MaxWidth = 0 //defines the maximum layer width (auto layout).
-* float MaxHeight = 0 //defines the maximum layer height (auto layout).
-* bool LayoutStretch = false //determines if the layer should stretch along the parent’s counter axis (auto layout).
-* bool LayoutGrowStretch = false //determines whether a layer should stretch along the parent’s primary axis (auto layout).
-* bool LayoutFixPos = false //enables absolute position for the layer (auto layout).
-* [string,string] Custom //key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
-* GUID FillsId //color style id for fills.
-* GUID BordersId //color style id for borders.
-* GUID EffectsId //effect style id.
-* float Opacity = 1 //opacity value.
-* BlendMode BlendMode = 0 //blend mode.
-* PathFillType Winding = 1 //defines the filling options for overlapping paths.
-* Fill[] Fills //list of fills.
-* Fill[] Borders //list of borders.
-* float Thickness = 0 //defines border thickness.
-* Thickness CustomThickness = [0,0,0,0] //defines custom border thickness.
-* LinePosition LinePos = 0 //defines border position.
-* LineCap LineCap = 0 //defines the shape of line caps.
-* LineJoin LineJoin = 0 //defines the appearance of line folds.
-* float[] Dash //defines the size of dashes.
-* ShadowEffect[] Shadows //list of shadows.
-* ShadowEffect[] InnerShadows //list of inner shadows.
-* BlurEffect Blur //information about blurs.
-* ImageFilters ImageFilters //filters applied to an image (hue, saturartion, etc.), if any.
-* float[] CornerRadius = float[4] //sets the corner radius of the frame/instance/component/states/section.
-* bool SmoothCorners = false //enables smooth rounded corners like in iOS interfaces.
+Has all properties of `Layer`, plus:
+* string _t = "TEXT"
+* string text
+* TextProperties TextStyle
+* InlineStyle[] Inlines
+* TextBehavior Behavior = 0
+* bool ClipContent = true
+* bool Truncate = false
+* byte MaxLines = 0
+* bool DrawOnPath = false
+* bool Warp = false
+* GUID TextStyleId
 
-### ColorStyle — Style of fills. Can be set to borders and fills.
+### Object Layer — A layer is any ungrouped element available on the canvas.
 
-Has all properties of `StyleBase`, plus:
-* Fill[] Fills //list of fills applied to a style.
+* string _t = "COMPONENT"
+* GUID Id
+* string Name
+* bool NameIsFixed = false
+* BoolOp BooleanOp = 0
+* bool Fixed = false
+* bool Locked = false
+* bool Hidden = false
+* bool IsTemplate = false
+* bool Expand = false
+* bool Trim = false
+* ExportOption[] Export
+* string Constraints = "LTWH"
+* Matrix Transform = Free.Schema.Matrix
+* Size Size = [100,100]
+* bool LockAspect = false
+* bool Mask = false
+* bool BreakMask = false
+* MaskType MaskType = 0
+* bool KeepScroll = false
+* float MinWidth = 0
+* float MinHeight = 0
+* float MaxWidth = 0
+* float MaxHeight = 0
+* bool LayoutStretch = false
+* bool LayoutGrowStretch = false
+* bool LayoutFixPos = false
+* [string,string] Custom
+* GUID FillsId
+* GUID BordersId
+* GUID EffectsId
+* float Opacity = 1
+* BlendMode BlendMode = 0
+* PathFillType Winding = 1
+* Fill[] Fills
+* Fill[] Borders
+* float Thickness = 0
+* Thickness CustomThickness = [0,0,0,0]
+* LinePosition LinePos = 0
+* LineCap LineCap = 0
+* LineJoin LineJoin = 0
+* float[] Dash
+* ShadowEffect[] Shadows
+* ShadowEffect[] InnerShadows
+* BlurEffect Blur
+* ImageFilters ImageFilters
+* float[] CornerRadius = float[4]
+* bool SmoothCorners = false
 
-### EffectStyle
-
-Has all properties of `StyleBase`, plus:
-* ShadowEffect[] Shadows //list of shadows of the style.
-* ShadowEffect[] InnerShadows //list of inner shadows of the style.
-* BlurEffect Blur //definition of the blur effect of the style.
-
-### TextStyle — Text Style
+### Object ColorStyle — Style of fills. Can be set to borders and fills.
 
 Has all properties of `StyleBase`, plus:
-* string Font = "Inter" //text font.
-* float Size = 12 //text size.
-* float ParagraphSpacing = 0 //paragraph spacing.
-* float Kerning = 0 //letter spacing.
-* float BaselineOffset = 0 //text offset from the baseline.
-* float? LineHeight //line spacing.
-* bool Underline = false //if the text is underlined.
-* bool Strikethrough = false //if the strikethrough option is applied to the text.
-* CharacterCasing Casing = 0 //character case.
+* Fill[] Fills
 
-### StyleBase — Base class for a shared style
+### Object EffectStyle
 
-* GUID Id //unique style ID.
-* string Name //style name.
-* int Version = 0 //style version.
-* string FigmaId //unique Figma Style Id. Used to connect shared libraries and documents imported from figma.
+Has all properties of `StyleBase`, plus:
+* ShadowEffect[] Shadows
+* ShadowEffect[] InnerShadows
+* BlurEffect Blur
 
-### AutoLayoutContainer — Defines auto layout settings.
+### Object TextStyle — Text Style
+
+Has all properties of `StyleBase`, plus:
+* string Font = "Inter"
+* float Size = 12
+* float ParagraphSpacing = 0
+* float Kerning = 0
+* float BaselineOffset = 0
+* float? LineHeight
+* bool Underline = false
+* bool Strikethrough = false
+* CharacterCasing Casing = 0
+
+### Object StyleBase — Base class for a shared style
+
+* GUID Id
+* string Name
+* int Version = 0
+* string FigmaId
+
+### Object AutoLayoutContainer — Defines auto layout settings.
 
 Has all properties of `LayoutContainerBase`, plus:
-* string _t = "AUTO" //object type.
-* LayoutOrientation Orientation = 0 //layout orientation: horizontal or vertical.
-* float Spacing = 0 //spacing value
-* float WrapSpacing = 0 //spacing between rows of wrapped content.
-* Thickness Padding = [0,0,0,0] //padding value.
-* HorizontalAlignment Align = 0 //horizontal children alignment
-* VerticalAlignment Valign = 0 //vertical children alignment
-* SizingMode Sizing = 0 //horizontal resizing mode: fixed or hug.
-* SizingMode Vsizing = 0 //vertical resizing mode: fixed or hug.
-* bool TextBaseline = false //if text baseline alignment is enabled.
-* bool StrokesIncluded = false //if the Include Borders option is enabled.
-* bool ReverseZIndex = false //if the Last on Top option is enabled.
-* bool Wrap = false //if wrapping is enabled.
-* bool WrapDistribute = false //if auto distribute is enabled for wrapped content.
+* string _t = "AUTO"
+* LayoutOrientation Orientation = 0
+* float Spacing = 0
+* float WrapSpacing = 0
+* Thickness Padding = [0,0,0,0]
+* HorizontalAlignment Align = 0
+* VerticalAlignment Valign = 0
+* SizingMode Sizing = 0
+* SizingMode Vsizing = 0
+* bool TextBaseline = false
+* bool StrokesIncluded = false
+* bool ReverseZIndex = false
+* bool Wrap = false
+* bool WrapDistribute = false
 
-### BlurEffect — Defines the settings of the blur effect.
+### Object BlurEffect — Defines the settings of the blur effect.
 
-* float Saturation = 1 //saturation. Only for background blur.
-* float Radius = 10 //blur Radius.
-* bool Enabled = false //if the blur is enabled.
-* BlurType Type = 0 //sets the blur type.
+* float Saturation = 1
+* float Radius = 10
+* bool Enabled = false
+* BlurType Type = 0
 
-### Document — The document's .json structure.
+### Object ExportOption — Export settings.
 
-* GUID Id //unique document ID.
-* Point Nudge = [1,10] //nudge Amount. X - small nudge. Y = large nudge.
-* bool FromFigma = false //if the document is imported from Figma.
-* int CurrentPageIndex = 0 //index of the currently open page.
-* Font[] Fonts //embedded fonts stored in the document.
-* ColorStyle[] FillStyles //fill styles stored in the document.
-* EffectStyle[] EffectStyles //effect styles stored in the document.
-* TextStyle[] TextStyles //text styles stored in the document.
-* GuideStyle[] GuideStyles //guide layout styles stored in the document.
-* GUID[] Pages //list of document pages.
+* string Format = "PNG"
+* ScaleType Type = 0
+* float Size = 0
+* string Name
+* NamingScheme Naming = 0
 
-### ExportOption — Export settings.
+### Object Fill — Defines the fill applied to a layer.
 
-* string Format = "PNG" //export format. Default: PNG.
-* ScaleType Type = 0 //defines the scale type: Scale/Width/Height. The Width and Height types are currently not supported.
-* float Size = 0 //defines the width/height/scale of the exported object. Dependent on the type of the scale.
-* string Name //user-defined suffix/preffix (string) added to the export file name. Default: empty.
-* NamingScheme Naming = 0 //defines whether a suffix or preffix will be added to the export files name. Default: suffix.
+* bool Enabled = false
+* Color Color = "00000000"
+* GUID? ColorId
+* FillType Type = 0
+* float Opacity = 0
+* BlendMode BlendMode = 0
+* Pattern Pattern
+* Gradient Gradient
 
-### Fill — Defines the fill applied to a layer.
+### Object Font — Embedded fonts stored in the document.
 
-* bool Enabled = false //if a fill is added.
-* Color Color = "00000000" //fill color.
-* GUID? ColorId //color variable ID.
-* FillType Type = 0 //defines the fill type.
-* float Opacity = 0 //defines the fill opacity.
-* BlendMode BlendMode = 0 //defines the blend mode.
-* Pattern Pattern //contains pattern fill properties in case the fill is a pattern fill.
-* Gradient Gradient //contains gradient properties in case the fill is a gradient.
+* string Data
+* string Name
+* string FileName
+* string[] PostscriptNames
 
-### Font — Embedded fonts stored in the document.
+### Object Gradient — An object that represents a gradient.
 
-* string Data //name of the font file in the fonts folder.
-* string Name //font name.
-* string FileName //font file name.
-* string[] PostscriptNames //postScript names of the font.
+* GradientType Type = 0
+* Point From = [0.5,0]
+* Point To = [0.5,1]
+* Point Side = [0,0]
+* GradientStop[] Stops
 
-### Gradient — An object that represents a gradient.
+### Object GradientStop — A position-color pair representing a gradient stop.
 
-* GradientType Type = 0 //type of the gradient.
-* Point From = [0.5,0] //position of the gradient start point.
-* Point To = [0.5,1] //position of the gradient end point.
-* Point Side = [0,0] //position of the gradient side point. Valid for radial and angular gragients.
-* GradientStop[] Stops //list of other gradient points.
+* float Pos = 0
+* Color Color = "00000000"
+* GUID? ColorId
 
-### GradientStop — A position-color pair representing a gradient stop.
+### Object ImageFilters — Defines filters that can be applied to images.
 
-* float Pos = 0 //value between 0 and 1 representing a position along gradient axis.
-* Color Color = "00000000" //color attached to a corresponding position.
-* GUID? ColorId //color variable ID.
+* bool Enabled = false
+* float Brightness = 0
+* float Contrast = 1
+* float Hue = 0
+* float Saturation = 1
 
-### ImageFilters — Defines filters that can be applied to images.
+### Object InlineStyle — Style (bold, italic, etc.) applied to a part of text or single word within a text block.
 
-* bool Enabled = false //if a filter is applied to the image layer.
-* float Brightness = 0 //brightness filter.
-* float Contrast = 1 //contrast filter.
-* float Hue = 0 //hue filter.
-* float Saturation = 1 //saturation filter.
+* int Start = 0
+* int Length = 0
+* TextProperties Style
+* GUID FillsId
+* GUID TextStyleId
 
-### InlineStyle — Style (bold, italic, etc.) applied to a part of text or single word within a text block.
+### Object LayoutContainerBase — Defines a container layout.
 
-* int Start = 0 //position where the style starts.
-* int Length = 0 //length of the selection.
-* TextProperties Style //style applied to the selection.
-* GUID FillsId //color Style Id.
-* GUID TextStyleId //text style id.
+* string _t
 
-### LayoutContainerBase — Defines a container layout.
+### Object Page — Document page properties.
 
-* string _t //object type.
+* GUID Id
+* string Name
+* Color Background = "00000000"
+* bool IsComponentPage = false
+* Rulers Rulers
+* Point Origin = [0,0]
+* float Zoom = 0
+* Layer[] Layers
 
-### Page — Document page properties.
+### Object Pattern — Defines the image fill options.
 
-* GUID Id //unique page ID.
-* string Name //page name.
-* Color Background = "00000000" //canvas color.
-* bool IsComponentPage = false //if the page is used to store components.
-* Rulers Rulers //rulers applied by the user.
-* Point Origin = [0,0] //point where the user left off the page.
-* float Zoom = 0 //zoom scale last applied to the page.
-* Layer[] Layers //list of layers in the page.
+* PatternFillType Type = 1
+* string Image
+* float Rotation = 0
+* float TileScale = 1
+* Matrix? Transform
 
-### Pattern — Defines the image fill options.
+### Object PrototypeViewport — This is a frame preset. Also used to determine viewport size for a large frame to scroll it properly.
 
-* PatternFillType Type = 1 //defines the fill type: tile, fill, stretch, fit, or crop.
-* string Image //defines the image name used as a fill.
-* float Rotation = 0 //image rotation value, in degrees. Applicable to all types, except for crop.
-* float TileScale = 1 //tile scale value. Applicable to the tile type only.
-* Matrix? Transform //defines how the image is cropped. Applicable to the crop type only.
+* GUID Id
+* string Name
+* Size Size = [0,0]
+* GUID LibraryId
 
-### PrototypeViewport — This is a frame preset. Also used to determine viewport size for a large frame to scroll it properly.
+### Object Rulers — An object containing ruler origins and guideline positions.
 
-* GUID Id //unique frame identifier.
-* string Name //frame name.
-* Size Size = [0,0] //frame size.
-* GUID LibraryId //library identifier.
+* int[] Guides
+* int[] VGuides
 
-### Rulers — An object containing ruler origins and guideline positions.
+### Object ShadowEffect — Defines the shadow options.
 
-* int[] Guides //positions of vertical guidelines on the Horizontal Ruler.
-* int[] VGuides //positions of horizontal guidelines on the Vertical Ruler.
+* bool Enabled = true
+* float Radius = 0
+* Color Color = "00000000"
+* GUID? ColorId
+* float Spread = 0
+* Point Offset = [0,0]
+* BlendMode BlendMode = 0
 
-### ShadowEffect — Defines the shadow options.
+### Object TextProperties — Defines a set of properties that make up a text style.
 
-* bool Enabled = true //if a shadow effect is enabled.
-* float Radius = 0 //radius of the shadow blur.
-* Color Color = "00000000" //shadow color.
-* GUID? ColorId //color variable ID.
-* float Spread = 0 //shadow spread value.
-* Point Offset = [0,0] //how far the shadow is projected in the x and y directions.
-* BlendMode BlendMode = 0 //shadow blend mode.
-
-### TextProperties — Defines a set of properties that make up a text style.
-
-* Fill[] Fills //list of fills.
-* string Font = "Inter" //text font.
-* float Size = 12 //text size.
-* float ParagraphSpacing = 0 //paragraph spacing.
-* float Kerning = 0 //letter spacing.
-* float BaselineOffset = 0 //text offset from the baseline.
-* float? LineHeight //line spacing.
-* CharacterCasing Casing = 0 //character case.
-* TextHorizontalAlignment Align = 0 //horizontal alignment applied to the text.
-* TextVerticalAlignment Valign = 0 //vertical alignment applied to the text.
-* ListMarkerType List = 0 //list type: numbered, bulleted, none.
-* bool RTL = false //if the text is RTL.
-* bool Underline = false //if the text is underlined.
-* bool Strikethrough = false //if the strikethrough option is applied to the text.
-* BaselinePosition BaselinePos = 0 //text position against the baseline.
+* Fill[] Fills
+* string Font = "Inter"
+* float Size = 12
+* float ParagraphSpacing = 0
+* float Kerning = 0
+* float BaselineOffset = 0
+* float? LineHeight
+* CharacterCasing Casing = 0
+* TextHorizontalAlignment Align = 0
+* TextVerticalAlignment Valign = 0
+* ListMarkerType List = 0
+* bool RTL = false
+* bool Underline = false
+* bool Strikethrough = false
+* BaselinePosition BaselinePos = 0
 
 ### Struct Color — 32-bit ARGB unpremultiplied color value.
 
-* byte Alpha = 0 //gets the alpha component of the color.
-* byte Red = 0 //gets the red component of the color.
-* byte Green = 0 //gets the green component of the color.
-* byte Blue = 0 //gets the blue component of the color.
+* byte Alpha = 0
+* byte Red = 0
+* byte Green = 0
+* byte Blue = 0
 
 ### Struct Matrix — A transformation matrix is standard way in computer graphics to represent translation and rotation.             These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1].             This is known as an affine transform and is enough to represent translation, rotation, and skew.             The identity transform is [1, 0, 0,   0, 1, 0].             A translation matrix will typically look like: [1, 0, tx,   0, 1, ty]             and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0]             If a matrix contains only translation it will be printed like point [0,5]
 
-* float ScaleX //scale by x-coord. Usually should be 1.             If it's -1 - the layer is flipped horizontally.             If it's some random number - it's a cos(angle).
-* float SkewX //skew by x-coord. Usually should be 0.             If it's some random number - it's a -sin(angle).
-* float TransX //translation by x-coord.
-* float SkewY //skew by y-coord. Usually should be 0.             If it's some random number - it's a sin(angle).
-* float ScaleY //scale by y-coord. Usually should be 1.             If it's -1 - the layer is flipped vertically.             If it's some random number - it's a cos(angle).
-* float TransY //translation by y-coord.
+* float ScaleX
+* float SkewX
+* float TransX
+* float SkewY
+* float ScaleY
+* float TransY
 
 ### Struct Point — A utility class to represent a point.
 
-* float X //the x coordinate of the point.
-* float Y //the y coordinate of the point.
+* float X
+* float Y
 
 ### Struct Rect — A utility class to represent a rectangle.
 
-* float Left //the x coordinate of the top-left corner of the rectangle.
-* float Top //the y coordinate of the top-left corner of the rectangle.
-* float Width //the width of the rectangle.
-* float Height //the height of the rectangle.
+* float Left
+* float Top
+* float Width
+* float Height
 
 ### Struct Size — A utility class to represent layer size.
 
-* float Width //layer width.
-* float Height //layer height.
+* float Width
+* float Height
 
 ### Struct Thickness — Thickness struct. Used for Border thickness and Padding values
 
-* float Left //left thickness.
-* float Top //top thickness.
-* float Right //right thickness.
-* float Bottom //bottom thickness.
+* float Left
+* float Top
+* float Right
+* float Bottom
 
 ### Struct Vertex — A utility class to represent a vertex.
 
-* Point Point = [0,0] //base point of a vertex
-* Point From = [0,0] //first control point, curve from.
-* Point To = [0,0] //second control point, curve to.
-* float Radius //corner radius of a vertex point. It's stored in half because we don't need that much precision for corner radius.
-* CurveMode Mode = 0 //mode of vertex.
+* Point Point = [0,0]
+* Point From = [0,0]
+* Point To = [0,0]
+* float Radius
+* CurveMode Mode = 0
 
 ### Enum Arrowhead — Defines the appearance of arrowheads.
 

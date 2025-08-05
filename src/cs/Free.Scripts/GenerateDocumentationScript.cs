@@ -43,7 +43,7 @@ public static class GenerateDocumentationScript
     private static readonly string[] LlmFilter = [
         "ComponentType", "Override", 
         
-        "Meta", "SharedLibrary",
+        "Document", "Meta", "SharedLibrary",
         
         "LayoutGuideBase", "Rows", "Columns", "Grid", "GuideStyle",
         
