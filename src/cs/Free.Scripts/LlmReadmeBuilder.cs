@@ -177,9 +177,19 @@ public class LlmReadmeBuilder
             return "\"" + str + "\"";
         }
 
+        if (value is Color c)
+        {
+            return "\"" + c + "\"";
+        }
+
         if (value is bool b)
         {
             return b ? "true" : "false";
+        }
+
+        if (value.GetType().IsEnum)
+        {
+            return Convert.ToInt32(value).ToString();
         }
 
         return value.ToString();

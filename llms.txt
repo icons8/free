@@ -94,8 +94,8 @@ Has all properties of `Layer`, plus:
 
 Has all properties of `Layer`, plus:
 * string _t = "PATH" //object type.
-* Arrowhead StartMarker = None //determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* Arrowhead EndMarker = None //determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* Arrowhead StartMarker = 0 //determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* Arrowhead EndMarker = 0 //determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * float MiterLimit = 10 //limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 * bool Edited = false //if the shape is edited in the path editor.
 * bool Open = false //indicates whether the path is open.
@@ -111,8 +111,8 @@ Has all properties of `Layer`, plus:
 
 Has all properties of `Layer`, plus:
 * string _t = "SHAPE" //object type.
-* Arrowhead StartMarker = None //determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* Arrowhead EndMarker = None //determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* Arrowhead StartMarker = 0 //determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* Arrowhead EndMarker = 0 //determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * float MiterLimit = 10 //limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 * Layer[] Layers //list of layers.
 
@@ -121,7 +121,7 @@ Has all properties of `Layer`, plus:
 Has all properties of `Layer`, plus:
 * string _t = "SLICE" //object type.
 * bool HasBackground = false //defines whether the slice includes background.
-* Color Background = 00000000 //defines the background color.
+* Color Background = "00000000" //defines the background color.
 * GUID? BackgroundId //unique color variable ID.
 
 ### Text — Text is a block or line of text on the canvas.
@@ -131,7 +131,7 @@ Has all properties of `Layer`, plus:
 * string text //content of the text layer.
 * TextProperties TextStyle //style applied to the text.
 * InlineStyle[] Inlines //styling options applied to the text within a text block.
-* TextBehavior Behavior = Flexible //behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
+* TextBehavior Behavior = 0 //behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * bool ClipContent = true //valid for files imported from Figma. Defines whether to truncate text content.
 * bool Truncate = false //trim text with triple dots in the end if content overlaps fixed layer size bounds.
 * byte MaxLines = 0 //count of lines allowed. If the limit is exceeded, the text will be truncated.
@@ -145,7 +145,7 @@ Has all properties of `Layer`, plus:
 * GUID Id //unique layer identifier.
 * string Name //defines layer name.
 * bool NameIsFixed = false //name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
-* BoolOp BooleanOp = Union //defines the boolean operation applied to the layer.
+* BoolOp BooleanOp = 0 //defines the boolean operation applied to the layer.
 * bool Fixed = false //if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
 * bool Locked = false //defines whether the layer is locked for editing.
 * bool Hidden = false //defines whether the layer is hidden.
@@ -159,7 +159,7 @@ Has all properties of `Layer`, plus:
 * bool LockAspect = false //defines whether the layer's aspect ratio should be remain unchanged upon resizing.
 * bool Mask = false //defines whether the layer is used as a mask.
 * bool BreakMask = false //defines if the layer is set to ignore the mask.
-* MaskType MaskType = Vector //type of the Mask - Vector, Alpha or Luminance.
+* MaskType MaskType = 0 //type of the Mask - Vector, Alpha or Luminance.
 * bool KeepScroll = false //if the *Keep scroll position* option is enabled (prototyping).
 * float MinWidth = 0 //defines the minimum layer width (auto layout).
 * float MinHeight = 0 //defines the minimum layer height (auto layout).
@@ -173,15 +173,15 @@ Has all properties of `Layer`, plus:
 * GUID BordersId //color style id for borders.
 * GUID EffectsId //effect style id.
 * float Opacity = 1 //opacity value.
-* BlendMode BlendMode = Normal //blend mode.
-* PathFillType Winding = EvenOdd //defines the filling options for overlapping paths.
+* BlendMode BlendMode = 0 //blend mode.
+* PathFillType Winding = 1 //defines the filling options for overlapping paths.
 * Fill[] Fills //list of fills.
 * Fill[] Borders //list of borders.
 * float Thickness = 0 //defines border thickness.
 * Thickness CustomThickness = [0,0,0,0] //defines custom border thickness.
-* LinePosition LinePos = Center //defines border position.
-* LineCap LineCap = Butt //defines the shape of line caps.
-* LineJoin LineJoin = Miter //defines the appearance of line folds.
+* LinePosition LinePos = 0 //defines border position.
+* LineCap LineCap = 0 //defines the shape of line caps.
+* LineJoin LineJoin = 0 //defines the appearance of line folds.
 * float[] Dash //defines the size of dashes.
 * ShadowEffect[] Shadows //list of shadows.
 * ShadowEffect[] InnerShadows //list of inner shadows.
@@ -213,7 +213,7 @@ Has all properties of `StyleBase`, plus:
 * float? LineHeight //line spacing.
 * bool Underline = false //if the text is underlined.
 * bool Strikethrough = false //if the strikethrough option is applied to the text.
-* CharacterCasing Casing = Normal //character case.
+* CharacterCasing Casing = 0 //character case.
 
 ### StyleBase — Base class for a shared style
 
@@ -226,14 +226,14 @@ Has all properties of `StyleBase`, plus:
 
 Has all properties of `LayoutContainerBase`, plus:
 * string _t = "AUTO" //object type.
-* LayoutOrientation Orientation = Horizontal //layout orientation: horizontal or vertical.
+* LayoutOrientation Orientation = 0 //layout orientation: horizontal or vertical.
 * float Spacing = 0 //spacing value
 * float WrapSpacing = 0 //spacing between rows of wrapped content.
 * Thickness Padding = [0,0,0,0] //padding value.
-* HorizontalAlignment Align = Left //horizontal children alignment
-* VerticalAlignment Valign = Top //vertical children alignment
-* SizingMode Sizing = Auto //horizontal resizing mode: fixed or hug.
-* SizingMode Vsizing = Auto //vertical resizing mode: fixed or hug.
+* HorizontalAlignment Align = 0 //horizontal children alignment
+* VerticalAlignment Valign = 0 //vertical children alignment
+* SizingMode Sizing = 0 //horizontal resizing mode: fixed or hug.
+* SizingMode Vsizing = 0 //vertical resizing mode: fixed or hug.
 * bool TextBaseline = false //if text baseline alignment is enabled.
 * bool StrokesIncluded = false //if the Include Borders option is enabled.
 * bool ReverseZIndex = false //if the Last on Top option is enabled.
@@ -245,7 +245,7 @@ Has all properties of `LayoutContainerBase`, plus:
 * float Saturation = 1 //saturation. Only for background blur.
 * float Radius = 10 //blur Radius.
 * bool Enabled = false //if the blur is enabled.
-* BlurType Type = Gaussian //sets the blur type.
+* BlurType Type = 0 //sets the blur type.
 
 ### Document — The document's .json structure.
 
@@ -263,19 +263,19 @@ Has all properties of `LayoutContainerBase`, plus:
 ### ExportOption — Export settings.
 
 * string Format = "PNG" //export format. Default: PNG.
-* ScaleType Type = Scale //defines the scale type: Scale/Width/Height. The Width and Height types are currently not supported.
+* ScaleType Type = 0 //defines the scale type: Scale/Width/Height. The Width and Height types are currently not supported.
 * float Size = 0 //defines the width/height/scale of the exported object. Dependent on the type of the scale.
 * string Name //user-defined suffix/preffix (string) added to the export file name. Default: empty.
-* NamingScheme Naming = Suffix //defines whether a suffix or preffix will be added to the export files name. Default: suffix.
+* NamingScheme Naming = 0 //defines whether a suffix or preffix will be added to the export files name. Default: suffix.
 
 ### Fill — Defines the fill applied to a layer.
 
 * bool Enabled = false //if a fill is added.
-* Color Color = 00000000 //fill color.
+* Color Color = "00000000" //fill color.
 * GUID? ColorId //color variable ID.
-* FillType Type = Color //defines the fill type.
+* FillType Type = 0 //defines the fill type.
 * float Opacity = 0 //defines the fill opacity.
-* BlendMode BlendMode = Normal //defines the blend mode.
+* BlendMode BlendMode = 0 //defines the blend mode.
 * Pattern Pattern //contains pattern fill properties in case the fill is a pattern fill.
 * Gradient Gradient //contains gradient properties in case the fill is a gradient.
 
@@ -288,7 +288,7 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Gradient — An object that represents a gradient.
 
-* GradientType Type = Linear //type of the gradient.
+* GradientType Type = 0 //type of the gradient.
 * Point From = [0.5,0] //position of the gradient start point.
 * Point To = [0.5,1] //position of the gradient end point.
 * Point Side = [0,0] //position of the gradient side point. Valid for radial and angular gragients.
@@ -297,7 +297,7 @@ Has all properties of `LayoutContainerBase`, plus:
 ### GradientStop — A position-color pair representing a gradient stop.
 
 * float Pos = 0 //value between 0 and 1 representing a position along gradient axis.
-* Color Color = 00000000 //color attached to a corresponding position.
+* Color Color = "00000000" //color attached to a corresponding position.
 * GUID? ColorId //color variable ID.
 
 ### ImageFilters — Defines filters that can be applied to images.
@@ -324,7 +324,7 @@ Has all properties of `LayoutContainerBase`, plus:
 
 * GUID Id //unique page ID.
 * string Name //page name.
-* Color Background = 00000000 //canvas color.
+* Color Background = "00000000" //canvas color.
 * bool IsComponentPage = false //if the page is used to store components.
 * Rulers Rulers //rulers applied by the user.
 * Point Origin = [0,0] //point where the user left off the page.
@@ -333,7 +333,7 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Pattern — Defines the image fill options.
 
-* PatternFillType Type = Fill //defines the fill type: tile, fill, stretch, fit, or crop.
+* PatternFillType Type = 1 //defines the fill type: tile, fill, stretch, fit, or crop.
 * string Image //defines the image name used as a fill.
 * float Rotation = 0 //image rotation value, in degrees. Applicable to all types, except for crop.
 * float TileScale = 1 //tile scale value. Applicable to the tile type only.
@@ -355,11 +355,11 @@ Has all properties of `LayoutContainerBase`, plus:
 
 * bool Enabled = true //if a shadow effect is enabled.
 * float Radius = 0 //radius of the shadow blur.
-* Color Color = 00000000 //shadow color.
+* Color Color = "00000000" //shadow color.
 * GUID? ColorId //color variable ID.
 * float Spread = 0 //shadow spread value.
 * Point Offset = [0,0] //how far the shadow is projected in the x and y directions.
-* BlendMode BlendMode = Normal //shadow blend mode.
+* BlendMode BlendMode = 0 //shadow blend mode.
 
 ### TextProperties — Defines a set of properties that make up a text style.
 
@@ -370,14 +370,14 @@ Has all properties of `LayoutContainerBase`, plus:
 * float Kerning = 0 //letter spacing.
 * float BaselineOffset = 0 //text offset from the baseline.
 * float? LineHeight //line spacing.
-* CharacterCasing Casing = Normal //character case.
-* TextHorizontalAlignment Align = Left //horizontal alignment applied to the text.
-* TextVerticalAlignment Valign = Top //vertical alignment applied to the text.
-* ListMarkerType List = None //list type: numbered, bulleted, none.
+* CharacterCasing Casing = 0 //character case.
+* TextHorizontalAlignment Align = 0 //horizontal alignment applied to the text.
+* TextVerticalAlignment Valign = 0 //vertical alignment applied to the text.
+* ListMarkerType List = 0 //list type: numbered, bulleted, none.
 * bool RTL = false //if the text is RTL.
 * bool Underline = false //if the text is underlined.
 * bool Strikethrough = false //if the strikethrough option is applied to the text.
-* BaselinePosition BaselinePos = Normal //text position against the baseline.
+* BaselinePosition BaselinePos = 0 //text position against the baseline.
 
 ### Struct Color — 32-bit ARGB unpremultiplied color value.
 
@@ -425,7 +425,7 @@ Has all properties of `LayoutContainerBase`, plus:
 * Point From = [0,0] //first control point, curve from.
 * Point To = [0,0] //second control point, curve to.
 * float Radius //corner radius of a vertex point. It's stored in half because we don't need that much precision for corner radius.
-* CurveMode Mode = None //mode of vertex.
+* CurveMode Mode = 0 //mode of vertex.
 
 ### Enum Arrowhead — Defines the appearance of arrowheads.
 
