@@ -1,4 +1,8 @@
 ﻿<Solution>
+  <Folder Name="/Output/">
+    <File Path="..\..\README.md" />
+    <File Path="..\..\llms.txt" />
+  </Folder>
   <Project Path="Free.Schema/Free.Schema.csproj" Type="Classic C#" />
   <Project Path="Free.Scripts/Free.Scripts.csproj" Type="Classic C#" />
 </Solution>

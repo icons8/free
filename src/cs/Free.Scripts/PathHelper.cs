@@ -9,7 +9,7 @@ public class PathHelper
             : Path.Combine("bin", "Debug", "net7.0", fileName);
     }
 
-    public static string GetReadmePath()
+    public static string GetReadmePath(string fileName)
     {
         var path = AppContext.BaseDirectory;
         while (!Directory.GetDirectories(path).Any(x=>x.Contains(".git")))
@@ -17,6 +17,6 @@ public class PathHelper
             path = Path.GetDirectoryName(path)!;
         }
 
-        return Path.Combine(path, "README.md");
+        return Path.Combine(path, fileName);
     }
 }

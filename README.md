@@ -314,7 +314,7 @@ Has all properties of [`Frame`](#Frame), plus:
 
 * _t: [string](#string) = `COMPONENT` - object type.
 * ComponentId: [GUID](#GUID) - unique component identifier.
-* Predefined: [bool](#bool) = `False` - indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
+* Predefined: [bool](#bool) = `false` - indicates that the component belongs to the Lunacy default component library (see the Component Tool on the Toolbar)
 * ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for component filters.
 * FigmaId: [string](#string) - unique Figma Component Id. Used to connect shared libraries and documents imported from figma.
 * Properties: [ComponentPropertyBase[]](#ComponentPropertyBase) - component properties.
@@ -343,7 +343,7 @@ A rectangle is a shape drawn on the canvas with the Rectangle tool.
 Has all properties of [`Path`](#Path), plus:
 
 * _t: [string](#string) = `RECT` - object type.
-* SmoothCorners: [bool](#bool) = `False` - if the smooth corners option is enabled. Works only if the rectangle is not edited.
+* SmoothCorners: [bool](#bool) = `false` - if the smooth corners option is enabled. Works only if the rectangle is not edited.
 
 ### <a name="Star"></a>Star
 A star is a shape drawn on the canvas with the Star tool.
@@ -372,7 +372,7 @@ Has all properties of [`Path`](#Path), plus:
 <details>
 <summary>Sketch compatibility</summary>
 
-* Equilateral: [bool](#bool) = `False` - if the triangle is equilateral.
+* Equilateral: [bool](#bool) = `false` - if the triangle is equilateral.
 </details>
 
 ### <a name="Frame"></a>Frame
@@ -381,10 +381,10 @@ A frame is a special type of layers that serves as a container for other layers 
 Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `FRAME` - object type.
-* ClipContent: [bool](#bool) = `False` - when enabled, hides the content outside the frame boundaries.
-* FlowHome: [bool](#bool) = `False` - sets the frame as a prototype starting point.
+* ClipContent: [bool](#bool) = `false` - when enabled, hides the content outside the frame boundaries.
+* FlowHome: [bool](#bool) = `false` - sets the frame as a prototype starting point.
 * Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
-* ResizesContent: [bool](#bool) = `False` - enables adjusting and resizing the frame content as the frame is resized.
+* ResizesContent: [bool](#bool) = `false` - enables adjusting and resizing the frame content as the frame is resized.
 * Container: [AutoLayoutContainer](#AutoLayoutContainer) - auto Layout Properties
 * Layouts: [LayoutGuideBase[]](#LayoutGuideBase) - grid, Row and Column layouts of the frame.
 * GridsId: [GUID](#GUID) - grid Layout style id.
@@ -397,13 +397,13 @@ A layer group is two or more layers unified into a single entity that can be man
 Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `GROUP` - object type.
-* SkipSelect: [bool](#bool) = `False` - when enabled, users can select group items without first selecting the group.
+* SkipSelect: [bool](#bool) = `false` - when enabled, users can select group items without first selecting the group.
 * Layers: [Layer[]](#Layer) - list of layers within the group.
 
 <details>
 <summary>Sketch compatibility</summary>
 
-* SkipConstraints: [bool](#bool) = `False` - serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
+* SkipConstraints: [bool](#bool) = `false` - serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
 </details>
 
 ### <a name="Instance"></a>Instance
@@ -426,8 +426,8 @@ Has all properties of [`Layer`](#Layer), plus:
 * StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
-* Edited: [bool](#bool) = `False` - if the shape is edited in the path editor.
-* Open: [bool](#bool) = `False` - indicates whether the path is open.
+* Edited: [bool](#bool) = `false` - if the shape is edited in the path editor.
+* Open: [bool](#bool) = `false` - indicates whether the path is open.
 * Points: [Vertex[]](#Vertex) - list of path's points.
 
 ### <a name="Section"></a>Section
@@ -453,7 +453,7 @@ Has all properties of [`Layer`](#Layer), plus:
 <details>
 <summary>Sketch compatibility</summary>
 
-* SkipConstraints: [bool](#bool) = `False` - serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
+* SkipConstraints: [bool](#bool) = `false` - serves for constraints compatibility with Sketch. If the file is imported from the Sketch format, the parameter should be set to false to handle constraints properly.
 </details>
 
 ### <a name="Slice"></a>Slice
@@ -462,7 +462,7 @@ A slice is a special type of layers used for exporting certaing parts of designs
 Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `SLICE` - object type.
-* HasBackground: [bool](#bool) = `False` - defines whether the slice includes background.
+* HasBackground: [bool](#bool) = `false` - defines whether the slice includes background.
 * Background: [Color](#Color) = `00000000` - defines the background color.
 * BackgroundId: [GUID?](#GUID) - unique color variable ID.
 
@@ -476,11 +476,11 @@ Has all properties of [`Layer`](#Layer), plus:
 * TextStyle: [TextProperties](#TextProperties) - style applied to the text.
 * Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
 * Behavior: [TextBehavior](#TextBehavior) = `Flexible` - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
-* ClipContent: [bool](#bool) = `True` - valid for files imported from Figma. Defines whether to truncate text content.
-* Truncate: [bool](#bool) = `False` - trim text with triple dots in the end if content overlaps fixed layer size bounds.
+* ClipContent: [bool](#bool) = `true` - valid for files imported from Figma. Defines whether to truncate text content.
+* Truncate: [bool](#bool) = `false` - trim text with triple dots in the end if content overlaps fixed layer size bounds.
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
-* DrawOnPath: [bool](#bool) = `False` - defines whether text draws on the underlying path.
-* Warp: [bool](#bool) = `False` - defines whether text warps when drawn on the underlying path.
+* DrawOnPath: [bool](#bool) = `false` - defines whether text draws on the underlying path.
+* Warp: [bool](#bool) = `false` - defines whether text warps when drawn on the underlying path.
 * TextStyleId: [GUID](#GUID) - text style id.
 
 ### <a name="Layer"></a>Layer
@@ -489,33 +489,33 @@ A layer is any ungrouped element available on the canvas.
 * _t: [string](#string) = `COMPONENT` - object type.
 * Id: [GUID](#GUID) - unique layer identifier.
 * Name: [string](#string) - defines layer name.
-* NameIsFixed: [bool](#bool) = `False` - name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
+* NameIsFixed: [bool](#bool) = `false` - name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
 * BooleanOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
-* Fixed: [bool](#bool) = `False` - if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
-* Locked: [bool](#bool) = `False` - defines whether the layer is locked for editing.
-* Hidden: [bool](#bool) = `False` - defines whether the layer is hidden.
-* IsTemplate: [bool](#bool) = `False` - defines whether tha layer is marked as a template.
-* Expand: [bool](#bool) = `False` - defines whether the layer is expanded in Layer List.
-* Trim: [bool](#bool) = `False` - when enabled, trims empty pixels in exported images.
+* Fixed: [bool](#bool) = `false` - if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
+* Locked: [bool](#bool) = `false` - defines whether the layer is locked for editing.
+* Hidden: [bool](#bool) = `false` - defines whether the layer is hidden.
+* IsTemplate: [bool](#bool) = `false` - defines whether tha layer is marked as a template.
+* Expand: [bool](#bool) = `false` - defines whether the layer is expanded in Layer List.
+* Trim: [bool](#bool) = `false` - when enabled, trims empty pixels in exported images.
 * Export: [ExportOption[]](#ExportOption) - export options of the layer.
 * Constraints: [string](#string) = `LTWH` - defines constraint settings of the layer. String with chars where every char means a flag:
             L - left, T - top, R - right, B - bottom, W - fix width, H - fix height.
 * Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - position, rotation and flips of an object, stored in a single 3x2 matrix.
 * Size: [Size](#Size) = `[100,100]` - defines the layer size.
-* LockAspect: [bool](#bool) = `False` - defines whether the layer's aspect ratio should be remain unchanged upon resizing.
-* Mask: [bool](#bool) = `False` - defines whether the layer is used as a mask.
-* BreakMask: [bool](#bool) = `False` - defines if the layer is set to ignore the mask.
+* LockAspect: [bool](#bool) = `false` - defines whether the layer's aspect ratio should be remain unchanged upon resizing.
+* Mask: [bool](#bool) = `false` - defines whether the layer is used as a mask.
+* BreakMask: [bool](#bool) = `false` - defines if the layer is set to ignore the mask.
 * MaskType: [MaskType](#MaskType) = `Vector` - type of the Mask - Vector, Alpha or Luminance.
-* KeepScroll: [bool](#bool) = `False` - if the *Keep scroll position* option is enabled (prototyping).
+* KeepScroll: [bool](#bool) = `false` - if the *Keep scroll position* option is enabled (prototyping).
 * ScrollBehavior: [FlowScrollBehavior](#FlowScrollBehavior) = `Scroll` - defines scroll behavior (prototyping).
 * Flows: [Flow[]](#Flow) - defines flows (prototyping).
 * MinWidth: [float](#float) = `0` - defines the minimum layer width (auto layout).
 * MinHeight: [float](#float) = `0` - defines the minimum layer height (auto layout).
 * MaxWidth: [float](#float) = `0` - defines the maximum layer width (auto layout).
 * MaxHeight: [float](#float) = `0` - defines the maximum layer height (auto layout).
-* LayoutStretch: [bool](#bool) = `False` - determines if the layer should stretch along the parent’s counter axis (auto layout).
-* LayoutGrowStretch: [bool](#bool) = `False` - determines whether a layer should stretch along the parent’s primary axis (auto layout).
-* LayoutFixPos: [bool](#bool) = `False` - enables absolute position for the layer (auto layout).
+* LayoutStretch: [bool](#bool) = `false` - determines if the layer should stretch along the parent’s counter axis (auto layout).
+* LayoutGrowStretch: [bool](#bool) = `false` - determines whether a layer should stretch along the parent’s primary axis (auto layout).
+* LayoutFixPos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 * Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
 * Binds: [Variable[]](#Variable) - binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
@@ -538,7 +538,7 @@ A layer is any ungrouped element available on the canvas.
 * Blur: [BlurEffect](#BlurEffect) - information about blurs.
 * ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
 * CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame/instance/component/states/section.
-* SmoothCorners: [bool](#bool) = `False` - enables smooth rounded corners like in iOS interfaces.
+* SmoothCorners: [bool](#bool) = `false` - enables smooth rounded corners like in iOS interfaces.
 
 <details>
 <summary>Lunacy specific</summary>
@@ -548,7 +548,7 @@ A layer is any ungrouped element available on the canvas.
 * IconId: [string](#string) - identifier of an icon from the Lunacy gallery.
 * AvatarId: [string](#string) - identifier of a Lunacy-generated avatar.
 * Data: [DataInfo](#DataInfo) - information about auto generated texts.
-* Upscaled: [bool](#bool) = `False` - if the image has been upscaled in Lunacy.
+* Upscaled: [bool](#bool) = `false` - if the image has been upscaled in Lunacy.
 * BackgroundRemove: [BackgroundRemovalState](#BackgroundRemovalState) = `None` - background removal procedure info.
 </details>
 
@@ -588,7 +588,7 @@ Has all properties of [`Variable`](#Variable), plus:
 Value of a boolean variable.
 
 * ThemeId: [GUID](#GUID) - theme unique identifier of a Value.
-* Value: [bool](#bool) = `False` - boolean value.
+* Value: [bool](#bool) = `false` - boolean value.
 * ValueId: [GUID](#GUID) - boolean variable ID.
 
 ### <a name="ColorValue"></a>ColorValue
@@ -641,7 +641,7 @@ Defines boolean component property of components and states.
 Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 
 * _t: [string](#string) = `BOOL` - object type.
-* Value: [bool](#bool) = `False` - initial Value.
+* Value: [bool](#bool) = `false` - initial Value.
 * ValueId: [GUID](#GUID) - boolean variable ID.
 
 ### <a name="StateComponentProperty"></a>StateComponentProperty
@@ -679,7 +679,7 @@ Defines component property of components and states.
 * _t: [string](#string) = `BOOL` - variable type.
 * Id: [GUID](#GUID) - unique property ID.
 * Name: [string](#string) - property name.
-* Dead: [bool](#bool) = `False` - is already deleted.
+* Dead: [bool](#bool) = `false` - is already deleted.
 
 ### <a name="ColorStyle"></a>ColorStyle
 Style of fills. Can be set to borders and fills.
@@ -713,8 +713,8 @@ Has all properties of [`StyleBase`](#StyleBase), plus:
 * Kerning: [float](#float) = `0` - letter spacing.
 * BaselineOffset: [float](#float) = `0` - text offset from the baseline.
 * LineHeight: [float?](#float) - line spacing.
-* Underline: [bool](#bool) = `False` - if the text is underlined.
-* Strikethrough: [bool](#bool) = `False` - if the strikethrough option is applied to the text.
+* Underline: [bool](#bool) = `false` - if the text is underlined.
+* Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
 * Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
 
 ### <a name="StyleBase"></a>StyleBase
@@ -731,7 +731,7 @@ Defines column settings in a layout guide.
 Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 
 * _t: [string](#string) = `COLS` - object type.
-* Enabled: [bool](#bool) = `False` - if columnns are enabled.
+* Enabled: [bool](#bool) = `false` - if columnns are enabled.
 * Align: [LayoutHorizontalAlignment](#LayoutHorizontalAlignment) = `Left` - horizontal alignment settings.
 * Offset: [int](#int) = `0` - offset value.
 * Count: [int](#int) = `0` - number of columns.
@@ -745,7 +745,7 @@ Defines square grid settings for a frame.
 Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 
 * _t: [string](#string) = `GRID` - object type.
-* Enabled: [bool](#bool) = `False` - if the square grid is enabled.
+* Enabled: [bool](#bool) = `false` - if the square grid is enabled.
 * Color: [Color](#Color) = `00000000` - grid color.
 * Size: [int](#int) = `10` - size of grid cells.
 
@@ -761,7 +761,7 @@ Defines row settings in a layout guide.
 Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 
 * _t: [string](#string) = `ROWS` - object type.
-* Enabled: [bool](#bool) = `False` - if rows are enabled.
+* Enabled: [bool](#bool) = `false` - if rows are enabled.
 * Align: [LayoutVerticalAlignment](#LayoutVerticalAlignment) = `Top` - vertical alignment settings.
 * Offset: [int](#int) = `0` - offset value.
 * Count: [int](#int) = `0` - number of rows.
@@ -773,7 +773,7 @@ Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 Defines layout guide settings for a frame.
 
 * _t: [string](#string) - object type.
-* Enabled: [bool](#bool) = `False` - if layout guide is enabled.
+* Enabled: [bool](#bool) = `false` - if layout guide is enabled.
 
 ### <a name="BackAction"></a>BackAction
 Action to go to previous frame.
@@ -809,8 +809,8 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 * Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - action animation.
 * Position: [FlowOverlayPosition](#FlowOverlayPosition) = `Centered` - startup location of overlay.
 * Offset: [Vector2](#Vector2) = `<0, 0>` - offset from startup location.
-* CloseByClick: [bool](#bool) = `False` - close by any click.
-* HasBackground: [bool](#bool) = `False` - defines whether the overlay has background.
+* CloseByClick: [bool](#bool) = `false` - close by any click.
+* HasBackground: [bool](#bool) = `false` - defines whether the overlay has background.
 * Background: [Color](#Color) = `00000000` - overlay background color.
 
 ### <a name="OpenUrlAction"></a>OpenUrlAction
@@ -948,11 +948,11 @@ Has all properties of [`LayoutContainerBase`](#LayoutContainerBase), plus:
 * Valign: [VerticalAlignment](#VerticalAlignment) = `Top` - vertical children alignment
 * Sizing: [SizingMode](#SizingMode) = `Auto` - horizontal resizing mode: fixed or hug.
 * Vsizing: [SizingMode](#SizingMode) = `Auto` - vertical resizing mode: fixed or hug.
-* TextBaseline: [bool](#bool) = `False` - if text baseline alignment is enabled.
-* StrokesIncluded: [bool](#bool) = `False` - if the Include Borders option is enabled.
-* ReverseZIndex: [bool](#bool) = `False` - if the Last on Top option is enabled.
-* Wrap: [bool](#bool) = `False` - if wrapping is enabled.
-* WrapDistribute: [bool](#bool) = `False` - if auto distribute is enabled for wrapped content.
+* TextBaseline: [bool](#bool) = `false` - if text baseline alignment is enabled.
+* StrokesIncluded: [bool](#bool) = `false` - if the Include Borders option is enabled.
+* ReverseZIndex: [bool](#bool) = `false` - if the Last on Top option is enabled.
+* Wrap: [bool](#bool) = `false` - if wrapping is enabled.
+* WrapDistribute: [bool](#bool) = `false` - if auto distribute is enabled for wrapped content.
 
 ### <a name="Bind"></a>Bind
 Bind of a variable into layer property.
@@ -966,7 +966,7 @@ Defines the settings of the blur effect.
 
 * Saturation: [float](#float) = `1` - saturation. Only for background blur.
 * Radius: [float](#float) = `10` - blur Radius.
-* Enabled: [bool](#bool) = `False` - if the blur is enabled.
+* Enabled: [bool](#bool) = `false` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
 
 ### <a name="Document"></a>Document
@@ -974,7 +974,7 @@ The document's .json structure.
 
 * Id: [GUID](#GUID) - unique document ID.
 * Nudge: [Point](#Point) = `[1,10]` - nudge Amount. X - small nudge. Y = large nudge.
-* FromFigma: [bool](#bool) = `False` - if the document is imported from Figma.
+* FromFigma: [bool](#bool) = `false` - if the document is imported from Figma.
 * CurrentPageIndex: [int](#int) = `0` - index of the currently open page.
 * Fonts: [Font[]](#Font) - embedded fonts stored in the document.
 * VariableCollections: [VariableCollection[]](#VariableCollection) - variable collections stored in the document.
@@ -1008,7 +1008,7 @@ Expression
 ### <a name="Fill"></a>Fill
 Defines the fill applied to a layer.
 
-* Enabled: [bool](#bool) = `False` - if a fill is added.
+* Enabled: [bool](#bool) = `false` - if a fill is added.
 * Color: [Color](#Color) = `00000000` - fill color.
 * ColorId: [GUID?](#GUID) - color variable ID.
 * Type: [FillType](#FillType) = `Color` - defines the fill type.
@@ -1050,7 +1050,7 @@ A position-color pair representing a gradient stop.
 ### <a name="ImageFilters"></a>ImageFilters
 Defines filters that can be applied to images.
 
-* Enabled: [bool](#bool) = `False` - if a filter is applied to the image layer.
+* Enabled: [bool](#bool) = `false` - if a filter is applied to the image layer.
 * Brightness: [float](#float) = `0` - brightness filter.
 * Contrast: [float](#float) = `1` - contrast filter.
 * Hue: [float](#float) = `0` - hue filter.
@@ -1151,7 +1151,7 @@ Document page properties.
 * Id: [GUID](#GUID) - unique page ID.
 * Name: [string](#string) - page name.
 * Background: [Color](#Color) = `00000000` - canvas color.
-* IsComponentPage: [bool](#bool) = `False` - if the page is used to store components.
+* IsComponentPage: [bool](#bool) = `false` - if the page is used to store components.
 * Rulers: [Rulers](#Rulers) - rulers applied by the user.
 * Origin: [Point](#Point) = `[0,0]` - point where the user left off the page.
 * Zoom: [float](#float) = `0` - zoom scale last applied to the page.
@@ -1189,7 +1189,7 @@ An object containing ruler origins and guideline positions.
 ### <a name="ShadowEffect"></a>ShadowEffect
 Defines the shadow options.
 
-* Enabled: [bool](#bool) = `True` - if a shadow effect is enabled.
+* Enabled: [bool](#bool) = `true` - if a shadow effect is enabled.
 * Radius: [float](#float) = `0` - radius of the shadow blur.
 * Color: [Color](#Color) = `00000000` - shadow color.
 * ColorId: [GUID?](#GUID) - color variable ID.
@@ -1223,9 +1223,9 @@ Defines a set of properties that make up a text style.
 * Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
 * Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
 * List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
-* RTL: [bool](#bool) = `False` - if the text is RTL.
-* Underline: [bool](#bool) = `False` - if the text is underlined.
-* Strikethrough: [bool](#bool) = `False` - if the strikethrough option is applied to the text.
+* RTL: [bool](#bool) = `false` - if the text is RTL.
+* Underline: [bool](#bool) = `false` - if the text is underlined.
+* Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
 * BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
 
 ### <a name="ThemeSelection"></a>ThemeSelection
@@ -1245,7 +1245,7 @@ Theme Selection of a layer and it's children for a specific theme.
 ### <a name="FlowAnimation"></a>FlowAnimation Struct
 Prototyping action animation.
 
-* Enabled: [bool](#bool) = `False` - if animation is enabled.
+* Enabled: [bool](#bool) = `false` - if animation is enabled.
 * Type: [FlowAnimationType](#FlowAnimationType) = `Instant` - animation type.
 * Effect: [FlowAnimationEffect](#FlowAnimationEffect) = `Linear` - animation effect.
 * Direction: [FlowAnimationDirection](#FlowAnimationDirection) = `Left` - animation direction.

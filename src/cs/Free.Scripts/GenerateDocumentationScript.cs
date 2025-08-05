@@ -15,9 +15,9 @@ public static class GenerateDocumentationScript
         Saturate(items);
         items = OrderItems(items);
 
-        var builder = new MarkdownBuilder(items);
+        var builder = new FullReadmeBuilder(items);
         var str = builder.Build();
-        File.WriteAllText(PathHelper.GetReadmePath(), str);
+        File.WriteAllText(PathHelper.GetReadmePath("README.md"), str);
         Console.WriteLine(str);
 
         if (builder.Missing.Count > 0)
@@ -29,6 +29,10 @@ public static class GenerateDocumentationScript
                 Console.WriteLine("[WARNING] Missing description - " + miss);
             }
         }
+        
+        var llmBuilder = new LlmReadmeBuilder(items);
+        str = llmBuilder.Build();
+        File.WriteAllText(PathHelper.GetReadmePath("llms.txt"), str);
     }
 
     private static void Saturate(List<Node> items)
