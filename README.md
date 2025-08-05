@@ -1297,6 +1297,11 @@ A utility class to represent layer size.
 ### <a name="Thickness"></a>Thickness Struct
 Thickness struct. Used for Border thickness and Padding values
 
+* Left: [float](#float) - left thickness.
+* Top: [float](#float) - top thickness.
+* Right: [float](#float) - right thickness.
+* Bottom: [float](#float) - bottom thickness.
+
 ### <a name="Vertex"></a>Vertex Struct
 A utility class to represent a vertex.
 

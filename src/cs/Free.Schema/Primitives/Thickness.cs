@@ -5,9 +5,21 @@ namespace Free.Schema;
 /// </summary>
 public readonly struct Thickness
 {
+    /// <summary>
+    /// Left thickness.
+    /// </summary>
     public readonly float Left;
+    /// <summary>
+    /// Top thickness.
+    /// </summary>
     public readonly float Top;
+    /// <summary>
+    /// Right thickness.
+    /// </summary>
     public readonly float Right;
+    /// <summary>
+    /// Bottom thickness.
+    /// </summary>
     public readonly float Bottom;
 
     public Thickness(float uniformLength)

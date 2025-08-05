@@ -202,11 +202,6 @@ Has all properties of `StyleBase`, plus:
 * ShadowEffect[] InnerShadows //list of inner shadows of the style.
 * BlurEffect Blur //definition of the blur effect of the style.
 
-### GuideStyle
-
-Has all properties of `StyleBase`, plus:
-* LayoutGuideBase[] Layouts //grid, Row and Column layouts of the style.
-
 ### TextStyle — Text Style
 
 Has all properties of `StyleBase`, plus:
@@ -384,11 +379,6 @@ Has all properties of `LayoutContainerBase`, plus:
 * bool Strikethrough = false //if the strikethrough option is applied to the text.
 * BaselinePosition BaselinePos = Normal //text position against the baseline.
 
-### ThemeSelection — Theme Selection of a layer and it's children for a specific theme.
-
-* GUID Id //unique identifier of the collection.
-* GUID ThemeId //unique identifier of the theme.
-
 ### Struct Color — 32-bit ARGB unpremultiplied color value.
 
 * byte Alpha = 0 //gets the alpha component of the color.
@@ -424,6 +414,11 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Struct Thickness — Thickness struct. Used for Border thickness and Padding values
 
+* float Left //left thickness.
+* float Top //top thickness.
+* float Right //right thickness.
+* float Bottom //bottom thickness.
+
 ### Struct Vertex — A utility class to represent a vertex.
 
 * Point Point = [0,0] //base point of a vertex
@@ -434,20 +429,20 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Enum Arrowhead — Defines the appearance of arrowheads.
 
-* 0 None //no arrowheads.
-* 1 Arrow //angle.
-* 2 ArrowFilled //triangle.
-* 3 Line //perpendicular Line.
-* 4 Circle //cirlce arrowhead.
-* 5 CircleFilled //filled circle arrowhead.
-* 6 Square //square arrowhead.
-* 7 SquareFilled //filled square arrowhead.
+* 0 None
+* 1 Arrow
+* 2 ArrowFilled
+* 3 Line
+* 4 Circle
+* 5 CircleFilled
+* 6 Square
+* 7 SquareFilled
 
 ### Enum BaselinePosition — Defines text position against the baseline.
 
-* 0 Normal //text is aligned with the baseline.
-* 1 Superscript //text is raised above the baseline.
-* -1 Subscript //text is lowered below the baseline.
+* 0 Normal
+* 1 Superscript
+* -1 Subscript
 
 ### Enum BlendMode — Defines the type of blend mode applied to a layer.
 
@@ -472,52 +467,52 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Enum BlurType — Defines the blur type.
 
-* 0 Gaussian //gaussian blur.
-* 3 Background //background blur.
+* 0 Gaussian
+* 3 Background
 
 ### Enum BoolOp — Types of boolean operations used to combine shapes.
 
-* -1 None //not set. Works like Difference or like Union depending on the context.
-* 0 Union //creates a shape from the sum of the areas of the selected shapes.
-* 1 Subtract //the opposite of Union. Removes the overlapping area(s) from the shape layer at the bottom of the selection.
-* 2 Intersect //the resulting shape only includes the area where all selected shapes overlap.
-* 3 Difference //the opposite of Intersect. Creates a shape from the areas where the selected shapes do not overlap.
+* -1 None
+* 0 Union
+* 1 Subtract
+* 2 Intersect
+* 3 Difference
 
 ### Enum CharacterCasing — Defines letter case.
 
-* 0 Normal //normal letter case.
-* 1 UpperCase //upper case.
-* 2 LowerCase //lower case.
-* 3 TitleCase //title case.
+* 0 Normal
+* 1 UpperCase
+* 2 LowerCase
+* 3 TitleCase
 
 ### Enum CurveMode — Defines the types of points on Bézier curves.
 
-* 0 None //undefined.
-* 1 Straight //straight point.
-* 2 Mirrored //mirrored branches.
-* 3 Asymmetric //asymmetric branches.
-* 4 Disconnected //disconnected branches.
-* 4 OnlyFrom //only From branch.
-* 5 OnlyTo //only To branch.
+* 0 None
+* 1 Straight
+* 2 Mirrored
+* 3 Asymmetric
+* 4 Disconnected
+* 4 OnlyFrom
+* 5 OnlyTo
 
 ### Enum FillType — Defines the fill type.
 
-* 0 Color //solid color fill.
-* 1 Gradient //gradient fill.
-* 4 Pattern //image fill.
+* 0 Color
+* 1 Gradient
+* 4 Pattern
 
 ### Enum GradientType — List of Gradient types.
 
-* 0 Linear //linear gradient: two colors appear at opposite points of an object and blend, or transition into each other.
-* 1 Radial //radial gradient: the transition between color stops is a circular pattern.
-* 2 Angular //angular gradient: sweeps around the circumference.
+* 0 Linear
+* 1 Radial
+* 2 Angular
 
 ### Enum HorizontalAlignment — Defines how a set of layers is aligned horizontally.
 
-* 0 Left //layers are aligned to the left.
-* 1 Center //layers are horizontally centered.
-* 2 Right //layers are aligned to the right.
-* 3 Distribute //layers are horizontally justified.
+* 0 Left
+* 1 Center
+* 2 Right
+* 3 Distribute
 
 ### Enum LayoutHorizontalAlignment — Defines horizontal alignment settings in layout guide.
 
@@ -528,8 +523,8 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Enum LayoutOrientation — Orientation of an auto layout.
 
-* 0 Horizontal //horizontal orientation.
-* 1 Vertical //vertical orientation.
+* 0 Horizontal
+* 1 Vertical
 
 ### Enum LayoutVerticalAlignment — Defines vertical alignment settings in layout guides.
 
@@ -540,46 +535,46 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Enum LineCap — Defines the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
 
-* 0 Butt //no cap (default).
-* 1 Round //adds a rounded end to a path that extends past the vector point.
-* 2 Square //similar to the rounded cap, but with straight edges.
+* 0 Butt
+* 1 Round
+* 2 Square
 
 ### Enum LineJoin — Defines the appearance of the corners for arrows and paths with corners drawn with the Pen/Pencil tool.
 
-* 0 Miter //square.
-* 1 Round //rounded.
-* 2 Bevel //bevelled.
+* 0 Miter
+* 1 Round
+* 2 Bevel
 
 ### Enum LinePosition — Defines the border position.
 
-* 0 Center //center.
-* 1 Inside //inside.
-* 2 Outside //outside.
+* 0 Center
+* 1 Inside
+* 2 Outside
 
 ### Enum ListMarkerType — Defines the type of a text list.
 
-* 0 None //list without markers.
-* 1 Bullet //bulleted list.
-* 2 Numbered //numbered list.
+* 0 None
+* 1 Bullet
+* 2 Numbered
 
 ### Enum MaskType — Type of a mask.
 
-* 0 Vector //this mode indicated that every pixel inside the layer's fill regions will be fully visible in the masked result.
-* 1 Alpha //this mode indicates that the mask layer image's transparency (alpha channel) values should be used as the mask values. This is how masks work in Figma.
-* 2 Luminance //this mode indicates that the luminance values of the mask layer image should be used as the mask values. This is how masks work in SVG.
+* 0 Vector
+* 1 Alpha
+* 2 Luminance
 
 ### Enum PathFillType — Defines the filling options for overlapping paths.
 
-* 0 Winding //applies the non-zero rule.
-* 1 EvenOdd //apllies the even-odd rule.
+* 0 Winding
+* 1 EvenOdd
 
 ### Enum PatternFillType — Defines the image fill type.
 
-* 0 Tile //duplicates the image in a tile pattern to fit the layer. The size of tiles is adjustable.
-* 1 Fill //adjusts the image size to the layer’s width.
-* 2 Stretch //stretches the image to fit the layer’s width and height.
-* 3 Fit //adjusts the image size to fit the layer’s height.
-* 4 Crop //crops the image at user's discretion.
+* 0 Tile
+* 1 Fill
+* 2 Stretch
+* 3 Fit
+* 4 Crop
 
 ### Enum ScaleType — Defines the scale type for exported objects.
 
@@ -589,32 +584,32 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Enum SizingMode — Defines the behavior of auto layout containers as their content is changed.
 
-* 0 Auto //the container adjusts to the size of the content (hug).
-* 1 Fixed //the container has a fixed size (fix).
+* 0 Auto
+* 1 Fixed
 
 ### Enum TextBehavior — Defines textbox behavior options.
 
-* 1 AutoHeight //the width of the textbox is fixed. Characters wrap to fit in the textbox. The height of the textbox automatically adjusts to fit its content.
-* 2 Fixed //the size of the textbox is fixed and is independent of its content.
+* 1 AutoHeight
+* 2 Fixed
 * 0 Flexible
 
 ### Enum TextHorizontalAlignment — Defines how a text is aligned horizontally.
 
-* 0 Left //text is aligned to the left.
-* 1 Right //text is aligned to the right.
-* 2 Center //text is horizontally centered.
-* 3 Justify //text is horizontally justified.
+* 0 Left
+* 1 Right
+* 2 Center
+* 3 Justify
 
 ### Enum TextVerticalAlignment — Defines how a text is aligned vertically.
 
-* 0 Top //text is aligned to the top.
-* 1 Middle //text is vertically centered.
-* 2 Bottom //text is aligned to the bottom.
+* 0 Top
+* 1 Middle
+* 2 Bottom
 
 ### Enum VerticalAlignment — Defines how a set of layers is aligned vertically.
 
-* 0 Top //layers are aligned to the top.
-* 1 Center //layers are vertically centered.
-* 2 Bottom //layers are aligend to the bottom.
-* 3 Distribute //layers are vertically justified.
+* 0 Top
+* 1 Center
+* 2 Bottom
+* 3 Distribute
 

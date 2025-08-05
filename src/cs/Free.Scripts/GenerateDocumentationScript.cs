@@ -45,12 +45,12 @@ public static class GenerateDocumentationScript
         
         "Meta", "SharedLibrary",
         
-        "LayoutGuideBase", "Rows", "Columns", "Grid",
+        "LayoutGuideBase", "Rows", "Columns", "Grid", "GuideStyle",
         
         "ComponentPropertyBase", "TextComponentProperty", "SwapComponentProperty", "StateComponentProperty", "BoolComponentProperty",
         
         "VariableTheme", "VariableCollection", "Variable", "StringValue", "FloatValue", "ColorValue", "BoolValue", 
-        "StringVariable", "FloatVariable", "ColorVariable", "BoolVariable",
+        "StringVariable", "FloatVariable", "ColorVariable", "BoolVariable", "ThemeSelection",
         
         "Flow", "FlowAnimation", "FlowAnimationType", "FlowAnimationEffect", "FlowAnimationDirection", "FlowOverlayPosition", "FlowScrollBehavior",
         "FlowTrigger", "MouseUpTrigger", "MouseLeaveTrigger", "MouseEnterTrigger", "MouseDownTrigger", "KeyPressTrigger",

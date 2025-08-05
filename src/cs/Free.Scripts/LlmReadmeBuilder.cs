@@ -114,7 +114,7 @@ public class LlmReadmeBuilder
             }
         }
 
-        if (child.Summary.Length > 0)
+        if (child.Summary.Length > 0 && parentItemType != NodeType.Enum)
         {
             _sb.Append(" //").Append(char.ToLower(child.Summary[0])).Append(child.Summary.Replace(Environment.NewLine, " ").AsSpan(1));
         }
