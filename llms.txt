@@ -17,43 +17,43 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 
 Has all properties of `Frame`, plus:
 * string _t = "COMPONENT"
-* GUID ComponentId
-* bool Predefined = false
-* string FigmaId
-* ComponentPropertyBase[] Properties
+* GUID componentId
+* bool predefined = false
+* string figmaId
+* ComponentPropertyBase[] properties
 
 ### Object Oval — An oval is a shape drawn on the canvas with the Oval tool.
 
 Has all properties of `Path`, plus:
 * string _t = "OVAL"
-* float Angle = 0
-* float Ratio = 0
-* float StartAngle = 0
+* float angle = 0
+* float ratio = 0
+* float startAngle = 0
 
 ### Object Polygon — A polygon is a shape drawn on the canvas with the Polygon tool.
 
 Has all properties of `Path`, plus:
 * string _t = "POLYGON"
-* float Rays = 0
+* float rays = 0
 
 ### Object Rectangle — A rectangle is a shape drawn on the canvas with the Rectangle tool.
 
 Has all properties of `Path`, plus:
 * string _t = "RECT"
-* bool SmoothCorners = false
+* bool smoothCorners = false
 
 ### Object Star — A star is a shape drawn on the canvas with the Star tool.
 
 Has all properties of `Path`, plus:
 * string _t = "STAR"
-* float Rays = 0
-* float Ratio = 0
+* float rays = 0
+* float ratio = 0
 
 ### Object States — Set of a states of the component.
 
 Has all properties of `Frame`, plus:
 * string _t = "STATES"
-* ComponentPropertyBase[] Properties
+* ComponentPropertyBase[] properties
 
 ### Object Triangle — A triangle is a shape drawn on the canvas with the Triangle tool.
 
@@ -64,244 +64,245 @@ Has all properties of `Path`, plus:
 
 Has all properties of `Layer`, plus:
 * string _t = "FRAME"
-* bool ClipContent = false
-* bool FlowHome = false
-* PrototypeViewport Viewport
-* bool ResizesContent = false
-* AutoLayoutContainer Container
-* LayoutGuideBase[] Layouts
-* GUID GridsId
-* Rulers Rulers
-* Layer[] Layers
+* bool clipContent = false
+* bool flowHome = false
+* PrototypeViewport viewport
+* bool resizesContent = false
+* AutoLayoutContainer container
+* LayoutGuideBase[] layouts
+* GUID gridsId
+* Rulers rulers
+* Layer[] layers
 
 ### Object Group — A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
 
 Has all properties of `Layer`, plus:
 * string _t = "GROUP"
-* bool SkipSelect = false
-* Layer[] Layers
+* bool skipSelect = false
+* Layer[] layers
 
 ### Object Instance — An instance is a copy of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component.
 
 Has all properties of `Layer`, plus:
 * string _t = "INSTANCE"
-* float Scale = 0
-* GUID ComponentId
-* AutoLayoutContainer Container
-* Override[] Overrides
+* float scale = 0
+* GUID componentId
+* AutoLayoutContainer container
+* Override[] overrides
 
 ### Object Path — A vector path determines the outline and form of a vector object. A path is made up of points and segments.
 
 Has all properties of `Layer`, plus:
 * string _t = "PATH"
-* Arrowhead StartMarker = 0
-* Arrowhead EndMarker = 0
-* float MiterLimit = 10
-* bool Edited = false
-* bool Open = false
-* Vertex[] Points
+* Arrowhead startMarker = 0
+* Arrowhead endMarker = 0
+* float miterLimit = 10
+* bool edited = false
+* bool open = false
+* Vertex[] points
+* string pathData
 
 ### Object Section — Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
 
 Has all properties of `Layer`, plus:
 * string _t = "SECTION"
-* Layer[] Layers
+* Layer[] layers
 
 ### Object Shape — A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
 
 Has all properties of `Layer`, plus:
 * string _t = "SHAPE"
-* Arrowhead StartMarker = 0
-* Arrowhead EndMarker = 0
-* float MiterLimit = 10
-* Layer[] Layers
+* Arrowhead startMarker = 0
+* Arrowhead endMarker = 0
+* float miterLimit = 10
+* Layer[] layers
 
 ### Object Slice — A slice is a special type of layers used for exporting certaing parts of designs.
 
 Has all properties of `Layer`, plus:
 * string _t = "SLICE"
-* bool HasBackground = false
-* Color Background = "00000000"
-* GUID? BackgroundId
+* bool hasBackground = false
+* Color background = "00000000"
+* GUID? backgroundId
 
 ### Object Text — Text is a block or line of text on the canvas.
 
 Has all properties of `Layer`, plus:
 * string _t = "TEXT"
 * string text
-* TextProperties TextStyle
-* InlineStyle[] Inlines
-* TextBehavior Behavior = 0
-* bool ClipContent = true
-* bool Truncate = false
-* byte MaxLines = 0
-* bool DrawOnPath = false
-* bool Warp = false
-* GUID TextStyleId
+* TextProperties textStyle
+* InlineStyle[] inlines
+* TextBehavior behavior = 0
+* bool clipContent = true
+* bool truncate = false
+* byte maxLines = 0
+* bool drawOnPath = false
+* bool warp = false
+* GUID textStyleId
 
 ### Object Layer — A layer is any ungrouped element available on the canvas.
 
 * string _t = "COMPONENT"
-* GUID Id
-* string Name
-* bool NameIsFixed = false
-* BoolOp BooleanOp = 0
-* bool Fixed = false
-* bool Locked = false
-* bool Hidden = false
-* bool IsTemplate = false
-* bool Expand = false
-* bool Trim = false
-* ExportOption[] Export
-* string Constraints = "LTWH"
-* Matrix Transform = Free.Schema.Matrix
-* Size Size = [100,100]
-* bool LockAspect = false
-* bool Mask = false
-* bool BreakMask = false
-* MaskType MaskType = 0
-* bool KeepScroll = false
-* float MinWidth = 0
-* float MinHeight = 0
-* float MaxWidth = 0
-* float MaxHeight = 0
-* bool LayoutStretch = false
-* bool LayoutGrowStretch = false
-* bool LayoutFixPos = false
-* [string,string] Custom
-* GUID FillsId
-* GUID BordersId
-* GUID EffectsId
-* float Opacity = 1
-* BlendMode BlendMode = 0
-* PathFillType Winding = 1
-* Fill[] Fills
-* Fill[] Borders
-* float Thickness = 0
-* Thickness CustomThickness = [0,0,0,0]
-* LinePosition LinePos = 0
-* LineCap LineCap = 0
-* LineJoin LineJoin = 0
-* float[] Dash
-* ShadowEffect[] Shadows
-* ShadowEffect[] InnerShadows
-* BlurEffect Blur
-* ImageFilters ImageFilters
-* float[] CornerRadius = float[4]
-* bool SmoothCorners = false
+* GUID id
+* string name
+* bool nameIsFixed = false
+* BoolOp booleanOp = 0
+* bool fixed = false
+* bool locked = false
+* bool hidden = false
+* bool isTemplate = false
+* bool expand = false
+* bool trim = false
+* ExportOption[] export
+* string constraints = "LTWH"
+* Matrix transform = Free.Schema.Matrix
+* Size size = [100,100]
+* bool lockAspect = false
+* bool mask = false
+* bool breakMask = false
+* MaskType maskType = 0
+* bool keepScroll = false
+* float minWidth = 0
+* float minHeight = 0
+* float maxWidth = 0
+* float maxHeight = 0
+* bool layoutStretch = false
+* bool layoutGrowStretch = false
+* bool layoutFixPos = false
+* [string,string] custom
+* GUID fillsId
+* GUID bordersId
+* GUID effectsId
+* float opacity = 1
+* BlendMode blendMode = 0
+* PathFillType winding = 1
+* Fill[] fills
+* Fill[] borders
+* float thickness = 0
+* Thickness customThickness = [0,0,0,0]
+* LinePosition linePos = 0
+* LineCap lineCap = 0
+* LineJoin lineJoin = 0
+* float[] dash
+* ShadowEffect[] shadows
+* ShadowEffect[] innerShadows
+* BlurEffect blur
+* ImageFilters imageFilters
+* float[] cornerRadius = float[4]
+* bool smoothCorners = false
 
 ### Object ColorStyle — Style of fills. Can be set to borders and fills.
 
 Has all properties of `StyleBase`, plus:
-* Fill[] Fills
+* Fill[] fills
 
 ### Object EffectStyle
 
 Has all properties of `StyleBase`, plus:
-* ShadowEffect[] Shadows
-* ShadowEffect[] InnerShadows
-* BlurEffect Blur
+* ShadowEffect[] shadows
+* ShadowEffect[] innerShadows
+* BlurEffect blur
 
 ### Object TextStyle — Text Style
 
 Has all properties of `StyleBase`, plus:
-* string Font = "Inter"
-* float Size = 12
-* float ParagraphSpacing = 0
-* float Kerning = 0
-* float BaselineOffset = 0
-* float? LineHeight
-* bool Underline = false
-* bool Strikethrough = false
-* CharacterCasing Casing = 0
+* string font = "Inter"
+* float size = 12
+* float paragraphSpacing = 0
+* float kerning = 0
+* float baselineOffset = 0
+* float? lineHeight
+* bool underline = false
+* bool strikethrough = false
+* CharacterCasing casing = 0
 
 ### Object StyleBase — Base class for a shared style
 
-* GUID Id
-* string Name
-* int Version = 0
-* string FigmaId
+* GUID id
+* string name
+* int version = 0
+* string figmaId
 
 ### Object AutoLayoutContainer — Defines auto layout settings.
 
 Has all properties of `LayoutContainerBase`, plus:
 * string _t = "AUTO"
-* LayoutOrientation Orientation = 0
-* float Spacing = 0
-* float WrapSpacing = 0
-* Thickness Padding = [0,0,0,0]
-* HorizontalAlignment Align = 0
-* VerticalAlignment Valign = 0
-* SizingMode Sizing = 0
-* SizingMode Vsizing = 0
-* bool TextBaseline = false
-* bool StrokesIncluded = false
-* bool ReverseZIndex = false
-* bool Wrap = false
-* bool WrapDistribute = false
+* LayoutOrientation orientation = 0
+* float spacing = 0
+* float wrapSpacing = 0
+* Thickness padding = [0,0,0,0]
+* HorizontalAlignment align = 0
+* VerticalAlignment valign = 0
+* SizingMode sizing = 0
+* SizingMode vsizing = 0
+* bool textBaseline = false
+* bool strokesIncluded = false
+* bool reverseZIndex = false
+* bool wrap = false
+* bool wrapDistribute = false
 
 ### Object BlurEffect — Defines the settings of the blur effect.
 
-* float Saturation = 1
-* float Radius = 10
-* bool Enabled = false
-* BlurType Type = 0
+* float saturation = 1
+* float radius = 10
+* bool enabled = false
+* BlurType type = 0
 
 ### Object ExportOption — Export settings.
 
-* string Format = "PNG"
-* ScaleType Type = 0
-* float Size = 0
-* string Name
-* NamingScheme Naming = 0
+* string format = "PNG"
+* ScaleType type = 0
+* float size = 0
+* string name
+* NamingScheme naming = 0
 
 ### Object Fill — Defines the fill applied to a layer.
 
-* bool Enabled = false
-* Color Color = "00000000"
-* GUID? ColorId
-* FillType Type = 0
-* float Opacity = 0
-* BlendMode BlendMode = 0
-* Pattern Pattern
-* Gradient Gradient
+* bool enabled = false
+* Color color = "00000000"
+* GUID? colorId
+* FillType type = 0
+* float opacity = 0
+* BlendMode blendMode = 0
+* Pattern pattern
+* Gradient gradient
 
 ### Object Font — Embedded fonts stored in the document.
 
-* string Data
-* string Name
-* string FileName
-* string[] PostscriptNames
+* string data
+* string name
+* string fileName
+* string[] postscriptNames
 
 ### Object Gradient — An object that represents a gradient.
 
-* GradientType Type = 0
-* Point From = [0.5,0]
-* Point To = [0.5,1]
-* Point Side = [0,0]
-* GradientStop[] Stops
+* GradientType type = 0
+* Point from = [0.5,0]
+* Point to = [0.5,1]
+* Point side = [0,0]
+* GradientStop[] stops
 
 ### Object GradientStop — A position-color pair representing a gradient stop.
 
-* float Pos = 0
-* Color Color = "00000000"
-* GUID? ColorId
+* float pos = 0
+* Color color = "00000000"
+* GUID? colorId
 
 ### Object ImageFilters — Defines filters that can be applied to images.
 
-* bool Enabled = false
-* float Brightness = 0
-* float Contrast = 1
-* float Hue = 0
-* float Saturation = 1
+* bool enabled = false
+* float brightness = 0
+* float contrast = 1
+* float hue = 0
+* float saturation = 1
 
 ### Object InlineStyle — Style (bold, italic, etc.) applied to a part of text or single word within a text block.
 
-* int Start = 0
-* int Length = 0
-* TextProperties Style
-* GUID FillsId
-* GUID TextStyleId
+* int start = 0
+* int length = 0
+* TextProperties style
+* GUID fillsId
+* GUID textStyleId
 
 ### Object LayoutContainerBase — Defines a container layout.
 
@@ -309,294 +310,294 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Object Page — Document page properties.
 
-* GUID Id
-* string Name
-* Color Background = "00000000"
-* bool IsComponentPage = false
-* Rulers Rulers
-* Point Origin = [0,0]
-* float Zoom = 0
-* Layer[] Layers
+* GUID id
+* string name
+* Color background = "00000000"
+* bool isComponentPage = false
+* Rulers rulers
+* Point origin = [0,0]
+* float zoom = 0
+* Layer[] layers
 
 ### Object Pattern — Defines the image fill options.
 
-* PatternFillType Type = 1
-* string Image
-* float Rotation = 0
-* float TileScale = 1
-* Matrix? Transform
+* PatternFillType type = 1
+* string image
+* float rotation = 0
+* float tileScale = 1
+* Matrix? transform
 
 ### Object PrototypeViewport — This is a frame preset. Also used to determine viewport size for a large frame to scroll it properly.
 
-* GUID Id
-* string Name
-* Size Size = [0,0]
-* GUID LibraryId
+* GUID id
+* string name
+* Size size = [0,0]
+* GUID libraryId
 
 ### Object Rulers — An object containing ruler origins and guideline positions.
 
-* int[] Guides
-* int[] VGuides
+* int[] guides
+* int[] vGuides
 
 ### Object ShadowEffect — Defines the shadow options.
 
-* bool Enabled = true
-* float Radius = 0
-* Color Color = "00000000"
-* GUID? ColorId
-* float Spread = 0
-* Point Offset = [0,0]
-* BlendMode BlendMode = 0
+* bool enabled = true
+* float radius = 0
+* Color color = "00000000"
+* GUID? colorId
+* float spread = 0
+* Point offset = [0,0]
+* BlendMode blendMode = 0
 
 ### Object TextProperties — Defines a set of properties that make up a text style.
 
-* Fill[] Fills
-* string Font = "Inter"
-* float Size = 12
-* float ParagraphSpacing = 0
-* float Kerning = 0
-* float BaselineOffset = 0
-* float? LineHeight
-* CharacterCasing Casing = 0
-* TextHorizontalAlignment Align = 0
-* TextVerticalAlignment Valign = 0
-* ListMarkerType List = 0
-* bool RTL = false
-* bool Underline = false
-* bool Strikethrough = false
-* BaselinePosition BaselinePos = 0
+* Fill[] fills
+* string font = "Inter"
+* float size = 12
+* float paragraphSpacing = 0
+* float kerning = 0
+* float baselineOffset = 0
+* float? lineHeight
+* CharacterCasing casing = 0
+* TextHorizontalAlignment align = 0
+* TextVerticalAlignment valign = 0
+* ListMarkerType list = 0
+* bool rTL = false
+* bool underline = false
+* bool strikethrough = false
+* BaselinePosition baselinePos = 0
 
 ### Struct Color — 32-bit ARGB unpremultiplied color value.
 
-* byte Alpha = 0
-* byte Red = 0
-* byte Green = 0
-* byte Blue = 0
+* byte alpha = 0
+* byte red = 0
+* byte green = 0
+* byte blue = 0
 
 ### Struct Matrix — A transformation matrix is standard way in computer graphics to represent translation and rotation. These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1]. This is known as an affine transform and is enough to represent translation, rotation, and skew. The identity transform is [1, 0, 0,  0, 1, 0]. A translation matrix will typically look like: [1, 0, tx,  0, 1, ty] and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0] If a matrix contains only translation it will be printed like point [0,5]
 
-* float ScaleX
-* float SkewX
-* float TransX
-* float SkewY
-* float ScaleY
-* float TransY
+* float scaleX
+* float skewX
+* float transX
+* float skewY
+* float scaleY
+* float transY
 
 ### Struct Point — A utility class to represent a point.
 
-* float X
-* float Y
+* float x
+* float y
 
 ### Struct Rect — A utility class to represent a rectangle.
 
-* float Left
-* float Top
-* float Width
-* float Height
+* float left
+* float top
+* float width
+* float height
 
 ### Struct Size — A utility class to represent layer size.
 
-* float Width
-* float Height
+* float width
+* float height
 
 ### Struct Thickness — Thickness struct. Used for Border thickness and Padding values
 
-* float Left
-* float Top
-* float Right
-* float Bottom
+* float left
+* float top
+* float right
+* float bottom
 
 ### Struct Vertex — The Vertex data type, which defines path points, and has several notation options. It's simply an array of numbers and can include up to eight values: ``[x, y, mode, radius, fromX, fromY, toX, toY]``. If the points on the right end of the array have default values, they are omitted. So, if toX, toY, fromX, fromY are all zeros, the array will look like ``[x,y,mode,radius]``. And if mode and radius are zeros, it becomes ``[x, y]``
 
-* Point Point = [0,0]
-* Point From = [0,0]
-* Point To = [0,0]
-* float Radius
-* CurveMode Mode = 0
+* Point point = [0,0]
+* Point from = [0,0]
+* Point to = [0,0]
+* float radius
+* CurveMode mode = 0
 
 ### Enum Arrowhead — Defines the appearance of arrowheads.
 
-* 0 None
-* 1 Arrow
-* 2 ArrowFilled
-* 3 Line
-* 4 Circle
-* 5 CircleFilled
-* 6 Square
-* 7 SquareFilled
+* 0 none
+* 1 arrow
+* 2 arrowFilled
+* 3 line
+* 4 circle
+* 5 circleFilled
+* 6 square
+* 7 squareFilled
 
 ### Enum BaselinePosition — Defines text position against the baseline.
 
-* 0 Normal
-* 1 Superscript
-* -1 Subscript
+* 0 normal
+* 1 superscript
+* -1 subscript
 
 ### Enum BlendMode — Defines the type of blend mode applied to a layer.
 
-* 0 Normal
-* 1 Darken
-* 2 Multiply
-* 3 ColorBurn
-* 4 Lighten
-* 5 Screen
-* 6 ColorDodge
-* 7 Overlay
-* 8 SoftLight
-* 9 HardLight
-* 10 Difference
-* 11 Exclusion
-* 12 Hue
-* 13 Saturation
-* 14 Color
-* 15 Luminosity
-* 16 PlusDarker
-* 17 PlusLighter
+* 0 normal
+* 1 darken
+* 2 multiply
+* 3 colorBurn
+* 4 lighten
+* 5 screen
+* 6 colorDodge
+* 7 overlay
+* 8 softLight
+* 9 hardLight
+* 10 difference
+* 11 exclusion
+* 12 hue
+* 13 saturation
+* 14 color
+* 15 luminosity
+* 16 plusDarker
+* 17 plusLighter
 
 ### Enum BlurType — Defines the blur type.
 
-* 0 Gaussian
-* 3 Background
+* 0 gaussian
+* 3 background
 
 ### Enum BoolOp — Types of boolean operations used to combine shapes.
 
-* -1 None
-* 0 Union
-* 1 Subtract
-* 2 Intersect
-* 3 Difference
+* -1 none
+* 0 union
+* 1 subtract
+* 2 intersect
+* 3 difference
 
 ### Enum CharacterCasing — Defines letter case.
 
-* 0 Normal
-* 1 UpperCase
-* 2 LowerCase
-* 3 TitleCase
+* 0 normal
+* 1 upperCase
+* 2 lowerCase
+* 3 titleCase
 
 ### Enum CurveMode — Defines the types of points on Bézier curves.
 
-* 0 None
-* 1 Straight
-* 2 Mirrored
-* 3 Asymmetric
-* 4 Disconnected
-* 4 OnlyFrom
-* 5 OnlyTo
+* 0 none
+* 1 straight
+* 2 mirrored
+* 3 asymmetric
+* 4 disconnected
+* 4 onlyFrom
+* 5 onlyTo
 
 ### Enum FillType — Defines the fill type.
 
-* 0 Color
-* 1 Gradient
-* 4 Pattern
+* 0 color
+* 1 gradient
+* 4 pattern
 
 ### Enum GradientType — List of Gradient types.
 
-* 0 Linear
-* 1 Radial
-* 2 Angular
+* 0 linear
+* 1 radial
+* 2 angular
 
 ### Enum HorizontalAlignment — Defines how a set of layers is aligned horizontally.
 
-* 0 Left
-* 1 Center
-* 2 Right
-* 3 Distribute
+* 0 left
+* 1 center
+* 2 right
+* 3 distribute
 
 ### Enum LayoutHorizontalAlignment — Defines horizontal alignment settings in layout guide.
 
-* 0 Left
-* 1 Center
-* 2 Right
-* 3 Stretch
+* 0 left
+* 1 center
+* 2 right
+* 3 stretch
 
 ### Enum LayoutOrientation — Orientation of an auto layout.
 
-* 0 Horizontal
-* 1 Vertical
+* 0 horizontal
+* 1 vertical
 
 ### Enum LayoutVerticalAlignment — Defines vertical alignment settings in layout guides.
 
-* 0 Top
-* 1 Middle
-* 2 Bottom
-* 3 Stretch
+* 0 top
+* 1 middle
+* 2 bottom
+* 3 stretch
 
 ### Enum LineCap — Defines the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
 
-* 0 Butt
-* 1 Round
-* 2 Square
+* 0 butt
+* 1 round
+* 2 square
 
 ### Enum LineJoin — Defines the appearance of the corners for arrows and paths with corners drawn with the Pen/Pencil tool.
 
-* 0 Miter
-* 1 Round
-* 2 Bevel
+* 0 miter
+* 1 round
+* 2 bevel
 
 ### Enum LinePosition — Defines the border position.
 
-* 0 Center
-* 1 Inside
-* 2 Outside
+* 0 center
+* 1 inside
+* 2 outside
 
 ### Enum ListMarkerType — Defines the type of a text list.
 
-* 0 None
-* 1 Bullet
-* 2 Numbered
+* 0 none
+* 1 bullet
+* 2 numbered
 
 ### Enum MaskType — Type of a mask.
 
-* 0 Vector
-* 1 Alpha
-* 2 Luminance
+* 0 vector
+* 1 alpha
+* 2 luminance
 
 ### Enum PathFillType — Defines the filling options for overlapping paths.
 
-* 0 Winding
-* 1 EvenOdd
+* 0 winding
+* 1 evenOdd
 
 ### Enum PatternFillType — Defines the image fill type.
 
-* 0 Tile
-* 1 Fill
-* 2 Stretch
-* 3 Fit
-* 4 Crop
+* 0 tile
+* 1 fill
+* 2 stretch
+* 3 fit
+* 4 crop
 
 ### Enum ScaleType — Defines the scale type for exported objects.
 
-* 0 Scale
-* 1 Width
-* 2 Height
+* 0 scale
+* 1 width
+* 2 height
 
 ### Enum SizingMode — Defines the behavior of auto layout containers as their content is changed.
 
-* 0 Auto
-* 1 Fixed
+* 0 auto
+* 1 fixed
 
 ### Enum TextBehavior — Defines textbox behavior options.
 
-* 1 AutoHeight
-* 2 Fixed
-* 0 Flexible
+* 1 autoHeight
+* 2 fixed
+* 0 flexible
 
 ### Enum TextHorizontalAlignment — Defines how a text is aligned horizontally.
 
-* 0 Left
-* 1 Right
-* 2 Center
-* 3 Justify
+* 0 left
+* 1 right
+* 2 center
+* 3 justify
 
 ### Enum TextVerticalAlignment — Defines how a text is aligned vertically.
 
-* 0 Top
-* 1 Middle
-* 2 Bottom
+* 0 top
+* 1 middle
+* 2 bottom
 
 ### Enum VerticalAlignment — Defines how a set of layers is aligned vertically.
 
-* 0 Top
-* 1 Center
-* 2 Bottom
-* 3 Distribute
+* 0 top
+* 1 center
+* 2 bottom
+* 3 distribute
 

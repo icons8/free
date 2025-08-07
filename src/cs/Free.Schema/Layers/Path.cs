@@ -32,4 +32,8 @@ public class Path : Layer
     /// List of path's points.
     /// </summary>
     public List<Vertex> Points { get; } = new();
+    /// <summary>
+    /// svg path data. Used only for LLM and Plugins.
+    /// </summary>
+    public string PathData { get; set; } = "";
 }

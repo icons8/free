@@ -90,12 +90,12 @@ public class LlmReadmeBuilder
             {
                 _sb.Append(val).Append(' ');
             }
-            _sb.Append(child.Name);
+            _sb.Append(child.Name.Substring(0,1).ToLower()).Append(child.Name.Substring(1));
         }
         else if (parentItemType == NodeType.Struct)
         {
             _sb.Append(FormatTypeName(child.ValueType!)).Append(' ');
-            _sb.Append(child.Name);
+            _sb.Append(child.Name.Substring(0,1).ToLower()).Append(child.Name.Substring(1));
             if (FormatValue(child.DefaultValue, parentItemType) is {} val)
             {
                 _sb.Append(" = ").Append(val);
@@ -104,7 +104,7 @@ public class LlmReadmeBuilder
         else if (child.Type == NodeType.Property)
         {
             _sb.Append(FormatTypeName(child.ValueType!)).Append(' ');
-            _sb.Append(child.Name);
+            _sb.Append(child.Name.Substring(0,1).ToLower()).Append(child.Name.Substring(1));
             if (FormatValue(child.DefaultValue, parentItemType) is {} val)
             {
                 _sb.Append(" = ").Append(val);

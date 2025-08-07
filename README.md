@@ -429,6 +429,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Edited: [bool](#bool) = `false` - if the shape is edited in the path editor.
 * Open: [bool](#bool) = `false` - indicates whether the path is open.
 * Points: [Vertex[]](#Vertex) - list of path's points.
+* PathData: [string](#string) - svg path data. Used only for LLM and Plugins.
 
 ### <a name="Section"></a>Section
 Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
