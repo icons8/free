@@ -18,6 +18,7 @@
 * `Component` and `States` now have `Properties`. `Instance` also has `Assigns` to component properties.
 * `TextProperties` `Color` and `ColorId` is replaces with array of `Fill`.
 * `InlineStyle` now has `FillsId` and `TextStyleId` fields.
+* `LINE` layer type is added. Previously it was saved as `PATH`.
 
 ### Version 4 - 20.01.2025
 

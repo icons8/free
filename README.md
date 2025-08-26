@@ -319,6 +319,13 @@ Has all properties of [`Frame`](#Frame), plus:
 * FigmaId: [string](#string) - unique Figma Component Id. Used to connect shared libraries and documents imported from figma.
 * Properties: [ComponentPropertyBase[]](#ComponentPropertyBase) - component properties.
 
+### <a name="Line"></a>Line
+A line is a shape drawn on the canvas with the Line tool.
+
+Has all properties of [`Path`](#Path), plus:
+
+* _t: [string](#string) = `LINE` - object type.
+
 ### <a name="Oval"></a>Oval
 An oval is a shape drawn on the canvas with the Oval tool.
 
@@ -1841,6 +1848,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `Component` and `States` now have `Properties`. `Instance` also has `Assigns` to component properties.
 * `TextProperties` `Color` and `ColorId` is replaces with array of `Fill`.
 * `InlineStyle` now has `FillsId` and `TextStyleId` fields.
+* `LINE` layer type is added. Previously it was saved as `PATH`.
 
 ### Version 4 - 20.01.2025
 

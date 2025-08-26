@@ -22,6 +22,11 @@ Has all properties of `Frame`, plus:
 * string figmaId
 * ComponentPropertyBase[] properties
 
+### Object Line — A line is a shape drawn on the canvas with the Line tool.
+
+Has all properties of `Path`, plus:
+* string _t = "LINE"
+
 ### Object Oval — An oval is a shape drawn on the canvas with the Oval tool.
 
 Has all properties of `Path`, plus:
