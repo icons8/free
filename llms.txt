@@ -357,8 +357,8 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Object StickyArrow — Sticky Arrows are used for annotations. Stored on a page. Not a layer.
 
-* GUID? startId
-* GUID? endId
+* GUID? start
+* GUID? end
 * Point startPos = [0,0]
 * Point endPos = [0,0]
 * Arrowhead startMarker = 0

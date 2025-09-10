@@ -8,12 +8,12 @@ public sealed class StickyArrow
     /// <summary>
     /// Tail Layer Id
     /// </summary>
-    public Guid? StartId { get; set; }
+    public Guid? Start { get; set; }
     
     /// <summary>
     /// Head Layer Id
     /// </summary>
-    public Guid? EndId { get; set; }
+    public Guid? End { get; set; }
     
     /// <summary>
     /// Normalized position in the tail layer. From 0 to 1.

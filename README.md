@@ -1217,8 +1217,8 @@ Contains components, styles and variables from external library that is used in 
 ### <a name="StickyArrow"></a>StickyArrow
 Sticky Arrows are used for annotations. Stored on a page. Not a layer.
 
-* StartId: [GUID?](#GUID) - tail Layer Id
-* EndId: [GUID?](#GUID) - head Layer Id
+* Start: [GUID?](#GUID) - tail Layer Id
+* End: [GUID?](#GUID) - head Layer Id
 * StartPos: [Point](#Point) = `[0,0]` - normalized position in the tail layer. From 0 to 1.
 * EndPos: [Point](#Point) = `[0,0]` - normalized position in the head layer. From 0 to 1.
 * StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail.
