@@ -22,12 +22,17 @@ public class Page
     /// <summary>
     /// If the page is used to store components.
     /// </summary>
-    
     public bool IsComponentPage { get; set; }
+    
     /// <summary>
     /// Rulers applied by the user.
     /// </summary>
     public Rulers Rulers { get; } = new();
+    
+    /// <summary>
+    /// StickyArrows on the page.
+    /// </summary>
+    public List<StickyArrow> StickyArrows { get; } = new();
     
     /// <summary>
     /// Point where the user left off the page.

@@ -141,11 +141,11 @@ public sealed class Override
     /// <summary>
     /// Determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool. 
     /// </summary>
-    public Arrowhead? StartArrowhead { get; set; }
+    public Arrowhead? TailMarker { get; set; }
     /// <summary>
     /// Determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
     /// </summary>
-    public Arrowhead? EndArrowhead { get; set; }
+    public Arrowhead? HeadMarker { get; set; }
     
     //Text
 

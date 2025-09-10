@@ -99,8 +99,8 @@ Has all properties of `Layer`, plus:
 
 Has all properties of `Layer`, plus:
 * string _t = "PATH"
-* Arrowhead startMarker = 0
-* Arrowhead endMarker = 0
+* Arrowhead tailMarker = 0
+* Arrowhead headMarker = 0
 * float miterLimit = 10
 * bool edited = false
 * bool open = false
@@ -117,8 +117,8 @@ Has all properties of `Layer`, plus:
 
 Has all properties of `Layer`, plus:
 * string _t = "SHAPE"
-* Arrowhead startMarker = 0
-* Arrowhead endMarker = 0
+* Arrowhead tailMarker = 0
+* Arrowhead headMarker = 0
 * float miterLimit = 10
 * Layer[] layers
 
@@ -320,6 +320,7 @@ Has all properties of `LayoutContainerBase`, plus:
 * Color background = "00000000"
 * bool isComponentPage = false
 * Rulers rulers
+* StickyArrow[] stickyArrows
 * Point origin = [0,0]
 * float zoom = 0
 * Layer[] layers
@@ -353,6 +354,20 @@ Has all properties of `LayoutContainerBase`, plus:
 * float spread = 0
 * Point offset = [0,0]
 * BlendMode blendMode = 0
+
+### Object StickyArrow — Sticky Arrows are used for annotations. Stored on a page. Not a layer.
+
+* GUID? headId
+* GUID? tailId
+* Point headPos = [0,0]
+* Point tailPos = [0,0]
+* Arrowhead tailMarker = 0
+* Arrowhead headMarker = 0
+* LineCap lineCap = 0
+* LineJoin lineJoin = 0
+* float[] dash
+* float thickness = 0
+* Color color = "00000000"
 
 ### Object TextProperties — Defines a set of properties that make up a text style.
 
