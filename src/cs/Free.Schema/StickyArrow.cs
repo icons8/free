@@ -6,34 +6,34 @@ namespace Free.Schema;
 public sealed class StickyArrow
 {
     /// <summary>
-    /// Head Layer Id
-    /// </summary>
-    public Guid? HeadId { get; set; }
-    
-    /// <summary>
     /// Tail Layer Id
     /// </summary>
-    public Guid? TailId { get; set; }
+    public Guid? StartId { get; set; }
     
     /// <summary>
-    /// Normalized position in the head layer. From 0 to 1.
+    /// Head Layer Id
     /// </summary>
-    public Point HeadPos { get; set; }
+    public Guid? EndId { get; set; }
     
     /// <summary>
     /// Normalized position in the tail layer. From 0 to 1.
     /// </summary>
-    public Point TailPos { get; set; }
+    public Point StartPos { get; set; }
+    
+    /// <summary>
+    /// Normalized position in the head layer. From 0 to 1.
+    /// </summary>
+    public Point EndPos { get; set; }
     
     /// <summary>
     /// Determines the appearance of the tail.
     /// </summary>
-    public Arrowhead TailMarker { get; set; }
+    public Arrowhead StartMarker { get; set; }
     
     /// <summary>
     /// Determines the appearance of the head.
     /// </summary>
-    public Arrowhead HeadMarker { get; set; }
+    public Arrowhead EndMarker { get; set; }
     
     /// <summary>
     /// Defines the shape of line caps.

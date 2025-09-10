@@ -430,8 +430,8 @@ A vector path determines the outline and form of a vector object. A path is made
 Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `PATH` - object type.
-* TailMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* HeadMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 * Edited: [bool](#bool) = `false` - if the shape is edited in the path editor.
 * Open: [bool](#bool) = `false` - indicates whether the path is open.
@@ -452,8 +452,8 @@ A shape is a rectangle, oval, polygon, triangle, or star drawn with the respecti
 Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `SHAPE` - object type.
-* TailMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* HeadMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 * Layers: [Layer[]](#Layer) - list of layers.
 
@@ -1112,8 +1112,8 @@ Defines overrides for components.
 * ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
 * Opacity: [float?](#float) - opacity value.
 * BlendMode: [BlendMode?](#BlendMode) - blend mode.
-* TailMarker: [Arrowhead?](#Arrowhead) - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* HeadMarker: [Arrowhead?](#Arrowhead) - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* StartMarker: [Arrowhead?](#Arrowhead) - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* EndMarker: [Arrowhead?](#Arrowhead) - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * Text: [string](#string) - content of the text layer.
 * TextStyle: [TextProperties](#TextProperties) - style applied to the text
 * TextBehavior: [TextBehavior?](#TextBehavior) - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
@@ -1217,12 +1217,12 @@ Contains components, styles and variables from external library that is used in 
 ### <a name="StickyArrow"></a>StickyArrow
 Sticky Arrows are used for annotations. Stored on a page. Not a layer.
 
-* HeadId: [GUID?](#GUID) - head Layer Id
-* TailId: [GUID?](#GUID) - tail Layer Id
-* HeadPos: [Point](#Point) = `[0,0]` - normalized position in the head layer. From 0 to 1.
-* TailPos: [Point](#Point) = `[0,0]` - normalized position in the tail layer. From 0 to 1.
-* TailMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail.
-* HeadMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head.
+* StartId: [GUID?](#GUID) - tail Layer Id
+* EndId: [GUID?](#GUID) - head Layer Id
+* StartPos: [Point](#Point) = `[0,0]` - normalized position in the tail layer. From 0 to 1.
+* EndPos: [Point](#Point) = `[0,0]` - normalized position in the head layer. From 0 to 1.
+* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head.
 * LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
 * LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
 * Dash: [float[]](#float) - defines the size of dashes.
@@ -1866,7 +1866,6 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `InlineStyle` now has `FillsId` and `TextStyleId` fields.
 * `LINE` layer type is added. Previously it was saved as `PATH`.
 * Added `StickyArrows`.
-* Renamed arrowhead fields from `StartMarker`/`EndMarker` to `TailMarker`/`HeadMarker`.
 
 ### Version 4 - 20.01.2025
 

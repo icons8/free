@@ -12,11 +12,11 @@ public class Shape : Layer
     /// <summary>
     /// Determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool. 
     /// </summary>
-    public Arrowhead TailMarker { get; set; }
+    public Arrowhead StartMarker { get; set; }
     /// <summary>
     /// Determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
     /// </summary>
-    public Arrowhead HeadMarker { get; set; }
+    public Arrowhead EndMarker { get; set; }
     /// <summary>
     /// Limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
     /// </summary>
