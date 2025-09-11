@@ -30,11 +30,6 @@ public class Page
     public Rulers Rulers { get; } = new();
     
     /// <summary>
-    /// Connectors on the page.
-    /// </summary>
-    public List<Connector> Connectors { get; } = new();
-    
-    /// <summary>
     /// Point where the user left off the page.
     /// </summary>
     public Point Origin { get; set; }

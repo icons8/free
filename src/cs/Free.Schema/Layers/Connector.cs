@@ -1,10 +1,15 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Connectors are lines and arrows used for annotations. Stored on a page. Not a layer.
+/// Connectors are lines and arrows used for annotations.
 /// </summary>
-public sealed class Connector
+public sealed class Connector : Layer
 {
+    /// <summary>
+    /// Object type.
+    /// </summary>
+    public override string _t => "CONNECTOR";
+    
     /// <summary>
     /// Tail Layer Id
     /// </summary>
@@ -34,29 +39,9 @@ public sealed class Connector
     /// Determines the appearance of the head.
     /// </summary>
     public Arrowhead EndMarker { get; set; }
-    
+
     /// <summary>
-    /// Defines the shape of line caps.
+    /// Limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
     /// </summary>
-    public LineCap LineCap { get; set; } = LineCap.Butt;
-    
-    /// <summary>
-    /// Defines the appearance of line folds.
-    /// </summary>
-    public LineJoin LineJoin { get; set; } = LineJoin.Miter;
-    
-    /// <summary>
-    /// Defines the size of dashes.
-    /// </summary>
-    public float[] Dash { get; set; } = [];
-    
-    /// <summary>
-    /// Defines border thickness.
-    /// </summary>
-    public float Thickness { get; set; }
-    
-    /// <summary>
-    /// Color of the Arrow
-    /// </summary>
-    public Color Color { get; set; }
+    public float MiterLimit { get; set; } = 10;
 }
