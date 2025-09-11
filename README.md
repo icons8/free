@@ -974,6 +974,21 @@ Defines the settings of the blur effect.
 * Enabled: [bool](#bool) = `false` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
 
+### <a name="Connector"></a>Connector
+Connectors are lines and arrows used for annotations. Stored on a page. Not a layer.
+
+* Start: [GUID?](#GUID) - tail Layer Id
+* End: [GUID?](#GUID) - head Layer Id
+* StartPos: [Point](#Point) = `[0,0]` - normalized position in the tail layer. From 0 to 1.
+* EndPos: [Point](#Point) = `[0,0]` - normalized position in the head layer. From 0 to 1.
+* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head.
+* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
+* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
+* Dash: [float[]](#float) - defines the size of dashes.
+* Thickness: [float](#float) = `0` - defines border thickness.
+* Color: [Color](#Color) = `00000000` - color of the Arrow
+
 ### <a name="Document"></a>Document
 The document's .json structure.
 
@@ -1158,7 +1173,7 @@ Document page properties.
 * Background: [Color](#Color) = `00000000` - canvas color.
 * IsComponentPage: [bool](#bool) = `false` - if the page is used to store components.
 * Rulers: [Rulers](#Rulers) - rulers applied by the user.
-* StickyArrows: [StickyArrow[]](#StickyArrow) - stickyArrows on the page.
+* Connectors: [Connector[]](#Connector) - connectors on the page.
 * Origin: [Point](#Point) = `[0,0]` - point where the user left off the page.
 * Zoom: [float](#float) = `0` - zoom scale last applied to the page.
 * Layers: [Layer[]](#Layer) - list of layers in the page.
@@ -1213,21 +1228,6 @@ Contains components, styles and variables from external library that is used in 
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
-
-### <a name="StickyArrow"></a>StickyArrow
-Sticky Arrows are used for annotations. Stored on a page. Not a layer.
-
-* Start: [GUID?](#GUID) - tail Layer Id
-* End: [GUID?](#GUID) - head Layer Id
-* StartPos: [Point](#Point) = `[0,0]` - normalized position in the tail layer. From 0 to 1.
-* EndPos: [Point](#Point) = `[0,0]` - normalized position in the head layer. From 0 to 1.
-* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail.
-* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head.
-* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
-* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
-* Dash: [float[]](#float) - defines the size of dashes.
-* Thickness: [float](#float) = `0` - defines border thickness.
-* Color: [Color](#Color) = `00000000` - color of the Arrow
 
 ### <a name="TextProperties"></a>TextProperties
 Defines a set of properties that make up a text style.

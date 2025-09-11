@@ -1,9 +1,9 @@
 namespace Free.Schema;
 
 /// <summary>
-/// Sticky Arrows are used for annotations. Stored on a page. Not a layer.
+/// Connectors are lines and arrows used for annotations. Stored on a page. Not a layer.
 /// </summary>
-public sealed class StickyArrow
+public sealed class Connector
 {
     /// <summary>
     /// Tail Layer Id
