@@ -242,7 +242,7 @@ Has all properties of `StyleBase`, plus:
 
 ### Object AutoLayout — Defines auto layout settings.
 
-* bool vertical = false
+* LayoutMode mode = 0
 * float spacing = 0
 * float wrapSpacing = 0
 * Thickness padding = [0,0,0,0]
@@ -519,6 +519,12 @@ Has all properties of `StyleBase`, plus:
 1. center
 2. right
 3. stretch
+
+### Enum LayoutMode — Mode of an auto layout.
+
+0. horizontal
+1. vertical
+2. grid
 
 ### Enum LayoutVerticalAlignment — Defines vertical alignment settings in layout guides.
 

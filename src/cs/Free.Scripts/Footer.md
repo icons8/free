@@ -22,7 +22,6 @@
 * Added `Connectors`.
 * `Container` renamed to `AutoLayout`.
 * `Sizing` and `VSizing` are replaced by `FixedHorizontal` and `FixedVertical`.
-* `Orientation` replaced by `Vertical` boolean.
 
 ### Version 4 - 20.01.2025
 
