@@ -85,7 +85,7 @@ Has all properties of `Layer`, plus:
 * bool flowHome = false
 * PrototypeViewport viewport
 * bool resizesContent = false
-* AutoLayoutContainer container
+* AutoLayout autoLayout
 * LayoutGuideBase[] layouts
 * GUID gridsId
 * Rulers rulers
@@ -104,7 +104,7 @@ Has all properties of `Layer`, plus:
 * string _t = "INSTANCE"
 * float scale = 0
 * GUID componentId
-* AutoLayoutContainer container
+* AutoLayout autoLayout
 * Override[] overrides
 
 ### Object Path — A vector path determines the outline and form of a vector object. A path is made up of points and segments.
@@ -240,7 +240,7 @@ Has all properties of `StyleBase`, plus:
 * int version = 0
 * string figmaId
 
-### Object AutoLayoutContainer — Defines auto layout settings.
+### Object AutoLayout — Defines auto layout settings.
 
 * LayoutOrientation orientation = 0
 * float spacing = 0

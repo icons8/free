@@ -406,7 +406,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * FlowHome: [bool](#bool) = `false` - sets the frame as a prototype starting point.
 * Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
 * ResizesContent: [bool](#bool) = `false` - enables adjusting and resizing the frame content as the frame is resized.
-* Container: [AutoLayoutContainer](#AutoLayoutContainer) - auto Layout Properties
+* AutoLayout: [AutoLayout](#AutoLayout) - auto Layout Properties
 * Layouts: [LayoutGuideBase[]](#LayoutGuideBase) - grid, Row and Column layouts of the frame.
 * GridsId: [GUID](#GUID) - grid Layout style id.
 * Rulers: [Rulers](#Rulers) - rulers and guidelines info.
@@ -435,7 +435,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * _t: [string](#string) = `INSTANCE` - object type.
 * Scale: [float](#float) = `0` - scale of the instance.
 * ComponentId: [GUID](#GUID) - unique component identifier.
-* Container: [AutoLayoutContainer](#AutoLayoutContainer) - auto Layout Properties
+* AutoLayout: [AutoLayout](#AutoLayout) - auto Layout Properties
 * Overrides: [Override[]](#Override) - defines the overrides applied to the instance.
 
 ### <a name="Path"></a>Path
@@ -953,7 +953,7 @@ Base object of prototyping trigger.
 
 * _t: [string](#string) = `CLICK` - object type.
 
-### <a name="AutoLayoutContainer"></a>AutoLayoutContainer
+### <a name="AutoLayout"></a>AutoLayout
 Defines auto layout settings.
 
 * Orientation: [LayoutOrientation](#LayoutOrientation) = `Horizontal` - layout orientation: horizontal or vertical.
@@ -1849,7 +1849,9 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `TextProperties` `Color` and `ColorId` is replaces with array of `Fill`.
 * `InlineStyle` now has `FillsId` and `TextStyleId` fields.
 * `LINE` layer type is added. Previously it was saved as `PATH`.
-* Added `StickyArrows`.
+* Added `Connectors`.
+* `Container` renamed to `AutoLayout`.
+* `Sizing` and `VSizing` are replaced by `FixedHorizontal` and `FixedVertical`.
 
 ### Version 4 - 20.01.2025
 

@@ -2,7 +2,7 @@ namespace Free.Schema;
 /// <summary>
 /// Defines auto layout settings. 
 /// </summary>
-public class AutoLayoutContainer
+public class AutoLayout
 {
     /// <summary>
     /// Layout orientation: horizontal or vertical.

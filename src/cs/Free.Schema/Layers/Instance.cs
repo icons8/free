@@ -21,7 +21,7 @@ public class Instance : Layer
     /// <summary>
     /// Auto Layout Properties
     /// </summary>
-    public AutoLayoutContainer Container { get; set; }
+    public AutoLayout AutoLayout { get; set; }
     
     /// <summary>
     /// Defines the overrides applied to the instance.

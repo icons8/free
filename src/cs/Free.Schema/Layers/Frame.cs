@@ -33,7 +33,7 @@ public class Frame : Layer
     /// <summary>
     /// Auto Layout Properties
     /// </summary>
-    public AutoLayoutContainer Container { get; set; }
+    public AutoLayout AutoLayout { get; set; }
     
     /// <summary>
     /// Grid, Row and Column layouts of the frame.

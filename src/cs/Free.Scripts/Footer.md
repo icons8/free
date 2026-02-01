@@ -19,7 +19,9 @@
 * `TextProperties` `Color` and `ColorId` is replaces with array of `Fill`.
 * `InlineStyle` now has `FillsId` and `TextStyleId` fields.
 * `LINE` layer type is added. Previously it was saved as `PATH`.
-* Added `StickyArrows`.
+* Added `Connectors`.
+* `Container` renamed to `AutoLayout`.
+* `Sizing` and `VSizing` are replaced by `FixedHorizontal` and `FixedVertical`.
 
 ### Version 4 - 20.01.2025
 
