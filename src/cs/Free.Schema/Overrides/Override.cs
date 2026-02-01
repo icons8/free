@@ -173,9 +173,9 @@ public sealed class Override
     // Layout
 
     /// <summary>
-    /// Layout orientation: horizontal or vertical.
+    /// Is vertical autolayout
     /// </summary>
-    public LayoutMode? Orientation { get; set; }
+    public bool? Vertical { get; set; }
 
     /// <summary>
     /// Spacing value
