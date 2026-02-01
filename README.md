@@ -956,7 +956,7 @@ Base object of prototyping trigger.
 ### <a name="AutoLayout"></a>AutoLayout
 Defines auto layout settings.
 
-* Orientation: [LayoutOrientation](#LayoutOrientation) = `Horizontal` - layout orientation: horizontal or vertical.
+* Vertical: [bool](#bool) = `false` - is vertical orientation.
 * Spacing: [float](#float) = `0` - spacing value
 * WrapSpacing: [float](#float) = `0` - spacing between rows of wrapped content.
 * Padding: [Thickness](#Thickness) = `[0,0,0,0]` - padding value.
@@ -1124,7 +1124,7 @@ Defines overrides for components.
 * TextStyle: [TextProperties](#TextProperties) - style applied to the text
 * TextBehavior: [TextBehavior?](#TextBehavior) - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * Size: [Size?](#Size) - text size.
-* Orientation: [LayoutOrientation?](#LayoutOrientation) - layout orientation: horizontal or vertical.
+* Vertical: [bool?](#bool) - is vertical autolayout
 * Spacing: [float?](#float) - spacing value
 * WrapSpacing: [float?](#float) - spacing between rows of wrapped content.
 * MinWidth: [float?](#float) - defines the minimum layer width (auto layout).
@@ -1616,12 +1616,6 @@ Defines horizontal alignment settings in layout guide.
 * `2` Right
 * `3` Stretch
 
-### <a name="LayoutOrientation"></a>LayoutOrientation Enum
-Orientation of an auto layout.
-
-* `0` Horizontal - horizontal orientation.
-* `1` Vertical - vertical orientation.
-
 ### <a name="LayoutVerticalAlignment"></a>LayoutVerticalAlignment Enum
 Defines vertical alignment settings in layout guides.
 
@@ -1852,6 +1846,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * Added `Connectors`.
 * `Container` renamed to `AutoLayout`.
 * `Sizing` and `VSizing` are replaced by `FixedHorizontal` and `FixedVertical`.
+* `Orientation` replaced by `Vertical` boolean.
 
 ### Version 4 - 20.01.2025
 

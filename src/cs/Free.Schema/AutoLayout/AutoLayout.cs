@@ -5,9 +5,9 @@ namespace Free.Schema;
 public class AutoLayout
 {
     /// <summary>
-    /// Layout orientation: horizontal or vertical.
+    /// Is vertical orientation.
     /// </summary>
-    public LayoutOrientation Orientation { get; set; }
+    public bool Vertical { get; set; }
     /// <summary>
     /// Spacing value
     /// </summary>
