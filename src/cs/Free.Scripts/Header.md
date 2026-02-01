@@ -303,7 +303,7 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 * <a name="byte"></a>byte - 8-bit unsigned integer
 * <a name="bool"></a>bool - Boolean (true or false) value
 * <a name="string"></a>string - text as a sequence of UTF-8 code units
-* <a name="GUID"></a>GUID - globally unique identifier, with base64 encryption
+* <a name="GUID"></a>GUID - globally unique identifier, with base64 encryption, Examples: `R1o2w3_4D5i6n7g8_000AA`, `N1a2m3-4C5o6n7t8_910AA`, `reY4TrsLHUeFk-E0CtyS5A`.
 
 ## Layers
 

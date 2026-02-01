@@ -82,18 +82,18 @@ public class LlmReadmeBuilder
 
     private void PrintField(Node child, NodeType parentItemType)
     {
-        _sb.Append("* ");
 
         if (parentItemType == NodeType.Enum)
         {
             if (FormatValue(child.DefaultValue, parentItemType) is { } val)
             {
-                _sb.Append(val).Append(' ');
+                _sb.Append(val).Append(". ");
             }
             _sb.Append(child.Name.Substring(0,1).ToLower()).Append(child.Name.Substring(1));
         }
         else if (parentItemType == NodeType.Struct)
         {
+            _sb.Append("* ");
             _sb.Append(FormatTypeName(child.ValueType!)).Append(' ');
             _sb.Append(child.Name.Substring(0,1).ToLower()).Append(child.Name.Substring(1));
             if (FormatValue(child.DefaultValue, parentItemType) is {} val)
@@ -103,6 +103,7 @@ public class LlmReadmeBuilder
         }
         else if (child.Type == NodeType.Property)
         {
+            _sb.Append("* ");
             _sb.Append(FormatTypeName(child.ValueType!)).Append(' ');
             _sb.Append(child.Name.Substring(0,1).ToLower()).Append(child.Name.Substring(1));
             if (FormatValue(child.DefaultValue, parentItemType) is {} val)

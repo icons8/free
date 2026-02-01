@@ -216,13 +216,13 @@ public sealed class Override
     /// </summary>
     public VerticalAlignment? VAlign { get; set; }
     /// <summary>
-    /// Horizontal resizing mode: fixed or hug.
+    /// Is sizing fixed horizontally. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
     /// </summary>
-    public SizingMode? Sizing { get; set; }
+    public bool FixedHorizontal { get; set; }
     /// <summary>
-    /// Vertical resizing mode: fixed or hug.
+    /// Is sizing fixed vertically. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
     /// </summary>
-    public SizingMode? VSizing { get; set; }
+    public bool FixedVertical { get; set; }
     /// <summary>
     /// If text baseline alignment is enabled.
     /// </summary>

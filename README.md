@@ -303,7 +303,7 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 * <a name="byte"></a>byte - 8-bit unsigned integer
 * <a name="bool"></a>bool - Boolean (true or false) value
 * <a name="string"></a>string - text as a sequence of UTF-8 code units
-* <a name="GUID"></a>GUID - globally unique identifier, with base64 encryption
+* <a name="GUID"></a>GUID - globally unique identifier, with base64 encryption, Examples: `R1o2w3_4D5i6n7g8_000AA`, `N1a2m3-4C5o6n7t8_910AA`, `reY4TrsLHUeFk-E0CtyS5A`.
 
 ## Layers
 
@@ -381,6 +381,20 @@ Has all properties of [`Path`](#Path), plus:
 
 * Equilateral: [bool](#bool) = `false` - if the triangle is equilateral.
 </details>
+
+### <a name="Connector"></a>Connector
+Connectors are lines and arrows used for annotations.
+
+Has all properties of [`Layer`](#Layer), plus:
+
+* _t: [string](#string) = `CONNECTOR` - object type.
+* Start: [GUID?](#GUID) - tail Layer Id
+* End: [GUID?](#GUID) - head Layer Id
+* StartPos: [Point](#Point) = `[0,0]` - normalized position in the tail layer. From 0 to 1.
+* EndPos: [Point](#Point) = `[0,0]` - normalized position in the head layer. From 0 to 1.
+* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head.
+* MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 
 ### <a name="Frame"></a>Frame
 A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
@@ -942,17 +956,14 @@ Base object of prototyping trigger.
 ### <a name="AutoLayoutContainer"></a>AutoLayoutContainer
 Defines auto layout settings.
 
-Has all properties of [`LayoutContainerBase`](#LayoutContainerBase), plus:
-
-* _t: [string](#string) = `AUTO` - object type.
 * Orientation: [LayoutOrientation](#LayoutOrientation) = `Horizontal` - layout orientation: horizontal or vertical.
 * Spacing: [float](#float) = `0` - spacing value
 * WrapSpacing: [float](#float) = `0` - spacing between rows of wrapped content.
 * Padding: [Thickness](#Thickness) = `[0,0,0,0]` - padding value.
 * Align: [HorizontalAlignment](#HorizontalAlignment) = `Left` - horizontal children alignment
 * Valign: [VerticalAlignment](#VerticalAlignment) = `Top` - vertical children alignment
-* Sizing: [SizingMode](#SizingMode) = `Auto` - horizontal resizing mode: fixed or hug.
-* Vsizing: [SizingMode](#SizingMode) = `Auto` - vertical resizing mode: fixed or hug.
+* FixedHorizontal: [bool](#bool) = `false` - is sizing fixed horizontally. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
+* FixedVertical: [bool](#bool) = `false` - is sizing fixed vertically. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
 * TextBaseline: [bool](#bool) = `false` - if text baseline alignment is enabled.
 * StrokesIncluded: [bool](#bool) = `false` - if the Include Borders option is enabled.
 * ReverseZIndex: [bool](#bool) = `false` - if the Last on Top option is enabled.
@@ -973,21 +984,6 @@ Defines the settings of the blur effect.
 * Radius: [float](#float) = `10` - blur Radius.
 * Enabled: [bool](#bool) = `false` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
-
-### <a name="Connector"></a>Connector
-Connectors are lines and arrows used for annotations. Stored on a page. Not a layer.
-
-* Start: [GUID?](#GUID) - tail Layer Id
-* End: [GUID?](#GUID) - head Layer Id
-* StartPos: [Point](#Point) = `[0,0]` - normalized position in the tail layer. From 0 to 1.
-* EndPos: [Point](#Point) = `[0,0]` - normalized position in the head layer. From 0 to 1.
-* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail.
-* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head.
-* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
-* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
-* Dash: [float[]](#float) - defines the size of dashes.
-* Thickness: [float](#float) = `0` - defines border thickness.
-* Color: [Color](#Color) = `00000000` - color of the Arrow
 
 ### <a name="Document"></a>Document
 The document's .json structure.
@@ -1085,11 +1081,6 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * FillsId: [GUID](#GUID) - color Style Id.
 * TextStyleId: [GUID](#GUID) - text style id.
 
-### <a name="LayoutContainerBase"></a>LayoutContainerBase
-Defines a container layout.
-
-* _t: [string](#string) - object type.
-
 ### <a name="Meta"></a>Meta
 Contains metadata about the document.
 
@@ -1143,8 +1134,8 @@ Defines overrides for components.
 * Padding: [Thickness?](#Thickness) - padding value.
 * Align: [HorizontalAlignment?](#HorizontalAlignment) - horizontal children alignment.
 * VAlign: [VerticalAlignment?](#VerticalAlignment) - vertical children alignment.
-* Sizing: [SizingMode?](#SizingMode) - horizontal resizing mode: fixed or hug.
-* VSizing: [SizingMode?](#SizingMode) - vertical resizing mode: fixed or hug.
+* FixedHorizontal: [bool](#bool) = `false` - is sizing fixed horizontally. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
+* FixedVertical: [bool](#bool) = `false` - is sizing fixed vertically. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
 * TextBaseline: [bool?](#bool) - if text baseline alignment is enabled.
 * StrokesIncluded: [bool?](#bool) - if the Include Borders option is enabled.
 * ReverseZIndex: [bool?](#bool) - if the Last on Top option is enabled.
@@ -1173,7 +1164,6 @@ Document page properties.
 * Background: [Color](#Color) = `00000000` - canvas color.
 * IsComponentPage: [bool](#bool) = `false` - if the page is used to store components.
 * Rulers: [Rulers](#Rulers) - rulers applied by the user.
-* Connectors: [Connector[]](#Connector) - connectors on the page.
 * Origin: [Point](#Point) = `[0,0]` - point where the user left off the page.
 * Zoom: [float](#float) = `0` - zoom scale last applied to the page.
 * Layers: [Layer[]](#Layer) - list of layers in the page.
@@ -1697,12 +1687,6 @@ Defines the scale type for exported objects.
 * `1` Width
 * `2` Height
 
-### <a name="SizingMode"></a>SizingMode Enum
-Defines the behavior of auto layout containers as their content is changed.
-
-* `0` Auto - the container adjusts to the size of the content (hug).
-* `1` Fixed - the container has a fixed size (fix).
-
 ### <a name="TextBehavior"></a>TextBehavior Enum
 Defines textbox behavior options.
 
@@ -1887,4 +1871,4 @@ Separate file is created for every library source - this will significantly incr
 
 * Initial Version
 
-by Icons8 LLC 2025
+by Icons8 LLC 2026

@@ -9,7 +9,7 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 * byte - 8-bit unsigned integer
 * bool - Boolean (true or false) value
 * string - text as a sequence of UTF-8 code units
-* GUID - globally unique identifier, with base64 encryption, length is always 22 chars. 
+* GUID - globally unique identifier, with base64 encryption, length is always 22 chars. Examples: `R1o2w3_4D5i6n7g8_000AA`, `N1a2m3-4C5o6n7t8_910AA`, `reY4TrsLHUeFk-E0CtyS5A`
 
 ## Layers
 
@@ -64,6 +64,18 @@ Has all properties of `Frame`, plus:
 
 Has all properties of `Path`, plus:
 * string _t = "TRIANGLE"
+
+### Object Connector — Connectors are lines and arrows used for annotations.
+
+Has all properties of `Layer`, plus:
+* string _t = "CONNECTOR"
+* GUID? start
+* GUID? end
+* Point startPos = [0,0]
+* Point endPos = [0,0]
+* Arrowhead startMarker = 0
+* Arrowhead endMarker = 0
+* float miterLimit = 10
 
 ### Object Frame — A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
 
@@ -230,16 +242,14 @@ Has all properties of `StyleBase`, plus:
 
 ### Object AutoLayoutContainer — Defines auto layout settings.
 
-Has all properties of `LayoutContainerBase`, plus:
-* string _t = "AUTO"
 * LayoutOrientation orientation = 0
 * float spacing = 0
 * float wrapSpacing = 0
 * Thickness padding = [0,0,0,0]
 * HorizontalAlignment align = 0
 * VerticalAlignment valign = 0
-* SizingMode sizing = 0
-* SizingMode vsizing = 0
+* bool fixedHorizontal = false
+* bool fixedVertical = false
 * bool textBaseline = false
 * bool strokesIncluded = false
 * bool reverseZIndex = false
@@ -252,20 +262,6 @@ Has all properties of `LayoutContainerBase`, plus:
 * float radius = 10
 * bool enabled = false
 * BlurType type = 0
-
-### Object Connector — Connectors are lines and arrows used for annotations. Stored on a page. Not a layer.
-
-* GUID? start
-* GUID? end
-* Point startPos = [0,0]
-* Point endPos = [0,0]
-* Arrowhead startMarker = 0
-* Arrowhead endMarker = 0
-* LineCap lineCap = 0
-* LineJoin lineJoin = 0
-* float[] dash
-* float thickness = 0
-* Color color = "00000000"
 
 ### Object ExportOption — Export settings.
 
@@ -323,10 +319,6 @@ Has all properties of `LayoutContainerBase`, plus:
 * GUID fillsId
 * GUID textStyleId
 
-### Object LayoutContainerBase — Defines a container layout.
-
-* string _t
-
 ### Object Page — Document page properties.
 
 * GUID id
@@ -334,7 +326,6 @@ Has all properties of `LayoutContainerBase`, plus:
 * Color background = "00000000"
 * bool isComponentPage = false
 * Rulers rulers
-* Connector[] connectors
 * Point origin = [0,0]
 * float zoom = 0
 * Layer[] layers
@@ -437,187 +428,182 @@ Has all properties of `LayoutContainerBase`, plus:
 
 ### Enum Arrowhead — Defines the appearance of arrowheads.
 
-* 0 none
-* 1 arrow
-* 2 arrowFilled
-* 3 line
-* 4 circle
-* 5 circleFilled
-* 6 square
-* 7 squareFilled
+0. none
+1. arrow
+2. arrowFilled
+3. line
+4. circle
+5. circleFilled
+6. square
+7. squareFilled
 
 ### Enum BaselinePosition — Defines text position against the baseline.
 
-* 0 normal
-* 1 superscript
-* -1 subscript
+0. normal
+1. superscript
+-1. subscript
 
 ### Enum BlendMode — Defines the type of blend mode applied to a layer.
 
-* 0 normal
-* 1 darken
-* 2 multiply
-* 3 colorBurn
-* 4 lighten
-* 5 screen
-* 6 colorDodge
-* 7 overlay
-* 8 softLight
-* 9 hardLight
-* 10 difference
-* 11 exclusion
-* 12 hue
-* 13 saturation
-* 14 color
-* 15 luminosity
-* 16 plusDarker
-* 17 plusLighter
+0. normal
+1. darken
+2. multiply
+3. colorBurn
+4. lighten
+5. screen
+6. colorDodge
+7. overlay
+8. softLight
+9. hardLight
+10. difference
+11. exclusion
+12. hue
+13. saturation
+14. color
+15. luminosity
+16. plusDarker
+17. plusLighter
 
 ### Enum BlurType — Defines the blur type.
 
-* 0 gaussian
-* 3 background
+0. gaussian
+3. background
 
 ### Enum BoolOp — Types of boolean operations used to combine shapes.
 
-* -1 none
-* 0 union
-* 1 subtract
-* 2 intersect
-* 3 difference
+-1. none
+0. union
+1. subtract
+2. intersect
+3. difference
 
 ### Enum CharacterCasing — Defines letter case.
 
-* 0 normal
-* 1 upperCase
-* 2 lowerCase
-* 3 titleCase
+0. normal
+1. upperCase
+2. lowerCase
+3. titleCase
 
 ### Enum CurveMode — Defines the types of points on Bézier curves.
 
-* 0 none
-* 1 straight
-* 2 mirrored
-* 3 asymmetric
-* 4 disconnected
-* 4 onlyFrom
-* 5 onlyTo
+0. none
+1. straight
+2. mirrored
+3. asymmetric
+4. disconnected
+4. onlyFrom
+5. onlyTo
 
 ### Enum FillType — Defines the fill type.
 
-* 0 color
-* 1 gradient
-* 4 pattern
+0. color
+1. gradient
+4. pattern
 
 ### Enum GradientType — List of Gradient types.
 
-* 0 linear
-* 1 radial
-* 2 angular
+0. linear
+1. radial
+2. angular
 
 ### Enum HorizontalAlignment — Defines how a set of layers is aligned horizontally.
 
-* 0 left
-* 1 center
-* 2 right
-* 3 distribute
+0. left
+1. center
+2. right
+3. distribute
 
 ### Enum LayoutHorizontalAlignment — Defines horizontal alignment settings in layout guide.
 
-* 0 left
-* 1 center
-* 2 right
-* 3 stretch
+0. left
+1. center
+2. right
+3. stretch
 
 ### Enum LayoutOrientation — Orientation of an auto layout.
 
-* 0 horizontal
-* 1 vertical
+0. horizontal
+1. vertical
 
 ### Enum LayoutVerticalAlignment — Defines vertical alignment settings in layout guides.
 
-* 0 top
-* 1 middle
-* 2 bottom
-* 3 stretch
+0. top
+1. middle
+2. bottom
+3. stretch
 
 ### Enum LineCap — Defines the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
 
-* 0 butt
-* 1 round
-* 2 square
+0. butt
+1. round
+2. square
 
 ### Enum LineJoin — Defines the appearance of the corners for arrows and paths with corners drawn with the Pen/Pencil tool.
 
-* 0 miter
-* 1 round
-* 2 bevel
+0. miter
+1. round
+2. bevel
 
 ### Enum LinePosition — Defines the border position.
 
-* 0 center
-* 1 inside
-* 2 outside
+0. center
+1. inside
+2. outside
 
 ### Enum ListMarkerType — Defines the type of a text list.
 
-* 0 none
-* 1 bullet
-* 2 numbered
+0. none
+1. bullet
+2. numbered
 
 ### Enum MaskType — Type of a mask.
 
-* 0 vector
-* 1 alpha
-* 2 luminance
+0. vector
+1. alpha
+2. luminance
 
 ### Enum PathFillType — Defines the filling options for overlapping paths.
 
-* 0 winding
-* 1 evenOdd
+0. winding
+1. evenOdd
 
 ### Enum PatternFillType — Defines the image fill type.
 
-* 0 tile
-* 1 fill
-* 2 stretch
-* 3 fit
-* 4 crop
+0. tile
+1. fill
+2. stretch
+3. fit
+4. crop
 
 ### Enum ScaleType — Defines the scale type for exported objects.
 
-* 0 scale
-* 1 width
-* 2 height
-
-### Enum SizingMode — Defines the behavior of auto layout containers as their content is changed.
-
-* 0 auto
-* 1 fixed
+0. scale
+1. width
+2. height
 
 ### Enum TextBehavior — Defines textbox behavior options.
 
-* 1 autoHeight
-* 2 fixed
-* 0 flexible
+1. autoHeight
+2. fixed
+0. flexible
 
 ### Enum TextHorizontalAlignment — Defines how a text is aligned horizontally.
 
-* 0 left
-* 1 right
-* 2 center
-* 3 justify
+0. left
+1. right
+2. center
+3. justify
 
 ### Enum TextVerticalAlignment — Defines how a text is aligned vertically.
 
-* 0 top
-* 1 middle
-* 2 bottom
+0. top
+1. middle
+2. bottom
 
 ### Enum VerticalAlignment — Defines how a set of layers is aligned vertically.
 
-* 0 top
-* 1 center
-* 2 bottom
-* 3 distribute
+0. top
+1. center
+2. bottom
+3. distribute
 

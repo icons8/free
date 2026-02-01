@@ -2,12 +2,8 @@ namespace Free.Schema;
 /// <summary>
 /// Defines auto layout settings. 
 /// </summary>
-public class AutoLayoutContainer : LayoutContainerBase
+public class AutoLayoutContainer
 {
-    /// <summary>
-    /// Object type.
-    /// </summary>
-    public string _t => "AUTO";
     /// <summary>
     /// Layout orientation: horizontal or vertical.
     /// </summary>
@@ -33,13 +29,13 @@ public class AutoLayoutContainer : LayoutContainerBase
     /// </summary>
     public VerticalAlignment Valign { get; set; }
     /// <summary>
-    /// Horizontal resizing mode: fixed or hug.
+    /// Is sizing fixed horizontally. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
     /// </summary>
-    public SizingMode Sizing { get; set; }
+    public bool FixedHorizontal { get; set; }
     /// <summary>
-    /// Vertical resizing mode: fixed or hug.
+    /// Is sizing fixed vertically. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
     /// </summary>
-    public SizingMode Vsizing { get; set; }
+    public bool FixedVertical { get; set; }
     /// <summary>
     /// If text baseline alignment is enabled.
     /// </summary>
