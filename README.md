@@ -968,7 +968,6 @@ Defines auto layout settings.
 * StrokesIncluded: [bool](#bool) = `false` - if the Include Borders option is enabled.
 * ReverseZIndex: [bool](#bool) = `false` - if the Last on Top option is enabled.
 * Wrap: [bool](#bool) = `false` - if wrapping is enabled.
-* WrapDistribute: [bool](#bool) = `false` - if auto distribute is enabled for wrapped content.
 
 ### <a name="Bind"></a>Bind
 Bind of a variable into layer property.
@@ -1142,7 +1141,6 @@ Defines overrides for components.
 * Stretch: [bool?](#bool) - determines if the layer should stretch along the parent’s counter axis (auto layout).
 * GrowStretch: [bool?](#bool) - determines whether a layer should stretch along the parent’s primary axis (auto layout).
 * Wrap: [bool?](#bool) - if wrapping is enabled.
-* WrapDistribute: [bool?](#bool) - if auto distribute is enabled for wrapped content.
 * Truncate: [bool?](#bool) - trim text with triple dots in the end if content overlaps fixed layer size bounds.
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
 * KeepScroll: [bool?](#bool) - if the *Keep scroll position* option is enabled (prototyping).

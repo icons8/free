@@ -248,10 +248,6 @@ public sealed class Override
     /// </summary>
     public bool? Wrap { get; set; }
     /// <summary>
-    /// If auto distribute is enabled for wrapped content.
-    /// </summary>
-    public bool? WrapDistribute { get; set; }
-    /// <summary>
     /// Trim text with triple dots in the end if content overlaps fixed layer size bounds.
     /// </summary>
     public bool? Truncate { get; set; }

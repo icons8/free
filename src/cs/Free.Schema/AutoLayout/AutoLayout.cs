@@ -52,8 +52,4 @@ public class AutoLayout
     /// If wrapping is enabled.
     /// </summary>
     public bool Wrap { get; set; }
-    /// <summary>
-    /// If auto distribute is enabled for wrapped content.
-    /// </summary>
-    public bool WrapDistribute { get; set; }
 }

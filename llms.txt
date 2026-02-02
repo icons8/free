@@ -254,7 +254,6 @@ Has all properties of `StyleBase`, plus:
 * bool strokesIncluded = false
 * bool reverseZIndex = false
 * bool wrap = false
-* bool wrapDistribute = false
 
 ### Object BlurEffect — Defines the settings of the blur effect.
 
