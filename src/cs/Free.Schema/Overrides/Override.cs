@@ -238,13 +238,13 @@ public sealed class Override
     /// <summary>
     /// Determines if the layer should stretch horizontally (auto layout).
     /// </summary>
-    public bool StretchHorizontally { get; set; }
+    public bool StretchHorizontal { get; set; }
     /// <summary>
     /// Determines whether a layer should stretch vertically (auto layout).
     /// </summary>
-    public bool StretchVertically { get; set; }
+    public bool StretchVertical { get; set; }
     /// <summary>
-    /// If wrapping is enabled.
+    /// If text wrapping is enabled.
     /// </summary>
     public bool? Wrap { get; set; }
     /// <summary>

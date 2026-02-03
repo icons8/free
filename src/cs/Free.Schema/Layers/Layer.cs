@@ -116,11 +116,11 @@ public abstract class Layer
     /// <summary>
     /// Determines if the layer should stretch horizontally (auto layout).
     /// </summary>
-    public bool StretchHorizontally { get; set; }
+    public bool StretchHorizontal { get; set; }
     /// <summary>
     /// Determines whether a layer should stretch vertically (auto layout).
     /// </summary>
-    public bool StretchVertically { get; set; }
+    public bool StretchVertical { get; set; }
     /// <summary>
     /// Enables absolute position for the layer (auto layout).
     /// </summary>

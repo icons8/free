@@ -533,8 +533,8 @@ A layer is any ungrouped element available on the canvas.
 * MinHeight: [float](#float) = `0` - defines the minimum layer height (auto layout).
 * MaxWidth: [float](#float) = `0` - defines the maximum layer width (auto layout).
 * MaxHeight: [float](#float) = `0` - defines the maximum layer height (auto layout).
-* StretchHorizontally: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
-* StretchVertically: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
+* StretchHorizontal: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
+* StretchVertical: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
 * FixPos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 * Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
@@ -1138,9 +1138,9 @@ Defines overrides for components.
 * TextBaseline: [bool?](#bool) - if text baseline alignment is enabled.
 * StrokesIncluded: [bool?](#bool) - if the Include Borders option is enabled.
 * ReverseZIndex: [bool?](#bool) - if the Last on Top option is enabled.
-* StretchHorizontally: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
-* StretchVertically: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
-* Wrap: [bool?](#bool) - if wrapping is enabled.
+* StretchHorizontal: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
+* StretchVertical: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
+* Wrap: [bool?](#bool) - if text wrapping is enabled.
 * Truncate: [bool?](#bool) - trim text with triple dots in the end if content overlaps fixed layer size bounds.
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
 * KeepScroll: [bool?](#bool) - if the *Keep scroll position* option is enabled (prototyping).
