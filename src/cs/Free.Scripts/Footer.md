@@ -23,6 +23,9 @@
 * `Container` renamed to `AutoLayout`.
 * `Sizing` and `VSizing` are replaced by `FixedHorizontal` and `FixedVertical`.
 * `Orientation` replaced by `Vertical` boolean.
+* `LayoutStretch` renamed to `StretchHorizontally`.
+* `LayoutGrowStretch` renamed to `StretchVertically`.
+* `LayoutFixPos` renamed to `FixPos`.
 
 ### Version 4 - 20.01.2025
 

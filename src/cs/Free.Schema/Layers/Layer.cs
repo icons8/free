@@ -114,17 +114,17 @@ public abstract class Layer
     /// </summary>
     public float MaxHeight { get; set; }
     /// <summary>
-    /// Determines if the layer should stretch along the parent’s counter axis (auto layout).
+    /// Determines if the layer should stretch horizontally (auto layout).
     /// </summary>
-    public bool LayoutStretch { get; set; }
+    public bool StretchHorizontally { get; set; }
     /// <summary>
-    /// Determines whether a layer should stretch along the parent’s primary axis (auto layout).
+    /// Determines whether a layer should stretch vertically (auto layout).
     /// </summary>
-    public bool LayoutGrowStretch { get; set; }
+    public bool StretchVertically { get; set; }
     /// <summary>
     /// Enables absolute position for the layer (auto layout).
     /// </summary>
-    public bool LayoutFixPos { get; set; }
+    public bool FixPos { get; set; }
     /// <summary>
     /// Key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
     /// </summary>

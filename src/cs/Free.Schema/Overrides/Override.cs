@@ -236,13 +236,13 @@ public sealed class Override
     /// </summary>
     public bool? ReverseZIndex { get; set; }
     /// <summary>
-    /// Determines if the layer should stretch along the parent’s counter axis (auto layout).
+    /// Determines if the layer should stretch horizontally (auto layout).
     /// </summary>
-    public bool? Stretch { get; set; }
+    public bool StretchHorizontally { get; set; }
     /// <summary>
-    /// Determines whether a layer should stretch along the parent’s primary axis (auto layout).
+    /// Determines whether a layer should stretch vertically (auto layout).
     /// </summary>
-    public bool? GrowStretch { get; set; }
+    public bool StretchVertically { get; set; }
     /// <summary>
     /// If wrapping is enabled.
     /// </summary>

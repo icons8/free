@@ -533,9 +533,9 @@ A layer is any ungrouped element available on the canvas.
 * MinHeight: [float](#float) = `0` - defines the minimum layer height (auto layout).
 * MaxWidth: [float](#float) = `0` - defines the maximum layer width (auto layout).
 * MaxHeight: [float](#float) = `0` - defines the maximum layer height (auto layout).
-* LayoutStretch: [bool](#bool) = `false` - determines if the layer should stretch along the parent’s counter axis (auto layout).
-* LayoutGrowStretch: [bool](#bool) = `false` - determines whether a layer should stretch along the parent’s primary axis (auto layout).
-* LayoutFixPos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
+* StretchHorizontally: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
+* StretchVertically: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
+* FixPos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 * Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
 * Binds: [Variable[]](#Variable) - binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
@@ -1138,8 +1138,8 @@ Defines overrides for components.
 * TextBaseline: [bool?](#bool) - if text baseline alignment is enabled.
 * StrokesIncluded: [bool?](#bool) - if the Include Borders option is enabled.
 * ReverseZIndex: [bool?](#bool) - if the Last on Top option is enabled.
-* Stretch: [bool?](#bool) - determines if the layer should stretch along the parent’s counter axis (auto layout).
-* GrowStretch: [bool?](#bool) - determines whether a layer should stretch along the parent’s primary axis (auto layout).
+* StretchHorizontally: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
+* StretchVertically: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
 * Wrap: [bool?](#bool) - if wrapping is enabled.
 * Truncate: [bool?](#bool) - trim text with triple dots in the end if content overlaps fixed layer size bounds.
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
@@ -1845,6 +1845,9 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `Container` renamed to `AutoLayout`.
 * `Sizing` and `VSizing` are replaced by `FixedHorizontal` and `FixedVertical`.
 * `Orientation` replaced by `Vertical` boolean.
+* `LayoutStretch` renamed to `StretchHorizontally`.
+* `LayoutGrowStretch` renamed to `StretchVertically`.
+* `LayoutFixPos` renamed to `FixPos`.
 
 ### Version 4 - 20.01.2025
 

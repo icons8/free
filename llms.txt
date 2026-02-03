@@ -183,9 +183,9 @@ Has all properties of `Layer`, plus:
 * float minHeight = 0
 * float maxWidth = 0
 * float maxHeight = 0
-* bool layoutStretch = false
-* bool layoutGrowStretch = false
-* bool layoutFixPos = false
+* bool stretchHorizontally = false
+* bool stretchVertically = false
+* bool fixPos = false
 * [string,string] custom
 * GUID fillsId
 * GUID bordersId
