@@ -528,6 +528,7 @@ A layer is any ungrouped element available on the canvas.
 * MaskType: [MaskType](#MaskType) = `Vector` - type of the Mask - Vector, Alpha or Luminance.
 * KeepScroll: [bool](#bool) = `false` - if the *Keep scroll position* option is enabled (prototyping).
 * ScrollBehavior: [FlowScrollBehavior](#FlowScrollBehavior) = `Scroll` - defines scroll behavior (prototyping).
+* ScrollOverflow: [FlowScrollOverflow](#FlowScrollOverflow) = `NoScrolling` - defines scroll overflow (prototyping).
 * Flows: [Flow[]](#Flow) - defines flows (prototyping).
 * MinWidth: [float](#float) = `0` - defines the minimum layer width (auto layout).
 * MinHeight: [float](#float) = `0` - defines the minimum layer height (auto layout).
@@ -1259,6 +1260,7 @@ Prototyping action animation.
 * Direction: [FlowAnimationDirection](#FlowAnimationDirection) = `Left` - animation direction.
 * Duration: [int](#int) - animation duration in ms.
 * Curve: [Point[]](#Point) - animation curve point array. Array length is always 2. Point values are between 0 and 1.
+* Spring: [Spring?](#Spring) - spring animation parameters.
 
 ### <a name="Matrix"></a>Matrix Struct
 A transformation matrix is standard way in computer graphics to represent translation and rotation. These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1]. This is known as an affine transform and is enough to represent translation, rotation, and skew. The identity transform is [1, 0, 0,  0, 1, 0]. A translation matrix will typically look like: [1, 0, tx,  0, 1, ty] and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0] If a matrix contains only translation it will be printed like point [0,5]
@@ -1289,6 +1291,13 @@ A utility class to represent layer size.
 
 * Width: [float](#float) - layer width.
 * Height: [float](#float) - layer height.
+
+### <a name="Spring"></a>Spring Struct
+Spring animation parameters
+
+* Dumping: [float](#float) - spring Dumping, Min 0.01, Max=10000.
+* Mass: [float](#float) - spring Mass, Min 0.01, Max=1000.
+* Stiffness: [float](#float) - spring Stiffness, Min=0.01, Max=1000000.
 
 ### <a name="Thickness"></a>Thickness Struct
 Thickness struct. Used for Border thickness and Padding values
@@ -1591,6 +1600,14 @@ Prototyping scroll behavior of a layer.
 * `1` Fixed - fixed position on scroll.
 * `2` Sticky - stick to the edge on scroll.
 
+### <a name="FlowScrollOverflow"></a>FlowScrollOverflow Enum
+Prototyping scroll overflow of a layer.
+
+* `0` NoScrolling
+* `1` Horizontal
+* `2` Vertical
+* `3` Both
+
 ### <a name="GradientType"></a>GradientType Enum
 List of Gradient types.
 
@@ -1848,6 +1865,8 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `LayoutStretch` renamed to `StretchHorizontally`.
 * `LayoutGrowStretch` renamed to `StretchVertically`.
 * `LayoutFixPos` renamed to `FixPos`.
+* Added `FlowScrollOverflow`.
+* Added `Spring` animation parameters.
 
 ### Version 4 - 20.01.2025
 

@@ -26,6 +26,8 @@
 * `LayoutStretch` renamed to `StretchHorizontally`.
 * `LayoutGrowStretch` renamed to `StretchVertically`.
 * `LayoutFixPos` renamed to `FixPos`.
+* Added `FlowScrollOverflow`.
+* Added `Spring` animation parameters.
 
 ### Version 4 - 20.01.2025
 

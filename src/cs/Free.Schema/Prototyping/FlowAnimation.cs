@@ -29,4 +29,8 @@ public struct FlowAnimation
     /// Animation curve point array. Array length is always 2. Point values are between 0 and 1.
     /// </summary>
     public Point[] Curve { get; set; }
+    /// <summary>
+    /// Spring animation parameters.
+    /// </summary>
+    public Spring? Spring { get; set; }
 }

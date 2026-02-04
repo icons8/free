@@ -94,6 +94,10 @@ public abstract class Layer
     /// </summary>
     public FlowScrollBehavior ScrollBehavior { get; set; }
     /// <summary>
+    /// Defines scroll overflow (prototyping).
+    /// </summary>
+    public FlowScrollOverflow ScrollOverflow { get; set; }
+    /// <summary>
     /// Defines flows (prototyping).
     /// </summary>
     public List<Flow> Flows { get; } = new();
