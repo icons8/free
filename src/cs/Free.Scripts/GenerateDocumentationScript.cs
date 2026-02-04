@@ -56,7 +56,7 @@ public static class GenerateDocumentationScript
         "FlowTrigger", "MouseUpTrigger", "MouseLeaveTrigger", "MouseEnterTrigger", "MouseDownTrigger", "KeyPressTrigger",
         "HoverTrigger", "HoldTrigger", "DragTrigger", "ClickTrigger", "AfterDelayTrigger",
         "FlowAction", "SwitchStateAction", "SwapOverlayAction", "ScrollToAction", "OpenUrlAction", "OpenOverlayAction", 
-        "NavigateToAction", "CloseOverlayAction", "BackAction", 
+        "NavigateToAction", "CloseOverlayAction", "BackAction", "Spring", "FlowScrollOverflow",
         
         "Expression", "ExpressionFunction", "Bind", "BindField", 
     

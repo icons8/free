@@ -179,7 +179,6 @@ Has all properties of `Layer`, plus:
 * bool breakMask = false
 * MaskType maskType = 0
 * bool keepScroll = false
-* FlowScrollOverflow scrollOverflow = 0
 * float minWidth = 0
 * float minHeight = 0
 * float maxWidth = 0
@@ -411,12 +410,6 @@ Has all properties of `StyleBase`, plus:
 * float width
 * float height
 
-### Struct Spring — Spring animation parameters
-
-* float dumping
-* float mass
-* float stiffness
-
 ### Struct Thickness — Thickness struct. Used for Border thickness and Padding values
 
 * float left
@@ -505,13 +498,6 @@ Has all properties of `StyleBase`, plus:
 0. color
 1. gradient
 4. pattern
-
-### Enum FlowScrollOverflow — Prototyping scroll overflow of a layer.
-
-0. noScrolling
-1. horizontal
-2. vertical
-3. both
 
 ### Enum GradientType — List of Gradient types.
 
