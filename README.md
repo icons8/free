@@ -536,7 +536,7 @@ A layer is any ungrouped element available on the canvas.
 * MaxHeight: [float](#float) = `0` - defines the maximum layer height (auto layout).
 * StretchHorizontal: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
 * StretchVertical: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
-* FixPos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
+* AbsolutePos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 * Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
 * Binds: [Variable[]](#Variable) - binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.

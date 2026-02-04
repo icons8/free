@@ -185,7 +185,7 @@ Has all properties of `Layer`, plus:
 * float maxHeight = 0
 * bool stretchHorizontal = false
 * bool stretchVertical = false
-* bool fixPos = false
+* bool absolutePos = false
 * [string,string] custom
 * GUID fillsId
 * GUID bordersId
