@@ -13,7 +13,7 @@ public class TextStyle : StyleBase
     /// <summary>
     /// Text size.
     /// </summary>
-    public float Size { get; set; } = 12;
+    public float FontSize { get; set; } = 12;
     
     /// <summary>
     /// Paragraph spacing.

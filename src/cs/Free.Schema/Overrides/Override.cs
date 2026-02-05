@@ -154,10 +154,6 @@ public sealed class Override
     /// </summary>
     public string? Text { get; set; }
     /// <summary>
-    /// Style applied to the text
-    /// </summary>
-    public TextProperties? TextStyle { get; set; }
-    /// <summary>
     /// Styling options applied to the text within a text block.
     /// </summary>
     public List<InlineStyle>? Inlines { get; set; }

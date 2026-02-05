@@ -147,7 +147,20 @@ Has all properties of `Layer`, plus:
 Has all properties of `Layer`, plus:
 * string _t = "TEXT"
 * string text
-* TextProperties textStyle
+* string font = "Inter"
+* float fontSize = 12
+* float paragraphSpacing = 0
+* float kerning = 0
+* float baselineOffset = 0
+* float? lineHeight
+* CharacterCasing casing = 0
+* TextHorizontalAlignment align = 0
+* TextVerticalAlignment valign = 0
+* ListMarkerType list = 0
+* bool rTL = false
+* bool underline = false
+* bool strikethrough = false
+* BaselinePosition baselinePos = 0
 * InlineStyle[] inlines
 * TextBehavior behavior = 0
 * bool clipContent = true
@@ -224,7 +237,7 @@ Has all properties of `StyleBase`, plus:
 
 Has all properties of `StyleBase`, plus:
 * string font = "Inter"
-* float size = 12
+* float fontSize = 12
 * float paragraphSpacing = 0
 * float kerning = 0
 * float baselineOffset = 0
@@ -314,9 +327,23 @@ Has all properties of `StyleBase`, plus:
 
 * int start = 0
 * int length = 0
-* TextProperties style
 * GUID fillsId
 * GUID textStyleId
+* Fill[] fills
+* string font = "Inter"
+* float fontSize = 12
+* float paragraphSpacing = 0
+* float kerning = 0
+* float baselineOffset = 0
+* float? lineHeight
+* CharacterCasing casing = 0
+* TextHorizontalAlignment align = 0
+* TextVerticalAlignment valign = 0
+* ListMarkerType list = 0
+* bool rTL = false
+* bool underline = false
+* bool strikethrough = false
+* BaselinePosition baselinePos = 0
 
 ### Object Page — Document page properties.
 
@@ -358,24 +385,6 @@ Has all properties of `StyleBase`, plus:
 * float spread = 0
 * Point offset = [0,0]
 * BlendMode blendMode = 0
-
-### Object TextProperties — Defines a set of properties that make up a text style.
-
-* Fill[] fills
-* string font = "Inter"
-* float size = 12
-* float paragraphSpacing = 0
-* float kerning = 0
-* float baselineOffset = 0
-* float? lineHeight
-* CharacterCasing casing = 0
-* TextHorizontalAlignment align = 0
-* TextVerticalAlignment valign = 0
-* ListMarkerType list = 0
-* bool rTL = false
-* bool underline = false
-* bool strikethrough = false
-* BaselinePosition baselinePos = 0
 
 ### Struct Color — 32-bit ARGB unpremultiplied color value.
 

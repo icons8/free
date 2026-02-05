@@ -494,7 +494,20 @@ Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `TEXT` - object type.
 * text: [string](#string) - content of the text layer.
-* TextStyle: [TextProperties](#TextProperties) - style applied to the text.
+* Font: [string](#string) = `Inter` - text font.
+* FontSize: [float](#float) = `12` - text size.
+* ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
+* Kerning: [float](#float) = `0` - letter spacing.
+* BaselineOffset: [float](#float) = `0` - text offset from the baseline.
+* LineHeight: [float?](#float) - line spacing.
+* Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
+* Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
+* Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
+* List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
+* RTL: [bool](#bool) = `false` - if the text is RTL.
+* Underline: [bool](#bool) = `false` - if the text is underlined.
+* Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
+* BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
 * Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
 * Behavior: [TextBehavior](#TextBehavior) = `Flexible` - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * ClipContent: [bool](#bool) = `true` - valid for files imported from Figma. Defines whether to truncate text content.
@@ -728,7 +741,7 @@ Text Style
 Has all properties of [`StyleBase`](#StyleBase), plus:
 
 * Font: [string](#string) = `Inter` - text font.
-* Size: [float](#float) = `12` - text size.
+* FontSize: [float](#float) = `12` - text size.
 * ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
 * Kerning: [float](#float) = `0` - letter spacing.
 * BaselineOffset: [float](#float) = `0` - text offset from the baseline.
@@ -1077,9 +1090,23 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 
 * Start: [int](#int) = `0` - position where the style starts.
 * Length: [int](#int) = `0` - length of the selection.
-* Style: [TextProperties](#TextProperties) - style applied to the selection.
 * FillsId: [GUID](#GUID) - color Style Id.
 * TextStyleId: [GUID](#GUID) - text style id.
+* Fills: [Fill[]](#Fill) - list of fills.
+* Font: [string](#string) = `Inter` - text font.
+* FontSize: [float](#float) = `12` - text size.
+* ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
+* Kerning: [float](#float) = `0` - letter spacing.
+* BaselineOffset: [float](#float) = `0` - text offset from the baseline.
+* LineHeight: [float?](#float) - line spacing.
+* Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
+* Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
+* Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
+* List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
+* RTL: [bool](#bool) = `false` - if the text is RTL.
+* Underline: [bool](#bool) = `false` - if the text is underlined.
+* Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
+* BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
 
 ### <a name="Meta"></a>Meta
 Contains metadata about the document.
@@ -1121,7 +1148,6 @@ Defines overrides for components.
 * StartMarker: [Arrowhead?](#Arrowhead) - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * EndMarker: [Arrowhead?](#Arrowhead) - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * Text: [string](#string) - content of the text layer.
-* TextStyle: [TextProperties](#TextProperties) - style applied to the text
 * TextBehavior: [TextBehavior?](#TextBehavior) - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * Size: [Size?](#Size) - text size.
 * Vertical: [bool?](#bool) - is vertical autolayout
@@ -1217,25 +1243,6 @@ Contains components, styles and variables from external library that is used in 
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
-
-### <a name="TextProperties"></a>TextProperties
-Defines a set of properties that make up a text style.
-
-* Fills: [Fill[]](#Fill) - list of fills.
-* Font: [string](#string) = `Inter` - text font.
-* Size: [float](#float) = `12` - text size.
-* ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
-* Kerning: [float](#float) = `0` - letter spacing.
-* BaselineOffset: [float](#float) = `0` - text offset from the baseline.
-* LineHeight: [float?](#float) - line spacing.
-* Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
-* Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
-* Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
-* List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
-* RTL: [bool](#bool) = `false` - if the text is RTL.
-* Underline: [bool](#bool) = `false` - if the text is underlined.
-* Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
-* BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
 
 ### <a name="ThemeSelection"></a>ThemeSelection
 Theme Selection of a layer and it's children for a specific theme.
@@ -1867,6 +1874,8 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `LayoutFixPos` renamed to `FixPos`.
 * Added `FlowScrollOverflow`.
 * Added `Spring` animation parameters.
+* `TextProperties` removed. Now this properties are inside `Text` layer and `InlineStyle`.
+* `size` renamed to `fontSize` where font size is set.
 
 ### Version 4 - 20.01.2025
 

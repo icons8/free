@@ -28,6 +28,8 @@
 * `LayoutFixPos` renamed to `FixPos`.
 * Added `FlowScrollOverflow`.
 * Added `Spring` animation parameters.
+* `TextProperties` removed. Now this properties are inside `Text` layer and `InlineStyle`.
+* `size` renamed to `fontSize` where font size is set.
 
 ### Version 4 - 20.01.2025
 
