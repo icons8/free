@@ -1338,9 +1338,9 @@ Defines the appearance of arrowheads.
 ### <a name="BaselinePosition"></a>BaselinePosition Enum
 Defines text position against the baseline.
 
+* `-1` Subscript - text is lowered below the baseline.
 * `0` Normal - text is aligned with the baseline.
 * `1` Superscript - text is raised above the baseline.
-* `-1` Subscript - text is lowered below the baseline.
 
 ### <a name="BindField"></a>BindField Enum
 

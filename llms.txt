@@ -447,9 +447,9 @@ Has all properties of `StyleBase`, plus:
 
 ### Enum BaselinePosition — Defines text position against the baseline.
 
+-1. subscript
 0. normal
 1. superscript
--1. subscript
 
 ### Enum BlendMode — Defines the type of blend mode applied to a layer.
 
