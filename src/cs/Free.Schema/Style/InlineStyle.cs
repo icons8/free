@@ -88,7 +88,7 @@ public class InlineStyle
     /// <summary>
     /// If the text is RTL.
     /// </summary>
-    public bool RTL { get; set; }
+    public bool Rtl { get; set; }
     
     /// <summary>
     /// If the text is underlined.

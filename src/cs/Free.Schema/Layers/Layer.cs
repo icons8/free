@@ -24,7 +24,7 @@ public abstract class Layer
     /// <summary>
     /// Defines the boolean operation applied to the layer.
     /// </summary>
-    public BoolOp BooleanOp { get; set; }
+    public BoolOp BoolOp { get; set; }
     /// <summary>
     /// If the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
     /// </summary>

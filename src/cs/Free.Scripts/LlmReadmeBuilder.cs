@@ -138,6 +138,10 @@ public class LlmReadmeBuilder
         {
             return "[" + t.Left + "," + t.Top + "," + t.Right + "," + t.Bottom + "]";
         }
+        if (value is Matrix)
+        {
+            return "[0,0]";
+        }
 
         if (value is ICollection { Count: 0 })
         {

@@ -60,7 +60,7 @@ public class Text : Layer
     /// <summary>
     /// If the text is RTL.
     /// </summary>
-    public bool RTL { get; set; }
+    public bool Rtl { get; set; }
     /// <summary>
     /// If the text is underlined.
     /// </summary>

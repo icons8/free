@@ -18,7 +18,6 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 Has all properties of `Frame`, plus:
 * string _t = "COMPONENT"
 * GUID componentId
-* bool predefined = false
 * ComponentPropertyBase[] properties
 
 ### Object Line — A line is a shape drawn on the canvas with the Line tool.
@@ -73,8 +72,6 @@ Has all properties of `Layer`, plus:
 * PrototypeViewport viewport
 * bool resizesContent = false
 * AutoLayout autoLayout
-* LayoutGuideBase[] layouts
-* GUID gridsId
 * Layer[] layers
 
 ### Object Group — A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
@@ -131,7 +128,7 @@ Has all properties of `Layer`, plus:
 * TextHorizontalAlignment align = 0
 * TextVerticalAlignment valign = 0
 * ListMarkerType list = 0
-* bool rTL = false
+* bool rtl = false
 * bool underline = false
 * bool strikethrough = false
 * InlineStyle[] inlines
@@ -141,7 +138,6 @@ Has all properties of `Layer`, plus:
 * byte maxLines = 0
 * bool drawOnPath = false
 * bool warp = false
-* GUID textStyleId
 
 ### Object Layer — A layer is any ungrouped element available on the canvas.
 
@@ -149,13 +145,13 @@ Has all properties of `Layer`, plus:
 * GUID id
 * string name
 * bool nameIsFixed = false
-* BoolOp booleanOp = 0
+* BoolOp boolOp = 0
 * bool fixed = false
 * bool locked = false
 * bool hidden = false
 * ExportOption[] export
 * string constraints = "LTWH"
-* Matrix transform = Free.Schema.Matrix
+* Matrix transform = [0,0]
 * Size size = [100,100]
 * bool lockAspect = false
 * bool mask = false
@@ -168,9 +164,6 @@ Has all properties of `Layer`, plus:
 * bool stretchHorizontal = false
 * bool stretchVertical = false
 * bool absolutePos = false
-* GUID fillsId
-* GUID bordersId
-* GUID effectsId
 * float opacity = 1
 * PathFillType winding = 1
 * Fill[] fills
@@ -186,36 +179,6 @@ Has all properties of `Layer`, plus:
 * BlurEffect blur
 * float[] cornerRadius = float[4]
 * bool smoothCorners = false
-
-### Object ColorStyle — Style of fills. Can be set to borders and fills.
-
-Has all properties of `StyleBase`, plus:
-* Fill[] fills
-
-### Object EffectStyle
-
-Has all properties of `StyleBase`, plus:
-* ShadowEffect[] shadows
-* ShadowEffect[] innerShadows
-* BlurEffect blur
-
-### Object TextStyle — Text Style
-
-Has all properties of `StyleBase`, plus:
-* string font = "Inter"
-* float fontSize = 12
-* float paragraphSpacing = 0
-* float baselineOffset = 0
-* float? lineHeight
-* bool underline = false
-* bool strikethrough = false
-* CharacterCasing casing = 0
-
-### Object StyleBase — Base class for a shared style
-
-* GUID id
-* string name
-* int version = 0
 
 ### Object AutoLayout — Defines auto layout settings.
 
@@ -248,7 +211,7 @@ Has all properties of `StyleBase`, plus:
 ### Object Fill — Defines the fill applied to a layer.
 
 * bool enabled = false
-* Color color = "00000000"
+* string color = "00000000"
 * GUID? colorId
 * FillType type = 0
 * float opacity = 0
@@ -266,15 +229,13 @@ Has all properties of `StyleBase`, plus:
 ### Object GradientStop — A position-color pair representing a gradient stop.
 
 * float pos = 0
-* Color color = "00000000"
+* string color = "00000000"
 * GUID? colorId
 
 ### Object InlineStyle — Style (bold, italic, etc.) applied to a part of text or single word within a text block.
 
 * int start = 0
 * int length = 0
-* GUID fillsId
-* GUID textStyleId
 * Fill[] fills
 * string font = "Inter"
 * float fontSize = 12
@@ -285,7 +246,7 @@ Has all properties of `StyleBase`, plus:
 * TextHorizontalAlignment align = 0
 * TextVerticalAlignment valign = 0
 * ListMarkerType list = 0
-* bool rTL = false
+* bool rtl = false
 * bool underline = false
 * bool strikethrough = false
 
@@ -308,17 +269,10 @@ Has all properties of `StyleBase`, plus:
 
 * bool enabled = true
 * float radius = 0
-* Color color = "00000000"
+* string color = "00000000"
 * GUID? colorId
 * float spread = 0
 * Point offset = [0,0]
-
-### Struct Color — 32-bit ARGB unpremultiplied color value.
-
-* byte alpha = 0
-* byte red = 0
-* byte green = 0
-* byte blue = 0
 
 ### Struct Matrix — A transformation matrix is standard way in computer graphics to represent translation and rotation. These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1]. This is known as an affine transform and is enough to represent translation, rotation, and skew. The identity transform is [1, 0, 0,  0, 1, 0]. A translation matrix will typically look like: [1, 0, tx,  0, 1, ty] and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0] If a matrix contains only translation it will be printed like point [0,5]
 
@@ -333,13 +287,6 @@ Has all properties of `StyleBase`, plus:
 
 * float x
 * float y
-
-### Struct Rect — A utility class to represent a rectangle.
-
-* float left
-* float top
-* float width
-* float height
 
 ### Struct Size — A utility class to represent layer size.
 

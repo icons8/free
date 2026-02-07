@@ -504,7 +504,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
 * Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
 * List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
-* RTL: [bool](#bool) = `false` - if the text is RTL.
+* Rtl: [bool](#bool) = `false` - if the text is RTL.
 * Underline: [bool](#bool) = `false` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
 * BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
@@ -524,7 +524,7 @@ A layer is any ungrouped element available on the canvas.
 * Id: [GUID](#GUID) - unique layer identifier.
 * Name: [string](#string) - defines layer name.
 * NameIsFixed: [bool](#bool) = `false` - name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
-* BooleanOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
+* BoolOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
 * Fixed: [bool](#bool) = `false` - if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
 * Locked: [bool](#bool) = `false` - defines whether the layer is locked for editing.
 * Hidden: [bool](#bool) = `false` - defines whether the layer is hidden.
@@ -1103,7 +1103,7 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
 * Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
 * List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
-* RTL: [bool](#bool) = `false` - if the text is RTL.
+* Rtl: [bool](#bool) = `false` - if the text is RTL.
 * Underline: [bool](#bool) = `false` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
 * BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.

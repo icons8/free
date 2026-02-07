@@ -24,17 +24,22 @@ public static class LlmFilter
         "VariableTheme", "VariableCollection", "Variable", "StringValue", "FloatValue", "ColorValue", "BoolValue", 
         "StringVariable", "FloatVariable", "ColorVariable", "BoolVariable", "ThemeSelection",
     
-        "ImageFilters", "BaselinePosition", "BlendMode"
+        "ImageFilters", "BaselinePosition", "BlendMode", "Rect", "Color",
+        
+        "StyleBase", "ColorStyle", "TextStyle", "EffectStyle"
     ];
 
     private static readonly string[] ExcludedFields = [
         "MiterLimit", "Kerning", "IsTemplate", "Expand", "Trim", "KeepScroll",
         "Custom", "ImageFilters", "FigmaId", "StrokesIncluded", "ReverseZIndex",
+        "Predefined",
         
+        "FillsId", "BordersId", "EffectsId", "TextStyleId", "GridsId"
     ];
 
     private static readonly Type[] LlmTypeFilter = [
-        typeof(List<Flow>), typeof(List<VariableCollection>), typeof(List<Variable>), typeof(List<ThemeSelection>), typeof(List<Override>)
+        typeof(List<Flow>), typeof(List<VariableCollection>), typeof(List<Variable>), typeof(List<ThemeSelection>), 
+        typeof(List<Override>), typeof(List<LayoutGuideBase>)
     ];
     public static List<Node> FilterItemsForLlm(List<Node> items) => items
         .Where(x => !ExcludedTypes.Contains(x.Name))
@@ -42,6 +47,13 @@ public static class LlmFilter
         {
             if (x.Type != NodeType.Enum)
             {
+                foreach (var c in x.Childs)
+                {
+                    if (c.ValueType == typeof(Color))
+                    {
+                        c.ValueType = typeof(string);
+                    }
+                }
                 foreach (var toRemove in x.Childs
                              .Where(c => ExcludedTypes.Contains(c.ValueType.Name) || 
                                          LlmTypeFilter.Contains(c.ValueType) ||
