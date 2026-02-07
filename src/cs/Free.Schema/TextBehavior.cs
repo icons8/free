@@ -5,7 +5,9 @@ namespace Free.Schema;
 /// </summary>
 public enum TextBehavior : byte
 {
-    //Both the width and height of the textbox automatically adjusts to fit its content. Characters do not wrap.
+    /// <summary>
+    /// Both the width and height of the textbox automatically adjusts to fit its content. Characters do not wrap.
+    /// </summary>
     Flexible = 0,
     /// <summary>
     /// The width of the textbox is fixed. Characters wrap to fit in the textbox. The height of the textbox automatically adjusts to fit its content.

@@ -19,7 +19,6 @@ Has all properties of `Frame`, plus:
 * string _t = "COMPONENT"
 * GUID componentId
 * bool predefined = false
-* string figmaId
 * ComponentPropertyBase[] properties
 
 ### Object Line — A line is a shape drawn on the canvas with the Line tool.
@@ -65,18 +64,6 @@ Has all properties of `Frame`, plus:
 Has all properties of `Path`, plus:
 * string _t = "TRIANGLE"
 
-### Object Connector — Connectors are lines and arrows used for annotations.
-
-Has all properties of `Layer`, plus:
-* string _t = "CONNECTOR"
-* GUID? start
-* GUID? end
-* Point startPos = [0,0]
-* Point endPos = [0,0]
-* Arrowhead startMarker = 0
-* Arrowhead endMarker = 0
-* float miterLimit = 10
-
 ### Object Frame — A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
 
 Has all properties of `Layer`, plus:
@@ -88,7 +75,6 @@ Has all properties of `Layer`, plus:
 * AutoLayout autoLayout
 * LayoutGuideBase[] layouts
 * GUID gridsId
-* Rulers rulers
 * Layer[] layers
 
 ### Object Group — A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
@@ -105,7 +91,6 @@ Has all properties of `Layer`, plus:
 * float scale = 0
 * GUID componentId
 * AutoLayout autoLayout
-* Override[] overrides
 
 ### Object Path — A vector path determines the outline and form of a vector object. A path is made up of points and segments.
 
@@ -113,7 +98,6 @@ Has all properties of `Layer`, plus:
 * string _t = "PATH"
 * Arrowhead startMarker = 0
 * Arrowhead endMarker = 0
-* float miterLimit = 10
 * bool edited = false
 * bool open = false
 * Vertex[] points
@@ -131,16 +115,7 @@ Has all properties of `Layer`, plus:
 * string _t = "SHAPE"
 * Arrowhead startMarker = 0
 * Arrowhead endMarker = 0
-* float miterLimit = 10
 * Layer[] layers
-
-### Object Slice — A slice is a special type of layers used for exporting certaing parts of designs.
-
-Has all properties of `Layer`, plus:
-* string _t = "SLICE"
-* bool hasBackground = false
-* Color background = "00000000"
-* GUID? backgroundId
 
 ### Object Text — Text is a block or line of text on the canvas.
 
@@ -150,7 +125,6 @@ Has all properties of `Layer`, plus:
 * string font = "Inter"
 * float fontSize = 12
 * float paragraphSpacing = 0
-* float kerning = 0
 * float baselineOffset = 0
 * float? lineHeight
 * CharacterCasing casing = 0
@@ -160,7 +134,6 @@ Has all properties of `Layer`, plus:
 * bool rTL = false
 * bool underline = false
 * bool strikethrough = false
-* BaselinePosition baselinePos = 0
 * InlineStyle[] inlines
 * TextBehavior behavior = 0
 * bool clipContent = true
@@ -180,9 +153,6 @@ Has all properties of `Layer`, plus:
 * bool fixed = false
 * bool locked = false
 * bool hidden = false
-* bool isTemplate = false
-* bool expand = false
-* bool trim = false
 * ExportOption[] export
 * string constraints = "LTWH"
 * Matrix transform = Free.Schema.Matrix
@@ -191,7 +161,6 @@ Has all properties of `Layer`, plus:
 * bool mask = false
 * bool breakMask = false
 * MaskType maskType = 0
-* bool keepScroll = false
 * float minWidth = 0
 * float minHeight = 0
 * float maxWidth = 0
@@ -199,12 +168,10 @@ Has all properties of `Layer`, plus:
 * bool stretchHorizontal = false
 * bool stretchVertical = false
 * bool absolutePos = false
-* [string,string] custom
 * GUID fillsId
 * GUID bordersId
 * GUID effectsId
 * float opacity = 1
-* BlendMode blendMode = 0
 * PathFillType winding = 1
 * Fill[] fills
 * Fill[] borders
@@ -217,7 +184,6 @@ Has all properties of `Layer`, plus:
 * ShadowEffect[] shadows
 * ShadowEffect[] innerShadows
 * BlurEffect blur
-* ImageFilters imageFilters
 * float[] cornerRadius = float[4]
 * bool smoothCorners = false
 
@@ -239,7 +205,6 @@ Has all properties of `StyleBase`, plus:
 * string font = "Inter"
 * float fontSize = 12
 * float paragraphSpacing = 0
-* float kerning = 0
 * float baselineOffset = 0
 * float? lineHeight
 * bool underline = false
@@ -251,7 +216,6 @@ Has all properties of `StyleBase`, plus:
 * GUID id
 * string name
 * int version = 0
-* string figmaId
 
 ### Object AutoLayout — Defines auto layout settings.
 
@@ -264,8 +228,6 @@ Has all properties of `StyleBase`, plus:
 * bool fixedHorizontal = false
 * bool fixedVertical = false
 * bool textBaseline = false
-* bool strokesIncluded = false
-* bool reverseZIndex = false
 * bool wrap = false
 
 ### Object BlurEffect — Defines the settings of the blur effect.
@@ -290,16 +252,8 @@ Has all properties of `StyleBase`, plus:
 * GUID? colorId
 * FillType type = 0
 * float opacity = 0
-* BlendMode blendMode = 0
 * Pattern pattern
 * Gradient gradient
-
-### Object Font — Embedded fonts stored in the document.
-
-* string data
-* string name
-* string fileName
-* string[] postscriptNames
 
 ### Object Gradient — An object that represents a gradient.
 
@@ -315,14 +269,6 @@ Has all properties of `StyleBase`, plus:
 * Color color = "00000000"
 * GUID? colorId
 
-### Object ImageFilters — Defines filters that can be applied to images.
-
-* bool enabled = false
-* float brightness = 0
-* float contrast = 1
-* float hue = 0
-* float saturation = 1
-
 ### Object InlineStyle — Style (bold, italic, etc.) applied to a part of text or single word within a text block.
 
 * int start = 0
@@ -333,7 +279,6 @@ Has all properties of `StyleBase`, plus:
 * string font = "Inter"
 * float fontSize = 12
 * float paragraphSpacing = 0
-* float kerning = 0
 * float baselineOffset = 0
 * float? lineHeight
 * CharacterCasing casing = 0
@@ -343,18 +288,6 @@ Has all properties of `StyleBase`, plus:
 * bool rTL = false
 * bool underline = false
 * bool strikethrough = false
-* BaselinePosition baselinePos = 0
-
-### Object Page — Document page properties.
-
-* GUID id
-* string name
-* Color background = "00000000"
-* bool isComponentPage = false
-* Rulers rulers
-* Point origin = [0,0]
-* float zoom = 0
-* Layer[] layers
 
 ### Object Pattern — Defines the image fill options.
 
@@ -371,11 +304,6 @@ Has all properties of `StyleBase`, plus:
 * Size size = [0,0]
 * GUID libraryId
 
-### Object Rulers — An object containing ruler origins and guideline positions.
-
-* int[] guides
-* int[] vGuides
-
 ### Object ShadowEffect — Defines the shadow options.
 
 * bool enabled = true
@@ -384,7 +312,6 @@ Has all properties of `StyleBase`, plus:
 * GUID? colorId
 * float spread = 0
 * Point offset = [0,0]
-* BlendMode blendMode = 0
 
 ### Struct Color — 32-bit ARGB unpremultiplied color value.
 
@@ -445,33 +372,6 @@ Has all properties of `StyleBase`, plus:
 6. square
 7. squareFilled
 
-### Enum BaselinePosition — Defines text position against the baseline.
-
--1. subscript
-0. normal
-1. superscript
-
-### Enum BlendMode — Defines the type of blend mode applied to a layer.
-
-0. normal
-1. darken
-2. multiply
-3. colorBurn
-4. lighten
-5. screen
-6. colorDodge
-7. overlay
-8. softLight
-9. hardLight
-10. difference
-11. exclusion
-12. hue
-13. saturation
-14. color
-15. luminosity
-16. plusDarker
-17. plusLighter
-
 ### Enum BlurType — Defines the blur type.
 
 0. gaussian
@@ -520,20 +420,6 @@ Has all properties of `StyleBase`, plus:
 1. center
 2. right
 3. distribute
-
-### Enum LayoutHorizontalAlignment — Defines horizontal alignment settings in layout guide.
-
-0. left
-1. center
-2. right
-3. stretch
-
-### Enum LayoutVerticalAlignment — Defines vertical alignment settings in layout guides.
-
-0. top
-1. middle
-2. bottom
-3. stretch
 
 ### Enum LineCap — Defines the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
 
@@ -586,9 +472,9 @@ Has all properties of `StyleBase`, plus:
 
 ### Enum TextBehavior — Defines textbox behavior options.
 
+0. flexible
 1. autoHeight
 2. fixed
-0. flexible
 
 ### Enum TextHorizontalAlignment — Defines how a text is aligned horizontally.
 

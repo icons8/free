@@ -1706,9 +1706,9 @@ Defines the scale type for exported objects.
 ### <a name="TextBehavior"></a>TextBehavior Enum
 Defines textbox behavior options.
 
+* `0` Flexible - both the width and height of the textbox automatically adjusts to fit its content. Characters do not wrap.
 * `1` AutoHeight - the width of the textbox is fixed. Characters wrap to fit in the textbox. The height of the textbox automatically adjusts to fit its content.
 * `2` Fixed - the size of the textbox is fixed and is independent of its content.
-* `0` Flexible
 
 ### <a name="TextHorizontalAlignment"></a>TextHorizontalAlignment Enum
 Defines how a text is aligned horizontally.
