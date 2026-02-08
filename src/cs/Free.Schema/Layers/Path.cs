@@ -1,4 +1,5 @@
 namespace Free.Schema;
+
 /// <summary>
 /// A vector path determines the outline and form of a vector object. A path is made up of points and segments. 
 /// </summary>

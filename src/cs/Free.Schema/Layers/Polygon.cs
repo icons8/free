@@ -1,4 +1,5 @@
 namespace Free.Schema;
+
 /// <summary>
 /// A polygon is a shape drawn on the canvas with the Polygon tool.
 /// </summary>

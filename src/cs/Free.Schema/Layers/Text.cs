@@ -1,8 +1,8 @@
 namespace Free.Schema;
+
 /// <summary>
 /// Text is a block or line of text on the canvas.
 /// </summary>
-
 public class Text : Layer
 {
     /// <summary>

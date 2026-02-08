@@ -27,7 +27,7 @@ public class LlmReadmeBuilder
             
             PrintTypeHeader(item);
 
-            if (item.Summary.Length > 0)
+            if (item.Summary.Length > 0 && !LlmFilter.ObviousDescriptionObjects.Contains(item.Name))
             {
                 _sb.Append(" — ").Append(item.Summary.Replace(Environment.NewLine, " "));
             }

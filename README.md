@@ -308,7 +308,7 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 ## Layers
 
 ### <a name="Component"></a>Component
-A component is a reusable groups of layers.
+A component is a reusable frame of layers.
 
 Has all properties of [`Frame`](#Frame), plus:
 
@@ -397,7 +397,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 
 ### <a name="Frame"></a>Frame
-A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
+A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for auto-layout and prototypes.
 
 Has all properties of [`Layer`](#Layer), plus:
 
@@ -428,7 +428,7 @@ Has all properties of [`Layer`](#Layer), plus:
 </details>
 
 ### <a name="Instance"></a>Instance
-An instance is a copy of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component.
+An instance is a linked copy of the component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the component.
 
 Has all properties of [`Layer`](#Layer), plus:
 
@@ -461,7 +461,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Layers: [Layer[]](#Layer) - list of layers within the section.
 
 ### <a name="Shape"></a>Shape
-A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
+Group of path's
 
 Has all properties of [`Layer`](#Layer), plus:
 
@@ -518,7 +518,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * TextStyleId: [GUID](#GUID) - text style id.
 
 ### <a name="Layer"></a>Layer
-A layer is any ungrouped element available on the canvas.
+Base class for any layer on a canvas.
 
 * _t: [string](#string) = `COMPONENT` - object type.
 * Id: [GUID](#GUID) - unique layer identifier.

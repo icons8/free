@@ -1,4 +1,5 @@
 namespace Free.Schema;
+
 /// <summary>
 /// A star is a shape drawn on the canvas with the Star tool.
 /// </summary>

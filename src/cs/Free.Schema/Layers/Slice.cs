@@ -1,4 +1,5 @@
 namespace Free.Schema;
+
 /// <summary>
 /// A slice is a special type of layers used for exporting certaing parts of designs.
 /// </summary>

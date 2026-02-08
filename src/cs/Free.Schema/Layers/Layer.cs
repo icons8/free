@@ -1,7 +1,7 @@
 namespace Free.Schema;
 
 /// <summary>
-/// A layer is any ungrouped element available on the canvas.
+/// Base class for any layer on a canvas.
 /// </summary>
 public abstract class Layer
 {

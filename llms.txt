@@ -1,7 +1,5 @@
 # Free Format Specification
 
-## Base Types
-
 Free format is NULL-free, NaN-free and Infinity-free - if any of this values are in JSON - it's broken. 
 
 * float - 32bit single-precision floating-point number
@@ -11,21 +9,19 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 * string - text as a sequence of UTF-8 code units
 * GUID - globally unique identifier, with base64 encryption, length is always 22 chars. Examples: `R1o2w3_4D5i6n7g8_000AA`, `N1a2m3-4C5o6n7t8_910AA`, `reY4TrsLHUeFk-E0CtyS5A`
 
-## Layers
-
-### Object Component — A component is a reusable groups of layers.
+### Object Component — A component is a reusable frame of layers.
 
 Has all properties of `Frame`, plus:
 * string _t = "COMPONENT"
 * GUID componentId
 * ComponentPropertyBase[] properties
 
-### Object Line — A line is a shape drawn on the canvas with the Line tool.
+### Object Line
 
 Has all properties of `Path`, plus:
 * string _t = "LINE"
 
-### Object Oval — An oval is a shape drawn on the canvas with the Oval tool.
+### Object Oval
 
 Has all properties of `Path`, plus:
 * string _t = "OVAL"
@@ -33,19 +29,19 @@ Has all properties of `Path`, plus:
 * float ratio = 0
 * float startAngle = 0
 
-### Object Polygon — A polygon is a shape drawn on the canvas with the Polygon tool.
+### Object Polygon
 
 Has all properties of `Path`, plus:
 * string _t = "POLYGON"
 * float rays = 0
 
-### Object Rectangle — A rectangle is a shape drawn on the canvas with the Rectangle tool.
+### Object Rectangle
 
 Has all properties of `Path`, plus:
 * string _t = "RECT"
 * bool smoothCorners = false
 
-### Object Star — A star is a shape drawn on the canvas with the Star tool.
+### Object Star
 
 Has all properties of `Path`, plus:
 * string _t = "STAR"
@@ -58,12 +54,12 @@ Has all properties of `Frame`, plus:
 * string _t = "STATES"
 * ComponentPropertyBase[] properties
 
-### Object Triangle — A triangle is a shape drawn on the canvas with the Triangle tool.
+### Object Triangle
 
 Has all properties of `Path`, plus:
 * string _t = "TRIANGLE"
 
-### Object Frame — A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for prototypes.
+### Object Frame — A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for auto-layout and prototypes.
 
 Has all properties of `Layer`, plus:
 * string _t = "FRAME"
@@ -74,14 +70,14 @@ Has all properties of `Layer`, plus:
 * AutoLayout autoLayout
 * Layer[] layers
 
-### Object Group — A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
+### Object Group
 
 Has all properties of `Layer`, plus:
 * string _t = "GROUP"
 * bool skipSelect = false
 * Layer[] layers
 
-### Object Instance — An instance is a copy of the main component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the main component.
+### Object Instance — An instance is a linked copy of the component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the component.
 
 Has all properties of `Layer`, plus:
 * string _t = "INSTANCE"
@@ -106,7 +102,7 @@ Has all properties of `Layer`, plus:
 * string _t = "SECTION"
 * Layer[] layers
 
-### Object Shape — A shape is a rectangle, oval, polygon, triangle, or star drawn with the respective shape tool. You can draw a triangle, rectangle, etc. with the Pen tool, but they won't be treated as shapes.
+### Object Shape — Group of path's
 
 Has all properties of `Layer`, plus:
 * string _t = "SHAPE"
@@ -114,7 +110,7 @@ Has all properties of `Layer`, plus:
 * Arrowhead endMarker = 0
 * Layer[] layers
 
-### Object Text — Text is a block or line of text on the canvas.
+### Object Text
 
 Has all properties of `Layer`, plus:
 * string _t = "TEXT"
@@ -139,7 +135,7 @@ Has all properties of `Layer`, plus:
 * bool drawOnPath = false
 * bool warp = false
 
-### Object Layer — A layer is any ungrouped element available on the canvas.
+### Object Layer
 
 * string _t = "COMPONENT"
 * GUID id
@@ -180,7 +176,7 @@ Has all properties of `Layer`, plus:
 * float[] cornerRadius = float[4]
 * bool smoothCorners = false
 
-### Object AutoLayout — Defines auto layout settings.
+### Object AutoLayout
 
 * bool vertical = false
 * float spacing = 0
@@ -193,14 +189,14 @@ Has all properties of `Layer`, plus:
 * bool textBaseline = false
 * bool wrap = false
 
-### Object BlurEffect — Defines the settings of the blur effect.
+### Object BlurEffect
 
 * float saturation = 1
 * float radius = 10
 * bool enabled = false
 * BlurType type = 0
 
-### Object ExportOption — Export settings.
+### Object ExportOption
 
 * string format = "PNG"
 * ScaleType type = 0
@@ -208,7 +204,7 @@ Has all properties of `Layer`, plus:
 * string name
 * NamingScheme naming = 0
 
-### Object Fill — Defines the fill applied to a layer.
+### Object Fill
 
 * bool enabled = false
 * string color = "00000000"
@@ -218,7 +214,7 @@ Has all properties of `Layer`, plus:
 * Pattern pattern
 * Gradient gradient
 
-### Object Gradient — An object that represents a gradient.
+### Object Gradient
 
 * GradientType type = 0
 * Point from = [0.5,0]
@@ -265,7 +261,7 @@ Has all properties of `Layer`, plus:
 * Size size = [0,0]
 * GUID libraryId
 
-### Object ShadowEffect — Defines the shadow options.
+### Object ShadowEffect
 
 * bool enabled = true
 * float radius = 0
@@ -283,12 +279,12 @@ Has all properties of `Layer`, plus:
 * float scaleY
 * float transY
 
-### Struct Point — A utility class to represent a point.
+### Struct Point
 
 * float x
 * float y
 
-### Struct Size — A utility class to represent layer size.
+### Struct Size
 
 * float width
 * float height
@@ -308,7 +304,7 @@ Has all properties of `Layer`, plus:
 * float radius
 * CurveMode mode = 0
 
-### Enum Arrowhead — Defines the appearance of arrowheads.
+### Enum Arrowhead
 
 0. none
 1. arrow
@@ -319,7 +315,7 @@ Has all properties of `Layer`, plus:
 6. square
 7. squareFilled
 
-### Enum BlurType — Defines the blur type.
+### Enum BlurType
 
 0. gaussian
 3. background
@@ -349,32 +345,32 @@ Has all properties of `Layer`, plus:
 4. onlyFrom
 5. onlyTo
 
-### Enum FillType — Defines the fill type.
+### Enum FillType
 
 0. color
 1. gradient
 4. pattern
 
-### Enum GradientType — List of Gradient types.
+### Enum GradientType
 
 0. linear
 1. radial
 2. angular
 
-### Enum HorizontalAlignment — Defines how a set of layers is aligned horizontally.
+### Enum HorizontalAlignment
 
 0. left
 1. center
 2. right
 3. distribute
 
-### Enum LineCap — Defines the shape of the end caps of open paths drawn with the Line, Arrow, or Pen/Pencil tools.
+### Enum LineCap
 
 0. butt
 1. round
 2. square
 
-### Enum LineJoin — Defines the appearance of the corners for arrows and paths with corners drawn with the Pen/Pencil tool.
+### Enum LineJoin
 
 0. miter
 1. round
@@ -386,13 +382,13 @@ Has all properties of `Layer`, plus:
 1. inside
 2. outside
 
-### Enum ListMarkerType — Defines the type of a text list.
+### Enum ListMarkerType
 
 0. none
 1. bullet
 2. numbered
 
-### Enum MaskType — Type of a mask.
+### Enum MaskType
 
 0. vector
 1. alpha
@@ -411,7 +407,7 @@ Has all properties of `Layer`, plus:
 3. fit
 4. crop
 
-### Enum ScaleType — Defines the scale type for exported objects.
+### Enum ScaleType
 
 0. scale
 1. width
@@ -423,20 +419,20 @@ Has all properties of `Layer`, plus:
 1. autoHeight
 2. fixed
 
-### Enum TextHorizontalAlignment — Defines how a text is aligned horizontally.
+### Enum TextHorizontalAlignment
 
 0. left
 1. right
 2. center
 3. justify
 
-### Enum TextVerticalAlignment — Defines how a text is aligned vertically.
+### Enum TextVerticalAlignment
 
 0. top
 1. middle
 2. bottom
 
-### Enum VerticalAlignment — Defines how a set of layers is aligned vertically.
+### Enum VerticalAlignment
 
 0. top
 1. center

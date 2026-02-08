@@ -41,6 +41,17 @@ public static class LlmFilter
         typeof(List<Flow>), typeof(List<VariableCollection>), typeof(List<Variable>), typeof(List<ThemeSelection>), 
         typeof(List<Override>), typeof(List<LayoutGuideBase>)
     ];
+
+    public static readonly string[] ObviousDescriptionObjects = [
+        "VerticalAlignment", "HorizontalAlignment", 
+        "TextVerticalAlignment", "TextHorizontalAlignment",
+        "ScaleType", "MaskType", "ListMarkerType", "LineCap", "LineJoin",
+        "GradientType", "FillType", "BlurType", "Arrowhead", 
+        "Point", "Size", "ShadowEffect", "Gradient", "Fill", "ExportOption",
+        "BlurEffect", "AutoLayout", "Layer", "Text", "Group", "Triangle",
+        "Star", "Rectangle", "Polygon", "Oval", "Line"
+    ];
+    
     public static List<Node> FilterItemsForLlm(List<Node> items) => items
         .Where(x => !ExcludedTypes.Contains(x.Name))
         .Select(x =>

@@ -1,4 +1,5 @@
 namespace Free.Schema;
+
 /// <summary>
 /// A triangle is a shape drawn on the canvas with the Triangle tool.
 /// </summary>
