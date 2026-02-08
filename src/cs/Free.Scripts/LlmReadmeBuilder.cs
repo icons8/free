@@ -75,8 +75,11 @@ public class LlmReadmeBuilder
 
     private void PrintTypeHeader(Node item)
     {
-        _sb.Append("### ");
-        _sb.Append(item.Type).Append(' ');
+        _sb.Append("## ");
+        if (item.Type != NodeType.Object)
+        {
+            _sb.Append(item.Type).Append(' ');
+        }
         _sb.Append(item.Name);
     }
 

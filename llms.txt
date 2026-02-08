@@ -2,26 +2,23 @@
 
 Free format is NULL-free, NaN-free and Infinity-free - if any of this values are in JSON - it's broken. 
 
-* float - 32bit single-precision floating-point number
-* int - 32bit signed integer
-* byte - 8-bit unsigned integer
-* bool - Boolean (true or false) value
-* string - text as a sequence of UTF-8 code units
-* GUID - globally unique identifier, with base64 encryption, length is always 22 chars. Examples: `R1o2w3_4D5i6n7g8_000AA`, `N1a2m3-4C5o6n7t8_910AA`, `reY4TrsLHUeFk-E0CtyS5A`
+* **GUID** — globally unique identifier, with base64 encryption, length is always 22 chars. Examples: `R1o2w3_4D5i6n7g8_000AA`, `N1a2m3-4C5o6n7t8_910AA`, `reY4TrsLHUeFk-E0CtyS5A`
+* **Color** — ARGB hex string without `#`, support minified values. Examples: `F` = `FFFFFF`, `34` = `343434`, `F33` = `FF3333`, `FFAA41`, `9900FF47`.
+* **Point** — array of 2 floats [x,y]. Example: `[3,7]`.
+* **Size** — array of 2 floats [width,height]. Example: `[3,7]`.
+* **Thickness** — array of 4 floats [left,top,right,bottom]. Example: `[8,4,8,4]`.
+* **Matrix** — affine 2x3 matrix. Array of 2 or 6 floats. If 2 floats - it's just a position(translation) [x, y]. Example: `[100,500]`. If 6 floats - it's a transformation matrix [scaleX,skewX,transX,skewY,scaleY,transY]. Identity matrix is `[1,0,0,0,1,0]`. a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0]. Example for 90° is `[0,-1,0,1,0,0]`.
+* **Vertex** — Path vertex point. Array of 2, 3, 4, 6 or 8 floats. If array length is 2 - it's just a point [x, y]. Example: `[4,2]`. Third value, if present, is a byte enum of `CurveMode`. Fourth value, if present, is a corner radius. Next possible 2 values is: fromX, fromY - first control point position. And last 2 floats is: toX, toY - second control point position. Full spec is: `[x, y, mode, radius, fromX, fromY, toX, toY]`.
 
-### Object Component — A component is a reusable frame of layers.
+All non-enum fields below are in format: `(type) (name) = (default value)`. If property value is default - it can be skipped.
+
+## Component — A component is a reusable frame of layers.
 
 Has all properties of `Frame`, plus:
 * string _t = "COMPONENT"
 * GUID componentId
-* ComponentPropertyBase[] properties
 
-### Object Line
-
-Has all properties of `Path`, plus:
-* string _t = "LINE"
-
-### Object Oval
+## Oval
 
 Has all properties of `Path`, plus:
 * string _t = "OVAL"
@@ -29,37 +26,25 @@ Has all properties of `Path`, plus:
 * float ratio = 0
 * float startAngle = 0
 
-### Object Polygon
-
-Has all properties of `Path`, plus:
-* string _t = "POLYGON"
-* float rays = 0
-
-### Object Rectangle
+## Rectangle
 
 Has all properties of `Path`, plus:
 * string _t = "RECT"
 * bool smoothCorners = false
 
-### Object Star
+## Star
 
 Has all properties of `Path`, plus:
 * string _t = "STAR"
 * float rays = 0
 * float ratio = 0
 
-### Object States — Set of a states of the component.
+## States — Set of a states of the component.
 
 Has all properties of `Frame`, plus:
 * string _t = "STATES"
-* ComponentPropertyBase[] properties
 
-### Object Triangle
-
-Has all properties of `Path`, plus:
-* string _t = "TRIANGLE"
-
-### Object Frame — A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for auto-layout and prototypes.
+## Frame — A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for auto-layout and prototypes.
 
 Has all properties of `Layer`, plus:
 * string _t = "FRAME"
@@ -70,14 +55,14 @@ Has all properties of `Layer`, plus:
 * AutoLayout autoLayout
 * Layer[] layers
 
-### Object Group
+## Group
 
 Has all properties of `Layer`, plus:
 * string _t = "GROUP"
 * bool skipSelect = false
 * Layer[] layers
 
-### Object Instance — An instance is a linked copy of the component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the component.
+## Instance — An instance is a linked copy of the component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the component.
 
 Has all properties of `Layer`, plus:
 * string _t = "INSTANCE"
@@ -85,7 +70,7 @@ Has all properties of `Layer`, plus:
 * GUID componentId
 * AutoLayout autoLayout
 
-### Object Path — A vector path determines the outline and form of a vector object. A path is made up of points and segments.
+## Path — A vector path determines the outline and form of a vector object. A path is made up of points and segments.
 
 Has all properties of `Layer`, plus:
 * string _t = "PATH"
@@ -96,13 +81,13 @@ Has all properties of `Layer`, plus:
 * Vertex[] points
 * string pathData
 
-### Object Section — Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
+## Section — Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
 
 Has all properties of `Layer`, plus:
 * string _t = "SECTION"
 * Layer[] layers
 
-### Object Shape — Group of path's
+## Shape — Group of path's
 
 Has all properties of `Layer`, plus:
 * string _t = "SHAPE"
@@ -110,7 +95,7 @@ Has all properties of `Layer`, plus:
 * Arrowhead endMarker = 0
 * Layer[] layers
 
-### Object Text
+## Text
 
 Has all properties of `Layer`, plus:
 * string _t = "TEXT"
@@ -135,7 +120,7 @@ Has all properties of `Layer`, plus:
 * bool drawOnPath = false
 * bool warp = false
 
-### Object Layer
+## Layer
 
 * string _t = "COMPONENT"
 * GUID id
@@ -176,7 +161,7 @@ Has all properties of `Layer`, plus:
 * float[] cornerRadius = float[4]
 * bool smoothCorners = false
 
-### Object AutoLayout
+## AutoLayout
 
 * bool vertical = false
 * float spacing = 0
@@ -189,14 +174,14 @@ Has all properties of `Layer`, plus:
 * bool textBaseline = false
 * bool wrap = false
 
-### Object BlurEffect
+## BlurEffect
 
 * float saturation = 1
 * float radius = 10
 * bool enabled = false
 * BlurType type = 0
 
-### Object ExportOption
+## ExportOption
 
 * string format = "PNG"
 * ScaleType type = 0
@@ -204,17 +189,17 @@ Has all properties of `Layer`, plus:
 * string name
 * NamingScheme naming = 0
 
-### Object Fill
+## Fill
 
 * bool enabled = false
-* string color = "00000000"
+* Color color = "00000000"
 * GUID? colorId
 * FillType type = 0
 * float opacity = 0
 * Pattern pattern
 * Gradient gradient
 
-### Object Gradient
+## Gradient
 
 * GradientType type = 0
 * Point from = [0.5,0]
@@ -222,13 +207,13 @@ Has all properties of `Layer`, plus:
 * Point side = [0,0]
 * GradientStop[] stops
 
-### Object GradientStop — A position-color pair representing a gradient stop.
+## GradientStop — A position-color pair representing a gradient stop.
 
 * float pos = 0
-* string color = "00000000"
+* Color color = "00000000"
 * GUID? colorId
 
-### Object InlineStyle — Style (bold, italic, etc.) applied to a part of text or single word within a text block.
+## InlineStyle — Style (bold, italic, etc.) applied to a part of text or single word within a text block.
 
 * int start = 0
 * int length = 0
@@ -246,7 +231,7 @@ Has all properties of `Layer`, plus:
 * bool underline = false
 * bool strikethrough = false
 
-### Object Pattern — Defines the image fill options.
+## Pattern — Defines the image fill options.
 
 * PatternFillType type = 1
 * string image
@@ -254,57 +239,23 @@ Has all properties of `Layer`, plus:
 * float tileScale = 1
 * Matrix? transform
 
-### Object PrototypeViewport — This is a frame preset. Also used to determine viewport size for a large frame to scroll it properly.
+## PrototypeViewport — This is a frame preset. Also used to determine viewport size for a large frame to scroll it properly.
 
 * GUID id
 * string name
 * Size size = [0,0]
 * GUID libraryId
 
-### Object ShadowEffect
+## ShadowEffect
 
 * bool enabled = true
 * float radius = 0
-* string color = "00000000"
+* Color color = "00000000"
 * GUID? colorId
 * float spread = 0
 * Point offset = [0,0]
 
-### Struct Matrix — A transformation matrix is standard way in computer graphics to represent translation and rotation. These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1]. This is known as an affine transform and is enough to represent translation, rotation, and skew. The identity transform is [1, 0, 0,  0, 1, 0]. A translation matrix will typically look like: [1, 0, tx,  0, 1, ty] and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0] If a matrix contains only translation it will be printed like point [0,5]
-
-* float scaleX
-* float skewX
-* float transX
-* float skewY
-* float scaleY
-* float transY
-
-### Struct Point
-
-* float x
-* float y
-
-### Struct Size
-
-* float width
-* float height
-
-### Struct Thickness — Thickness struct. Used for Border thickness and Padding values
-
-* float left
-* float top
-* float right
-* float bottom
-
-### Struct Vertex — The Vertex data type, which defines path points, and has several notation options. It's simply an array of numbers and can include up to eight values: ``[x, y, mode, radius, fromX, fromY, toX, toY]``. If the points on the right end of the array have default values, they are omitted. So, if toX, toY, fromX, fromY are all zeros, the array will look like ``[x,y,mode,radius]``. And if mode and radius are zeros, it becomes ``[x, y]``
-
-* Point point = [0,0]
-* Point from = [0,0]
-* Point to = [0,0]
-* float radius
-* CurveMode mode = 0
-
-### Enum Arrowhead
+## Enum Arrowhead
 
 0. none
 1. arrow
@@ -315,12 +266,12 @@ Has all properties of `Layer`, plus:
 6. square
 7. squareFilled
 
-### Enum BlurType
+## Enum BlurType
 
 0. gaussian
 3. background
 
-### Enum BoolOp — Types of boolean operations used to combine shapes.
+## Enum BoolOp — Types of boolean operations used to combine shapes.
 
 -1. none
 0. union
@@ -328,14 +279,14 @@ Has all properties of `Layer`, plus:
 2. intersect
 3. difference
 
-### Enum CharacterCasing — Defines letter case.
+## Enum CharacterCasing — Defines letter case.
 
 0. normal
 1. upperCase
 2. lowerCase
 3. titleCase
 
-### Enum CurveMode — Defines the types of points on Bézier curves.
+## Enum CurveMode — Defines the types of points on Bézier curves.
 
 0. none
 1. straight
@@ -345,61 +296,61 @@ Has all properties of `Layer`, plus:
 4. onlyFrom
 5. onlyTo
 
-### Enum FillType
+## Enum FillType
 
 0. color
 1. gradient
 4. pattern
 
-### Enum GradientType
+## Enum GradientType
 
 0. linear
 1. radial
 2. angular
 
-### Enum HorizontalAlignment
+## Enum HorizontalAlignment
 
 0. left
 1. center
 2. right
 3. distribute
 
-### Enum LineCap
+## Enum LineCap
 
 0. butt
 1. round
 2. square
 
-### Enum LineJoin
+## Enum LineJoin
 
 0. miter
 1. round
 2. bevel
 
-### Enum LinePosition — Defines the border position.
+## Enum LinePosition — Defines the border position.
 
 0. center
 1. inside
 2. outside
 
-### Enum ListMarkerType
+## Enum ListMarkerType
 
 0. none
 1. bullet
 2. numbered
 
-### Enum MaskType
+## Enum MaskType
 
 0. vector
 1. alpha
 2. luminance
 
-### Enum PathFillType — Defines the filling options for overlapping paths.
+## Enum PathFillType — Defines the filling options for overlapping paths.
 
 0. winding
 1. evenOdd
 
-### Enum PatternFillType — Defines the image fill type.
+## Enum PatternFillType — Defines the image fill type.
 
 0. tile
 1. fill
@@ -407,32 +358,32 @@ Has all properties of `Layer`, plus:
 3. fit
 4. crop
 
-### Enum ScaleType
+## Enum ScaleType
 
 0. scale
 1. width
 2. height
 
-### Enum TextBehavior — Defines textbox behavior options.
+## Enum TextBehavior — Defines textbox behavior options.
 
 0. flexible
 1. autoHeight
 2. fixed
 
-### Enum TextHorizontalAlignment
+## Enum TextHorizontalAlignment
 
 0. left
 1. right
 2. center
 3. justify
 
-### Enum TextVerticalAlignment
+## Enum TextVerticalAlignment
 
 0. top
 1. middle
 2. bottom
 
-### Enum VerticalAlignment
+## Enum VerticalAlignment
 
 0. top
 1. center
