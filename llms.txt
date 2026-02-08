@@ -12,115 +12,7 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 
 All non-enum fields below are in format: `(type) (name) = (default value)`. If property value is default - it can be skipped.
 
-## Component — A component is a reusable frame of layers.
-
-Has all properties of `Frame`, plus:
-* string _t = "COMPONENT"
-* GUID componentId
-
-## Oval
-
-Has all properties of `Path`, plus:
-* string _t = "OVAL"
-* float angle = 0
-* float ratio = 0
-* float startAngle = 0
-
-## Rectangle
-
-Has all properties of `Path`, plus:
-* string _t = "RECT"
-* bool smoothCorners = false
-
-## Star
-
-Has all properties of `Path`, plus:
-* string _t = "STAR"
-* float rays = 0
-* float ratio = 0
-
-## States — Set of a states of the component.
-
-Has all properties of `Frame`, plus:
-* string _t = "STATES"
-
-## Frame — A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for auto-layout and prototypes.
-
-Has all properties of `Layer`, plus:
-* string _t = "FRAME"
-* bool clipContent = false
-* bool flowHome = false
-* PrototypeViewport viewport
-* bool resizesContent = false
-* AutoLayout autoLayout
-* Layer[] layers
-
-## Group
-
-Has all properties of `Layer`, plus:
-* string _t = "GROUP"
-* bool skipSelect = false
-* Layer[] layers
-
-## Instance — An instance is a linked copy of the component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the component.
-
-Has all properties of `Layer`, plus:
-* string _t = "INSTANCE"
-* float scale = 0
-* GUID componentId
-* AutoLayout autoLayout
-
-## Path — A vector path determines the outline and form of a vector object. A path is made up of points and segments.
-
-Has all properties of `Layer`, plus:
-* string _t = "PATH"
-* Arrowhead startMarker = 0
-* Arrowhead endMarker = 0
-* bool edited = false
-* bool open = false
-* Vertex[] points
-* string pathData
-
-## Section — Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
-
-Has all properties of `Layer`, plus:
-* string _t = "SECTION"
-* Layer[] layers
-
-## Shape — Group of path's
-
-Has all properties of `Layer`, plus:
-* string _t = "SHAPE"
-* Arrowhead startMarker = 0
-* Arrowhead endMarker = 0
-* Layer[] layers
-
-## Text
-
-Has all properties of `Layer`, plus:
-* string _t = "TEXT"
-* string text
-* string font = "Inter"
-* float fontSize = 12
-* float paragraphSpacing = 0
-* float baselineOffset = 0
-* float? lineHeight
-* CharacterCasing casing = 0
-* TextHorizontalAlignment align = 0
-* TextVerticalAlignment valign = 0
-* ListMarkerType list = 0
-* bool rtl = false
-* bool underline = false
-* bool strikethrough = false
-* InlineStyle[] inlines
-* TextBehavior behavior = 0
-* bool clipContent = true
-* bool truncate = false
-* byte maxLines = 0
-* bool drawOnPath = false
-* bool warp = false
-
-## Layer
+## Layer — Base class for any layer on a canvas.
 
 * string _t = "COMPONENT"
 * GUID id
@@ -160,6 +52,114 @@ Has all properties of `Layer`, plus:
 * BlurEffect blur
 * float[] cornerRadius = float[4]
 * bool smoothCorners = false
+
+## Frame — A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for auto-layout and prototypes.
+
+Has all properties of `Layer`, plus:
+* string _t = "FRAME"
+* bool clipContent = false
+* bool flowHome = false
+* PrototypeViewport viewport
+* bool resizesContent = false
+* AutoLayout autoLayout
+* Layer[] layers
+
+## Path — A vector path determines the outline and form of a vector object. A path is made up of points and segments.
+
+Has all properties of `Layer`, plus:
+* string _t = "PATH"
+* Arrowhead startMarker = 0
+* Arrowhead endMarker = 0
+* bool edited = false
+* bool open = false
+* Vertex[] points
+* string pathData
+
+## Component — A component is a reusable frame of layers.
+
+Has all properties of `Frame`, plus:
+* string _t = "COMPONENT"
+* GUID componentId
+
+## Oval
+
+Has all properties of `Path`, plus:
+* string _t = "OVAL"
+* float angle = 0
+* float ratio = 0
+* float startAngle = 0
+
+## Rectangle
+
+Has all properties of `Path`, plus:
+* string _t = "RECT"
+* bool smoothCorners = false
+
+## Star
+
+Has all properties of `Path`, plus:
+* string _t = "STAR"
+* float rays = 0
+* float ratio = 0
+
+## States — Set of a states of the component.
+
+Has all properties of `Frame`, plus:
+* string _t = "STATES"
+
+## Group
+
+Has all properties of `Layer`, plus:
+* string _t = "GROUP"
+* bool skipSelect = false
+* Layer[] layers
+
+## Instance — An instance is a linked copy of the component. With instances, you can reuse the same design element in multiple places in your project while retaining a connection to the component.
+
+Has all properties of `Layer`, plus:
+* string _t = "INSTANCE"
+* float scale = 0
+* GUID componentId
+* AutoLayout autoLayout
+
+## Section — Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
+
+Has all properties of `Layer`, plus:
+* string _t = "SECTION"
+* Layer[] layers
+
+## Shape — Group of path's
+
+Has all properties of `Layer`, plus:
+* string _t = "SHAPE"
+* Arrowhead startMarker = 0
+* Arrowhead endMarker = 0
+* Layer[] layers
+
+## Text
+
+Has all properties of `Layer`, plus:
+* string _t = "TEXT"
+* string text
+* string font = "Inter"
+* float fontSize = 12
+* float paragraphSpacing = 0
+* float baselineOffset = 0
+* float? lineHeight
+* CharacterCasing casing = 0
+* TextHorizontalAlignment align = 0
+* TextVerticalAlignment valign = 0
+* ListMarkerType list = 0
+* bool rtl = false
+* bool underline = false
+* bool strikethrough = false
+* InlineStyle[] inlines
+* TextBehavior behavior = 0
+* bool clipContent = true
+* bool truncate = false
+* byte maxLines = 0
+* bool drawOnPath = false
+* bool warp = false
 
 ## AutoLayout
 

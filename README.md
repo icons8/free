@@ -307,6 +307,105 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 
 ## Layers
 
+### <a name="Layer"></a>Layer
+Base class for any layer on a canvas.
+
+* _t: [string](#string) = `COMPONENT` - object type.
+* Id: [GUID](#GUID) - unique layer identifier.
+* Name: [string](#string) - defines layer name.
+* NameIsFixed: [bool](#bool) = `false` - name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
+* BoolOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
+* Fixed: [bool](#bool) = `false` - if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
+* Locked: [bool](#bool) = `false` - defines whether the layer is locked for editing.
+* Hidden: [bool](#bool) = `false` - defines whether the layer is hidden.
+* IsTemplate: [bool](#bool) = `false` - defines whether tha layer is marked as a template.
+* Expand: [bool](#bool) = `false` - defines whether the layer is expanded in Layer List.
+* Trim: [bool](#bool) = `false` - when enabled, trims empty pixels in exported images.
+* Export: [ExportOption[]](#ExportOption) - export options of the layer.
+* Constraints: [string](#string) = `LTWH` - defines constraint settings of the layer. String with chars where every char means a flag: L - left, T - top, R - right, B - bottom, W - fix width, H - fix height.
+* Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - position, rotation and flips of an object, stored in a single 3x2 matrix.
+* Size: [Size](#Size) = `[100,100]` - defines the layer size.
+* LockAspect: [bool](#bool) = `false` - defines whether the layer's aspect ratio should be remain unchanged upon resizing.
+* Mask: [bool](#bool) = `false` - defines whether the layer is used as a mask.
+* BreakMask: [bool](#bool) = `false` - defines if the layer is set to ignore the mask.
+* MaskType: [MaskType](#MaskType) = `Vector` - type of the Mask - Vector, Alpha or Luminance.
+* KeepScroll: [bool](#bool) = `false` - if the *Keep scroll position* option is enabled (prototyping).
+* ScrollBehavior: [FlowScrollBehavior](#FlowScrollBehavior) = `Scroll` - defines scroll behavior (prototyping).
+* ScrollOverflow: [FlowScrollOverflow](#FlowScrollOverflow) = `NoScrolling` - defines scroll overflow (prototyping).
+* Flows: [Flow[]](#Flow) - defines flows (prototyping).
+* MinWidth: [float](#float) = `0` - defines the minimum layer width (auto layout).
+* MinHeight: [float](#float) = `0` - defines the minimum layer height (auto layout).
+* MaxWidth: [float](#float) = `0` - defines the maximum layer width (auto layout).
+* MaxHeight: [float](#float) = `0` - defines the maximum layer height (auto layout).
+* StretchHorizontal: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
+* StretchVertical: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
+* AbsolutePos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
+* Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
+* Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
+* Binds: [Variable[]](#Variable) - binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
+* FillsId: [GUID](#GUID) - color style id for fills.
+* BordersId: [GUID](#GUID) - color style id for borders.
+* EffectsId: [GUID](#GUID) - effect style id.
+* Opacity: [float](#float) = `1` - opacity value.
+* BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
+* Winding: [PathFillType](#PathFillType) = `EvenOdd` - defines the filling options for overlapping paths.
+* Fills: [Fill[]](#Fill) - list of fills.
+* Borders: [Fill[]](#Fill) - list of borders.
+* Thickness: [float](#float) = `0` - defines border thickness.
+* CustomThickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines custom border thickness.
+* LinePos: [LinePosition](#LinePosition) = `Center` - defines border position.
+* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
+* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
+* Dash: [float[]](#float) - defines the size of dashes.
+* Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows.
+* InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows.
+* Blur: [BlurEffect](#BlurEffect) - information about blurs.
+* ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
+* CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame/instance/component/states/section.
+* SmoothCorners: [bool](#bool) = `false` - enables smooth rounded corners like in iOS interfaces.
+
+<details>
+<summary>Lunacy specific</summary>
+
+* PhotoId: [string](#string) - identifier of a photo from the Lunacy gallery.
+* IllustrationId: [string](#string) - identifier of an illustraion from the Lunacy gallery.
+* IconId: [string](#string) - identifier of an icon from the Lunacy gallery.
+* AvatarId: [string](#string) - identifier of a Lunacy-generated avatar.
+* Data: [DataInfo](#DataInfo) - information about auto generated texts.
+* Upscaled: [bool](#bool) = `false` - if the image has been upscaled in Lunacy.
+* BackgroundRemove: [BackgroundRemovalState](#BackgroundRemovalState) = `None` - background removal procedure info.
+</details>
+
+### <a name="Frame"></a>Frame
+A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for auto-layout and prototypes.
+
+Has all properties of [`Layer`](#Layer), plus:
+
+* _t: [string](#string) = `FRAME` - object type.
+* ClipContent: [bool](#bool) = `false` - when enabled, hides the content outside the frame boundaries.
+* FlowHome: [bool](#bool) = `false` - sets the frame as a prototype starting point.
+* Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
+* ResizesContent: [bool](#bool) = `false` - enables adjusting and resizing the frame content as the frame is resized.
+* AutoLayout: [AutoLayout](#AutoLayout) - auto Layout Properties
+* Layouts: [LayoutGuideBase[]](#LayoutGuideBase) - grid, Row and Column layouts of the frame.
+* GridsId: [GUID](#GUID) - grid Layout style id.
+* Rulers: [Rulers](#Rulers) - rulers and guidelines info.
+* Layers: [Layer[]](#Layer) - list of layers on the frame.
+
+### <a name="Path"></a>Path
+A vector path determines the outline and form of a vector object. A path is made up of points and segments.
+
+Has all properties of [`Layer`](#Layer), plus:
+
+* _t: [string](#string) = `PATH` - object type.
+* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
+* MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
+* Edited: [bool](#bool) = `false` - if the shape is edited in the path editor.
+* Open: [bool](#bool) = `false` - indicates whether the path is open.
+* Points: [Vertex[]](#Vertex) - list of path's points.
+* PathData: [string](#string) - svg path data. Used only for LLM and Plugins.
+
 ### <a name="Component"></a>Component
 A component is a reusable frame of layers.
 
@@ -396,22 +495,6 @@ Has all properties of [`Layer`](#Layer), plus:
 * EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head.
 * MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
 
-### <a name="Frame"></a>Frame
-A frame is a special type of layers that serves as a container for other layers or layer groups. Frames are a must for auto-layout and prototypes.
-
-Has all properties of [`Layer`](#Layer), plus:
-
-* _t: [string](#string) = `FRAME` - object type.
-* ClipContent: [bool](#bool) = `false` - when enabled, hides the content outside the frame boundaries.
-* FlowHome: [bool](#bool) = `false` - sets the frame as a prototype starting point.
-* Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
-* ResizesContent: [bool](#bool) = `false` - enables adjusting and resizing the frame content as the frame is resized.
-* AutoLayout: [AutoLayout](#AutoLayout) - auto Layout Properties
-* Layouts: [LayoutGuideBase[]](#LayoutGuideBase) - grid, Row and Column layouts of the frame.
-* GridsId: [GUID](#GUID) - grid Layout style id.
-* Rulers: [Rulers](#Rulers) - rulers and guidelines info.
-* Layers: [Layer[]](#Layer) - list of layers on the frame.
-
 ### <a name="Group"></a>Group
 A layer group is two or more layers unified into a single entity that can be manipulated, organized, and treated as a single layer.
 
@@ -437,20 +520,6 @@ Has all properties of [`Layer`](#Layer), plus:
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * AutoLayout: [AutoLayout](#AutoLayout) - auto Layout Properties
 * Overrides: [Override[]](#Override) - defines the overrides applied to the instance.
-
-### <a name="Path"></a>Path
-A vector path determines the outline and form of a vector object. A path is made up of points and segments.
-
-Has all properties of [`Layer`](#Layer), plus:
-
-* _t: [string](#string) = `PATH` - object type.
-* StartMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* EndMarker: [Arrowhead](#Arrowhead) = `None` - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
-* MiterLimit: [float](#float) = `10` - limit on the ratio of the miter length to the stroke-width used to draw a miter joint. When the limit is exceeded, the joint is converted from miter to beveled.
-* Edited: [bool](#bool) = `false` - if the shape is edited in the path editor.
-* Open: [bool](#bool) = `false` - indicates whether the path is open.
-* Points: [Vertex[]](#Vertex) - list of path's points.
-* PathData: [string](#string) - svg path data. Used only for LLM and Plugins.
 
 ### <a name="Section"></a>Section
 Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
@@ -516,75 +585,6 @@ Has all properties of [`Layer`](#Layer), plus:
 * DrawOnPath: [bool](#bool) = `false` - defines whether text draws on the underlying path.
 * Warp: [bool](#bool) = `false` - defines whether text warps when drawn on the underlying path.
 * TextStyleId: [GUID](#GUID) - text style id.
-
-### <a name="Layer"></a>Layer
-Base class for any layer on a canvas.
-
-* _t: [string](#string) = `COMPONENT` - object type.
-* Id: [GUID](#GUID) - unique layer identifier.
-* Name: [string](#string) - defines layer name.
-* NameIsFixed: [bool](#bool) = `false` - name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
-* BoolOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
-* Fixed: [bool](#bool) = `false` - if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
-* Locked: [bool](#bool) = `false` - defines whether the layer is locked for editing.
-* Hidden: [bool](#bool) = `false` - defines whether the layer is hidden.
-* IsTemplate: [bool](#bool) = `false` - defines whether tha layer is marked as a template.
-* Expand: [bool](#bool) = `false` - defines whether the layer is expanded in Layer List.
-* Trim: [bool](#bool) = `false` - when enabled, trims empty pixels in exported images.
-* Export: [ExportOption[]](#ExportOption) - export options of the layer.
-* Constraints: [string](#string) = `LTWH` - defines constraint settings of the layer. String with chars where every char means a flag: L - left, T - top, R - right, B - bottom, W - fix width, H - fix height.
-* Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - position, rotation and flips of an object, stored in a single 3x2 matrix.
-* Size: [Size](#Size) = `[100,100]` - defines the layer size.
-* LockAspect: [bool](#bool) = `false` - defines whether the layer's aspect ratio should be remain unchanged upon resizing.
-* Mask: [bool](#bool) = `false` - defines whether the layer is used as a mask.
-* BreakMask: [bool](#bool) = `false` - defines if the layer is set to ignore the mask.
-* MaskType: [MaskType](#MaskType) = `Vector` - type of the Mask - Vector, Alpha or Luminance.
-* KeepScroll: [bool](#bool) = `false` - if the *Keep scroll position* option is enabled (prototyping).
-* ScrollBehavior: [FlowScrollBehavior](#FlowScrollBehavior) = `Scroll` - defines scroll behavior (prototyping).
-* ScrollOverflow: [FlowScrollOverflow](#FlowScrollOverflow) = `NoScrolling` - defines scroll overflow (prototyping).
-* Flows: [Flow[]](#Flow) - defines flows (prototyping).
-* MinWidth: [float](#float) = `0` - defines the minimum layer width (auto layout).
-* MinHeight: [float](#float) = `0` - defines the minimum layer height (auto layout).
-* MaxWidth: [float](#float) = `0` - defines the maximum layer width (auto layout).
-* MaxHeight: [float](#float) = `0` - defines the maximum layer height (auto layout).
-* StretchHorizontal: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
-* StretchVertical: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
-* AbsolutePos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
-* Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
-* Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
-* Binds: [Variable[]](#Variable) - binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
-* FillsId: [GUID](#GUID) - color style id for fills.
-* BordersId: [GUID](#GUID) - color style id for borders.
-* EffectsId: [GUID](#GUID) - effect style id.
-* Opacity: [float](#float) = `1` - opacity value.
-* BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
-* Winding: [PathFillType](#PathFillType) = `EvenOdd` - defines the filling options for overlapping paths.
-* Fills: [Fill[]](#Fill) - list of fills.
-* Borders: [Fill[]](#Fill) - list of borders.
-* Thickness: [float](#float) = `0` - defines border thickness.
-* CustomThickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines custom border thickness.
-* LinePos: [LinePosition](#LinePosition) = `Center` - defines border position.
-* LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
-* LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
-* Dash: [float[]](#float) - defines the size of dashes.
-* Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows.
-* InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows.
-* Blur: [BlurEffect](#BlurEffect) - information about blurs.
-* ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
-* CornerRadius: [float[]](#float) = `float[4]` - sets the corner radius of the frame/instance/component/states/section.
-* SmoothCorners: [bool](#bool) = `false` - enables smooth rounded corners like in iOS interfaces.
-
-<details>
-<summary>Lunacy specific</summary>
-
-* PhotoId: [string](#string) - identifier of a photo from the Lunacy gallery.
-* IllustrationId: [string](#string) - identifier of an illustraion from the Lunacy gallery.
-* IconId: [string](#string) - identifier of an icon from the Lunacy gallery.
-* AvatarId: [string](#string) - identifier of a Lunacy-generated avatar.
-* Data: [DataInfo](#DataInfo) - information about auto generated texts.
-* Upscaled: [bool](#bool) = `false` - if the image has been upscaled in Lunacy.
-* BackgroundRemove: [BackgroundRemovalState](#BackgroundRemovalState) = `None` - background removal procedure info.
-</details>
 
 ### <a name="BoolVariable"></a>BoolVariable
 Variable with a boolean value.

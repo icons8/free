@@ -85,7 +85,6 @@ public class LlmReadmeBuilder
 
     private void PrintField(Node child, NodeType parentItemType)
     {
-
         if (parentItemType == NodeType.Enum)
         {
             if (FormatValue(child.DefaultValue, parentItemType) is { } val)

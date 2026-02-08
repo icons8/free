@@ -55,7 +55,7 @@ public static class LlmFilter
         "ScaleType", "MaskType", "ListMarkerType", "LineCap", "LineJoin",
         "GradientType", "FillType", "BlurType", "Arrowhead", 
         "Point", "Size", "ShadowEffect", "Gradient", "Fill", "ExportOption",
-        "BlurEffect", "AutoLayout", "Layer", "Text", "Group", "Triangle",
+        "BlurEffect", "AutoLayout", "Text", "Group", "Triangle",
         "Star", "Rectangle", "Polygon", "Oval", "Line"
     ];
     

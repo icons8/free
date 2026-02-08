@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Xml.Linq;
 using Free.Schema;
-using Path = System.IO.Path;
+using Path = Free.Schema.Path;
 
 namespace Free.Scripts;
 
@@ -141,6 +141,9 @@ public static class GenerateDocumentationScript
             .OrderBy(x => x.Attributes.Any(a => a is SketchCompatibilityAttribute))
             .ThenBy(x => x.Attributes.Any(a => a is LunacySpecificAttribute))
             .ThenBy(x => x.Type)
+            .ThenBy(x => x.ObjectType != typeof(Layer))
+            .ThenBy(x => x.ObjectType != typeof(Frame))
+            .ThenBy(x => x.ObjectType != typeof(Path))
             .ThenBy(x => !typeof(Layer).IsAssignableFrom(x.ObjectType))
             .ThenBy(x => !typeof(Variable).IsAssignableFrom(x.ObjectType) && !VariableRelatedTypes.Contains(x.ObjectType))
             .ThenBy(x => !typeof(ComponentPropertyBase).IsAssignableFrom(x.ObjectType))
