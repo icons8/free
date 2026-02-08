@@ -36,7 +36,7 @@ public static class LlmFilter
         "Custom", "ImageFilters", "FigmaId", "StrokesIncluded", "ReverseZIndex",
         "Predefined",
         
-        "FillsId", "BordersId", "EffectsId", "TextStyleId", "GridsId"
+        "FillsId", "BordersId", "EffectsId", "TextStyleId", "GridsId", "Enabled"
     ];
 
     private static readonly string[] IncludedFields = [

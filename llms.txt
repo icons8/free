@@ -178,7 +178,6 @@ Has all properties of `Layer`, plus:
 
 * float saturation = 1
 * float radius = 10
-* bool enabled = false
 * BlurType type = 0
 
 ## ExportOption
@@ -191,7 +190,6 @@ Has all properties of `Layer`, plus:
 
 ## Fill
 
-* bool enabled = false
 * Color color = "00000000"
 * GUID? colorId
 * FillType type = 0
@@ -248,7 +246,6 @@ Has all properties of `Layer`, plus:
 
 ## ShadowEffect
 
-* bool enabled = true
 * float radius = 0
 * Color color = "00000000"
 * GUID? colorId
