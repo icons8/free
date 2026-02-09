@@ -14,10 +14,9 @@ All non-enum fields below are in format: `(type) (name) = (default value)`. If p
 
 ## Layer — Base class for any layer on a canvas.
 
-* string _t = "COMPONENT"
+* string _t — object type
 * GUID id
 * string name
-* bool nameIsFixed = false
 * BoolOp boolOp = 0
 * bool fixed = false
 * bool locked = false

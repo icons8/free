@@ -18,10 +18,6 @@ public abstract class Layer
     /// </summary>
     public string Name { get; set; }
     /// <summary>
-    /// Name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
-    /// </summary>
-    public bool NameIsFixed { get; set; }
-    /// <summary>
     /// Defines the boolean operation applied to the layer.
     /// </summary>
     public BoolOp BoolOp { get; set; }

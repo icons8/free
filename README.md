@@ -313,7 +313,6 @@ Base class for any layer on a canvas.
 * _t: [string](#string) = `COMPONENT` - object type.
 * Id: [GUID](#GUID) - unique layer identifier.
 * Name: [string](#string) - defines layer name.
-* NameIsFixed: [bool](#bool) = `false` - name can be auto-generated or user-specified. User-specified fixed names will not be renamed after some operations.
 * BoolOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
 * Fixed: [bool](#bool) = `false` - if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
 * Locked: [bool](#bool) = `false` - defines whether the layer is locked for editing.

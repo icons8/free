@@ -108,7 +108,11 @@ public class LlmReadmeBuilder
             _sb.Append("* ");
             _sb.Append(FormatTypeName(child.ValueType!)).Append(' ');
             _sb.Append(child.Name.Substring(0,1).ToLower()).Append(child.Name.Substring(1));
-            if (FormatValue(child.DefaultValue, parentItemType) is {} val)
+            if (child.Name == "_t" && child.Parent?.Name == "Layer")
+            {
+                _sb.Append(" — object type");
+            }
+            else if (FormatValue(child.DefaultValue, parentItemType) is {} val)
             {
                 _sb.Append(" = ").Append(val);
             }
