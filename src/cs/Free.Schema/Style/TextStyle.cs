@@ -8,7 +8,7 @@ public class TextStyle : StyleBase
     /// <summary>
     /// Text font.
     /// </summary>
-    public string Font { get; set; } = "Inter";
+    public string Font { get; set; } = "Inter-Regular";
     
     /// <summary>
     /// Text size.

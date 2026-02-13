@@ -116,6 +116,11 @@ public class LlmReadmeBuilder
             {
                 _sb.Append(" = ").Append(val);
             }
+            if (LlmFilter.NotObviousFields.Contains(child.Name) &&
+                child.Summary.Length > 0)
+            {
+                _sb.Append(" - ").Append(char.ToLower(child.Summary[0])).Append(child.Summary.AsSpan(1));
+            }
         }
         //
         // if (child.Summary.Length > 0 && parentItemType != NodeType.Enum)
@@ -143,6 +148,10 @@ public class LlmReadmeBuilder
         if (value is Thickness t)
         {
             return "[" + t.Left + "," + t.Top + "," + t.Right + "," + t.Bottom + "]";
+        }
+        if (value is Rect r)
+        {
+            return "[" + r.Left + "," + r.Top + "," + r.Width + "," + r.Height + "]";
         }
         if (value is Matrix)
         {

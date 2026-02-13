@@ -56,15 +56,23 @@ public abstract class Layer
     /// </summary>
     public string Constraints { get; set; } = "LTWH";
     /// <summary>
-    /// Position, rotation and flips of an object, stored in a single 3x2 matrix.
+    /// Position, rotation and flips of an object, stored in a single 3x2 matrix, as 2 or 6 floats array.
     /// </summary>
     public Matrix Transform { get; set; } = Matrix.Identity;
+    /// <summary>
+    /// Optional Field. Defines position. Overrides Transform field. Only for LLM and Plugins.
+    /// </summary>
+    public Point Pos { get; set; } = new(0, 0);
     /// <summary>
     /// Defines the layer size.
     /// </summary>
     public Size Size { get; set; } = new(100, 100);
     /// <summary>
-    /// Defines whether the layer's aspect ratio should be remain unchanged upon resizing.
+    /// Optional Field. Defines position and size with one field. Overrides Transform, Pos and Size fields. Only for LLM and Plugins.
+    /// </summary>
+    public Rect Frame { get; set; } = new(0, 0, 100, 100);
+    /// <summary>
+    /// Defines whether the layer's aspect ratio should remain unchanged upon resizing.
     /// </summary>
     public bool LockAspect { get; set; }
     

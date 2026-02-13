@@ -322,9 +322,11 @@ Base class for any layer on a canvas.
 * Trim: [bool](#bool) = `false` - when enabled, trims empty pixels in exported images.
 * Export: [ExportOption[]](#ExportOption) - export options of the layer.
 * Constraints: [string](#string) = `LTWH` - defines constraint settings of the layer. String with chars where every char means a flag: L - left, T - top, R - right, B - bottom, W - fix width, H - fix height.
-* Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - position, rotation and flips of an object, stored in a single 3x2 matrix.
+* Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - position, rotation and flips of an object, stored in a single 3x2 matrix, as 2 or 6 floats array.
+* Pos: [Point](#Point) = `[0,0]` - optional Field. Defines position. Overrides Transform field. Only for LLM and Plugins.
 * Size: [Size](#Size) = `[100,100]` - defines the layer size.
-* LockAspect: [bool](#bool) = `false` - defines whether the layer's aspect ratio should be remain unchanged upon resizing.
+* Frame: [Rect](#Rect) = `Free.Schema.Rect` - optional Field. Defines position and size with one field. Overrides Transform, Pos and Size fields. Only for LLM and Plugins.
+* LockAspect: [bool](#bool) = `false` - defines whether the layer's aspect ratio should remain unchanged upon resizing.
 * Mask: [bool](#bool) = `false` - defines whether the layer is used as a mask.
 * BreakMask: [bool](#bool) = `false` - defines if the layer is set to ignore the mask.
 * MaskType: [MaskType](#MaskType) = `Vector` - type of the Mask - Vector, Alpha or Luminance.
@@ -403,7 +405,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Edited: [bool](#bool) = `false` - if the shape is edited in the path editor.
 * Open: [bool](#bool) = `false` - indicates whether the path is open.
 * Points: [Vertex[]](#Vertex) - list of path's points.
-* PathData: [string](#string) - svg path data. Used only for LLM and Plugins.
+* PathData: [string](#string) - optional Field. SVG path data. Overrides Points. Only for LLM and Plugins.
 
 ### <a name="Component"></a>Component
 A component is a reusable frame of layers.
@@ -562,7 +564,7 @@ Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `TEXT` - object type.
 * text: [string](#string) - content of the text layer.
-* Font: [string](#string) = `Inter` - text font.
+* Font: [string](#string) = `Inter-Regular` - text font.
 * FontSize: [float](#float) = `12` - text size.
 * ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
 * Kerning: [float](#float) = `0` - letter spacing.
@@ -739,7 +741,7 @@ Text Style
 
 Has all properties of [`StyleBase`](#StyleBase), plus:
 
-* Font: [string](#string) = `Inter` - text font.
+* Font: [string](#string) = `Inter-Regular` - text font.
 * FontSize: [float](#float) = `12` - text size.
 * ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
 * Kerning: [float](#float) = `0` - letter spacing.
@@ -1092,7 +1094,7 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * FillsId: [GUID](#GUID) - color Style Id.
 * TextStyleId: [GUID](#GUID) - text style id.
 * Fills: [Fill[]](#Fill) - list of fills.
-* Font: [string](#string) = `Inter` - text font.
+* Font: [string](#string) = `Inter-Regular` - text font.
 * FontSize: [float](#float) = `12` - text size.
 * ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
 * Kerning: [float](#float) = `0` - letter spacing.

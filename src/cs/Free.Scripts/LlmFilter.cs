@@ -36,12 +36,14 @@ public static class LlmFilter
         "Custom", "ImageFilters", "FigmaId", "StrokesIncluded", "ReverseZIndex",
         "Predefined",
         
+        "Angle", "Ratio", "StartAngle", "SkipSelect", "Scale", "TileScale", "Rotation",
+        
         "FillsId", "BordersId", "EffectsId", "TextStyleId", "GridsId", "Enabled"
     ];
 
     private static readonly string[] IncludedFields = [
         "Transform", "Size", "CustomThickness", "Padding", "From", "To",
-        "Side", "Offset", "Color"
+        "Side", "Offset", "Color", "Frame"
     ];
 
     private static readonly Type[] LlmTypeFilter = [
@@ -58,6 +60,12 @@ public static class LlmFilter
         "BlurEffect", "AutoLayout", "Text", "Group", "Triangle",
         "Star", "Rectangle", "Polygon", "Oval", "Line"
     ];
+
+    public static readonly string[] NotObviousFields = [
+        "Transform", "Frame", "PathData", "Dash", "Points",
+        "StretchHorizontal", "StretchVertical", "AbsolutePos",
+        "Rays", "Ratio", "Pos"
+    ];
     
     public static List<Node> FilterItemsForLlm(List<Node> items) => items
         .Where(x => !ExcludedTypes.Contains(x.Name))
@@ -71,6 +79,10 @@ public static class LlmFilter
                                          ExcludedFields.Contains(c.Name))
                              .ToArray())
                 {
+                    if (toRemove.Name == "Ratio" && toRemove.Parent?.Name == "Star")
+                    {
+                        continue;
+                    }
                     x.Childs.Remove(toRemove);
                 }
             }
