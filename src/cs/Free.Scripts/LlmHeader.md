@@ -13,3 +13,18 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of these values ar
 * Layers requiring `_t` field to specify type (e.g., `"RECT"`, `"TEXT"`, `"GROUP"`)
 * All non-enum fields below are in format: `(type) (name) = (default value)`. If property value is default - it can be skipped.
 
+## Icon — external data object. Set a searchable english name and icon will be downloaded from Icons8 server. Use this to save tokens. Examples: `Home`, `Back`, `Close`.
+
+Has all properties of `Layer`, plus:
+* string _t = "ICON"
+
+## Photo — external data object. Set a searchable english name and photo will be downloaded from Icons8 server. Use this to save tokens.
+
+Has all properties of `Layer`, plus:
+* string _t = "PHOTO"
+
+## Avatar — external data object. Random human avatar will be downloaded from Icons8 server. Use this to save tokens.
+
+Has all properties of `Layer`, plus:
+* string _t = "AVATAR"
+
