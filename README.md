@@ -279,17 +279,18 @@ Assume that we have a red rectangle on the canvas. In Sketch, it would result in
 }
 ```
 
-In Lunacy's FREE format the same will take only **110 characters**. A 15-fold difference.
+In Lunacy's FREE format the same will take only **91 characters**. A 18-fold difference.
 
 ```json
 {
   "_t": "RECT",
   "id": "IqTyX1bJek-eScKV2wCk2Q",
-  "transform": [1887,-751],
+  "pos": [1887,-751],
   "size": [431,428],
-  "fills": [{"color":"F00"}]
+  "fill": "F00"
 }
 ```
+
 ## Plans
 
 After fully adapting the new format and polishing it, we plan to develop, test, and, once acceptable results are achieved, introduce support for a binary variation of the format. This means that within the ZIP archive, you'll have .BIN files instead of .JSON. The idea is to maintain the same structure and practices but represent the data in the most efficient manner. Additionally, in the case of providing such serialization options, we will offer a converter that will be able to convert the data to JSON and back, preserving user-readability and maximum file size efficiency. If successful, we can attain the efficiency of the .fig format without its drawbacks.
@@ -350,6 +351,8 @@ Base class for any layer on a canvas.
 * Opacity: [float](#float) = `1` - opacity value.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
 * Winding: [PathFillType](#PathFillType) = `EvenOdd` - defines the filling options for overlapping paths.
+* Fill: [Color](#Color) = `00000000` - if there is a single color fill - use this, otherwise use Fills field.
+* Border: [Color](#Color) = `00000000` - if there is a single color border - use this, otherwise use Borders field.
 * Fills: [Fill[]](#Fill) - list of fills.
 * Borders: [Fill[]](#Fill) - list of borders.
 * Thickness: [float](#float) = `0` - defines border thickness.

@@ -2,7 +2,7 @@
 
 Free format is NULL-free, NaN-free and Infinity-free - if any of these values are in JSON - it's broken.
 
-* **GUID** — globally unique identifier, with base64 encoding, length is always 22 chars. Examples: `R1o2w3_4D5i6n7g8_000AA`, `N1a2m3-4C5o6n7t8_910AA`, `reY4TrsLHUeFk-E0CtyS5A`
+* **GUID** — 22 chars base64 string for ID's. Examples: `R1o2w3_4D5i6n7g8_000AA`, `N1a2m3-4C5o6n7t8_910AA`, `reY4TrsLHUeFk-E0CtyS5A`
 * **Color** — ARGB hex string without `#`, supports minified values. Examples: `F` = `FFFFFF`, `34` = `343434`, `F33` = `FF3333`, `FFAA41`, `9900FF47`.
 * **Point** — array of 2 floats [x,y]. Example: `[3,7]`.
 * **Size** — array of 2 floats [width,height]. Example: `[3,7]`.
@@ -17,7 +17,6 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of these values ar
 
 Has all properties of `Layer`, plus:
 * string _t = "ICON"
-* string style = "ios" — style pack. Values: `windows`, `material`, `ios`.
 
 ## Photo — external data object. Set a searchable english name and photo will be downloaded from Icons8 server. Use this to save tokens.
 
@@ -41,6 +40,7 @@ Has all properties of `Layer`, plus:
 * ExportOption[] export
 * string constraints = "LTWH"
 * Matrix transform = [0,0] - position, rotation and flips of an object, stored in a single 3x2 matrix, as 2 or 6 floats array.
+* Point pos = [0,0] - optional Field. Defines position. Overrides Transform field. Only for LLM and Plugins.
 * Size size = [100,100]
 * Rect frame = [0,0,100,100] - optional Field. Defines position and size with one field. Overrides Transform, Pos and Size fields. Only for LLM and Plugins.
 * bool lockAspect = false
@@ -56,6 +56,8 @@ Has all properties of `Layer`, plus:
 * bool absolutePos = false - enables absolute position for the layer (auto layout).
 * float opacity = 1
 * PathFillType winding = 1
+* Color fill - if there is a single color fill - use this, otherwise use Fills field.
+* Color border - if there is a single color border - use this, otherwise use Borders field.
 * Fill[] fills
 * Fill[] borders
 * float thickness = 0

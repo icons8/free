@@ -1,5 +1,10 @@
 ## Changelog
 
+### Version 6 - 18.02.2026
+
+* Added `Pos` and `Frame` fields to simplify `Transform` field in usual cases.
+* Added `Fill` and `Border` fields to simplify usual case of single color fills and borders.
+
 ### Version 5 - 11.07.2025
 
 * New layer types: `Section` and `States`.

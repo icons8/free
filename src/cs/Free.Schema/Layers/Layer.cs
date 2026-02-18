@@ -214,6 +214,14 @@ public abstract class Layer
     /// </summary>
     public Fill? Tint { get; set; }
     /// <summary>
+    /// If there is a single color fill - use this, otherwise use Fills field.
+    /// </summary>
+    public Color Fill { get; set; }
+    /// <summary>
+    /// If there is a single color border - use this, otherwise use Borders field.
+    /// </summary>
+    public Color Border { get; set; }
+    /// <summary>
     /// List of fills.
     /// </summary>
     public List<Fill> Fills { get; } = new();

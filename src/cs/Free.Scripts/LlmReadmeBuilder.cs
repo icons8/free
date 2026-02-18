@@ -112,7 +112,8 @@ public class LlmReadmeBuilder
             {
                 _sb.Append(" — object type");
             }
-            else if (FormatValue(child.DefaultValue, parentItemType) is {} val)
+            else if (FormatValue(child.DefaultValue, parentItemType) is {} val &&
+                     child.Name is not ("Fill" or "Border"))
             {
                 _sb.Append(" = ").Append(val);
             }

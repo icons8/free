@@ -43,7 +43,7 @@ public static class LlmFilter
 
     private static readonly string[] IncludedFields = [
         "Transform", "Size", "CustomThickness", "Padding", "From", "To",
-        "Side", "Offset", "Color", "Frame"
+        "Side", "Offset", "Color", "Frame", "Pos", "Fill", "Border"
     ];
 
     private static readonly Type[] LlmTypeFilter = [
@@ -64,7 +64,7 @@ public static class LlmFilter
     public static readonly string[] NotObviousFields = [
         "Transform", "Frame", "PathData", "Dash", "Points",
         "StretchHorizontal", "StretchVertical", "AbsolutePos",
-        "Rays", "Ratio", "Pos"
+        "Rays", "Ratio", "Pos", "Fill", "Border"
     ];
     
     public static List<Node> FilterItemsForLlm(List<Node> items) => items

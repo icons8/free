@@ -2,7 +2,7 @@
 
 Free format is NULL-free, NaN-free and Infinity-free - if any of these values are in JSON - it's broken.
 
-* **GUID** — globally unique identifier, with base64 encoding, length is always 22 chars. Examples: `R1o2w3_4D5i6n7g8_000AA`, `N1a2m3-4C5o6n7t8_910AA`, `reY4TrsLHUeFk-E0CtyS5A`
+* **GUID** — 22 chars base64 string for ID's. Examples: `R1o2w3_4D5i6n7g8_000AA`, `N1a2m3-4C5o6n7t8_910AA`, `reY4TrsLHUeFk-E0CtyS5A`
 * **Color** — ARGB hex string without `#`, supports minified values. Examples: `F` = `FFFFFF`, `34` = `343434`, `F33` = `FF3333`, `FFAA41`, `9900FF47`.
 * **Point** — array of 2 floats [x,y]. Example: `[3,7]`.
 * **Size** — array of 2 floats [width,height]. Example: `[3,7]`.

@@ -279,15 +279,15 @@ Assume that we have a red rectangle on the canvas. In Sketch, it would result in
 }
 ```
 
-In Lunacy's FREE format the same will take only **110 characters**. A 15-fold difference.
+In Lunacy's FREE format the same will take only **91 characters**. A 18-fold difference.
 
 ```json
 {
   "_t": "RECT",
   "id": "IqTyX1bJek-eScKV2wCk2Q",
-  "transform": [1887,-751],
+  "pos": [1887,-751],
   "size": [431,428],
-  "fills": [{"color":"F00"}]
+  "fill": "F00"
 }
 ```
 ## Plans
