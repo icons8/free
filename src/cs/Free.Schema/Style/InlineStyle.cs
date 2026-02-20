@@ -26,6 +26,11 @@ public class InlineStyle
     public Guid TextStyleId { get; set; }
     
     /// <summary>
+    /// If there is a single color fill - use this, otherwise use Fills field.
+    /// </summary>
+    public Color Fill { get; set; }
+    
+    /// <summary>
     /// List of fills.
     /// </summary>
     public List<Fill> Fills { get; } = new();

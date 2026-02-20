@@ -229,6 +229,7 @@ Has all properties of `Layer`, plus:
 
 * int start = 0
 * int length = 0
+* Color fill - if there is a single color fill - use this, otherwise use Fills field.
 * Fill[] fills
 * string font = "Inter-Regular"
 * float fontSize = 12

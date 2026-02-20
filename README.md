@@ -723,6 +723,7 @@ Style of fills. Can be set to borders and fills.
 
 Has all properties of [`StyleBase`](#StyleBase), plus:
 
+* Fill: [Color](#Color) = `00000000` - if there is a single color fill - use this, otherwise use Fills field.
 * Fills: [Fill[]](#Fill) - list of fills applied to a style.
 
 ### <a name="EffectStyle"></a>EffectStyle
@@ -1096,6 +1097,7 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * Length: [int](#int) = `0` - length of the selection.
 * FillsId: [GUID](#GUID) - color Style Id.
 * TextStyleId: [GUID](#GUID) - text style id.
+* Fill: [Color](#Color) = `00000000` - if there is a single color fill - use this, otherwise use Fills field.
 * Fills: [Fill[]](#Fill) - list of fills.
 * Font: [string](#string) = `Inter-Regular` - text font.
 * FontSize: [float](#float) = `12` - text size.
@@ -1849,6 +1851,11 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `2` PrimaryPrefix - indicates that the file name comes with a user-defined prefix.
 
 ## Changelog
+
+### Version 6 - 18.02.2026
+
+* Added `Pos` and `Frame` fields to simplify `Transform` field in usual cases.
+* Added `Fill` and `Border` fields to simplify usual case of single color fills and borders.
 
 ### Version 5 - 11.07.2025
 
