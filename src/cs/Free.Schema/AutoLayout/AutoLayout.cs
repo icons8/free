@@ -29,13 +29,13 @@ public class AutoLayout
     /// </summary>
     public VerticalAlignment Valign { get; set; }
     /// <summary>
-    /// Is sizing fixed horizontally. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
+    /// Is width fixed. False = hug or fill if StretchWidth is true.
     /// </summary>
-    public bool FixedHorizontal { get; set; }
+    public bool FixWidth { get; set; }
     /// <summary>
-    /// Is sizing fixed vertically. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
+    /// Is height fixed. False = hug or fill if StretchHeight is true.
     /// </summary>
-    public bool FixedVertical { get; set; }
+    public bool FixHeight { get; set; }
     /// <summary>
     /// If text baseline alignment is enabled.
     /// </summary>

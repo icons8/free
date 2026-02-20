@@ -63,7 +63,7 @@ public static class LlmFilter
 
     public static readonly string[] NotObviousFields = [
         "Transform", "Frame", "PathData", "Dash", "Points",
-        "StretchHorizontal", "StretchVertical", "AbsolutePos",
+        "StretchWidth", "StretchHeight", "AbsolutePos",
         "Rays", "Ratio", "Pos", "Fill", "Border"
     ];
     

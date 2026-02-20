@@ -212,13 +212,13 @@ public sealed class Override
     /// </summary>
     public VerticalAlignment? VAlign { get; set; }
     /// <summary>
-    /// Is sizing fixed horizontally. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
+    /// Is width fixed. False = hug or fill if StretchWidth is true.
     /// </summary>
-    public bool FixedHorizontal { get; set; }
+    public bool FixWidth { get; set; }
     /// <summary>
-    /// Is sizing fixed vertically. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
+    /// Is height fixed. False = hug or fill if StretchHeight is true.
     /// </summary>
-    public bool FixedVertical { get; set; }
+    public bool FixHeight { get; set; }
     /// <summary>
     /// If text baseline alignment is enabled.
     /// </summary>
@@ -232,13 +232,13 @@ public sealed class Override
     /// </summary>
     public bool? ReverseZIndex { get; set; }
     /// <summary>
-    /// Determines if the layer should stretch horizontally (auto layout).
+    /// Determines if the layer should stretch height (auto layout).
     /// </summary>
-    public bool StretchHorizontal { get; set; }
+    public bool StretchWidth { get; set; }
     /// <summary>
-    /// Determines whether a layer should stretch vertically (auto layout).
+    /// Determines whether a layer should stretch width (auto layout).
     /// </summary>
-    public bool StretchVertical { get; set; }
+    public bool StretchHeight { get; set; }
     /// <summary>
     /// If text wrapping is enabled.
     /// </summary>

@@ -51,8 +51,8 @@ Has all properties of `Layer`, plus:
 * float minHeight = 0
 * float maxWidth = 0
 * float maxHeight = 0
-* bool stretchHorizontal = false - determines if the layer should stretch horizontally (auto layout).
-* bool stretchVertical = false - determines whether a layer should stretch vertically (auto layout).
+* bool stretchWidth = false - determines if the layer should stretch width (auto layout).
+* bool stretchHeight = false - determines whether a layer should stretch height (auto layout).
 * bool absolutePos = false - enables absolute position for the layer (auto layout).
 * float opacity = 1
 * PathFillType winding = 1
@@ -183,8 +183,8 @@ Has all properties of `Layer`, plus:
 * Thickness padding = [0,0,0,0]
 * HorizontalAlignment align = 0
 * VerticalAlignment valign = 0
-* bool fixedHorizontal = false
-* bool fixedVertical = false
+* bool fixWidth = false
+* bool fixHeight = false
 * bool textBaseline = false
 * bool wrap = false
 

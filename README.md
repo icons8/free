@@ -290,7 +290,6 @@ In Lunacy's FREE format the same will take only **91 characters**. A 18-fold dif
   "fill": "F00"
 }
 ```
-
 ## Plans
 
 After fully adapting the new format and polishing it, we plan to develop, test, and, once acceptable results are achieved, introduce support for a binary variation of the format. This means that within the ZIP archive, you'll have .BIN files instead of .JSON. The idea is to maintain the same structure and practices but represent the data in the most efficient manner. Additionally, in the case of providing such serialization options, we will offer a converter that will be able to convert the data to JSON and back, preserving user-readability and maximum file size efficiency. If successful, we can attain the efficiency of the .fig format without its drawbacks.
@@ -339,8 +338,8 @@ Base class for any layer on a canvas.
 * MinHeight: [float](#float) = `0` - defines the minimum layer height (auto layout).
 * MaxWidth: [float](#float) = `0` - defines the maximum layer width (auto layout).
 * MaxHeight: [float](#float) = `0` - defines the maximum layer height (auto layout).
-* StretchHorizontal: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
-* StretchVertical: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
+* StretchWidth: [bool](#bool) = `false` - determines if the layer should stretch width (auto layout).
+* StretchHeight: [bool](#bool) = `false` - determines whether a layer should stretch height (auto layout).
 * AbsolutePos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 * Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
@@ -981,8 +980,8 @@ Defines auto layout settings.
 * Padding: [Thickness](#Thickness) = `[0,0,0,0]` - padding value.
 * Align: [HorizontalAlignment](#HorizontalAlignment) = `Left` - horizontal children alignment
 * Valign: [VerticalAlignment](#VerticalAlignment) = `Top` - vertical children alignment
-* FixedHorizontal: [bool](#bool) = `false` - is sizing fixed horizontally. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
-* FixedVertical: [bool](#bool) = `false` - is sizing fixed vertically. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
+* FixWidth: [bool](#bool) = `false` - is width fixed. False = hug or fill if StretchWidth is true.
+* FixHeight: [bool](#bool) = `false` - is height fixed. False = hug or fill if StretchHeight is true.
 * TextBaseline: [bool](#bool) = `false` - if text baseline alignment is enabled.
 * StrokesIncluded: [bool](#bool) = `false` - if the Include Borders option is enabled.
 * ReverseZIndex: [bool](#bool) = `false` - if the Last on Top option is enabled.
@@ -1166,13 +1165,13 @@ Defines overrides for components.
 * Padding: [Thickness?](#Thickness) - padding value.
 * Align: [HorizontalAlignment?](#HorizontalAlignment) - horizontal children alignment.
 * VAlign: [VerticalAlignment?](#VerticalAlignment) - vertical children alignment.
-* FixedHorizontal: [bool](#bool) = `false` - is sizing fixed horizontally. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
-* FixedVertical: [bool](#bool) = `false` - is sizing fixed vertically. False = hug or fill based on Layer.LayoutStretch or Layer.LayoutGrowStretch.
+* FixWidth: [bool](#bool) = `false` - is width fixed. False = hug or fill if StretchWidth is true.
+* FixHeight: [bool](#bool) = `false` - is height fixed. False = hug or fill if StretchHeight is true.
 * TextBaseline: [bool?](#bool) - if text baseline alignment is enabled.
 * StrokesIncluded: [bool?](#bool) - if the Include Borders option is enabled.
 * ReverseZIndex: [bool?](#bool) - if the Last on Top option is enabled.
-* StretchHorizontal: [bool](#bool) = `false` - determines if the layer should stretch horizontally (auto layout).
-* StretchVertical: [bool](#bool) = `false` - determines whether a layer should stretch vertically (auto layout).
+* StretchWidth: [bool](#bool) = `false` - determines if the layer should stretch height (auto layout).
+* StretchHeight: [bool](#bool) = `false` - determines whether a layer should stretch width (auto layout).
 * Wrap: [bool?](#bool) - if text wrapping is enabled.
 * Truncate: [bool?](#bool) - trim text with triple dots in the end if content overlaps fixed layer size bounds.
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
@@ -1851,6 +1850,10 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `2` PrimaryPrefix - indicates that the file name comes with a user-defined prefix.
 
 ## Changelog
+
+### Version 7 20.02.2026
+* `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.
+* `StretchHorizontal` and `StretchVertical` are replaced by `StretchWidth` and `StretchHeight`.
 
 ### Version 6 - 18.02.2026
 

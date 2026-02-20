@@ -122,13 +122,13 @@ public abstract class Layer
     /// </summary>
     public float MaxHeight { get; set; }
     /// <summary>
-    /// Determines if the layer should stretch horizontally (auto layout).
+    /// Determines if the layer should stretch width (auto layout).
     /// </summary>
-    public bool StretchHorizontal { get; set; }
+    public bool StretchWidth { get; set; }
     /// <summary>
-    /// Determines whether a layer should stretch vertically (auto layout).
+    /// Determines whether a layer should stretch height (auto layout).
     /// </summary>
-    public bool StretchVertical { get; set; }
+    public bool StretchHeight { get; set; }
     /// <summary>
     /// Enables absolute position for the layer (auto layout).
     /// </summary>

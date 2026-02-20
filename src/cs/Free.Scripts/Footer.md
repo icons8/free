@@ -1,5 +1,9 @@
 ## Changelog
 
+### Version 7 20.02.2026
+* `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.
+* `StretchHorizontal` and `StretchVertical` are replaced by `StretchWidth` and `StretchHeight`.
+
 ### Version 6 - 18.02.2026
 
 * Added `Pos` and `Frame` fields to simplify `Transform` field in usual cases.
