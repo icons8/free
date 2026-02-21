@@ -310,7 +310,7 @@ Free format is NULL-free, NaN-free and Infinity-free - if any of this values are
 ### <a name="Layer"></a>Layer
 Base class for any layer on a canvas.
 
-* _t: [string](#string) = `COMPONENT` - object type.
+* _t: [string](#string) = `COMPONENT` - object type. Required to be first.
 * Id: [GUID](#GUID) - unique layer identifier.
 * Name: [string](#string) - defines layer name.
 * BoolOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
@@ -321,10 +321,10 @@ Base class for any layer on a canvas.
 * Trim: [bool](#bool) = `false` - when enabled, trims empty pixels in exported images.
 * Export: [ExportOption[]](#ExportOption) - export options of the layer.
 * Constraints: [string](#string) = `LTWH` - defines constraint settings of the layer. String with chars where every char means a flag: L - left, T - top, R - right, B - bottom, W - fix width, H - fix height.
-* Transform: [Matrix](#Matrix) = `Free.Schema.Matrix` - position, rotation and flips of an object, stored in a single 3x2 matrix, as 2 or 6 floats array.
-* Pos: [Point](#Point) = `[0,0]` - optional Field. Defines position. Overrides Transform field. Only for LLM and Plugins.
+* Transform: [Matrix](#Matrix) = `[1,0,0,0,1,0]` - position, rotation, skew and flips of an object, stored in a single 3x2 matrix, as 6 floats array.
+* Pos: [Point](#Point) = `[0,0]` - defines position. Overrides Transform field.
 * Size: [Size](#Size) = `[100,100]` - defines the layer size.
-* Frame: [Rect](#Rect) = `Free.Schema.Rect` - optional Field. Defines position and size with one field. Overrides Transform, Pos and Size fields. Only for LLM and Plugins.
+* Frame: [Rect](#Rect) = `[0,0,100,100]` - defines position and size with one field. Overrides Transform, Pos and Size fields.
 * LockAspect: [bool](#bool) = `false` - defines whether the layer's aspect ratio should remain unchanged upon resizing.
 * Mask: [bool](#bool) = `false` - defines whether the layer is used as a mask.
 * BreakMask: [bool](#bool) = `false` - defines if the layer is set to ignore the mask.
@@ -1274,7 +1274,7 @@ Prototyping action animation.
 * Spring: [Spring?](#Spring) - spring animation parameters.
 
 ### <a name="Matrix"></a>Matrix Struct
-A transformation matrix is standard way in computer graphics to represent translation and rotation. These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1]. This is known as an affine transform and is enough to represent translation, rotation, and skew. The identity transform is [1, 0, 0,  0, 1, 0]. A translation matrix will typically look like: [1, 0, tx,  0, 1, ty] and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0] If a matrix contains only translation it will be printed like point [0,5]
+A transformation matrix is standard way in computer graphics to represent translation and rotation. These are the top two rows of a 3x3 matrix. The bottom row of the matrix is assumed to be [0, 0, 1]. This is known as an affine transform and is enough to represent translation, rotation, and skew. The identity transform is [1, 0, 0,  0, 1, 0]. A translation matrix will typically look like: [1, 0, tx,  0, 1, ty] and a rotation matrix will typically look like: [cos(angle), -sin(angle), 0, sin(angle), cos(angle), 0]
 
 * ScaleX: [float](#float) - scale by x-coord. Usually should be 1. If it's -1 - the layer is flipped horizontally. If it's some random number - it's a cos(angle).
 * SkewX: [float](#float) - skew by x-coord. Usually should be 0. If it's some random number - it's a -sin(angle).

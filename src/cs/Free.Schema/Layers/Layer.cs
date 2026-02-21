@@ -6,7 +6,7 @@ namespace Free.Schema;
 public abstract class Layer
 {
     /// <summary>
-    /// Object type.
+    /// Object type. Required to be first.
     /// </summary>
     public abstract string _t { get; }
     /// <summary>
@@ -52,11 +52,11 @@ public abstract class Layer
     /// </summary>
     public string Constraints { get; set; } = "LTWH";
     /// <summary>
-    /// Position, rotation and flips of an object, stored in a single 3x2 matrix, as 2 or 6 floats array.
+    /// Position, rotation, skew and flips of an object, stored in a single 3x2 matrix, as 6 floats array.
     /// </summary>
     public Matrix Transform { get; set; } = Matrix.Identity;
     /// <summary>
-    /// Optional Field. Defines position. Overrides Transform field. Only for LLM and Plugins.
+    /// Defines position. Overrides Transform field.
     /// </summary>
     public Point Pos { get; set; } = new(0, 0);
     /// <summary>
@@ -64,7 +64,7 @@ public abstract class Layer
     /// </summary>
     public Size Size { get; set; } = new(100, 100);
     /// <summary>
-    /// Optional Field. Defines position and size with one field. Overrides Transform, Pos and Size fields. Only for LLM and Plugins.
+    /// Defines position and size with one field. Overrides Transform, Pos and Size fields.
     /// </summary>
     public Rect Frame { get; set; } = new(0, 0, 100, 100);
     /// <summary>

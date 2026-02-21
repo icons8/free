@@ -181,6 +181,14 @@ public class FullReadmeBuilder
         {
             return "[" + t.Left + "," + t.Top + "," + t.Right + "," + t.Bottom + "]";
         }
+        if (value is Rect r)
+        {
+            return "[" + r.Left + "," + r.Top + "," + r.Width + "," + r.Height + "]";
+        }
+        if (value is Matrix)
+        {
+            return "[1,0,0,0,1,0]";
+        }
 
         if (value is ICollection { Count: 0 })
         {

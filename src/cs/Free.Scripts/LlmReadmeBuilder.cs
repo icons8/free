@@ -110,7 +110,7 @@ public class LlmReadmeBuilder
             _sb.Append(child.Name.Substring(0,1).ToLower()).Append(child.Name.Substring(1));
             if (child.Name == "_t" && child.Parent?.Name == "Layer")
             {
-                _sb.Append(" — object type");
+                _sb.Append(" — object type. Required to be first.");
             }
             else if (FormatValue(child.DefaultValue, parentItemType) is {} val &&
                      child.Name is not ("Fill" or "Border"))
@@ -156,7 +156,7 @@ public class LlmReadmeBuilder
         }
         if (value is Matrix)
         {
-            return "[0,0]";
+            return "[1,0,0,0,1,0]";
         }
 
         if (value is ICollection { Count: 0 })
