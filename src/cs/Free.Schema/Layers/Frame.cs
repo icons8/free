@@ -13,7 +13,7 @@ public class Frame : Layer
     /// <summary>
     /// When enabled, hides the content outside the frame boundaries.
     /// </summary>
-    public bool ClipContent { get; set; }
+    public bool ClipContent { get; set; } = true;
 
     /// <summary>
     /// Sets the frame as a prototype starting point.

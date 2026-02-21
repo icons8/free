@@ -314,7 +314,6 @@ Base class for any layer on a canvas.
 * Id: [GUID](#GUID) - unique layer identifier.
 * Name: [string](#string) - defines layer name.
 * BoolOp: [BoolOp](#BoolOp) = `Union` - defines the boolean operation applied to the layer.
-* Fixed: [bool](#bool) = `false` - if the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
 * Locked: [bool](#bool) = `false` - defines whether the layer is locked for editing.
 * Hidden: [bool](#bool) = `false` - defines whether the layer is hidden.
 * IsTemplate: [bool](#bool) = `false` - defines whether tha layer is marked as a template.
@@ -385,7 +384,7 @@ A frame is a special type of layers that serves as a container for other layers 
 Has all properties of [`Layer`](#Layer), plus:
 
 * _t: [string](#string) = `FRAME` - object type.
-* ClipContent: [bool](#bool) = `false` - when enabled, hides the content outside the frame boundaries.
+* ClipContent: [bool](#bool) = `true` - when enabled, hides the content outside the frame boundaries.
 * FlowHome: [bool](#bool) = `false` - sets the frame as a prototype starting point.
 * Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
 * ResizesContent: [bool](#bool) = `false` - enables adjusting and resizing the frame content as the frame is resized.
@@ -1889,7 +1888,8 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * Added `FlowScrollOverflow`.
 * Added `Spring` animation parameters.
 * `TextProperties` removed. Now this properties are inside `Text` layer and `InlineStyle`.
-* `size` renamed to `fontSize` where font size is set.
+* `Size` renamed to `FontSize` where font size is set.
+* `Fixed` replaced by `ScrollBehavior`.
 
 ### Version 4 - 20.01.2025
 

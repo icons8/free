@@ -38,7 +38,8 @@
 * Added `FlowScrollOverflow`.
 * Added `Spring` animation parameters.
 * `TextProperties` removed. Now this properties are inside `Text` layer and `InlineStyle`.
-* `size` renamed to `fontSize` where font size is set.
+* `Size` renamed to `FontSize` where font size is set.
+* `Fixed` replaced by `ScrollBehavior`.
 
 ### Version 4 - 20.01.2025
 

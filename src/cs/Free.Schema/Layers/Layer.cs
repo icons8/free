@@ -22,10 +22,6 @@ public abstract class Layer
     /// </summary>
     public BoolOp BoolOp { get; set; }
     /// <summary>
-    /// If the *Fix position* option is enabled: the layer preserves its position when you scroll a prototype (for instance, a floating button).
-    /// </summary>
-    public bool Fixed { get; set; }
-    /// <summary>
     /// Defines whether the layer is locked for editing.
     /// </summary>
     public bool Locked { get; set; }

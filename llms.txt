@@ -34,7 +34,6 @@ Has all properties of `Layer`, plus:
 * GUID id
 * string name
 * BoolOp boolOp = 0
-* bool fixed = false
 * bool locked = false
 * bool hidden = false
 * ExportOption[] export
@@ -76,7 +75,7 @@ Has all properties of `Layer`, plus:
 
 Has all properties of `Layer`, plus:
 * string _t = "FRAME"
-* bool clipContent = false
+* bool clipContent = true
 * bool flowHome = false
 * PrototypeViewport viewport
 * bool resizesContent = false
