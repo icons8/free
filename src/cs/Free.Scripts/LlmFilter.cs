@@ -32,7 +32,7 @@ public static class LlmFilter
     ];
 
     private static readonly string[] ExcludedFields = [
-        "MiterLimit", "Kerning", "IsTemplate", "Expand", "Trim", "KeepScroll",
+        "MiterLimit", "Kerning", "IsTemplate", "Expand", "Trim", "KeepScroll", "VerticalTrim",
         "Custom", "ImageFilters", "FigmaId", "StrokesIncluded", "ReverseZIndex",
         "Predefined",
         

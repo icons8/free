@@ -102,6 +102,10 @@ public class Text : Layer
     /// </summary>
     public bool Warp { get; set; } = false;
     /// <summary>
+    /// Removes extra space on top and bottom of the text layer.
+    /// </summary>
+    public bool VerticalTrim { get; set; } = false;
+    /// <summary>
     /// Text style id.
     /// </summary>
     public Guid TextStyleId { get; set; }

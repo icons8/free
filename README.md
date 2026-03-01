@@ -586,6 +586,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
 * DrawOnPath: [bool](#bool) = `false` - defines whether text draws on the underlying path.
 * Warp: [bool](#bool) = `false` - defines whether text warps when drawn on the underlying path.
+* VerticalTrim: [bool](#bool) = `false` - removes extra space on top and bottom of the text layer.
 * TextStyleId: [GUID](#GUID) - text style id.
 
 ### <a name="BoolVariable"></a>BoolVariable
