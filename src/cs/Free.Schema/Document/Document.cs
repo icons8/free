@@ -55,7 +55,7 @@ public class Document
     /// <summary>
     /// Slots of the document.
     /// </summary>
-    public List<Frame> Slots { get; } = new();
+    public List<Slot> Slots { get; } = new();
     /// <summary>
     /// List of document pages.
     /// </summary>

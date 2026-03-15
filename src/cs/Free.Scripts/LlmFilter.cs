@@ -7,7 +7,7 @@ public static class LlmFilter
     private static readonly string[] ExcludedTypes = [
         "ComponentType", "Override", 
         
-        "Document", "Connector", "Slice", "Meta", "SharedLibrary", "Font", "Page", "Rulers", "Triangle", "Polygon", "Line",
+        "Document", "Connector", "Slice", "Meta", "SharedLibrary", "Font", "Page", "Rulers", "Triangle", "Polygon", "Line", "Slot",
         
         "LayoutGuideBase", "Rows", "Columns", "Grid", "GuideStyle", "LayoutHorizontalAlignment", "LayoutVerticalAlignment",
         

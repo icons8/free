@@ -453,6 +453,13 @@ Has all properties of [`Path`](#Path), plus:
 * _t: [string](#string) = `RECT` - object type.
 * SmoothCorners: [bool](#bool) = `false` - if the smooth corners option is enabled. Works only if the rectangle is not edited.
 
+### <a name="Slot"></a>Slot
+Slot inside component.
+
+Has all properties of [`Frame`](#Frame), plus:
+
+* _t: [string](#string) = `SLOT`
+
 ### <a name="Star"></a>Star
 A star is a shape drawn on the canvas with the Star tool.
 
@@ -1024,7 +1031,7 @@ The document's .json structure.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
-* Slots: [Frame[]](#Frame) - slots of the document.
+* Slots: [Slot[]](#Slot) - slots of the document.
 * Pages: [GUID[]](#GUID) - list of document pages.
 
 <details>
@@ -1258,7 +1265,7 @@ Contains components, styles and variables from external library that is used in 
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
-* Slots: [Frame[]](#Frame) - slots from a shared library.
+* Slots: [Slot[]](#Slot) - slots from a shared library.
 
 ### <a name="ThemeSelection"></a>ThemeSelection
 Theme Selection of a layer and it's children for a specific theme.
@@ -1865,6 +1872,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 ### Version 8 15.03.2026
 * Added `Slots` to `Document` and `SharedLibrary`.
 * Added `SlotComponentProperty`.
+* Added `Slot` layer.
 
 ### Version 7 20.02.2026
 * `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.

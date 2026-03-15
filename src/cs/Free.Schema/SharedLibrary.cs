@@ -46,5 +46,5 @@ public class SharedLibrary
     /// <summary>
     /// Slots from a shared library.
     /// </summary>
-    public List<Frame> Slots { get; } = new();
+    public List<Slot> Slots { get; } = new();
 }
