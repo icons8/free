@@ -53,6 +53,10 @@ public class Document
     /// </summary>
     public List<GuideStyle> GuideStyles { get; } = new();
     /// <summary>
+    /// Slots of the document.
+    /// </summary>
+    public List<Frame> Slots { get; } = new();
+    /// <summary>
     /// List of document pages.
     /// </summary>
     public List<Guid> Pages { get; } = new();

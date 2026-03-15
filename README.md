@@ -681,6 +681,15 @@ Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 * Value: [bool](#bool) = `false` - initial Value.
 * ValueId: [GUID](#GUID) - boolean variable ID.
 
+### <a name="SlotComponentProperty"></a>SlotComponentProperty
+Defines slot component property of components and states.
+
+Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
+
+* _t: [string](#string) = `SLOT` - object type.
+* Value: [GUID](#GUID) - initial Slot ID.
+* Values: [GUID[]](#GUID) - preferred Components Values.
+
 ### <a name="StateComponentProperty"></a>StateComponentProperty
 Defines state(variant) component property of components and states. Can be assigned to states layer only.
 
@@ -1015,6 +1024,7 @@ The document's .json structure.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
+* Slots: [Frame[]](#Frame) - slots of the document.
 * Pages: [GUID[]](#GUID) - list of document pages.
 
 <details>
@@ -1248,6 +1258,7 @@ Contains components, styles and variables from external library that is used in 
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
+* Slots: [Frame[]](#Frame) - slots from a shared library.
 
 ### <a name="ThemeSelection"></a>ThemeSelection
 Theme Selection of a layer and it's children for a specific theme.
@@ -1850,6 +1861,10 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `2` PrimaryPrefix - indicates that the file name comes with a user-defined prefix.
 
 ## Changelog
+
+### Version 8 15.03.2026
+* Added `Slots` to `Document` and `SharedLibrary`.
+* Added `SlotComponentProperty`.
 
 ### Version 7 20.02.2026
 * `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.

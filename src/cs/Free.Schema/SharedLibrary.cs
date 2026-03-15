@@ -43,4 +43,8 @@ public class SharedLibrary
     /// Components from a shared library.
     /// </summary>
     public List<Component> Components { get; } = new();
+    /// <summary>
+    /// Slots from a shared library.
+    /// </summary>
+    public List<Frame> Slots { get; } = new();
 }

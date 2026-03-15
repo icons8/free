@@ -90,6 +90,27 @@ public class SwapComponentProperty : ComponentPropertyBase
 }
 
 /// <summary>
+/// Defines slot component property of components and states.
+/// </summary>
+public class SlotComponentProperty : ComponentPropertyBase
+{
+    /// <summary>
+    /// Object type.
+    /// </summary>
+    public override string _t => "SLOT";
+    
+    /// <summary>
+    /// Initial Slot ID.
+    /// </summary>
+    public Guid Value { get; set; }
+    
+    /// <summary>
+    /// Preferred Components Values.
+    /// </summary>
+    public List<Guid> Values { get; } = new();
+}
+
+/// <summary>
 /// Defines state(variant) component property of components and states.
 /// Can be assigned to states layer only.
 /// </summary>

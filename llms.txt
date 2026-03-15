@@ -175,6 +175,13 @@ Has all properties of `Layer`, plus:
 * bool drawOnPath = false
 * bool warp = false
 
+## SlotComponentProperty — Defines slot component property of components and states.
+
+Has all properties of `ComponentPropertyBase`, plus:
+* string _t = "SLOT"
+* GUID value
+* GUID[] values
+
 ## AutoLayout
 
 * bool vertical = false
