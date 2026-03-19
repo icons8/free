@@ -4,6 +4,7 @@
 * Added `Slots` to `Document` and `SharedLibrary`.
 * Added `SlotComponentProperty`.
 * Added `Slot` layer.
+* Added `StateBind` list to `Component`.
 
 ### Version 7 20.02.2026
 * `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.

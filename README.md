@@ -419,6 +419,7 @@ Has all properties of [`Frame`](#Frame), plus:
 * ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for component filters.
 * FigmaId: [string](#string) - unique Figma Component Id. Used to connect shared libraries and documents imported from figma.
 * Properties: [ComponentPropertyBase[]](#ComponentPropertyBase) - component properties.
+* State: [StateBind[]](#StateBind) - state definition values.
 
 ### <a name="Line"></a>Line
 A line is a shape drawn on the canvas with the Line tool.
@@ -1007,7 +1008,7 @@ Defines auto layout settings.
 Bind of a variable into layer property.
 
 * Field: [BindField](#BindField) = `Unknown` - target field
-* Variable: [Variable](#Variable) - variable with a value
+* Id: [GUID?](#GUID) - id of variable with a value
 * Expression: [Expression](#Expression) - expression with a value
 
 ### <a name="BlurEffect"></a>BlurEffect
@@ -1266,6 +1267,13 @@ Contains components, styles and variables from external library that is used in 
 * GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
 * Components: [Component[]](#Component) - components from a shared library.
 * Slots: [Slot[]](#Slot) - slots from a shared library.
+
+### <a name="StateBind"></a>StateBind
+Bind of component property of a states layer to the state name of component.
+
+* PropertyId: [GUID](#GUID) - component Property Id
+* Name: [string](#string) - state Name
+* VariableId: [GUID?](#GUID) - id of string variable with a value
 
 ### <a name="ThemeSelection"></a>ThemeSelection
 Theme Selection of a layer and it's children for a specific theme.
@@ -1873,6 +1881,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * Added `Slots` to `Document` and `SharedLibrary`.
 * Added `SlotComponentProperty`.
 * Added `Slot` layer.
+* Added `StateBind` list to `Component`.
 
 ### Version 7 20.02.2026
 * `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.

@@ -9,6 +9,7 @@ public class Component : Frame
     /// Object type.
     /// </summary>
     public override string _t => "COMPONENT";
+    
     /// <summary>
     /// Unique component identifier.
     /// </summary>
@@ -33,4 +34,10 @@ public class Component : Frame
     /// Component properties.
     /// </summary>
     public List<ComponentPropertyBase> Properties { get; } = new();
+    
+    /// <summary>
+    /// State definition values.
+    /// </summary>
+    public List<StateBind> State { get; } = new();
+    
 }
