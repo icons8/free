@@ -99,7 +99,6 @@ Has all properties of `Layer`, plus:
 Has all properties of `Frame`, plus:
 * string _t = "COMPONENT"
 * GUID componentId
-* StateBind[] state
 
 ## Oval
 
@@ -272,12 +271,6 @@ Has all properties of `ComponentPropertyBase`, plus:
 * GUID? colorId
 * float spread = 0
 * Point offset = [0,0]
-
-## StateBind — Bind of component property of a states layer to the state name of component.
-
-* GUID propertyId
-* string name
-* GUID? variableId
 
 ## Enum Arrowhead
 

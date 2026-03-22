@@ -142,7 +142,7 @@ public abstract class Layer
     /// <summary>
     /// Binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
     /// </summary>
-    public List<Variable> Binds { get; } = new();
+    public List<Bind> Binds { get; } = new();
     
     /// <summary>
     /// Identifier of a photo from the Lunacy gallery.

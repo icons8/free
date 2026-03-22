@@ -13,7 +13,7 @@ public class Bind
     /// <summary>
     /// Id of variable with a value
     /// </summary>
-    public Guid? Id { get; set; }
+    public Guid? VariableId { get; set; }
     
     /// <summary>
     /// Expression with a value

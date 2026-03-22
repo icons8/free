@@ -11,7 +11,7 @@ public class Expression
     public ExpressionFunction Func { get; set; }
 
     /// <summary>
-    /// List of expression arguments. Can be: bool, float, string and a Variable(bool/float/string).
+    /// List of expression arguments.
     /// </summary>
-    public List<object> Args { get; } = new();
+    public List<ExpressionArgument> Args { get; } = new();
 }

@@ -342,7 +342,7 @@ Base class for any layer on a canvas.
 * AbsolutePos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 * Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
-* Binds: [Variable[]](#Variable) - binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
+* Binds: [Bind[]](#Bind) - binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
 * FillsId: [GUID](#GUID) - color style id for fills.
 * BordersId: [GUID](#GUID) - color style id for borders.
 * EffectsId: [GUID](#GUID) - effect style id.
@@ -419,7 +419,7 @@ Has all properties of [`Frame`](#Frame), plus:
 * ComponentType: [ComponentType](#ComponentType) = `None` - reserved for future use. Will be used for component filters.
 * FigmaId: [string](#string) - unique Figma Component Id. Used to connect shared libraries and documents imported from figma.
 * Properties: [ComponentPropertyBase[]](#ComponentPropertyBase) - component properties.
-* State: [StateBind[]](#StateBind) - state definition values.
+* States: [StateBind[]](#StateBind) - component states definition values.
 
 ### <a name="Line"></a>Line
 A line is a shape drawn on the canvas with the Line tool.
@@ -1008,7 +1008,7 @@ Defines auto layout settings.
 Bind of a variable into layer property.
 
 * Field: [BindField](#BindField) = `Unknown` - target field
-* Id: [GUID?](#GUID) - id of variable with a value
+* VariableId: [GUID?](#GUID) - id of variable with a value
 * Expression: [Expression](#Expression) - expression with a value
 
 ### <a name="BlurEffect"></a>BlurEffect
@@ -1054,7 +1054,16 @@ Export settings.
 Expression
 
 * Func: [ExpressionFunction](#ExpressionFunction) = `Add` - expression Function
-* Args: [Object[]](#Object) - list of expression arguments. Can be: bool, float, string and a Variable(bool/float/string).
+* Args: [ExpressionArgument[]](#ExpressionArgument) - list of expression arguments.
+
+### <a name="ExpressionArgument"></a>ExpressionArgument
+Expression Argument. Value or Variable or Expression.
+
+* Bool: [bool?](#bool) - boolean value
+* Float: [float?](#float) - number value
+* String: [string](#string) - text value
+* VariableId: [GUID?](#GUID) - id of a variable. Should be used with a bool/float/string value before id.
+* Expression: [Expression](#Expression) - argument of an expression can be expression itself
 
 ### <a name="Fill"></a>Fill
 Defines the fill applied to a layer.
@@ -1882,6 +1891,8 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * Added `SlotComponentProperty`.
 * Added `Slot` layer.
 * Added `StateBind` list to `Component`.
+* Added `Expression`, `ExpressionFunction`, `ExpressionArgument`.
+* Added `Bind` list to `Layer`.
 
 ### Version 7 20.02.2026
 * `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.

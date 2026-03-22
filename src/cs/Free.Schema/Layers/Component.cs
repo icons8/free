@@ -36,8 +36,8 @@ public class Component : Frame
     public List<ComponentPropertyBase> Properties { get; } = new();
     
     /// <summary>
-    /// State definition values.
+    /// Component states definition values.
     /// </summary>
-    public List<StateBind> State { get; } = new();
+    public List<StateBind> States { get; } = new();
     
 }

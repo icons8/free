@@ -5,6 +5,8 @@
 * Added `SlotComponentProperty`.
 * Added `Slot` layer.
 * Added `StateBind` list to `Component`.
+* Added `Expression`, `ExpressionFunction`, `ExpressionArgument`.
+* Added `Bind` list to `Layer`.
 
 ### Version 7 20.02.2026
 * `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.

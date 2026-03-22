@@ -19,7 +19,7 @@ public static class LlmFilter
         
         "ComponentPropertyBase", "TextComponentProperty", "SwapComponentProperty", "StateComponentProperty", "BoolComponentProperty",
         
-        "Expression", "ExpressionFunction", "Bind", "BindField", 
+        "Expression", "ExpressionFunction", "ExpressionArgument", "Binds", "Bind", "StateBind", "BindField", 
         
         "VariableTheme", "VariableCollection", "Variable", "StringValue", "FloatValue", "ColorValue", "BoolValue", 
         "StringVariable", "FloatVariable", "ColorVariable", "BoolVariable", "ThemeSelection",
@@ -48,7 +48,7 @@ public static class LlmFilter
 
     private static readonly Type[] LlmTypeFilter = [
         typeof(List<Flow>), typeof(List<VariableCollection>), typeof(List<Variable>), typeof(List<ThemeSelection>), 
-        typeof(List<Override>), typeof(List<LayoutGuideBase>), typeof(List<ComponentPropertyBase>)
+        typeof(List<Override>), typeof(List<LayoutGuideBase>), typeof(List<ComponentPropertyBase>), typeof(List<StateBind>), typeof(List<Bind>)
     ];
 
     public static readonly string[] ObviousDescriptionObjects = [
