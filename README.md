@@ -988,6 +988,15 @@ Base object of prototyping trigger.
 
 * _t: [string](#string) = `CLICK` - object type.
 
+### <a name="Argument"></a>Argument
+Expression Argument. Value or Variable or Expression.
+
+* Bool: [bool?](#bool) - boolean value
+* Float: [float?](#float) - number value
+* String: [string](#string) - text value
+* Id: [GUID?](#GUID) - id of a variable. Should be used with a bool/float/string value before id.
+* Expr: [Expression](#Expression) - argument of an expression can be expression itself
+
 ### <a name="AutoLayout"></a>AutoLayout
 Defines auto layout settings.
 
@@ -1008,8 +1017,7 @@ Defines auto layout settings.
 Bind of a variable into layer property.
 
 * Field: [BindField](#BindField) = `Unknown` - target field
-* VariableId: [GUID?](#GUID) - id of variable with a value
-* Expression: [Expression](#Expression) - expression with a value
+* Value: [Argument](#Argument) - bind Value
 
 ### <a name="BlurEffect"></a>BlurEffect
 Defines the settings of the blur effect.
@@ -1054,16 +1062,7 @@ Export settings.
 Expression
 
 * Func: [ExpressionFunction](#ExpressionFunction) = `Add` - expression Function
-* Args: [ExpressionArgument[]](#ExpressionArgument) - list of expression arguments.
-
-### <a name="ExpressionArgument"></a>ExpressionArgument
-Expression Argument. Value or Variable or Expression.
-
-* Bool: [bool?](#bool) - boolean value
-* Float: [float?](#float) - number value
-* String: [string](#string) - text value
-* VariableId: [GUID?](#GUID) - id of a variable. Should be used with a bool/float/string value before id.
-* Expression: [Expression](#Expression) - argument of an expression can be expression itself
+* Args: [Argument[]](#Argument) - list of expression arguments.
 
 ### <a name="Fill"></a>Fill
 Defines the fill applied to a layer.
@@ -1280,9 +1279,9 @@ Contains components, styles and variables from external library that is used in 
 ### <a name="StateBind"></a>StateBind
 Bind of component property of a states layer to the state name of component.
 
-* PropertyId: [GUID](#GUID) - component Property Id
+* Id: [GUID](#GUID) - component Property Id
 * Name: [string](#string) - state Name
-* VariableId: [GUID?](#GUID) - id of string variable with a value
+* NameId: [GUID?](#GUID) - id of string variable with a value
 
 ### <a name="ThemeSelection"></a>ThemeSelection
 Theme Selection of a layer and it's children for a specific theme.
@@ -1891,7 +1890,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * Added `SlotComponentProperty`.
 * Added `Slot` layer.
 * Added `StateBind` list to `Component`.
-* Added `Expression`, `ExpressionFunction`, `ExpressionArgument`.
+* Added `Expression`, `ExpressionFunction`, `Argument`.
 * Added `Bind` list to `Layer`.
 
 ### Version 7 20.02.2026

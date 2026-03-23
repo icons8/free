@@ -11,12 +11,7 @@ public class Bind
     public BindField Field { get; set; } = BindField.Unknown;
     
     /// <summary>
-    /// Id of variable with a value
+    /// Bind Value
     /// </summary>
-    public Guid? VariableId { get; set; }
-    
-    /// <summary>
-    /// Expression with a value
-    /// </summary>
-    public Expression? Expression { get; set; }
+    public Argument Value { get; set; }
 }

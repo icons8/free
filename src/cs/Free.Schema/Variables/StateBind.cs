@@ -8,7 +8,7 @@ public class StateBind
     /// <summary>
     /// Component Property Id
     /// </summary>
-    public Guid PropertyId { get; set; }
+    public Guid Id { get; set; }
 
     /// <summary>
     /// State Name
@@ -18,5 +18,5 @@ public class StateBind
     /// <summary>
     /// Id of string variable with a value
     /// </summary>
-    public Guid? VariableId { get; set; }
+    public Guid? NameId { get; set; }
 }

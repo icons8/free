@@ -5,7 +5,7 @@
 * Added `SlotComponentProperty`.
 * Added `Slot` layer.
 * Added `StateBind` list to `Component`.
-* Added `Expression`, `ExpressionFunction`, `ExpressionArgument`.
+* Added `Expression`, `ExpressionFunction`, `Argument`.
 * Added `Bind` list to `Layer`.
 
 ### Version 7 20.02.2026

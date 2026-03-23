@@ -13,5 +13,5 @@ public class Expression
     /// <summary>
     /// List of expression arguments.
     /// </summary>
-    public List<ExpressionArgument> Args { get; } = new();
+    public List<Argument> Args { get; } = new();
 }

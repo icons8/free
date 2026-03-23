@@ -3,7 +3,7 @@ namespace Free.Schema;
 /// <summary>
 /// Expression Argument. Value or Variable or Expression.
 /// </summary>
-public class ExpressionArgument
+public class Argument
 {
     /// <summary>
     /// Boolean value
@@ -20,9 +20,9 @@ public class ExpressionArgument
     /// <summary>
     /// Id of a variable. Should be used with a bool/float/string value before id.
     /// </summary>
-    public Guid? VariableId { get; set; }
+    public Guid? Id { get; set; }
     /// <summary>
     /// Argument of an expression can be expression itself
     /// </summary>
-    public Expression? Expression { get; set; }
+    public Expression? Expr { get; set; }
 }
