@@ -1,12 +1,11 @@
 ## Changelog
 
 ### Version 8 15.03.2026
-* Added `Slots` to `Document` and `SharedLibrary`.
 * Added `SlotComponentProperty`.
-* Added `Slot` layer.
+* Added `Slot` layer and `Slots` property to `Document` and `SharedLibrary`.
 * Added `StateBind` list to `Component`.
-* Added `Expression`, `ExpressionFunction`, `Argument`.
-* Added `Bind` list to `Layer`.
+* Added `Expression`, `ExpressionFunction`, `Argument`. Also added `Bind` list to `Layer`.
+* New flow actions: `ConditionalAction`, `SetVariableAction`, `SetThemeAction`.
 
 ### Version 7 20.02.2026
 * `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.

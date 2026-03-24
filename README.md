@@ -844,6 +844,16 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 
 * _t: [string](#string) = `CLOSE_OVERLAY` - object type.
 
+### <a name="ConditionalAction"></a>ConditionalAction
+Set variable theme for a variable collection
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `THEME` - object type.
+* Condition: [Argument](#Argument) - condition. Usually an expression, but can be a value or variable.
+* True: [FlowAction[]](#FlowAction) - actions to perform if condition result is true.
+* False: [FlowAction[]](#FlowAction) - actions to perform if condition result is false.
+
 ### <a name="NavigateToAction"></a>NavigateToAction
 Action to navigate to target frame.
 
@@ -883,6 +893,24 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 * _t: [string](#string) = `SCROLL` - object type.
 * Target: [GUID?](#GUID) - id of the target layer.
 * Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - action animation.
+
+### <a name="SetThemeAction"></a>SetThemeAction
+Set variable theme for a variable collection
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `THEME` - object type.
+* Id: [GUID](#GUID) - variable Collection Id
+* ThemeId: [GUID](#GUID) - variable Theme Id
+
+### <a name="SetVariableAction"></a>SetVariableAction
+Action to go to previous frame.
+
+Has all properties of [`FlowAction`](#FlowAction), plus:
+
+* _t: [string](#string) = `SET` - object type.
+* Id: [GUID](#GUID) - variable Id
+* Value: [Argument](#Argument) - value to set.
 
 ### <a name="SwapOverlayAction"></a>SwapOverlayAction
 Action to swap current overlay to target overlay.
@@ -992,8 +1020,8 @@ Base object of prototyping trigger.
 Expression Argument. Value or Variable or Expression.
 
 * Bool: [bool?](#bool) - boolean value
-* Float: [float?](#float) - number value
-* String: [string](#string) - text value
+* Number: [float?](#float) - number value
+* Text: [string](#string) - text value
 * Id: [GUID?](#GUID) - id of a variable. Should be used with a bool/float/string value before id.
 * Expr: [Expression](#Expression) - argument of an expression can be expression itself
 
@@ -1886,12 +1914,11 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 ## Changelog
 
 ### Version 8 15.03.2026
-* Added `Slots` to `Document` and `SharedLibrary`.
 * Added `SlotComponentProperty`.
-* Added `Slot` layer.
+* Added `Slot` layer and `Slots` property to `Document` and `SharedLibrary`.
 * Added `StateBind` list to `Component`.
-* Added `Expression`, `ExpressionFunction`, `Argument`.
-* Added `Bind` list to `Layer`.
+* Added `Expression`, `ExpressionFunction`, `Argument`. Also added `Bind` list to `Layer`.
+* New flow actions: `ConditionalAction`, `SetVariableAction`, `SetThemeAction`.
 
 ### Version 7 20.02.2026
 * `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.

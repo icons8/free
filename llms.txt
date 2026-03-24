@@ -185,8 +185,8 @@ Has all properties of `ComponentPropertyBase`, plus:
 ## Argument — Expression Argument. Value or Variable or Expression.
 
 * bool? bool
-* float? float
-* string string
+* float? number
+* string text
 * GUID? id
 
 ## AutoLayout

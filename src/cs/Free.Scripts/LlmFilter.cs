@@ -15,7 +15,8 @@ public static class LlmFilter
         "FlowTrigger", "MouseUpTrigger", "MouseLeaveTrigger", "MouseEnterTrigger", "MouseDownTrigger", "KeyPressTrigger",
         "HoverTrigger", "HoldTrigger", "DragTrigger", "ClickTrigger", "AfterDelayTrigger",
         "FlowAction", "SwitchStateAction", "SwapOverlayAction", "ScrollToAction", "OpenUrlAction", "OpenOverlayAction", 
-        "NavigateToAction", "CloseOverlayAction", "BackAction", "Spring", "FlowScrollOverflow",
+        "NavigateToAction", "CloseOverlayAction", "BackAction", "Spring", "FlowScrollOverflow", "ConditionalAction",
+        "SetVariableAction", "SetThemeAction",
         
         "ComponentPropertyBase", "TextComponentProperty", "SwapComponentProperty", "StateComponentProperty", "BoolComponentProperty",
         

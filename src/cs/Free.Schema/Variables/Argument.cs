@@ -12,11 +12,11 @@ public class Argument
     /// <summary>
     /// Number value
     /// </summary>
-    public float? Float { get; set; }
+    public float? Number { get; set; }
     /// <summary>
     /// Text value
     /// </summary>
-    public string? String { get; set; }
+    public string? Text { get; set; }
     /// <summary>
     /// Id of a variable. Should be used with a bool/float/string value before id.
     /// </summary>

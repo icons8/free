@@ -168,3 +168,71 @@ public sealed class BackAction : FlowAction
     /// </summary>
     public FlowAnimation Animation { get; set; }
 }
+
+/// <summary>
+/// Action to go to previous frame.
+/// </summary>
+public sealed class SetVariableAction : FlowAction
+{
+    /// <summary>
+    /// Object type.
+    /// </summary>
+    public override string _t => "SET";
+    
+    /// <summary>
+    /// Variable Id
+    /// </summary>
+    public Guid Id { get; set; }
+    
+    /// <summary>
+    /// Value to set.
+    /// </summary>
+    public Argument Value { get; set; }
+}
+
+/// <summary>
+/// Set variable theme for a variable collection
+/// </summary>
+public sealed class SetThemeAction : FlowAction
+{
+    /// <summary>
+    /// Object type.
+    /// </summary>
+    public override string _t => "THEME";
+    
+    /// <summary>
+    /// Variable Collection Id
+    /// </summary>
+    public Guid Id { get; set; }
+    
+    /// <summary>
+    /// Variable Theme Id
+    /// </summary>
+    public Guid ThemeId { get; set; }
+}
+
+/// <summary>
+/// Set variable theme for a variable collection
+/// </summary>
+public sealed class ConditionalAction : FlowAction
+{
+    /// <summary>
+    /// Object type.
+    /// </summary>
+    public override string _t => "THEME";
+    
+    /// <summary>
+    /// Condition. Usually an expression, but can be a value or variable.
+    /// </summary>
+    public Argument Condition { get; set; }
+
+    /// <summary>
+    /// Actions to perform if condition result is true.
+    /// </summary>
+    public List<FlowAction> True { get; } = new();
+
+    /// <summary>
+    /// Actions to perform if condition result is false.
+    /// </summary>
+    public List<FlowAction> False { get; } = new();
+}
