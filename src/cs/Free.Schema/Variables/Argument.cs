@@ -21,8 +21,13 @@ public class Argument
     /// Id of a variable. Should be used with a bool/float/string value before id.
     /// </summary>
     public Guid? Id { get; set; }
+    
     /// <summary>
-    /// Argument of an expression can be expression itself
+    /// Expression Function. Use only with Args.
     /// </summary>
-    public Expression? Expr { get; set; }
+    public ExpressionFunction? Func { get; set; }
+    /// <summary>
+    /// List of expression arguments. Use only with Func.
+    /// </summary>
+    public List<Argument> Args { get; } = new();
 }

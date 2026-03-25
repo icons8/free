@@ -182,13 +182,6 @@ Has all properties of `ComponentPropertyBase`, plus:
 * GUID value
 * GUID[] values
 
-## Argument — Expression Argument. Value or Variable or Expression.
-
-* bool? bool
-* float? number
-* string text
-* GUID? id
-
 ## AutoLayout
 
 * bool vertical = false

@@ -849,7 +849,7 @@ Set variable theme for a variable collection
 
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
-* _t: [string](#string) = `THEME` - object type.
+* _t: [string](#string) = `CONDITION` - object type.
 * Condition: [Argument](#Argument) - condition. Usually an expression, but can be a value or variable.
 * True: [FlowAction[]](#FlowAction) - actions to perform if condition result is true.
 * False: [FlowAction[]](#FlowAction) - actions to perform if condition result is false.
@@ -900,7 +900,7 @@ Set variable theme for a variable collection
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
 * _t: [string](#string) = `THEME` - object type.
-* Id: [GUID](#GUID) - variable Collection Id
+* Target: [GUID?](#GUID) - variable Collection Id
 * ThemeId: [GUID](#GUID) - variable Theme Id
 
 ### <a name="SetVariableAction"></a>SetVariableAction
@@ -909,7 +909,7 @@ Action to go to previous frame.
 Has all properties of [`FlowAction`](#FlowAction), plus:
 
 * _t: [string](#string) = `SET` - object type.
-* Id: [GUID](#GUID) - variable Id
+* Target: [GUID](#GUID) - variable Id
 * Value: [Argument](#Argument) - value to set.
 
 ### <a name="SwapOverlayAction"></a>SwapOverlayAction
@@ -1023,7 +1023,7 @@ Expression Argument. Value or Variable or Expression.
 * Number: [float?](#float) - number value
 * Text: [string](#string) - text value
 * Id: [GUID?](#GUID) - id of a variable. Should be used with a bool/float/string value before id.
-* Expr: [Expression](#Expression) - argument of an expression can be expression itself
+* Func: [ExpressionFunction?](#ExpressionFunction) - expression Function. Use only with Args.
 
 ### <a name="AutoLayout"></a>AutoLayout
 Defines auto layout settings.
@@ -1085,12 +1085,6 @@ Export settings.
 * Size: [float](#float) = `0` - defines the width/height/scale of the exported object. Dependent on the type of the scale.
 * Name: [string](#string) - user-defined suffix/preffix (string) added to the export file name. Default: empty.
 * Naming: [NamingScheme](#NamingScheme) = `Suffix` - defines whether a suffix or preffix will be added to the export files name. Default: suffix.
-
-### <a name="Expression"></a>Expression
-Expression
-
-* Func: [ExpressionFunction](#ExpressionFunction) = `Add` - expression Function
-* Args: [Argument[]](#Argument) - list of expression arguments.
 
 ### <a name="Fill"></a>Fill
 Defines the fill applied to a layer.

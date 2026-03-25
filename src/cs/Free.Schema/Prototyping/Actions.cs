@@ -182,7 +182,7 @@ public sealed class SetVariableAction : FlowAction
     /// <summary>
     /// Variable Id
     /// </summary>
-    public Guid Id { get; set; }
+    public Guid Target { get; set; }
     
     /// <summary>
     /// Value to set.
@@ -203,7 +203,7 @@ public sealed class SetThemeAction : FlowAction
     /// <summary>
     /// Variable Collection Id
     /// </summary>
-    public Guid Id { get; set; }
+    public Guid? Target { get; set; }
     
     /// <summary>
     /// Variable Theme Id
@@ -219,7 +219,7 @@ public sealed class ConditionalAction : FlowAction
     /// <summary>
     /// Object type.
     /// </summary>
-    public override string _t => "THEME";
+    public override string _t => "CONDITION";
     
     /// <summary>
     /// Condition. Usually an expression, but can be a value or variable.
