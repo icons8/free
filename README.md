@@ -1031,7 +1031,7 @@ Has all properties of [`Argument`](#Argument), plus:
 * Id: [GUID](#GUID) - component property id. Required. Should be first.
 
 ### <a name="Argument"></a>Argument
-Expression Argument. Value or Variable or Expression.
+Expression Argument. Value or Variable or Expression. Please note that only one type of value can be present: just a bool/text/number, bool and boolId(same for text and number), just a ref, just a componentId, or a func with args.
 
 * Bool: [bool?](#bool) - boolean value
 * BoolId: [GUID?](#GUID) - id of a boolean variable

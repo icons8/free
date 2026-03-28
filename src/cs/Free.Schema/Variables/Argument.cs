@@ -2,6 +2,12 @@ namespace Free.Schema;
 
 /// <summary>
 /// Expression Argument. Value or Variable or Expression.
+/// Please note that only one type of value can be present:
+/// just a bool/text/number,
+/// bool and boolId(same for text and number),
+/// just a ref,
+/// just a componentId,
+/// or a func with args.
 /// </summary>
 public class Argument
 {
