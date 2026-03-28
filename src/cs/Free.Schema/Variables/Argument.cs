@@ -18,7 +18,8 @@ public class Argument
     /// </summary>
     public string? Text { get; set; }
     /// <summary>
-    /// Id of a variable. Should be used with a bool/float/string value before id.
+    /// Id of a variable or component.
+    /// For variable there should be a bool/float/string value before id.
     /// </summary>
     public Guid? Id { get; set; }
     

@@ -4,7 +4,8 @@
 * Added `SlotComponentProperty`.
 * Added `Slot` layer and `Slots` property to `Document` and `SharedLibrary`.
 * Added `StateBind` list to `Component`.
-* Added `Expression`, `ExpressionFunction`, `Argument`. Also added `Bind` list to `Layer`.
+* Added `Expression`, `ExpressionFunction`, `Argument`. 
+* Added `Bind` list to `Layer` and `InstanseSetting` list to `Instance`.
 * New flow actions: `ConditionalAction`, `SetVariableAction`, `SetThemeAction`.
 
 ### Version 7 20.02.2026

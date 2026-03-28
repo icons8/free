@@ -530,6 +530,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * AutoLayout: [AutoLayout](#AutoLayout) - auto Layout Properties
 * Overrides: [Override[]](#Override) - defines the overrides applied to the instance.
+* Settings: [InstanceSetting[]](#InstanceSetting) - values for component properties
 
 ### <a name="Section"></a>Section
 Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
@@ -1021,14 +1022,14 @@ Bind of a variable into layer property.
 
 Has all properties of [`Argument`](#Argument), plus:
 
-* Field: [BindField](#BindField) = `Unknown` - target field
+* Field: [BindField](#BindField) = `Unknown` - target field. Required. Should be first.
 
 ### <a name="InstanceSetting"></a>InstanceSetting
 Setting allows you to set a value for an instance property from a component.
 
 Has all properties of [`Argument`](#Argument), plus:
 
-* PropertyId: [GUID](#GUID) - component property id
+* Target: [GUID](#GUID) - component property id. Required. Should be first.
 
 ### <a name="Argument"></a>Argument
 Expression Argument. Value or Variable or Expression.
@@ -1036,7 +1037,7 @@ Expression Argument. Value or Variable or Expression.
 * Bool: [bool?](#bool) - boolean value
 * Number: [float?](#float) - number value
 * Text: [string](#string) - text value
-* Id: [GUID?](#GUID) - id of a variable. Should be used with a bool/float/string value before id.
+* Id: [GUID?](#GUID) - id of a variable or component. For variable there should be a bool/float/string value before id.
 * Func: [ExpressionFunction?](#ExpressionFunction) - expression Function. Use only with Args.
 
 ### <a name="AutoLayout"></a>AutoLayout
@@ -1919,7 +1920,8 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * Added `SlotComponentProperty`.
 * Added `Slot` layer and `Slots` property to `Document` and `SharedLibrary`.
 * Added `StateBind` list to `Component`.
-* Added `Expression`, `ExpressionFunction`, `Argument`. Also added `Bind` list to `Layer`.
+* Added `Expression`, `ExpressionFunction`, `Argument`. 
+* Added `Bind` list to `Layer` and `InstanseSetting` list to `Instance`.
 * New flow actions: `ConditionalAction`, `SetVariableAction`, `SetThemeAction`.
 
 ### Version 7 20.02.2026

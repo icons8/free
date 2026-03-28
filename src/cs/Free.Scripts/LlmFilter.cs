@@ -49,7 +49,8 @@ public static class LlmFilter
 
     private static readonly Type[] LlmTypeFilter = [
         typeof(List<Flow>), typeof(List<VariableCollection>), typeof(List<Variable>), typeof(List<ThemeSelection>), 
-        typeof(List<Override>), typeof(List<LayoutGuideBase>), typeof(List<ComponentPropertyBase>), typeof(List<StateBind>), typeof(List<Bind>)
+        typeof(List<Override>), typeof(List<LayoutGuideBase>), typeof(List<ComponentPropertyBase>), 
+        typeof(List<StateBind>), typeof(List<Bind>), typeof(List<InstanceSetting>)
     ];
 
     public static readonly string[] ObviousDescriptionObjects = [
