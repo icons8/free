@@ -10,18 +10,37 @@ public class Argument
     /// </summary>
     public bool? Bool { get; set; }
     /// <summary>
+    /// Id of a boolean variable
+    /// </summary>
+    public Guid? BoolId { get; set; }
+    
+    /// <summary>
     /// Number value
     /// </summary>
     public float? Number { get; set; }
+    /// <summary>
+    /// Id of a number variable
+    /// </summary>
+    public Guid? NumberId { get; set; }
+    
     /// <summary>
     /// Text value
     /// </summary>
     public string? Text { get; set; }
     /// <summary>
-    /// Id of a variable or component.
-    /// For variable there should be a bool/float/string value before id.
+    /// Id of a Text variable
     /// </summary>
-    public Guid? Id { get; set; }
+    public Guid? TextId { get; set; }
+    
+    /// <summary>
+    /// Id of a component.
+    /// </summary>
+    public Guid? ComponentId { get; set; }
+    
+    /// <summary>
+    /// Id of Component Property.
+    /// </summary>
+    public Guid? Ref { get; set; }
     
     /// <summary>
     /// Expression Function. Use only with Args.

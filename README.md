@@ -733,7 +733,6 @@ Defines component property of components and states.
 * _t: [string](#string) = `BOOL` - variable type.
 * Id: [GUID](#GUID) - unique property ID.
 * Name: [string](#string) - property name.
-* Dead: [bool](#bool) = `false` - is already deleted.
 
 ### <a name="ColorStyle"></a>ColorStyle
 Style of fills. Can be set to borders and fills.
@@ -1029,15 +1028,19 @@ Setting allows you to set a value for an instance property from a component.
 
 Has all properties of [`Argument`](#Argument), plus:
 
-* Target: [GUID](#GUID) - component property id. Required. Should be first.
+* Id: [GUID](#GUID) - component property id. Required. Should be first.
 
 ### <a name="Argument"></a>Argument
 Expression Argument. Value or Variable or Expression.
 
 * Bool: [bool?](#bool) - boolean value
+* BoolId: [GUID?](#GUID) - id of a boolean variable
 * Number: [float?](#float) - number value
+* NumberId: [GUID?](#GUID) - id of a number variable
 * Text: [string](#string) - text value
-* Id: [GUID?](#GUID) - id of a variable or component. For variable there should be a bool/float/string value before id.
+* TextId: [GUID?](#GUID) - id of a Text variable
+* ComponentId: [GUID?](#GUID) - id of a component.
+* Ref: [GUID?](#GUID) - id of Component Property.
 * Func: [ExpressionFunction?](#ExpressionFunction) - expression Function. Use only with Args.
 
 ### <a name="AutoLayout"></a>AutoLayout

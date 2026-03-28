@@ -19,11 +19,6 @@ public abstract class ComponentPropertyBase
     /// Property name.
     /// </summary>
     public string Name { get; set; } = "";
-    
-    /// <summary>
-    /// Is already deleted.
-    /// </summary>
-    public bool Dead { get; set; }
 }
 
 /// <summary>

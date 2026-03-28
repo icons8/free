@@ -8,5 +8,5 @@ public class InstanceSetting : Argument
     /// <summary>
     /// Component property id. Required. Should be first.
     /// </summary>
-    public Guid Target { get; set; }
+    public Guid Id { get; set; }
 }
