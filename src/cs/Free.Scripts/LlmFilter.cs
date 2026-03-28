@@ -20,7 +20,7 @@ public static class LlmFilter
         
         "ComponentPropertyBase", "TextComponentProperty", "SwapComponentProperty", "StateComponentProperty", "BoolComponentProperty",
         
-        "Expression", "ExpressionFunction", "Argument", "Binds", "Bind", "StateBind", "BindField", 
+        "Expression", "ExpressionFunction", "Argument", "Binds", "Bind", "StateBind", "BindField", "InstanceSetting",
         
         "VariableTheme", "VariableCollection", "Variable", "StringValue", "FloatValue", "ColorValue", "BoolValue", 
         "StringVariable", "FloatVariable", "ColorVariable", "BoolVariable", "ThemeSelection",

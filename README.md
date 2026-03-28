@@ -1016,6 +1016,20 @@ Base object of prototyping trigger.
 
 * _t: [string](#string) = `CLICK` - object type.
 
+### <a name="Bind"></a>Bind
+Bind of a variable into layer property.
+
+Has all properties of [`Argument`](#Argument), plus:
+
+* Field: [BindField](#BindField) = `Unknown` - target field
+
+### <a name="InstanceSetting"></a>InstanceSetting
+Setting allows you to set a value for an instance property from a component.
+
+Has all properties of [`Argument`](#Argument), plus:
+
+* PropertyId: [GUID](#GUID) - component property id
+
 ### <a name="Argument"></a>Argument
 Expression Argument. Value or Variable or Expression.
 
@@ -1040,12 +1054,6 @@ Defines auto layout settings.
 * StrokesIncluded: [bool](#bool) = `false` - if the Include Borders option is enabled.
 * ReverseZIndex: [bool](#bool) = `false` - if the Last on Top option is enabled.
 * Wrap: [bool](#bool) = `false` - if wrapping is enabled.
-
-### <a name="Bind"></a>Bind
-Bind of a variable into layer property.
-
-* Field: [BindField](#BindField) = `Unknown` - target field
-* Value: [Argument](#Argument) - bind Value
 
 ### <a name="BlurEffect"></a>BlurEffect
 Defines the settings of the blur effect.

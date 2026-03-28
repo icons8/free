@@ -28,4 +28,9 @@ public class Instance : Layer
     /// Defines the overrides applied to the instance.
     /// </summary>
     public List<Override> Overrides { get; } = new();
+    
+    /// <summary>
+    /// Values for component properties
+    /// </summary>
+    public List<InstanceSetting> Settings { get; } = new();
 }
