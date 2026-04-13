@@ -7,6 +7,8 @@
 * Added `Expression`, `ExpressionFunction`, `Argument`. 
 * Added `Bind` list to `Layer` and `InstanseSetting` list to `Instance`.
 * New flow actions: `ConditionalAction`, `SetVariableAction`, `SetThemeAction`.
+* Added Zoom and Motion blur.
+* Added Diamond Gradient.
 
 ### Version 7 20.02.2026
 * `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.

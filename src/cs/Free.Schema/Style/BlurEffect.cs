@@ -13,6 +13,14 @@ public sealed class BlurEffect
     /// </summary>
     public float Radius { get; set; } = 10;
     /// <summary>
+    /// Motion Angle
+    /// </summary>
+    public float Angle { get; set; }
+    /// <summary>
+    /// Zoom Blur Center
+    /// </summary>
+    public Point Center { get; set; } = new Point(0.5f, 0.5f);
+    /// <summary>
     /// If the blur is enabled.
     /// </summary>
     public bool Enabled { get; set; }

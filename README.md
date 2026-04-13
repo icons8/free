@@ -1064,6 +1064,8 @@ Defines the settings of the blur effect.
 
 * Saturation: [float](#float) = `1` - saturation. Only for background blur.
 * Radius: [float](#float) = `10` - blur Radius.
+* Angle: [float](#float) = `0` - motion Angle
+* Center: [Point](#Point) = `[0.5,0.5]` - zoom Blur Center
 * Enabled: [bool](#bool) = `false` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
 
@@ -1479,6 +1481,8 @@ Defines the type of blend mode applied to a layer.
 Defines the blur type.
 
 * `0` Gaussian - gaussian blur.
+* `1` Motion - motion blur.
+* `2` Zoom - zoom blur.
 * `3` Background - background blur.
 
 ### <a name="BoolOp"></a>BoolOp Enum
@@ -1694,6 +1698,7 @@ List of Gradient types.
 * `0` Linear - linear gradient: two colors appear at opposite points of an object and blend, or transition into each other.
 * `1` Radial - radial gradient: the transition between color stops is a circular pattern.
 * `2` Angular - angular gradient: sweeps around the circumference.
+* `3` Diamond - diamond gradient.
 
 ### <a name="HorizontalAlignment"></a>HorizontalAlignment Enum
 Defines how a set of layers is aligned horizontally.
@@ -1926,6 +1931,8 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * Added `Expression`, `ExpressionFunction`, `Argument`. 
 * Added `Bind` list to `Layer` and `InstanseSetting` list to `Instance`.
 * New flow actions: `ConditionalAction`, `SetVariableAction`, `SetThemeAction`.
+* Added Zoom and Motion blur.
+* Added Diamond Gradient.
 
 ### Version 7 20.02.2026
 * `FixedHorizontal` and `FixedVertical` are replaced by `FixWidth` and `FixHeight`.

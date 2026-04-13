@@ -16,5 +16,10 @@ public enum GradientType : byte
     /// <summary>
     /// Angular gradient: sweeps around the circumference.
     /// </summary>
-    Angular
+    Angular,
+    
+    /// <summary>
+    /// Diamond gradient.
+    /// </summary>
+    Diamond
 }
