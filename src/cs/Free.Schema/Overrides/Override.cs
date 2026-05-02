@@ -113,7 +113,7 @@ public sealed class Override
     /// <summary>
     /// Defines the size of dashes.
     /// </summary>
-    public float[] Dash { get; set; }
+    public float[]? Dash { get; set; }
     /// <summary>
     /// List of shadows.
     /// </summary>
@@ -259,6 +259,14 @@ public sealed class Override
     /// Defines scroll behavior (prototyping).
     /// </summary>
     public FlowScrollBehavior? ScrollBehavior { get; set; }
+    /// <summary>
+    /// Defines scroll overflow (prototyping).
+    /// </summary>
+    public FlowScrollOverflow? ScrollOverflow { get; set; }
+    /// <summary>
+    /// Values for component properties
+    /// </summary>
+    public List<InstanceSetting>? Settings { get; set; }
     /// <summary>
     /// Color override.
     /// </summary>

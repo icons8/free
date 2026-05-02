@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 using Free.Schema;
 using Path = Free.Schema.Path;
@@ -74,7 +75,7 @@ public static class GenerateDocumentationScript
             var instance = type.IsAbstract || type.IsInterface 
                 ? Activator.CreateInstance(types.First(x=>!x.IsInterface && !x.IsAbstract && type.IsAssignableFrom(x))) 
                 : Activator.CreateInstance(type);
-            item.Attributes = type.GetCustomAttributes().ToArray();
+            item.Attributes = type.GetCustomAttributes().Where(x=>x is not NullableAttribute).ToArray();
             
             if (item.Type == NodeType.Enum)
             {
@@ -109,7 +110,7 @@ public static class GenerateDocumentationScript
                 if (child.Type == NodeType.Property)
                 {
                     var property = type.GetProperty(child.Name) ?? throw new Exception("Property not found: " + item.Name + "." + child.Name);
-                    child.Attributes = property.GetCustomAttributes().ToArray();
+                    child.Attributes = property.GetCustomAttributes().Where(x=>x is not NullableAttribute).ToArray();
                     child.DefaultValue = property.GetValue(instance);
                     child.ValueType = property.PropertyType;
                 }
@@ -118,14 +119,14 @@ public static class GenerateDocumentationScript
                     if (item.Type == NodeType.Struct)
                     {
                         var field = type.GetField(child.Name) ?? throw new Exception("Field not found: " + item.Name + "." + child.Name);
-                        child.Attributes = field.GetCustomAttributes().ToArray();
+                        child.Attributes = field.GetCustomAttributes().Where(x=>x is not NullableAttribute).ToArray();
                         child.DefaultValue = field.GetValue(instance);
                         child.ValueType = field.FieldType;
                     }
                     else if (item.Type == NodeType.Enum)
                     {
                         var field = type.GetField(child.Name, BindingFlags.Public | BindingFlags.Static) ?? throw new Exception("Field not found: " + item.Name + "." + child.Name);
-                        child.Attributes = field.GetCustomAttributes().ToArray();
+                        child.Attributes = field.GetCustomAttributes().Where(x=>x is not NullableAttribute).ToArray();
                         child.DefaultValue = Convert.ChangeType(field.GetValue(null),Enum.GetUnderlyingType(type));
                     }
                 }

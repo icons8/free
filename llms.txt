@@ -56,6 +56,7 @@ Has all properties of `Layer`, plus:
 * bool absolutePos = false - enables absolute position for the layer (auto layout).
 * float opacity = 1
 * PathFillType winding = 1
+* Fill tint
 * Color fill - if there is a single color fill - use this, otherwise use Fills field.
 * Color border - if there is a single color border - use this, otherwise use Borders field.
 * Fill[] fills
@@ -164,6 +165,7 @@ Has all properties of `Layer`, plus:
 * TextHorizontalAlignment align = 0
 * TextVerticalAlignment valign = 0
 * ListMarkerType list = 0
+* [string,float] variation
 * bool rtl = false
 * bool underline = false
 * bool strikethrough = false
@@ -247,6 +249,7 @@ Has all properties of `ComponentPropertyBase`, plus:
 * TextHorizontalAlignment align = 0
 * TextVerticalAlignment valign = 0
 * ListMarkerType list = 0
+* [string,float] variation
 * bool rtl = false
 * bool underline = false
 * bool strikethrough = false

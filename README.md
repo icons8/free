@@ -349,6 +349,7 @@ Base class for any layer on a canvas.
 * Opacity: [float](#float) = `1` - opacity value.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - blend mode.
 * Winding: [PathFillType](#PathFillType) = `EvenOdd` - defines the filling options for overlapping paths.
+* Tint: [Fill](#Fill) - defines the tint color.
 * Fill: [Color](#Color) = `00000000` - if there is a single color fill - use this, otherwise use Fills field.
 * Border: [Color](#Color) = `00000000` - if there is a single color border - use this, otherwise use Borders field.
 * Fills: [Fill[]](#Fill) - list of fills.
@@ -584,6 +585,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
 * Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
 * List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
+* Variation: [[string,float]](#[string,float) - variable fonts settings. Not supported in Lunacy yet.
 * Rtl: [bool](#bool) = `false` - if the text is RTL.
 * Underline: [bool](#bool) = `false` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
@@ -770,6 +772,7 @@ Has all properties of [`StyleBase`](#StyleBase), plus:
 * Underline: [bool](#bool) = `false` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
 * Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
+* Variation: [[string,float]](#[string,float) - variable fonts settings. Not supported in Lunacy yet.
 
 ### <a name="StyleBase"></a>StyleBase
 Base class for a shared style
@@ -976,6 +979,7 @@ Key down.
 
 Has all properties of [`FlowTrigger`](#FlowTrigger), plus:
 
+* _t: [string](#string) = `KEY_DOWN` - object type.
 * Shortcut: [string](#string) - string representing a keyboard shortcut. Examples: TAB, C, Ctrl+Shift+T, Alt+F3, Win+\.
 * Delay: [int](#int) = `0` - delay in ms.
 
@@ -1042,6 +1046,7 @@ Expression Argument. Value or Variable or Expression. Please note that only one 
 * ComponentId: [GUID?](#GUID) - id of a component.
 * Ref: [GUID?](#GUID) - id of Component Property.
 * Func: [ExpressionFunction?](#ExpressionFunction) - expression Function. Use only with Args.
+* Args: [Argument[]](#Argument) - list of expression arguments. Use only with Func.
 
 ### <a name="AutoLayout"></a>AutoLayout
 Defines auto layout settings.
@@ -1170,6 +1175,7 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
 * Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
 * List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
+* Variation: [[string,float]](#[string,float) - variable fonts settings. Not supported in Lunacy yet.
 * Rtl: [bool](#bool) = `false` - if the text is RTL.
 * Underline: [bool](#bool) = `false` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
@@ -1182,11 +1188,14 @@ Contains metadata about the document.
 * App: [string](#string) - app name.
 * Variant: [string](#string) - app variant: beta/standalone/store/web/etc.
 * AppVersion: [string](#string) - app version.
+* By: [string](#string) - email address of the user who last saved the document.
 
 ### <a name="Override"></a>Override
 Defines overrides for components.
 
+* Target: [GUID[]](#GUID) - list of unique identifiers that determine the target layer, to which an override is applied.
 * ComponentId: [GUID?](#GUID) - unique component identifier.
+* Export: [ExportOption[]](#ExportOption) - export settings.
 * Image: [string](#string) - defines the image name used as a fill.
 * Link: [string](#string) - defines the target frame (prototyping).
 * Locked: [bool?](#bool) - if the layer is locked for editing.
@@ -1203,11 +1212,16 @@ Defines overrides for components.
 * StyleId: [GUID?](#GUID) - identifier of the style applied to a layer.
 * Tint: [Color?](#Color) - defines the tint color.
 * TintId: [GUID?](#GUID) - tint identifier.
+* Fills: [Fill[]](#Fill) - list of fills applied to a layer.
+* Borders: [Fill[]](#Fill) - list of borders applied to a layer.
 * Thickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines border thickness.
 * CustomThickness: [Thickness](#Thickness) = `[0,0,0,0]` - defines custom border thickness.
 * LinePos: [LinePosition](#LinePosition) = `Center` - defines border position.
 * LineCap: [LineCap](#LineCap) = `Butt` - defines the shape of line caps.
 * LineJoin: [LineJoin](#LineJoin) = `Miter` - defines the appearance of line folds.
+* Dash: [float[]](#float) - defines the size of dashes.
+* Shadows: [ShadowEffect[]](#ShadowEffect) - list of shadows.
+* InnerShadows: [ShadowEffect[]](#ShadowEffect) - list of inner shadows.
 * Blur: [BlurEffect](#BlurEffect) - information about blurs.
 * ImageFilters: [ImageFilters](#ImageFilters) - filters applied to an image (hue, saturartion, etc.), if any.
 * Opacity: [float?](#float) - opacity value.
@@ -1215,6 +1229,7 @@ Defines overrides for components.
 * StartMarker: [Arrowhead?](#Arrowhead) - determines the appearance of the tail of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * EndMarker: [Arrowhead?](#Arrowhead) - determines the appearance of the head of an open path drawn with the Line, Arrow, or Pen/Pencil tool.
 * Text: [string](#string) - content of the text layer.
+* Inlines: [InlineStyle[]](#InlineStyle) - styling options applied to the text within a text block.
 * TextBehavior: [TextBehavior?](#TextBehavior) - behavior of the text layer size on text value change: flexible, fixed-width, or fixed.
 * Size: [Size?](#Size) - text size.
 * Vertical: [bool?](#bool) - is vertical autolayout
@@ -1239,6 +1254,8 @@ Defines overrides for components.
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
 * KeepScroll: [bool?](#bool) - if the *Keep scroll position* option is enabled (prototyping).
 * ScrollBehavior: [FlowScrollBehavior?](#FlowScrollBehavior) - defines scroll behavior (prototyping).
+* ScrollOverflow: [FlowScrollOverflow?](#FlowScrollOverflow) - defines scroll overflow (prototyping).
+* Settings: [InstanceSetting[]](#InstanceSetting) - values for component properties
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -1303,7 +1320,9 @@ Defines the shadow options.
 ### <a name="SharedLibrary"></a>SharedLibrary
 Contains components, styles and variables from external library that is used in current document. Every file in the shared folder is Shared Library.
 
+* Url: [string](#string) - uRL to the Library. Can be http link or local path (local is not supported in Lunacy yet).
 * Id: [GUID](#GUID) - unique library document identifier.
+* Name: [string](#string) - library name.
 * Variables: [VariableCollection[]](#VariableCollection) - variable collections from a shared library.
 * FillStyles: [ColorStyle[]](#ColorStyle) - fill styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
