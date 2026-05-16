@@ -28,4 +28,8 @@ public sealed class BlurEffect
     /// Sets the blur type.
     /// </summary>
     public BlurType Type { get; set; } = BlurType.Gaussian;
+    /// <summary>
+    /// Float Variable Id of Radius value.
+    /// </summary>
+    public Guid RadiusId { get; set; }
 }

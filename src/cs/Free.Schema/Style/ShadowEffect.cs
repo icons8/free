@@ -32,4 +32,16 @@ public sealed class ShadowEffect
     /// Shadow blend mode.
     /// </summary>
     public BlendMode BlendMode { get; set; }
+    /// <summary>
+    /// Float Variable Id of X offset value.
+    /// </summary>
+    public Guid XId { get; set; }
+    /// <summary>
+    /// Float Variable Id of Y offset value.
+    /// </summary>
+    public Guid YId { get; set; }
+    /// <summary>
+    /// Float Variable Id of Spread value.
+    /// </summary>
+    public Guid SpreadId { get; set; }
 }
