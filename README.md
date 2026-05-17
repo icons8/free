@@ -1069,6 +1069,7 @@ Defines the settings of the blur effect.
 
 * Saturation: [float](#float) = `1` - saturation. Only for background blur.
 * Radius: [float](#float) = `10` - blur Radius.
+* RadiusId: [GUID](#GUID) - float Variable Id of Radius value.
 * Angle: [float](#float) = `0` - motion Angle
 * Center: [Point](#Point) = `[0.5,0.5]` - zoom Blur Center
 * Enabled: [bool](#bool) = `false` - if the blur is enabled.
@@ -1311,9 +1312,13 @@ Defines the shadow options.
 
 * Enabled: [bool](#bool) = `true` - if a shadow effect is enabled.
 * Radius: [float](#float) = `0` - radius of the shadow blur.
+* RadiusId: [GUID](#GUID) - float Variable Id of Radius value.
+* XId: [GUID](#GUID) - float Variable Id of X offset value.
+* YId: [GUID](#GUID) - float Variable Id of Y offset value.
 * Color: [Color](#Color) = `00000000` - shadow color.
 * ColorId: [GUID?](#GUID) - color variable ID.
 * Spread: [float](#float) = `0` - shadow spread value.
+* SpreadId: [GUID](#GUID) - float Variable Id of Spread value.
 * Offset: [Point](#Point) = `[0,0]` - how far the shadow is projected in the x and y directions.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - shadow blend mode.
 

@@ -13,6 +13,18 @@ public sealed class ShadowEffect
     /// </summary>
     public float Radius { get; set; }
     /// <summary>
+    /// Float Variable Id of Radius value.
+    /// </summary>
+    public Guid RadiusId { get; set; }
+    /// <summary>
+    /// Float Variable Id of X offset value.
+    /// </summary>
+    public Guid XId { get; set; }
+    /// <summary>
+    /// Float Variable Id of Y offset value.
+    /// </summary>
+    public Guid YId { get; set; }
+    /// <summary>
     /// Shadow color.
     /// </summary>
     public Color Color { get; set; }
@@ -25,6 +37,10 @@ public sealed class ShadowEffect
     /// </summary>
     public float Spread { get; set; }
     /// <summary>
+    /// Float Variable Id of Spread value.
+    /// </summary>
+    public Guid SpreadId { get; set; }
+    /// <summary>
     /// How far the shadow is projected in the x and y directions.
     /// </summary>
     public Point Offset { get; set; }
@@ -32,16 +48,4 @@ public sealed class ShadowEffect
     /// Shadow blend mode.
     /// </summary>
     public BlendMode BlendMode { get; set; }
-    /// <summary>
-    /// Float Variable Id of X offset value.
-    /// </summary>
-    public Guid XId { get; set; }
-    /// <summary>
-    /// Float Variable Id of Y offset value.
-    /// </summary>
-    public Guid YId { get; set; }
-    /// <summary>
-    /// Float Variable Id of Spread value.
-    /// </summary>
-    public Guid SpreadId { get; set; }
 }

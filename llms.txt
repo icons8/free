@@ -201,6 +201,7 @@ Has all properties of `ComponentPropertyBase`, plus:
 
 * float saturation = 1
 * float radius = 10
+* GUID radiusId
 * BlurType type = 0
 
 ## ExportOption
@@ -270,9 +271,13 @@ Has all properties of `ComponentPropertyBase`, plus:
 ## ShadowEffect
 
 * float radius = 0
+* GUID radiusId
+* GUID xId
+* GUID yId
 * Color color = "00000000"
 * GUID? colorId
 * float spread = 0
+* GUID spreadId
 * Point offset = [0,0]
 
 ## Enum Arrowhead
