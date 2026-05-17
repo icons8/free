@@ -13,7 +13,7 @@ public sealed class BlurEffect
     /// </summary>
     public float Radius { get; set; } = 10;
     /// <summary>
-    /// Float Variable Id of Radius value.
+    /// Float Variable Id of a Radius value.
     /// </summary>
     public Guid RadiusId { get; set; }
     /// <summary>

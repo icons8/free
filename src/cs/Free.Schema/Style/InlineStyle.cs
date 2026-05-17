@@ -109,4 +109,9 @@ public class InlineStyle
     /// Text position against the baseline.
     /// </summary>
     public BaselinePosition BaselinePos { get; set; }
+    
+    /// <summary>
+    /// Binds of variables to target fields like: fontSize, fontWeight, etc.
+    /// </summary>
+    public List<Bind> Binds { get; } = new();
 }

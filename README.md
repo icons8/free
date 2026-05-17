@@ -791,9 +791,13 @@ Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 * Enabled: [bool](#bool) = `false` - if columnns are enabled.
 * Align: [LayoutHorizontalAlignment](#LayoutHorizontalAlignment) = `Left` - horizontal alignment settings.
 * Offset: [int](#int) = `0` - offset value.
+* OffsetId: [GUID](#GUID) - float Variable Id of an Offset value.
 * Count: [int](#int) = `0` - number of columns.
+* CountId: [GUID](#GUID) - float Variable Id of a Count value.
 * Gutter: [int](#int) = `0` - gutter value.
+* GutterId: [GUID](#GUID) - float Variable Id of a Gutter value.
 * Width: [int](#int) = `0` - column width.
+* WidthId: [GUID](#GUID) - float Variable Id of a Width value.
 * Color: [Color](#Color) = `00000000` - column color.
 
 ### <a name="Grid"></a>Grid
@@ -805,6 +809,7 @@ Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 * Enabled: [bool](#bool) = `false` - if the square grid is enabled.
 * Color: [Color](#Color) = `00000000` - grid color.
 * Size: [int](#int) = `10` - size of grid cells.
+* SizeId: [GUID](#GUID) - float Variable Id of a Size value.
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -821,9 +826,13 @@ Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 * Enabled: [bool](#bool) = `false` - if rows are enabled.
 * Align: [LayoutVerticalAlignment](#LayoutVerticalAlignment) = `Top` - vertical alignment settings.
 * Offset: [int](#int) = `0` - offset value.
+* OffsetId: [GUID](#GUID) - float Variable Id of an Offset value.
 * Count: [int](#int) = `0` - number of rows.
+* CountId: [GUID](#GUID) - float Variable Id of a Count value.
 * Gutter: [int](#int) = `0` - gutter value.
+* GutterId: [GUID](#GUID) - float Variable Id of a Gutter value.
 * Width: [int](#int) = `0` - row width.
+* WidthId: [GUID](#GUID) - float Variable Id of a Width value.
 * Color: [Color](#Color) = `00000000` - row color.
 
 ### <a name="LayoutGuideBase"></a>LayoutGuideBase
@@ -1069,7 +1078,7 @@ Defines the settings of the blur effect.
 
 * Saturation: [float](#float) = `1` - saturation. Only for background blur.
 * Radius: [float](#float) = `10` - blur Radius.
-* RadiusId: [GUID](#GUID) - float Variable Id of Radius value.
+* RadiusId: [GUID](#GUID) - float Variable Id of a Radius value.
 * Angle: [float](#float) = `0` - motion Angle
 * Center: [Point](#Point) = `[0.5,0.5]` - zoom Blur Center
 * Enabled: [bool](#bool) = `false` - if the blur is enabled.
@@ -1181,6 +1190,7 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * Underline: [bool](#bool) = `false` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
 * BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
+* Binds: [Bind[]](#Bind) - binds of variables to target fields like: fontSize, fontWeight, etc.
 
 ### <a name="Meta"></a>Meta
 Contains metadata about the document.
@@ -1312,13 +1322,13 @@ Defines the shadow options.
 
 * Enabled: [bool](#bool) = `true` - if a shadow effect is enabled.
 * Radius: [float](#float) = `0` - radius of the shadow blur.
-* RadiusId: [GUID](#GUID) - float Variable Id of Radius value.
+* RadiusId: [GUID](#GUID) - float Variable Id of a Radius value.
 * XId: [GUID](#GUID) - float Variable Id of X offset value.
 * YId: [GUID](#GUID) - float Variable Id of Y offset value.
 * Color: [Color](#Color) = `00000000` - shadow color.
 * ColorId: [GUID?](#GUID) - color variable ID.
 * Spread: [float](#float) = `0` - shadow spread value.
-* SpreadId: [GUID](#GUID) - float Variable Id of Spread value.
+* SpreadId: [GUID](#GUID) - float Variable Id of a Spread value.
 * Offset: [Point](#Point) = `[0,0]` - how far the shadow is projected in the x and y directions.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - shadow blend mode.
 

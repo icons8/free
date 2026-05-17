@@ -21,6 +21,10 @@ public sealed class Grid : LayoutGuideBase
     /// </summary>
     public int Size { get; set; } = 10;
     /// <summary>
+    /// Float Variable Id of a Size value.
+    /// </summary>
+    public Guid SizeId { get; set; }
+    /// <summary>
     /// Every N line should be thick.
     /// </summary>
     [SketchCompatibility]

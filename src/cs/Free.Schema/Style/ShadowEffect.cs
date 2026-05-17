@@ -13,7 +13,7 @@ public sealed class ShadowEffect
     /// </summary>
     public float Radius { get; set; }
     /// <summary>
-    /// Float Variable Id of Radius value.
+    /// Float Variable Id of a Radius value.
     /// </summary>
     public Guid RadiusId { get; set; }
     /// <summary>
@@ -37,7 +37,7 @@ public sealed class ShadowEffect
     /// </summary>
     public float Spread { get; set; }
     /// <summary>
-    /// Float Variable Id of Spread value.
+    /// Float Variable Id of a Spread value.
     /// </summary>
     public Guid SpreadId { get; set; }
     /// <summary>
