@@ -1,5 +1,10 @@
 ## Changelog
 
+### Version 9 20.05.2026
+* Added `Binds` to `InlineStyle`.
+* Added variables to `Grid`, `Columns` and `Rows`.
+* Added variables to `BlurEffect` and `ShadowEffect`.
+
 ### Version 8 15.03.2026
 * Added `SlotComponentProperty`.
 * Added `Slot` layer and `Slots` property to `Document` and `SharedLibrary`.
