@@ -268,6 +268,10 @@ public sealed class Override
     /// </summary>
     public List<InstanceSetting>? Settings { get; set; }
     /// <summary>
+    /// Binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
+    /// </summary>
+    public List<Bind> Binds { get; } = new();
+    /// <summary>
     /// Color override.
     /// </summary>
     [SketchCompatibility]

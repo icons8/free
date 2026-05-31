@@ -1267,6 +1267,7 @@ Defines overrides for components.
 * ScrollBehavior: [FlowScrollBehavior?](#FlowScrollBehavior) - defines scroll behavior (prototyping).
 * ScrollOverflow: [FlowScrollOverflow?](#FlowScrollOverflow) - defines scroll overflow (prototyping).
 * Settings: [InstanceSetting[]](#InstanceSetting) - values for component properties
+* Binds: [Bind[]](#Bind) - binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -1486,7 +1487,7 @@ Defines text position against the baseline.
 * `57` FontVariations
 * `58` Text
 * `100` ComponentId
-* `101` InstanceVariant
+* `101` State
 * `102` Hyperlink
 
 ### <a name="BlendMode"></a>BlendMode Enum

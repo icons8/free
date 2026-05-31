@@ -43,6 +43,6 @@ public enum BindField : byte
     Text = 58,
 
     ComponentId = 100,
-    InstanceVariant = 101,
+    State = 101,
     Hyperlink = 102,
 }
