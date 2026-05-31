@@ -184,6 +184,11 @@ Has all properties of `ComponentPropertyBase`, plus:
 * GUID value
 * GUID[] values
 
+## MapEntry — Map Entry. Has Key and Argument value.
+
+Has all properties of `Argument`, plus:
+* GUID key
+
 ## AutoLayout
 
 * bool vertical = false

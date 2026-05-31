@@ -1043,6 +1043,13 @@ Has all properties of [`Argument`](#Argument), plus:
 
 * Id: [GUID](#GUID) - component property id. Required. Should be first.
 
+### <a name="MapEntry"></a>MapEntry
+Map Entry. Has Key and Argument value.
+
+Has all properties of [`Argument`](#Argument), plus:
+
+* Key: [GUID](#GUID) - key of map entry. Required. Should be first.
+
 ### <a name="Argument"></a>Argument
 Expression Argument. Value or Variable or Expression. Please note that only one type of value can be present: just a bool/text/number, bool and boolId(same for text and number), just a ref, just a componentId, or a func with args.
 
@@ -1053,6 +1060,7 @@ Expression Argument. Value or Variable or Expression. Please note that only one 
 * Text: [string](#string) - text value
 * TextId: [GUID?](#GUID) - id of a Text variable
 * ComponentId: [GUID?](#GUID) - id of a component.
+* Map: [MapEntry[]](#MapEntry) - map. Used for state binds.
 * Ref: [GUID?](#GUID) - id of Component Property.
 * Func: [ExpressionFunction?](#ExpressionFunction) - expression Function. Use only with Args.
 * Args: [Argument[]](#Argument) - list of expression arguments. Use only with Func.
@@ -1653,8 +1661,6 @@ Defines the types of points on Bézier curves.
 * `24` Ternary
 * `25` IsTruthy
 * `30` Stringify
-* `100` ResolveState
-* `101` ThemeLookup
 
 ### <a name="FillType"></a>FillType Enum
 Defines the fill type.

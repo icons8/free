@@ -22,7 +22,4 @@ public enum ExpressionFunction : byte
     IsTruthy = 25,
     
     Stringify = 30,
-    
-    ResolveState = 100,
-    ThemeLookup = 101,
 }

@@ -44,6 +44,11 @@ public class Argument
     public Guid? ComponentId { get; set; }
     
     /// <summary>
+    /// Map. Used for state binds.
+    /// </summary>
+    public MapEntry[]? Map { get; set; }
+    
+    /// <summary>
     /// Id of Component Property.
     /// </summary>
     public Guid? Ref { get; set; }
