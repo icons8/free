@@ -2041,4 +2041,8 @@ Separate file is created for every library source - this will significantly incr
 
 * Initial Version
 
+## Made by Icons8
+
+`.free` is the native format of **[Lunacy](https://icons8.com/lunacy?utm_source=github)**, our free design app with the whole Icons8 library built in — **[1.5M+ icons](https://icons8.com/icons?utm_source=github)** ([Color](https://icons8.com/icons/color?utm_source=github), [3D Fluency](https://icons8.com/icons/3d-fluency?utm_source=github), [Liquid Glass](https://icons8.com/icons/liquid-glass?utm_source=github)) and **[110,000+ illustrations](https://icons8.com/illustrations?utm_source=github)** ([Cherry](https://icons8.com/illustrations/styles/cherry?utm_source=github), [Bouncy](https://icons8.com/illustrations/styles/bouncy?utm_source=github), [3D Stickle](https://icons8.com/illustrations/styles/3d-stickle?utm_source=github)), free to use.
+
 by Icons8 LLC 2026
