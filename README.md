@@ -767,9 +767,16 @@ Has all properties of [`StyleBase`](#StyleBase), plus:
 * ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
 * Kerning: [float](#float) = `0` - letter spacing.
 * LineHeight: [float?](#float) - line spacing.
+* Fill: [Color](#Color) = `00000000` - if there is a single color fill, use this; otherwise use Fills.
+* Fills: [Fill[]](#Fill) - list of text fills.
+* Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
+* Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
+* List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
 * Underline: [bool](#bool) = `false` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
 * Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
+* BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
+* Rtl: [bool](#bool) = `false` - if the text is RTL.
 * Variation: [[string,float]](#[string,float) - variable font coordinates keyed by four-character OpenType axis tags.
 * FontOpticalSizing: [string](#string) = `manual` - optical sizing mode: manual or auto.
 
@@ -1148,7 +1155,7 @@ Embedded fonts stored in the document.
 
 * Data: [string](#string) - name of the font file in the fonts folder.
 * Name: [string](#string) - font name.
-* FileName: [string](#string) - font file name.
+* FontFileName: [string](#string) - font file name.
 * CollectionIndex: [int](#int) = `0` - zero-based font index in a TrueType or OpenType collection. Omitted for the first font.
 * PostscriptNames: [string[]](#string) - postScript names of the font.
 

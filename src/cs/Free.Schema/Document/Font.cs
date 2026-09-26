@@ -16,7 +16,7 @@ public class Font
     /// <summary>
     /// Font file name.
     /// </summary>
-    public string FileName { get; set; }
+    public string FontFileName { get; set; }
     /// <summary>
     /// Zero-based font index in a TrueType or OpenType collection. Omitted for the first font.
     /// </summary>
