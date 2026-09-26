@@ -1091,14 +1091,28 @@ Defines auto layout settings.
 * Wrap: [bool](#bool) = `false` - if wrapping is enabled.
 
 ### <a name="BlurEffect"></a>BlurEffect
-Defines the settings of the blur effect.
+Defines the settings of a blur or glass effect. Glass uses its own frost radius; Radius applies to other blur types.
 
 * Saturation: [float](#float) = `1` - saturation. Only for background blur.
 * Radius: [float](#float) = `10` - blur Radius.
 * RadiusId: [GUID](#GUID) - float Variable Id of a Radius value.
 * Angle: [float](#float) = `0` - motion Angle
+* GlassLightAngle: [float](#float) = `-45` - direction of the light in degrees. Used by glass.
+* GlassLightIntensity: [float](#float) = `80` - intensity of the light in percent (0 to 100). Used by glass.
+* GlassRefraction: [float](#float) = `80` - intensity of optical distortion in percent (0 to 100). Used by glass.
+* GlassDepth: [float](#float) = `20` - depth of the curved glass edge in document units (1 to 1024).
+* GlassDispersion: [float](#float) = `50` - intensity of color separation in percent (0 to 100). Used by glass.
+* GlassFrost: [float](#float) = `4` - background blur radius in document units (0 to 1024). Used by glass.
+* GlassSplay: [float](#float) = `0` - spread of the glass lighting in percent (0 to 100).
+* GlassLightAngleId: [GUID](#GUID) - float variable identifier for GlassLightAngle. Numeric values provide fallbacks; percentage variables use 0 to 100.
+* GlassLightIntensityId: [GUID](#GUID) - float variable identifier for GlassLightIntensity. Numeric values provide fallbacks; percentage variables use 0 to 100.
+* GlassRefractionId: [GUID](#GUID) - float variable identifier for GlassRefraction. Numeric values provide fallbacks; percentage variables use 0 to 100.
+* GlassDepthId: [GUID](#GUID) - float variable identifier for GlassDepth. Numeric values provide fallbacks; percentage variables use 0 to 100.
+* GlassDispersionId: [GUID](#GUID) - float variable identifier for GlassDispersion. Numeric values provide fallbacks; percentage variables use 0 to 100.
+* GlassFrostId: [GUID](#GUID) - float variable identifier for GlassFrost. Numeric values provide fallbacks; percentage variables use 0 to 100.
+* GlassSplayId: [GUID](#GUID) - float variable identifier for GlassSplay. Numeric values provide fallbacks; percentage variables use 0 to 100.
 * Center: [Point](#Point) = `[0.5,0.5]` - zoom Blur Center
-* Enabled: [bool](#bool) = `false` - if the blur is enabled.
+* Enabled: [bool](#bool) = `true` - if the blur is enabled.
 * Type: [BlurType](#BlurType) = `Gaussian` - sets the blur type.
 
 ### <a name="Document"></a>Document
@@ -1548,6 +1562,7 @@ Defines the blur type.
 * `1` Motion - motion blur.
 * `2` Zoom - zoom blur.
 * `3` Background - background blur.
+* `4` Glass - glass effect with refraction, lighting, dispersion, and background frost.
 
 ### <a name="BoolOp"></a>BoolOp Enum
 Types of boolean operations used to combine shapes.
@@ -2014,6 +2029,13 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `2` PrimaryPrefix - indicates that the file name comes with a user-defined prefix.
 
 ## Changelog
+
+### Version 11 - 27.09.2026
+* Added glass blur type `4` and its light angle, light intensity, refraction, depth, dispersion, frost, and splay settings.
+* Added float variable bindings and numeric fallbacks for all seven glass settings.
+* Glass depth and frost are document-space lengths; intensity, refraction, dispersion, and splay are percentages.
+* Preserve disabled blur and glass settings on layers and effect styles.
+* Corrected the documented blur `enabled` default to `true` when a blur object is present.
 
 ### Version 10 - 07.09.2026
 * Added variable font coordinates and optical sizing to text layers, text styles, and inline styles.

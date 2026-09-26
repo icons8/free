@@ -206,6 +206,20 @@ Has all properties of `Argument`, plus:
 * float saturation = 1
 * float radius = 10
 * GUID radiusId
+* float glassLightAngle = -45
+* float glassLightIntensity = 80
+* float glassRefraction = 80
+* float glassDepth = 20
+* float glassDispersion = 50
+* float glassFrost = 4
+* float glassSplay = 0
+* GUID glassLightAngleId
+* GUID glassLightIntensityId
+* GUID glassRefractionId
+* GUID glassDepthId
+* GUID glassDispersionId
+* GUID glassFrostId
+* GUID glassSplayId
 * BlurType type = 0
 
 ## ExportOption
@@ -306,6 +320,7 @@ Has all properties of `Argument`, plus:
 1. motion
 2. zoom
 3. background
+4. glass
 
 ## Enum BoolOp — Types of boolean operations used to combine shapes.
 

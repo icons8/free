@@ -19,5 +19,9 @@ public enum BlurType : byte
     /// <summary>
     /// Background blur.
     /// </summary>
-    Background = 3
+    Background = 3,
+    /// <summary>
+    /// Glass effect with refraction, lighting, dispersion, and background frost.
+    /// </summary>
+    Glass = 4
 }
