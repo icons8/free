@@ -1476,7 +1476,6 @@ Defines text position against the baseline.
 
 ### <a name="BindField"></a>BindField Enum
 
-* `101` InstanceVariant - selected variant of a component instance.
 * `0` Unknown
 * `1` Visibility
 * `2` Opacity
@@ -1510,6 +1509,7 @@ Defines text position against the baseline.
 * `57` FontVariations
 * `58` Text
 * `100` ComponentId
+* `101` InstanceVariant - selected variant of a component instance.
 * `102` Hyperlink
 
 ### <a name="BlendMode"></a>BlendMode Enum
@@ -1658,8 +1658,6 @@ Defines the types of points on Bézier curves.
 ### <a name="ExpressionFunction"></a>ExpressionFunction Enum
 
 * `0` Unknown - no expression function.
-* `100` ResolveState - resolves an instance state during Figma import compatibility processing.
-* `101` ThemeLookup - resolves a value from the selected variable theme.
 * `1` Add
 * `2` Subtract
 * `3` Multiply
@@ -1677,6 +1675,8 @@ Defines the types of points on Bézier curves.
 * `24` Ternary
 * `25` IsTruthy
 * `30` Stringify
+* `100` ResolveState - resolves an instance state during Figma import compatibility processing.
+* `101` ThemeLookup - resolves a value from the selected variable theme.
 
 ### <a name="FillType"></a>FillType Enum
 Defines the fill type.
@@ -1697,8 +1697,6 @@ Prototyping action animation direction.
 ### <a name="FlowAnimationEffect"></a>FlowAnimationEffect Enum
 Prototyping action animation effect.
 
-* `11` EaseInOut - eases both into and out of the animation.
-* `12` EaseInOutBack - eases both into and out of the animation with overshoot.
 * `0` Linear
 * `1` EaseIn
 * `2` EaseOut
@@ -1710,11 +1708,12 @@ Prototyping action animation effect.
 * `8` Bounce
 * `9` Custom
 * `10` CustomSpring
+* `11` EaseInOut - eases both into and out of the animation.
+* `12` EaseInOutBack - eases both into and out of the animation with overshoot.
 
 ### <a name="FlowAnimationType"></a>FlowAnimationType Enum
 Prototyping action animation type.
 
-* `9` MagicMove - animates matching layers between source and target frames.
 * `0` Instant
 * `1` Dissolve
 * `2` SmartAnimate
@@ -1724,6 +1723,7 @@ Prototyping action animation type.
 * `6` SlideIn
 * `7` SlideOut
 * `8` Scroll
+* `9` MagicMove - animates matching layers between source and target frames.
 
 ### <a name="FlowOverlayPosition"></a>FlowOverlayPosition Enum
 Prototyping overlay position.
@@ -1747,11 +1747,11 @@ Prototyping scroll behavior of a layer.
 ### <a name="FlowScrollOverflow"></a>FlowScrollOverflow Enum
 Prototyping scroll overflow of a layer.
 
-* `255` Mixed - mixed overflow state used when combined selections differ.
 * `0` NoScrolling
 * `1` Horizontal
 * `2` Vertical
 * `3` Both
+* `255` Mixed - mixed overflow state used when combined selections differ.
 
 ### <a name="GradientType"></a>GradientType Enum
 List of Gradient types.

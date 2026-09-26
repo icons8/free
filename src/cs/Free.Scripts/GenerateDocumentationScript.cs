@@ -131,7 +131,18 @@ public static class GenerateDocumentationScript
                     }
                 }
             }
+
+            if (item.Type == NodeType.Enum)
+            {
+                item.Childs.Sort(CompareEnumFields);
+            }
         }
+    }
+
+    private static int CompareEnumFields(Node left, Node right)
+    {
+        var valueComparison = Convert.ToDecimal(left.DefaultValue).CompareTo(Convert.ToDecimal(right.DefaultValue));
+        return valueComparison != 0 ? valueComparison : string.CompareOrdinal(left.Name, right.Name);
     }
 
     public static Type[] VariableRelatedTypes = [typeof(VariableCollection), typeof(VariableTheme), typeof(ColorValue), typeof(BoolValue), typeof(StringValue), typeof(FloatValue)];
