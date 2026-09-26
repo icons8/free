@@ -2,10 +2,15 @@ namespace Free.Schema;
 
 public enum ExpressionFunction : byte
 {
-    Add = 0,
-    Subtract = 1,
-    Multiply = 2,
-    Divide = 3,
+    /// <summary>
+    /// No expression function.
+    /// </summary>
+    Unknown = 0,
+
+    Add = 1,
+    Subtract = 2,
+    Multiply = 3,
+    Divide = 4,
     
     Equals = 10,
     NotEqual = 11,
@@ -22,4 +27,13 @@ public enum ExpressionFunction : byte
     IsTruthy = 25,
     
     Stringify = 30,
+
+    /// <summary>
+    /// Resolves an instance state during Figma import compatibility processing.
+    /// </summary>
+    ResolveState = 100,
+    /// <summary>
+    /// Resolves a value from the selected variable theme.
+    /// </summary>
+    ThemeLookup = 101,
 }

@@ -30,10 +30,6 @@ public class Text : Layer
     /// </summary>
     public float Kerning { get; set; }
     /// <summary>
-    /// Text offset from the baseline.
-    /// </summary>
-    public float BaselineOffset { get; set; }
-    /// <summary>
     /// Line spacing.
     /// </summary>
     public float? LineHeight { get; set; }
@@ -54,9 +50,13 @@ public class Text : Layer
     /// </summary>
     public ListMarkerType List { get; set; }
     /// <summary>
-    /// Variable fonts settings. Not supported in Lunacy yet.
+    /// Variable font coordinates keyed by four-character OpenType axis tags.
     /// </summary>
     public Dictionary<string, float>? Variation { get; set; }
+    /// <summary>
+    /// Optical sizing mode: manual or auto.
+    /// </summary>
+    public string FontOpticalSizing { get; set; } = "manual";
     /// <summary>
     /// If the text is RTL.
     /// </summary>
@@ -100,7 +100,7 @@ public class Text : Layer
     /// <summary>
     /// Defines whether text warps when drawn on the underlying path.
     /// </summary>
-    public bool Warp { get; set; } = false;
+    public bool WarpGlyphs { get; set; } = false;
     /// <summary>
     /// Removes extra space on top and bottom of the text layer.
     /// </summary>

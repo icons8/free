@@ -11,7 +11,7 @@ public sealed class Columns : LayoutGuideBase
     /// <summary>
     /// If columnns are enabled.
     /// </summary>
-    public bool Enabled { get; set; }
+    public bool Enabled { get; set; } = true;
     /// <summary>
     /// Horizontal alignment settings.
     /// </summary>
@@ -51,5 +51,5 @@ public sealed class Columns : LayoutGuideBase
     /// <summary>
     /// Column color.
     /// </summary>
-    public Color Color { get; set; }
+    public Color Color { get; set; } = new(0x19FF0000);
 }

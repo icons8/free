@@ -26,11 +26,6 @@ public class TextStyle : StyleBase
     public float Kerning { get; set; }
     
     /// <summary>
-    /// Text offset from the baseline.
-    /// </summary>
-    public float BaselineOffset { get; set; }
-    
-    /// <summary>
     /// Line spacing.
     /// </summary>
     public float? LineHeight { get; set; }
@@ -51,7 +46,12 @@ public class TextStyle : StyleBase
     public CharacterCasing Casing { get; set; }
 
     /// <summary>
-    /// Variable fonts settings. Not supported in Lunacy yet.
+    /// Variable font coordinates keyed by four-character OpenType axis tags.
     /// </summary>
     public Dictionary<string, float>? Variation { get; set; }
+
+    /// <summary>
+    /// Optical sizing mode: manual or auto.
+    /// </summary>
+    public string FontOpticalSizing { get; set; } = "manual";
 }

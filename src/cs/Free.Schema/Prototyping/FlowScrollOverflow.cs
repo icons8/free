@@ -9,4 +9,8 @@ public enum FlowScrollOverflow : byte
     Horizontal = 1,
     Vertical = 2,
     Both = 3,
+    /// <summary>
+    /// Mixed overflow state used when combined selections differ.
+    /// </summary>
+    Mixed = 255,
 }

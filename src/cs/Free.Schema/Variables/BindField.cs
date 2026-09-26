@@ -43,6 +43,9 @@ public enum BindField : byte
     Text = 58,
 
     ComponentId = 100,
-    State = 101,
+    /// <summary>
+    /// Selected variant of a component instance.
+    /// </summary>
+    InstanceVariant = 101,
     Hyperlink = 102,
 }

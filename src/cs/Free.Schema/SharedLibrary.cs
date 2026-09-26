@@ -22,11 +22,11 @@ public class SharedLibrary
     /// <summary>
     /// Variable collections from a shared library. 
     /// </summary>
-    public List<VariableCollection> Variables { get; } = new();
+    public List<VariableCollection> VariableCollections { get; } = new();
     /// <summary>
-    /// Fill styles stored in the document.
+    /// Color styles stored in the document.
     /// </summary>
-    public List<ColorStyle> FillStyles { get; } = new();
+    public List<ColorStyle> ColorStyles { get; } = new();
     /// <summary>
     /// Effect styles stored in the document.
     /// </summary>

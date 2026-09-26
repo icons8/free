@@ -13,5 +13,5 @@ public abstract class LayoutGuideBase
     /// <summary>
     /// If layout guide is enabled.
     /// </summary>
-    public bool Enabled { get; set; }
+    public bool Enabled { get; set; } = true;
 }

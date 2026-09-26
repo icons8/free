@@ -388,7 +388,6 @@ Has all properties of [`Layer`](#Layer), plus:
 * ClipContent: [bool](#bool) = `true` - when enabled, hides the content outside the frame boundaries.
 * FlowHome: [bool](#bool) = `false` - sets the frame as a prototype starting point.
 * Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
-* ResizesContent: [bool](#bool) = `false` - enables adjusting and resizing the frame content as the frame is resized.
 * AutoLayout: [AutoLayout](#AutoLayout) - auto Layout Properties
 * Layouts: [LayoutGuideBase[]](#LayoutGuideBase) - grid, Row and Column layouts of the frame.
 * GridsId: [GUID](#GUID) - grid Layout style id.
@@ -579,13 +578,13 @@ Has all properties of [`Layer`](#Layer), plus:
 * FontSize: [float](#float) = `12` - text size.
 * ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
 * Kerning: [float](#float) = `0` - letter spacing.
-* BaselineOffset: [float](#float) = `0` - text offset from the baseline.
 * LineHeight: [float?](#float) - line spacing.
 * Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
 * Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
 * Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
 * List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
-* Variation: [[string,float]](#[string,float) - variable fonts settings. Not supported in Lunacy yet.
+* Variation: [[string,float]](#[string,float) - variable font coordinates keyed by four-character OpenType axis tags.
+* FontOpticalSizing: [string](#string) = `manual` - optical sizing mode: manual or auto.
 * Rtl: [bool](#bool) = `false` - if the text is RTL.
 * Underline: [bool](#bool) = `false` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
@@ -596,7 +595,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Truncate: [bool](#bool) = `false` - trim text with triple dots in the end if content overlaps fixed layer size bounds.
 * MaxLines: [byte](#byte) = `0` - count of lines allowed. If the limit is exceeded, the text will be truncated.
 * DrawOnPath: [bool](#bool) = `false` - defines whether text draws on the underlying path.
-* Warp: [bool](#bool) = `false` - defines whether text warps when drawn on the underlying path.
+* WarpGlyphs: [bool](#bool) = `false` - defines whether text warps when drawn on the underlying path.
 * VerticalTrim: [bool](#bool) = `false` - removes extra space on top and bottom of the text layer.
 * TextStyleId: [GUID](#GUID) - text style id.
 
@@ -767,12 +766,12 @@ Has all properties of [`StyleBase`](#StyleBase), plus:
 * FontSize: [float](#float) = `12` - text size.
 * ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
 * Kerning: [float](#float) = `0` - letter spacing.
-* BaselineOffset: [float](#float) = `0` - text offset from the baseline.
 * LineHeight: [float?](#float) - line spacing.
 * Underline: [bool](#bool) = `false` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
 * Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
-* Variation: [[string,float]](#[string,float) - variable fonts settings. Not supported in Lunacy yet.
+* Variation: [[string,float]](#[string,float) - variable font coordinates keyed by four-character OpenType axis tags.
+* FontOpticalSizing: [string](#string) = `manual` - optical sizing mode: manual or auto.
 
 ### <a name="StyleBase"></a>StyleBase
 Base class for a shared style
@@ -788,7 +787,7 @@ Defines column settings in a layout guide.
 Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 
 * _t: [string](#string) = `COLS` - object type.
-* Enabled: [bool](#bool) = `false` - if columnns are enabled.
+* Enabled: [bool](#bool) = `true` - if columnns are enabled.
 * Align: [LayoutHorizontalAlignment](#LayoutHorizontalAlignment) = `Left` - horizontal alignment settings.
 * Offset: [int](#int) = `0` - offset value.
 * OffsetId: [GUID](#GUID) - float Variable Id of an Offset value.
@@ -798,7 +797,7 @@ Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 * GutterId: [GUID](#GUID) - float Variable Id of a Gutter value.
 * Width: [int](#int) = `0` - column width.
 * WidthId: [GUID](#GUID) - float Variable Id of a Width value.
-* Color: [Color](#Color) = `00000000` - column color.
+* Color: [Color](#Color) = `19ff0000` - column color.
 
 ### <a name="Grid"></a>Grid
 Defines square grid settings for a frame.
@@ -806,8 +805,8 @@ Defines square grid settings for a frame.
 Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 
 * _t: [string](#string) = `GRID` - object type.
-* Enabled: [bool](#bool) = `false` - if the square grid is enabled.
-* Color: [Color](#Color) = `00000000` - grid color.
+* Enabled: [bool](#bool) = `true` - if the square grid is enabled.
+* Color: [Color](#Color) = `19ff0000` - grid color.
 * Size: [int](#int) = `10` - size of grid cells.
 * SizeId: [GUID](#GUID) - float Variable Id of a Size value.
 
@@ -823,7 +822,7 @@ Defines row settings in a layout guide.
 Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 
 * _t: [string](#string) = `ROWS` - object type.
-* Enabled: [bool](#bool) = `false` - if rows are enabled.
+* Enabled: [bool](#bool) = `true` - if rows are enabled.
 * Align: [LayoutVerticalAlignment](#LayoutVerticalAlignment) = `Top` - vertical alignment settings.
 * Offset: [int](#int) = `0` - offset value.
 * OffsetId: [GUID](#GUID) - float Variable Id of an Offset value.
@@ -831,15 +830,15 @@ Has all properties of [`LayoutGuideBase`](#LayoutGuideBase), plus:
 * CountId: [GUID](#GUID) - float Variable Id of a Count value.
 * Gutter: [int](#int) = `0` - gutter value.
 * GutterId: [GUID](#GUID) - float Variable Id of a Gutter value.
-* Width: [int](#int) = `0` - row width.
-* WidthId: [GUID](#GUID) - float Variable Id of a Width value.
-* Color: [Color](#Color) = `00000000` - row color.
+* Height: [int](#int) = `0` - row height.
+* HeightId: [GUID](#GUID) - float Variable Id of a Height value.
+* Color: [Color](#Color) = `19ff0000` - row color.
 
 ### <a name="LayoutGuideBase"></a>LayoutGuideBase
 Defines layout guide settings for a frame.
 
 * _t: [string](#string) - object type.
-* Enabled: [bool](#bool) = `false` - if layout guide is enabled.
+* Enabled: [bool](#bool) = `true` - if layout guide is enabled.
 
 ### <a name="BackAction"></a>BackAction
 Action to go to previous frame.
@@ -883,11 +882,11 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 * _t: [string](#string) = `OVERLAY` - object type.
 * Target: [GUID?](#GUID) - id of the target overlay.
 * Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - action animation.
-* Position: [FlowOverlayPosition](#FlowOverlayPosition) = `Centered` - startup location of overlay.
-* Offset: [Vector2](#Vector2) = `<0, 0>` - offset from startup location.
-* CloseByClick: [bool](#bool) = `false` - close by any click.
-* HasBackground: [bool](#bool) = `false` - defines whether the overlay has background.
-* Background: [Color](#Color) = `00000000` - overlay background color.
+* OverlayPosition: [FlowOverlayPosition](#FlowOverlayPosition) = `Centered` - startup location of overlay.
+* OverlayPositionOffset: [Vector2](#Vector2) = `<0, 0>` - offset from startup location.
+* OverlayCloseByClick: [bool](#bool) = `false` - close by any click.
+* OverlayHasBackground: [bool](#bool) = `false` - defines whether the overlay has background.
+* OverlayBackground: [Color](#Color) = `00000000` - overlay background color.
 
 ### <a name="OpenUrlAction"></a>OpenUrlAction
 Action to open URL.
@@ -904,6 +903,7 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 
 * _t: [string](#string) = `SCROLL` - object type.
 * Target: [GUID?](#GUID) - id of the target layer.
+* ScrollOffset: [Vector2](#Vector2) = `<0, 0>` - additional scroll offset from the target layer.
 * Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - action animation.
 
 ### <a name="SetThemeAction"></a>SetThemeAction
@@ -941,6 +941,7 @@ Has all properties of [`FlowAction`](#FlowAction), plus:
 * _t: [string](#string) = `SWITCH_STATE` - object type.
 * Target: [GUID?](#GUID) - id of the target instance.
 * Animation: [FlowAnimation](#FlowAnimation) = `Free.Schema.FlowAnimation` - id of the target layer.
+* ResetComponentState: [bool](#bool) = `true` - whether nested instances reset to their component state during the transition.
 
 ### <a name="FlowAction"></a>FlowAction
 Base object of prototyping action.
@@ -1051,7 +1052,7 @@ Has all properties of [`Argument`](#Argument), plus:
 * Key: [GUID](#GUID) - key of map entry. Required. Should be first.
 
 ### <a name="Argument"></a>Argument
-Expression Argument. Value or Variable or Expression. Please note that only one type of value can be present: just a bool/text/number, bool and boolId(same for text and number), just a ref, just a componentId, or a func with args.
+Expression Argument. Value or Variable or Expression. Please note that only one type of value can be present: just a bool/text/number, a numberId with an optional number fallback, just a boolId or textId, just a ref, just a componentId, a list of variable font axis values, or a func with args.
 
 * Bool: [bool?](#bool) - boolean value
 * BoolId: [GUID?](#GUID) - id of a boolean variable
@@ -1061,6 +1062,7 @@ Expression Argument. Value or Variable or Expression. Please note that only one 
 * TextId: [GUID?](#GUID) - id of a Text variable
 * ComponentId: [GUID?](#GUID) - id of a component.
 * Map: [MapEntry[]](#MapEntry) - map. Used for state binds.
+* VariationValues: [FontVariationValue[]](#FontVariationValue) - variable font axis values. Each entry contains an axis tag and a number or number variable.
 * Ref: [GUID?](#GUID) - id of Component Property.
 * Func: [ExpressionFunction?](#ExpressionFunction) - expression Function. Use only with Args.
 * Args: [Argument[]](#Argument) - list of expression arguments. Use only with Func.
@@ -1101,7 +1103,7 @@ The document's .json structure.
 * CurrentPageIndex: [int](#int) = `0` - index of the currently open page.
 * Fonts: [Font[]](#Font) - embedded fonts stored in the document.
 * VariableCollections: [VariableCollection[]](#VariableCollection) - variable collections stored in the document.
-* FillStyles: [ColorStyle[]](#ColorStyle) - fill styles stored in the document.
+* ColorStyles: [ColorStyle[]](#ColorStyle) - color styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
@@ -1118,19 +1120,19 @@ The document's .json structure.
 Export settings.
 
 * Format: [string](#string) = `PNG` - export format. Default: PNG.
-* Type: [ScaleType](#ScaleType) = `Scale` - defines the scale type: Scale/Width/Height. The Width and Height types are currently not supported.
-* Size: [float](#float) = `0` - defines the width/height/scale of the exported object. Dependent on the type of the scale.
+* Type: [ScaleType](#ScaleType) = `Scale` - defines the scale type: Scale/Width/Height.
+* Size: [float](#float) = `1` - defines the width/height/scale of the exported object. Dependent on the type of the scale.
 * Name: [string](#string) - user-defined suffix/preffix (string) added to the export file name. Default: empty.
 * Naming: [NamingScheme](#NamingScheme) = `Suffix` - defines whether a suffix or preffix will be added to the export files name. Default: suffix.
 
 ### <a name="Fill"></a>Fill
 Defines the fill applied to a layer.
 
-* Enabled: [bool](#bool) = `false` - if a fill is added.
-* Color: [Color](#Color) = `00000000` - fill color.
+* Enabled: [bool](#bool) = `true` - if a fill is added.
+* Color: [Color](#Color) = `ff808080` - fill color.
 * ColorId: [GUID?](#GUID) - color variable ID.
 * Type: [FillType](#FillType) = `Color` - defines the fill type.
-* Opacity: [float](#float) = `0` - defines the fill opacity.
+* Opacity: [float](#float) = `1` - defines the fill opacity.
 * BlendMode: [BlendMode](#BlendMode) = `Normal` - defines the blend mode.
 * Pattern: [Pattern](#Pattern) - contains pattern fill properties in case the fill is a pattern fill.
 * Gradient: [Gradient](#Gradient) - contains gradient properties in case the fill is a gradient.
@@ -1147,7 +1149,15 @@ Embedded fonts stored in the document.
 * Data: [string](#string) - name of the font file in the fonts folder.
 * Name: [string](#string) - font name.
 * FileName: [string](#string) - font file name.
+* CollectionIndex: [int](#int) = `0` - zero-based font index in a TrueType or OpenType collection. Omitted for the first font.
 * PostscriptNames: [string[]](#string) - postScript names of the font.
+
+### <a name="FontVariationValue"></a>FontVariationValue
+A variable font axis value used by a FontVariations bind.
+
+* Axis: [string](#string) - four-character OpenType axis tag, for example wght or wdth.
+* Number: [float?](#float) - numeric axis value or fallback for NumberId.
+* NumberId: [GUID?](#GUID) - id of a float variable that controls the axis.
 
 ### <a name="Gradient"></a>Gradient
 An object that represents a gradient.
@@ -1177,8 +1187,7 @@ Defines filters that can be applied to images.
 ### <a name="InlineStyle"></a>InlineStyle
 Style (bold, italic, etc.) applied to a part of text or single word within a text block.
 
-* Start: [int](#int) = `0` - position where the style starts.
-* Length: [int](#int) = `0` - length of the selection.
+* Range: [Point](#Point) = `[0,0]` - inclusive text range as [start, end].
 * FillsId: [GUID](#GUID) - color Style Id.
 * TextStyleId: [GUID](#GUID) - text style id.
 * Fill: [Color](#Color) = `00000000` - if there is a single color fill - use this, otherwise use Fills field.
@@ -1187,13 +1196,13 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * FontSize: [float](#float) = `12` - text size.
 * ParagraphSpacing: [float](#float) = `0` - paragraph spacing.
 * Kerning: [float](#float) = `0` - letter spacing.
-* BaselineOffset: [float](#float) = `0` - text offset from the baseline.
 * LineHeight: [float?](#float) - line spacing.
 * Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
 * Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
 * Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
 * List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
-* Variation: [[string,float]](#[string,float) - variable fonts settings. Not supported in Lunacy yet.
+* Variation: [[string,float]](#[string,float) - variable font coordinates keyed by four-character OpenType axis tags.
+* FontOpticalSizing: [string](#string) = `manual` - optical sizing mode: manual or auto.
 * Rtl: [bool](#bool) = `false` - if the text is RTL.
 * Underline: [bool](#bool) = `false` - if the text is underlined.
 * Strikethrough: [bool](#bool) = `false` - if the strikethrough option is applied to the text.
@@ -1260,7 +1269,7 @@ Defines overrides for components.
 * MaxHeight: [float?](#float) - defines the maximum layer height (auto layout).
 * Padding: [Thickness?](#Thickness) - padding value.
 * Align: [HorizontalAlignment?](#HorizontalAlignment) - horizontal children alignment.
-* VAlign: [VerticalAlignment?](#VerticalAlignment) - vertical children alignment.
+* Valign: [VerticalAlignment?](#VerticalAlignment) - vertical children alignment.
 * FixWidth: [bool](#bool) = `false` - is width fixed. False = hug or fill if StretchWidth is true.
 * FixHeight: [bool](#bool) = `false` - is height fixed. False = hug or fill if StretchHeight is true.
 * TextBaseline: [bool?](#bool) - if text baseline alignment is enabled.
@@ -1291,11 +1300,18 @@ Document page properties.
 * Id: [GUID](#GUID) - unique page ID.
 * Name: [string](#string) - page name.
 * Background: [Color](#Color) = `00000000` - canvas color.
-* IsComponentPage: [bool](#bool) = `false` - if the page is used to store components.
+* ComponentPage: [bool](#bool) = `false` - if the page is used to store components.
 * Rulers: [Rulers](#Rulers) - rulers applied by the user.
 * Origin: [Point](#Point) = `[0,0]` - point where the user left off the page.
-* Zoom: [float](#float) = `0` - zoom scale last applied to the page.
+* Zoom: [float](#float) = `1` - zoom scale last applied to the page.
 * Layers: [Layer[]](#Layer) - list of layers in the page.
+
+<details>
+<summary>Lunacy specific</summary>
+
+* NameFixed: [bool](#bool) = `false` - whether the page name was explicitly set by the user.
+* Measurements: [Measurement[]](#Measurement) - persistent distance measurements created on the page.
+</details>
 
 ### <a name="Pattern"></a>Pattern
 Defines the image fill options.
@@ -1323,7 +1339,7 @@ An object containing ruler origins and guideline positions.
 <details>
 <summary>Sketch compatibility</summary>
 
-* Origin: [Point](#Point) = `[0,0]` - ruler origin. Not supported in Lunacy. Sketch Compatibility
+* Origin: [Point](#Point) = `[0,0]` - ruler origin. Sketch compatibility.
 </details>
 
 ### <a name="ShadowEffect"></a>ShadowEffect
@@ -1347,8 +1363,8 @@ Contains components, styles and variables from external library that is used in 
 * Url: [string](#string) - uRL to the Library. Can be http link or local path (local is not supported in Lunacy yet).
 * Id: [GUID](#GUID) - unique library document identifier.
 * Name: [string](#string) - library name.
-* Variables: [VariableCollection[]](#VariableCollection) - variable collections from a shared library.
-* FillStyles: [ColorStyle[]](#ColorStyle) - fill styles stored in the document.
+* VariableCollections: [VariableCollection[]](#VariableCollection) - variable collections from a shared library.
+* ColorStyles: [ColorStyle[]](#ColorStyle) - color styles stored in the document.
 * EffectStyles: [EffectStyle[]](#EffectStyle) - effect styles stored in the document.
 * TextStyles: [TextStyle[]](#TextStyle) - text styles stored in the document.
 * GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
@@ -1360,7 +1376,6 @@ Bind of component property of a states layer to the state name of component.
 
 * Id: [GUID](#GUID) - component Property Id
 * Name: [string](#string) - state Name
-* NameId: [GUID?](#GUID) - id of string variable with a value
 
 ### <a name="ThemeSelection"></a>ThemeSelection
 Theme Selection of a layer and it's children for a specific theme.
@@ -1379,11 +1394,10 @@ Theme Selection of a layer and it's children for a specific theme.
 ### <a name="FlowAnimation"></a>FlowAnimation Struct
 Prototyping action animation.
 
-* Enabled: [bool](#bool) = `false` - if animation is enabled.
 * Type: [FlowAnimationType](#FlowAnimationType) = `Instant` - animation type.
 * Effect: [FlowAnimationEffect](#FlowAnimationEffect) = `Linear` - animation effect.
 * Direction: [FlowAnimationDirection](#FlowAnimationDirection) = `Left` - animation direction.
-* Duration: [int](#int) - animation duration in ms.
+* Duration: [int](#int) = `300` - animation duration in ms.
 * Curve: [Point[]](#Point) - animation curve point array. Array length is always 2. Point values are between 0 and 1.
 * Spring: [Spring?](#Spring) - spring animation parameters.
 
@@ -1420,7 +1434,7 @@ A utility class to represent layer size.
 ### <a name="Spring"></a>Spring Struct
 Spring animation parameters
 
-* Dumping: [float](#float) - spring Dumping, Min 0.01, Max=10000.
+* Damping: [float](#float) - spring damping, Min 0.01, Max=10000.
 * Mass: [float](#float) - spring Mass, Min 0.01, Max=1000.
 * Stiffness: [float](#float) - spring Stiffness, Min=0.01, Max=1000000.
 
@@ -1439,7 +1453,7 @@ The Vertex data type, which defines path points, and has several notation option
 * From: [Point](#Point) = `[0,0]` - first control point, curve from.
 * To: [Point](#Point) = `[0,0]` - second control point, curve to.
 * Radius: [float](#float) - corner radius of a vertex point. It's stored in half because we don't need that much precision for corner radius.
-* Mode: [CurveMode](#CurveMode) = `None` - mode of vertex.
+* Mode: [CurveMode](#CurveMode) = `Straight` - mode of vertex.
 
 ### <a name="Arrowhead"></a>Arrowhead Enum
 Defines the appearance of arrowheads.
@@ -1462,6 +1476,7 @@ Defines text position against the baseline.
 
 ### <a name="BindField"></a>BindField Enum
 
+* `101` InstanceVariant - selected variant of a component instance.
 * `0` Unknown
 * `1` Visibility
 * `2` Opacity
@@ -1495,7 +1510,6 @@ Defines text position against the baseline.
 * `57` FontVariations
 * `58` Text
 * `100` ComponentId
-* `101` State
 * `102` Hyperlink
 
 ### <a name="BlendMode"></a>BlendMode Enum
@@ -1634,20 +1648,22 @@ Types of components. Currently used for filtering only. Some of the types are no
 ### <a name="CurveMode"></a>CurveMode Enum
 Defines the types of points on Bézier curves.
 
-* `0` None - undefined.
-* `1` Straight - straight point.
-* `2` Mirrored - mirrored branches.
-* `3` Asymmetric - asymmetric branches.
-* `4` Disconnected - disconnected branches.
+* `0` Straight - straight point.
+* `1` Mirrored - mirrored branches.
+* `2` Asymmetric - asymmetric branches.
+* `3` Disconnected - disconnected branches.
 * `4` OnlyFrom - only From branch.
 * `5` OnlyTo - only To branch.
 
 ### <a name="ExpressionFunction"></a>ExpressionFunction Enum
 
-* `0` Add
-* `1` Subtract
-* `2` Multiply
-* `3` Divide
+* `0` Unknown - no expression function.
+* `100` ResolveState - resolves an instance state during Figma import compatibility processing.
+* `101` ThemeLookup - resolves a value from the selected variable theme.
+* `1` Add
+* `2` Subtract
+* `3` Multiply
+* `4` Divide
 * `10` Equals
 * `11` NotEqual
 * `12` LessThan
@@ -1681,6 +1697,8 @@ Prototyping action animation direction.
 ### <a name="FlowAnimationEffect"></a>FlowAnimationEffect Enum
 Prototyping action animation effect.
 
+* `11` EaseInOut - eases both into and out of the animation.
+* `12` EaseInOutBack - eases both into and out of the animation with overshoot.
 * `0` Linear
 * `1` EaseIn
 * `2` EaseOut
@@ -1696,6 +1714,7 @@ Prototyping action animation effect.
 ### <a name="FlowAnimationType"></a>FlowAnimationType Enum
 Prototyping action animation type.
 
+* `9` MagicMove - animates matching layers between source and target frames.
 * `0` Instant
 * `1` Dissolve
 * `2` SmartAnimate
@@ -1728,6 +1747,7 @@ Prototyping scroll behavior of a layer.
 ### <a name="FlowScrollOverflow"></a>FlowScrollOverflow Enum
 Prototyping scroll overflow of a layer.
 
+* `255` Mixed - mixed overflow state used when combined selections differ.
 * `0` NoScrolling
 * `1` Horizontal
 * `2` Vertical
@@ -1836,6 +1856,10 @@ Defines how a text is aligned horizontally.
 * `1` Right - text is aligned to the right.
 * `2` Center - text is horizontally centered.
 * `3` Justify - text is horizontally justified.
+* `4` None - no explicit horizontal alignment.
+* `5` Start - text is aligned to the logical start edge.
+* `6` End - text is aligned to the logical end edge.
+* `7` DetectFromContent - alignment is detected from the text content.
 
 ### <a name="TextVerticalAlignment"></a>TextVerticalAlignment Enum
 Defines how a text is aligned vertically.
@@ -1843,6 +1867,7 @@ Defines how a text is aligned vertically.
 * `0` Top - text is aligned to the top.
 * `1` Middle - text is vertically centered.
 * `2` Bottom - text is aligned to the bottom.
+* `3` None - no explicit vertical alignment.
 
 ### <a name="VerticalAlignment"></a>VerticalAlignment Enum
 Defines how a set of layers is aligned vertically.
@@ -1858,6 +1883,16 @@ Information about auto generated texts. _//Lunacy Specific_
 * Type: [DataType](#DataType) = `Unknown` - category of generated text (person, address, date, etc.).
 * Field: [DataFieldType](#DataFieldType) = `Unknown` - type of generated text (full name or first name, city or ZIP code, etc.).
 * Format: [string](#string) - format for Data Type. Used for Date/Time values.
+
+### <a name="Measurement"></a>Measurement
+A persistent distance measurement between two layers. _//Lunacy Specific_
+
+* Start: [GUID](#GUID) - identifier of the layer at the start of the measurement.
+* End: [GUID](#GUID) - identifier of the layer at the end of the measurement.
+* StartSide: [SideType](#SideType) = `Left` - bound side used on the start layer.
+* EndSide: [SideType](#SideType) = `Left` - bound side used on the end layer.
+* StartPos: [float](#float) = `0` - normalized position along the start bound.
+* Text: [string](#string) - optional custom measurement label.
 
 ### <a name="BackgroundRemovalState"></a>BackgroundRemovalState Enum
 Background removal procedure info. _//Lunacy Specific_
@@ -1917,6 +1952,14 @@ Defines the category of generated text. _//Lunacy Specific_
 * `8` Technology
 * `9` Time
 
+### <a name="SideType"></a>SideType Enum
+Side of a layer bound used as a measurement endpoint. _//Lunacy Specific_
+
+* `0` Left - left side.
+* `1` Right - right side.
+* `2` Top - top side.
+* `3` Bottom - bottom side.
+
 ### <a name="ColorOverride"></a>ColorOverride
 Defines color overrides for components. _//Sketch Compatibility_
 
@@ -1934,11 +1977,11 @@ Defines text color overrides for components. _//Sketch Compatibility_
 ### <a name="TextWeightOverride"></a>TextWeightOverride
 Defines text weight overrides for components. _//Sketch Compatibility_
 
-* Slant: [float](#float) = `0`
-* Proportion: [float](#float) = `0`
-* Symbolic: [float](#float) = `0`
-* Weight: [float](#float) = `0`
-* PostScriptName: [string](#string)
+* Slant: [float](#float) = `0` - font slant value.
+* Proportion: [float](#float) = `0` - font proportion value.
+* Symbolic: [float](#float) = `0` - font symbolic traits value.
+* Weight: [float](#float) = `0` - font weight value.
+* PostScriptName: [string](#string) - postScript font name.
 
 ### <a name="ColorOverrideType"></a>ColorOverrideType Enum
 Defines types of color overrides for components. _//Sketch Compatibility_
@@ -1964,6 +2007,12 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `2` PrimaryPrefix - indicates that the file name comes with a user-defined prefix.
 
 ## Changelog
+
+### Version 10 - 07.09.2026
+* Added variable font coordinates and optical sizing to text layers, text styles, and inline styles.
+* Added variable bindings for individual font variation axes, including numeric fallback values.
+* Added `collectionIndex` for fonts embedded from TrueType and OpenType collections.
+* Documented page measurements and synchronized field names, defaults, and enum values with the Lunacy reader and writer.
 
 ### Version 9 20.05.2026
 * Added `Binds` to `InlineStyle`.
@@ -2040,9 +2089,5 @@ Separate file is created for every library source - this will significantly incr
 ### Version 1 - 19.03.2024
 
 * Initial Version
-
-## Made by Icons8
-
-`.free` is the native format of **[Lunacy](https://icons8.com/lunacy?utm_source=github)**, our free design app with the whole Icons8 library built in — **[1.5M+ icons](https://icons8.com/icons?utm_source=github)** ([Color](https://icons8.com/icons/color?utm_source=github), [3D Fluency](https://icons8.com/icons/3d-fluency?utm_source=github), [Liquid Glass](https://icons8.com/icons/liquid-glass?utm_source=github)) and **[110,000+ illustrations](https://icons8.com/illustrations?utm_source=github)** ([Cherry](https://icons8.com/illustrations/styles/cherry?utm_source=github), [Bouncy](https://icons8.com/illustrations/styles/bouncy?utm_source=github), [3D Stickle](https://icons8.com/illustrations/styles/3d-stickle?utm_source=github)), free to use.
 
 by Icons8 LLC 2026

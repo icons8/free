@@ -18,6 +18,10 @@ public class Font
     /// </summary>
     public string FileName { get; set; }
     /// <summary>
+    /// Zero-based font index in a TrueType or OpenType collection. Omitted for the first font.
+    /// </summary>
+    public int CollectionIndex { get; set; }
+    /// <summary>
     /// PostScript names of the font.
     /// </summary>
     public List<string> PostscriptNames { get; } = new();

@@ -14,9 +14,4 @@ public class StateBind
     /// State Name
     /// </summary>
     public string Name { get; set; } = "";
-    
-    /// <summary>
-    /// Id of string variable with a value
-    /// </summary>
-    public Guid? NameId { get; set; }
 }

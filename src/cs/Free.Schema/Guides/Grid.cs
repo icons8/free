@@ -11,11 +11,11 @@ public sealed class Grid : LayoutGuideBase
     /// <summary>
     /// If the square grid is enabled.
     /// </summary>
-    public bool Enabled { get; set; }
+    public bool Enabled { get; set; } = true;
     /// <summary>
     /// Grid color.
     /// </summary>
-    public Color Color { get; set; }
+    public Color Color { get; set; } = new(0x19FF0000);
     /// <summary>
     /// Size of grid cells.
     /// </summary>

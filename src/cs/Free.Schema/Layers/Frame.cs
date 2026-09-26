@@ -26,11 +26,6 @@ public class Frame : Layer
     public PrototypeViewport Viewport { get; set; }
     
     /// <summary>
-    /// Enables adjusting and resizing the frame content as the frame is resized.
-    /// </summary>
-    public bool ResizesContent { get; set; }
-    
-    /// <summary>
     /// Auto Layout Properties
     /// </summary>
     public AutoLayout AutoLayout { get; set; }

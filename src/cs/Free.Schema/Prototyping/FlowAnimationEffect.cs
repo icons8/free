@@ -16,4 +16,12 @@ public enum FlowAnimationEffect : byte
     Bounce = 8,
     Custom = 9,
     CustomSpring = 10,
+    /// <summary>
+    /// Eases both into and out of the animation.
+    /// </summary>
+    EaseInOut = 11,
+    /// <summary>
+    /// Eases both into and out of the animation with overshoot.
+    /// </summary>
+    EaseInOutBack = 12,
 }

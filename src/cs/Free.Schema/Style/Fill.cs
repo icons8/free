@@ -8,11 +8,11 @@ public class Fill
     /// <summary>
     /// If a fill is added.
     /// </summary>
-    public bool Enabled { get; set; }
+    public bool Enabled { get; set; } = true;
     /// <summary>
     /// Fill color.
     /// </summary>
-    public Color Color { get; set; }
+    public Color Color { get; set; } = new(0xFF808080);
     /// <summary>
     /// Color variable ID.
     /// </summary>
@@ -24,7 +24,7 @@ public class Fill
     /// <summary>
     /// Defines the fill opacity.
     /// </summary>
-    public float Opacity { get; set; }
+    public float Opacity { get; set; } = 1;
     /// <summary>
     /// Defines the blend mode.
     /// </summary>

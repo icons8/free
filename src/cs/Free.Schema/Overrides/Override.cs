@@ -210,7 +210,7 @@ public sealed class Override
     /// <summary>
     /// Vertical children alignment.
     /// </summary>
-    public VerticalAlignment? VAlign { get; set; }
+    public VerticalAlignment? Valign { get; set; }
     /// <summary>
     /// Is width fixed. False = hug or fill if StretchWidth is true.
     /// </summary>

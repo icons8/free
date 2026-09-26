@@ -6,9 +6,9 @@ namespace Free.Schema;
 public struct Spring
 {
     /// <summary>
-    /// Spring Dumping, Min 0.01, Max=10000.
+    /// Spring damping, Min 0.01, Max=10000.
     /// </summary>
-    public float Dumping { get; set; }
+    public float Damping { get; set; }
     /// <summary>
     /// Spring Mass, Min 0.01, Max=1000.
     /// </summary>

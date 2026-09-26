@@ -49,6 +49,10 @@ public sealed class SwitchStateAction : FlowAction
     /// Id of the target layer.
     /// </summary>
     public FlowAnimation Animation { get; set; }
+    /// <summary>
+    /// Whether nested instances reset to their component state during the transition.
+    /// </summary>
+    public bool ResetComponentState { get; set; } = true;
 }
 
 /// <summary>
@@ -64,6 +68,10 @@ public sealed class ScrollToAction : FlowAction
     /// Id of the target layer.
     /// </summary>
     public Guid? Target { get; set; }
+    /// <summary>
+    /// Additional scroll offset from the target layer.
+    /// </summary>
+    public Vector2 ScrollOffset { get; set; }
     /// <summary>
     /// Action animation.
     /// </summary>
@@ -90,23 +98,23 @@ public sealed class OpenOverlayAction : FlowAction
     /// <summary>
     /// Startup location of overlay.
     /// </summary>
-    public FlowOverlayPosition Position { get; set; }
+    public FlowOverlayPosition OverlayPosition { get; set; }
     /// <summary>
     /// Offset from startup location.
     /// </summary>
-    public Vector2 Offset { get; set; }
+    public Vector2 OverlayPositionOffset { get; set; }
     /// <summary>
     /// Close by any click.
     /// </summary>
-    public bool CloseByClick { get; set; }
+    public bool OverlayCloseByClick { get; set; }
     /// <summary>
     /// Defines whether the overlay has background.
     /// </summary>
-    public bool HasBackground { get; set; }
+    public bool OverlayHasBackground { get; set; }
     /// <summary>
     /// Overlay background color.
     /// </summary>
-    public Color Background { get; set; }
+    public Color OverlayBackground { get; set; }
 }
 
 /// <summary>

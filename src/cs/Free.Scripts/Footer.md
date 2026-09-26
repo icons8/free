@@ -1,5 +1,11 @@
 ## Changelog
 
+### Version 10 - 07.09.2026
+* Added variable font coordinates and optical sizing to text layers, text styles, and inline styles.
+* Added variable bindings for individual font variation axes, including numeric fallback values.
+* Added `collectionIndex` for fonts embedded from TrueType and OpenType collections.
+* Documented page measurements and synchronized field names, defaults, and enum values with the Lunacy reader and writer.
+
 ### Version 9 20.05.2026
 * Added `Binds` to `InlineStyle`.
 * Added variables to `Grid`, `Columns` and `Rows`.

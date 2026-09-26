@@ -4,9 +4,12 @@ public class PathHelper
 {
     public static string FindPath(string fileName)
     {
-        return File.Exists(fileName)
-            ? fileName
-            : Path.Combine("bin", "Debug", "net7.0", fileName);
+        if (File.Exists(fileName))
+        {
+            return fileName;
+        }
+
+        return Path.Combine(AppContext.BaseDirectory, fileName);
     }
 
     public static string GetReadmePath(string fileName)

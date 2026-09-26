@@ -6,7 +6,7 @@ namespace Free.Schema;
 public class Rulers
 {
     /// <summary>
-    /// Ruler origin. Not supported in Lunacy. Sketch Compatibility
+    /// Ruler origin. Sketch compatibility.
     /// </summary>
     [SketchCompatibility]
     public Point Origin { get; set; }

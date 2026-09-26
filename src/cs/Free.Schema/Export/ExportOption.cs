@@ -10,13 +10,13 @@ public class ExportOption
     /// </summary>
     public string Format { get; set; } = "PNG";
     /// <summary>
-    /// Defines the scale type: Scale/Width/Height. The Width and Height types are currently not supported.
+    /// Defines the scale type: Scale/Width/Height.
     /// </summary>
     public ScaleType Type { get; set; } = ScaleType.Scale;
     /// <summary>
     /// Defines the width/height/scale of the exported object. Dependent on the type of the scale. 
     /// </summary>
-    public float Size { get; set; } = 0;
+    public float Size { get; set; } = 1;
     /// <summary>
     /// User-defined suffix/preffix (string) added to the export file name. Default: empty.
     /// </summary>

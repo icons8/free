@@ -16,4 +16,8 @@ public enum TextVerticalAlignment : byte
     /// Text is aligned to the bottom.
     /// </summary>
     Bottom = 2,
+    /// <summary>
+    /// No explicit vertical alignment.
+    /// </summary>
+    None = 3,
 }

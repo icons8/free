@@ -80,7 +80,6 @@ Has all properties of `Layer`, plus:
 * bool clipContent = true
 * bool flowHome = false
 * PrototypeViewport viewport
-* bool resizesContent = false
 * AutoLayout autoLayout
 * Layer[] layers
 
@@ -159,13 +158,13 @@ Has all properties of `Layer`, plus:
 * string font = "Inter-Regular"
 * float fontSize = 12
 * float paragraphSpacing = 0
-* float baselineOffset = 0
 * float? lineHeight
 * CharacterCasing casing = 0
 * TextHorizontalAlignment align = 0
 * TextVerticalAlignment valign = 0
 * ListMarkerType list = 0
 * [string,float] variation
+* string fontOpticalSizing = "manual"
 * bool rtl = false
 * bool underline = false
 * bool strikethrough = false
@@ -175,7 +174,7 @@ Has all properties of `Layer`, plus:
 * bool truncate = false
 * byte maxLines = 0
 * bool drawOnPath = false
-* bool warp = false
+* bool warpGlyphs = false
 
 ## SlotComponentProperty — Defines slot component property of components and states.
 
@@ -213,18 +212,24 @@ Has all properties of `Argument`, plus:
 
 * string format = "PNG"
 * ScaleType type = 0
-* float size = 0
+* float size = 1
 * string name
 * NamingScheme naming = 0
 
 ## Fill
 
-* Color color = "00000000"
+* Color color = "ff808080"
 * GUID? colorId
 * FillType type = 0
-* float opacity = 0
+* float opacity = 1
 * Pattern pattern
 * Gradient gradient
+
+## FontVariationValue — A variable font axis value used by a FontVariations bind.
+
+* string axis
+* float? number
+* GUID? numberId
 
 ## Gradient
 
@@ -242,20 +247,19 @@ Has all properties of `Argument`, plus:
 
 ## InlineStyle — Style (bold, italic, etc.) applied to a part of text or single word within a text block.
 
-* int start = 0
-* int length = 0
+* Point range = [0,0]
 * Color fill - if there is a single color fill - use this, otherwise use Fills field.
 * Fill[] fills
 * string font = "Inter-Regular"
 * float fontSize = 12
 * float paragraphSpacing = 0
-* float baselineOffset = 0
 * float? lineHeight
 * CharacterCasing casing = 0
 * TextHorizontalAlignment align = 0
 * TextVerticalAlignment valign = 0
 * ListMarkerType list = 0
 * [string,float] variation
+* string fontOpticalSizing = "manual"
 * bool rtl = false
 * bool underline = false
 * bool strikethrough = false
@@ -320,11 +324,10 @@ Has all properties of `Argument`, plus:
 
 ## Enum CurveMode — Defines the types of points on Bézier curves.
 
-0. none
-1. straight
-2. mirrored
-3. asymmetric
-4. disconnected
+0. straight
+1. mirrored
+2. asymmetric
+3. disconnected
 4. onlyFrom
 5. onlyTo
 
@@ -409,12 +412,17 @@ Has all properties of `Argument`, plus:
 1. right
 2. center
 3. justify
+4. none
+5. start
+6. end
+7. detectFromContent
 
 ## Enum TextVerticalAlignment
 
 0. top
 1. middle
 2. bottom
+3. none
 
 ## Enum VerticalAlignment
 

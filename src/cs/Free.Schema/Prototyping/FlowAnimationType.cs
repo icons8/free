@@ -14,4 +14,8 @@ public enum FlowAnimationType : byte
     SlideIn = 6,
     SlideOut = 7,
     Scroll = 8,
+    /// <summary>
+    /// Animates matching layers between source and target frames.
+    /// </summary>
+    MagicMove = 9,
 }

@@ -13,6 +13,11 @@ public class Page
     /// Page name.
     /// </summary>
     public string Name { get; set; }
+    /// <summary>
+    /// Whether the page name was explicitly set by the user.
+    /// </summary>
+    [LunacySpecific]
+    public bool NameFixed { get; set; }
 
     /// <summary>
     /// Canvas color.
@@ -22,12 +27,17 @@ public class Page
     /// <summary>
     /// If the page is used to store components.
     /// </summary>
-    public bool IsComponentPage { get; set; }
+    public bool ComponentPage { get; set; }
     
     /// <summary>
     /// Rulers applied by the user.
     /// </summary>
     public Rulers Rulers { get; } = new();
+    /// <summary>
+    /// Persistent distance measurements created on the page.
+    /// </summary>
+    [LunacySpecific]
+    public List<Measurement> Measurements { get; } = new();
     
     /// <summary>
     /// Point where the user left off the page.
@@ -36,7 +46,7 @@ public class Page
     /// <summary>
     /// Zoom scale last applied to the page.
     /// </summary>
-    public float Zoom { get; set; }
+    public float Zoom { get; set; } = 1;
     /// <summary>
     /// List of layers in the page.
     /// </summary>

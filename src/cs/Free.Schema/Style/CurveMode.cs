@@ -5,25 +5,21 @@ namespace Free.Schema;
 public enum CurveMode : byte
 {
     /// <summary>
-    /// undefined.
-    /// </summary>
-    None = 0,
-    /// <summary>
     /// Straight point.
     /// </summary>
-    Straight = 1,
+    Straight = 0,
     /// <summary>
     /// Mirrored branches.
     /// </summary>
-    Mirrored = 2,
+    Mirrored = 1,
     /// <summary>
     /// Asymmetric branches.
     /// </summary>
-    Asymmetric = 3,
+    Asymmetric = 2,
     /// <summary>
     /// Disconnected branches.
     /// </summary>
-    Disconnected = 4,
+    Disconnected = 3,
     /// <summary>
     /// Only From branch.
     /// </summary>

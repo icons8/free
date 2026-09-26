@@ -44,7 +44,7 @@ public static class LlmFilter
 
     private static readonly string[] IncludedFields = [
         "Transform", "Size", "CustomThickness", "Padding", "From", "To",
-        "Side", "Offset", "Color", "Frame", "Pos", "Fill", "Border"
+        "Side", "Offset", "Color", "Frame", "Pos", "Fill", "Border", "Range"
     ];
 
     private static readonly Type[] LlmTypeFilter = [

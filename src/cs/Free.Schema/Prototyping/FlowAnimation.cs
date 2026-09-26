@@ -6,9 +6,12 @@ namespace Free.Schema;
 public struct FlowAnimation
 {
     /// <summary>
-    /// If animation is enabled.
+    /// Creates an instant animation with the default 300 ms duration.
     /// </summary>
-    public bool Enabled { get; set; }
+    public FlowAnimation()
+    {
+    }
+
     /// <summary>
     /// Animation type.
     /// </summary>
@@ -24,7 +27,7 @@ public struct FlowAnimation
     /// <summary>
     /// Animation duration in ms.
     /// </summary>
-    public int Duration { get; set; }
+    public int Duration { get; set; } = 300;
     /// <summary>
     /// Animation curve point array. Array length is always 2. Point values are between 0 and 1.
     /// </summary>

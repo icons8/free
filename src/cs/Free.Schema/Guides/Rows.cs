@@ -11,7 +11,7 @@ public sealed class Rows : LayoutGuideBase
     /// <summary>
     /// If rows are enabled.
     /// </summary>
-    public bool Enabled { get; set; }
+    public bool Enabled { get; set; } = true;
     /// <summary>
     /// Vertical alignment settings.
     /// </summary>
@@ -41,15 +41,15 @@ public sealed class Rows : LayoutGuideBase
     /// </summary>
     public Guid GutterId { get; set; }
     /// <summary>
-    /// Row width.
+    /// Row height.
     /// </summary>
-    public int Width { get; set; }
+    public int Height { get; set; }
     /// <summary>
-    /// Float Variable Id of a Width value.
+    /// Float Variable Id of a Height value.
     /// </summary>
-    public Guid WidthId { get; set; }
+    public Guid HeightId { get; set; }
     /// <summary>
     /// Row color.
     /// </summary>
-    public Color Color { get; set; }
+    public Color Color { get; set; } = new(0x19FF0000);
 }
