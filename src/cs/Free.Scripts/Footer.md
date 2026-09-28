@@ -1,6 +1,7 @@
 ## Changelog
 
 ### Version 11 - 27.09.2026
+* Skip malformed argument values in bindings when loading a document, so one damaged binding does not prevent the rest of the document from opening.
 * Added glass blur type `4` and its light angle, light intensity, refraction, depth, dispersion, frost, and splay settings.
 * Added float variable bindings and numeric fallbacks for all seven glass settings.
 * Glass depth and frost are document-space lengths; intensity, refraction, dispersion, and splay are percentages.
