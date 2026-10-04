@@ -51,6 +51,7 @@ public class Text : Layer
     public ListMarkerType List { get; set; }
     /// <summary>
     /// Variable font coordinates keyed by four-character OpenType axis tags.
+    /// An empty object is valid and specifies no explicit axis coordinates.
     /// </summary>
     public Dictionary<string, float>? Variation { get; set; }
     /// <summary>

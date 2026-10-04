@@ -77,6 +77,8 @@ public class InlineStyle
 
     /// <summary>
     /// Variable font coordinates keyed by four-character OpenType axis tags.
+    /// An empty object is valid and specifies no explicit axis coordinates.
+    /// Inline styles explicitly write an empty object when no axes are set.
     /// </summary>
     public Dictionary<string, float>? Variation { get; set; }
 
