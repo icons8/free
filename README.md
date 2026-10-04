@@ -583,7 +583,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
 * Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
 * List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
-* Variation: [[string,float]](#[string,float) - variable font coordinates keyed by four-character OpenType axis tags.
+* Variation: [[string,float]](#[string,float) - variable font coordinates keyed by four-character OpenType axis tags. An empty object is valid and specifies no explicit axis coordinates.
 * FontOpticalSizing: [string](#string) = `manual` - optical sizing mode: manual or auto.
 * Rtl: [bool](#bool) = `false` - if the text is RTL.
 * Underline: [bool](#bool) = `false` - if the text is underlined.
@@ -777,7 +777,7 @@ Has all properties of [`StyleBase`](#StyleBase), plus:
 * Casing: [CharacterCasing](#CharacterCasing) = `Normal` - character case.
 * BaselinePos: [BaselinePosition](#BaselinePosition) = `Normal` - text position against the baseline.
 * Rtl: [bool](#bool) = `false` - if the text is RTL.
-* Variation: [[string,float]](#[string,float) - variable font coordinates keyed by four-character OpenType axis tags.
+* Variation: [[string,float]](#[string,float) - variable font coordinates keyed by four-character OpenType axis tags. An empty object is valid and specifies no explicit axis coordinates.
 * FontOpticalSizing: [string](#string) = `manual` - optical sizing mode: manual or auto.
 
 ### <a name="StyleBase"></a>StyleBase
@@ -1222,7 +1222,7 @@ Style (bold, italic, etc.) applied to a part of text or single word within a tex
 * Align: [TextHorizontalAlignment](#TextHorizontalAlignment) = `Left` - horizontal alignment applied to the text.
 * Valign: [TextVerticalAlignment](#TextVerticalAlignment) = `Top` - vertical alignment applied to the text.
 * List: [ListMarkerType](#ListMarkerType) = `None` - list type: numbered, bulleted, none.
-* Variation: [[string,float]](#[string,float) - variable font coordinates keyed by four-character OpenType axis tags.
+* Variation: [[string,float]](#[string,float) - variable font coordinates keyed by four-character OpenType axis tags. An empty object is valid and specifies no explicit axis coordinates. Inline styles explicitly write an empty object when no axes are set.
 * FontOpticalSizing: [string](#string) = `manual` - optical sizing mode: manual or auto.
 * Rtl: [bool](#bool) = `false` - if the text is RTL.
 * Underline: [bool](#bool) = `false` - if the text is underlined.
@@ -2031,6 +2031,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 ## Changelog
 
 ### Version 11 - 27.09.2026
+* Accept empty font variation objects in text layers, text styles, and inline styles.
 * Skip malformed argument values in bindings when loading a document, so one damaged binding does not prevent the rest of the document from opening.
 * Added glass blur type `4` and its light angle, light intensity, refraction, depth, dispersion, frost, and splay settings.
 * Added float variable bindings and numeric fallbacks for all seven glass settings.
