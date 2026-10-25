@@ -32,12 +32,12 @@ public class BoolComponentProperty : ComponentPropertyBase
     public override string _t => "BOOL";
     
     /// <summary>
-    /// Initial Value.
+    /// Initial literal value, also used when the referenced variable is unavailable.
     /// </summary>
     public bool Value { get; set; }
     
     /// <summary>
-    /// Boolean variable ID.
+    /// Live boolean variable ID. Omitted after the variable is deleted; Value remains the literal fallback.
     /// </summary>
     public Guid ValueId { get; set; }
 }
@@ -53,12 +53,12 @@ public class TextComponentProperty : ComponentPropertyBase
     public override string _t => "TEXT";
     
     /// <summary>
-    /// Initial Value.
+    /// Initial literal value, also used when the referenced variable is unavailable.
     /// </summary>
     public string Value { get; set; } = "";
     
     /// <summary>
-    /// String variable ID.
+    /// Live text variable ID. Omitted after the variable is deleted; Value remains the literal fallback.
     /// </summary>
     public Guid ValueId { get; set; }
 }
@@ -117,12 +117,12 @@ public class StateComponentProperty : ComponentPropertyBase
     public override string _t => "STATE";
     
     /// <summary>
-    /// Initial Value.
+    /// Initial literal value, also used when the referenced variable is unavailable.
     /// </summary>
     public string Value { get; set; } = "";
     
     /// <summary>
-    /// String variable ID.
+    /// Live text variable ID. Omitted after the variable is deleted; Value remains the literal fallback.
     /// </summary>
     public Guid ValueId { get; set; }
 
