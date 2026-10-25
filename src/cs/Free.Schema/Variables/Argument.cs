@@ -18,7 +18,7 @@ public class Argument
     /// </summary>
     public bool? Bool { get; set; }
     /// <summary>
-    /// Id of a boolean variable
+    /// Reference to a live boolean variable. Deleted references are saved as Bool instead.
     /// </summary>
     public Guid? BoolId { get; set; }
     
@@ -36,7 +36,7 @@ public class Argument
     /// </summary>
     public string? Text { get; set; }
     /// <summary>
-    /// Id of a Text variable
+    /// Reference to a live text variable. Deleted references are saved as Text instead.
     /// </summary>
     public Guid? TextId { get; set; }
     

@@ -688,8 +688,8 @@ Defines boolean component property of components and states.
 Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 
 * _t: [string](#string) = `BOOL` - object type.
-* Value: [bool](#bool) = `false` - initial Value.
-* ValueId: [GUID](#GUID) - boolean variable ID.
+* Value: [bool](#bool) = `false` - initial literal value, also used when the referenced variable is unavailable.
+* ValueId: [GUID](#GUID) - live boolean variable ID. Omitted after the variable is deleted; Value remains the literal fallback.
 
 ### <a name="SlotComponentProperty"></a>SlotComponentProperty
 Defines slot component property of components and states.
@@ -706,8 +706,8 @@ Defines state(variant) component property of components and states. Can be assig
 Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 
 * _t: [string](#string) = `STATE` - object type.
-* Value: [string](#string) - initial Value.
-* ValueId: [GUID](#GUID) - string variable ID.
+* Value: [string](#string) - initial literal value, also used when the referenced variable is unavailable.
+* ValueId: [GUID](#GUID) - live text variable ID. Omitted after the variable is deleted; Value remains the literal fallback.
 * Values: [string[]](#string) - preferred Values.
 
 ### <a name="SwapComponentProperty"></a>SwapComponentProperty
@@ -725,8 +725,8 @@ Defines text component property of components and states.
 Has all properties of [`ComponentPropertyBase`](#ComponentPropertyBase), plus:
 
 * _t: [string](#string) = `TEXT` - object type.
-* Value: [string](#string) - initial Value.
-* ValueId: [GUID](#GUID) - string variable ID.
+* Value: [string](#string) - initial literal value, also used when the referenced variable is unavailable.
+* ValueId: [GUID](#GUID) - live text variable ID. Omitted after the variable is deleted; Value remains the literal fallback.
 
 ### <a name="ComponentPropertyBase"></a>ComponentPropertyBase
 Defines component property of components and states.
@@ -1062,11 +1062,11 @@ Has all properties of [`Argument`](#Argument), plus:
 Expression Argument. Value or Variable or Expression. Please note that only one type of value can be present: just a bool/text/number, a numberId with an optional number fallback, just a boolId or textId, just a ref, just a componentId, a list of variable font axis values, or a func with args.
 
 * Bool: [bool?](#bool) - boolean value
-* BoolId: [GUID?](#GUID) - id of a boolean variable
+* BoolId: [GUID?](#GUID) - reference to a live boolean variable. Deleted references are saved as Bool instead.
 * Number: [float?](#float) - number value
 * NumberId: [GUID?](#GUID) - id of a number variable
 * Text: [string](#string) - text value
-* TextId: [GUID?](#GUID) - id of a Text variable
+* TextId: [GUID?](#GUID) - reference to a live text variable. Deleted references are saved as Text instead.
 * ComponentId: [GUID?](#GUID) - id of a component.
 * Map: [MapEntry[]](#MapEntry) - map. Used for state binds.
 * VariationValues: [FontVariationValue[]](#FontVariationValue) - variable font axis values. Each entry contains an axis tag and a number or number variable.
@@ -2031,6 +2031,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 ## Changelog
 
 ### Version 11 - 27.09.2026
+* Save deleted boolean and text variable bindings in component properties and instance settings as their existing literal fallbacks, without live variable IDs.
 * Accept empty font variation objects in text layers, text styles, and inline styles.
 * Skip malformed argument values in bindings when loading a document, so one damaged binding does not prevent the rest of the document from opening.
 * Added glass blur type `4` and its light angle, light intensity, refraction, depth, dispersion, frost, and splay settings.
