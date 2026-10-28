@@ -1,5 +1,10 @@
 ## Changelog
 
+### Version 12 - 28.10.2026
+* Added distinct component override references for border, effect, text, and guide styles: `borderStyleId`, `effectStyleId`, `textStyleLinkId`, and `guideStyleId`.
+* Omitting a style-reference field inherits the source link. An explicit all-zero GUID removes the link for that slot.
+* Existing `styleId` and legacy `textStyleId` / `layerStyleId` aliases retain their fill-style meaning. Earlier readers do not retain the four new override references when saving a document.
+
 ### Version 11 - 27.09.2026
 * Accept empty font variation objects in text layers, text styles, and inline styles.
 * Skip malformed argument values in bindings when loading a document, so one damaged binding does not prevent the rest of the document from opening.

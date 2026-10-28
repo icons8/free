@@ -1258,7 +1258,11 @@ Defines overrides for components.
 * ArcStartAngle: [float?](#float) - start angle for donuts measured clockwise from the X axis.
 * CornerRadius: [float[]](#float) - corner radius value.
 * SmoothCorners: [bool?](#bool) - if smooth corners are enabled.
-* StyleId: [GUID?](#GUID) - identifier of the style applied to a layer.
+* StyleId: [GUID?](#GUID) - identifier of the fill style applied by this override. An all-zero GUID explicitly removes the fill-style link; omission inherits the source. The legacy textStyleId and layerStyleId aliases retain their fill-style meaning.
+* BorderStyleId: [GUID?](#GUID) - identifier of the color style applied to borders. An all-zero GUID explicitly removes the border-style link; omission inherits the source.
+* EffectStyleId: [GUID?](#GUID) - identifier of the effect style applied by this override. An all-zero GUID explicitly removes the effect-style link; omission inherits the source.
+* TextStyleLinkId: [GUID?](#GUID) - identifier of the text style applied by this override. An all-zero GUID explicitly removes the text-style link; omission inherits the source. This field is distinct from the legacy textStyleId fill-style alias.
+* GuideStyleId: [GUID?](#GUID) - identifier of the guide style applied by this override. An all-zero GUID explicitly removes the guide-style link; omission inherits the source.
 * Tint: [Color?](#Color) - defines the tint color.
 * TintId: [GUID?](#GUID) - tint identifier.
 * Fills: [Fill[]](#Fill) - list of fills applied to a layer.
@@ -2029,6 +2033,11 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * `2` PrimaryPrefix - indicates that the file name comes with a user-defined prefix.
 
 ## Changelog
+
+### Version 12 - 28.10.2026
+* Added distinct component override references for border, effect, text, and guide styles: `borderStyleId`, `effectStyleId`, `textStyleLinkId`, and `guideStyleId`.
+* Omitting a style-reference field inherits the source link. An explicit all-zero GUID removes the link for that slot.
+* Existing `styleId` and legacy `textStyleId` / `layerStyleId` aliases retain their fill-style meaning. Earlier readers do not retain the four new override references when saving a document.
 
 ### Version 11 - 27.09.2026
 * Accept empty font variation objects in text layers, text styles, and inline styles.

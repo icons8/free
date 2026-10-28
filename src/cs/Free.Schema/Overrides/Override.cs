@@ -71,9 +71,25 @@ public sealed class Override
     /// </summary>
     public bool? SmoothCorners { get; set; }
     /// <summary>
-    /// Identifier of the style applied to a layer.
+    /// Identifier of the fill style applied by this override. An all-zero GUID explicitly removes the fill-style link; omission inherits the source. The legacy textStyleId and layerStyleId aliases retain their fill-style meaning.
     /// </summary>
     public Guid? StyleId { get; set; }
+    /// <summary>
+    /// Identifier of the color style applied to borders. An all-zero GUID explicitly removes the border-style link; omission inherits the source.
+    /// </summary>
+    public Guid? BorderStyleId { get; set; }
+    /// <summary>
+    /// Identifier of the effect style applied by this override. An all-zero GUID explicitly removes the effect-style link; omission inherits the source.
+    /// </summary>
+    public Guid? EffectStyleId { get; set; }
+    /// <summary>
+    /// Identifier of the text style applied by this override. An all-zero GUID explicitly removes the text-style link; omission inherits the source. This field is distinct from the legacy textStyleId fill-style alias.
+    /// </summary>
+    public Guid? TextStyleLinkId { get; set; }
+    /// <summary>
+    /// Identifier of the guide style applied by this override. An all-zero GUID explicitly removes the guide-style link; omission inherits the source.
+    /// </summary>
+    public Guid? GuideStyleId { get; set; }
     /// <summary>
     /// Defines the tint color.
     /// </summary>
