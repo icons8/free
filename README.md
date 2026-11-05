@@ -1219,7 +1219,7 @@ Defines the two-dimensional auto layout of a frame or instance. This field is mu
 * FixWidth: [bool](#bool) = `false` - uses the frame's fixed width instead of its content width or the width assigned by its parent.
 * FixHeight: [bool](#bool) = `false` - uses the frame's fixed height instead of its content height or the height assigned by its parent.
 * StrokesIncluded: [bool](#bool) = `false` - includes outer stroke widths in layout measurements.
-* ReverseZIndex: [bool](#bool) = `false` - draws the last child above earlier children.
+* ReverseZIndex: [bool](#bool) = `false` - draws earlier children above later children.
 
 ### <a name="GridAutoLayoutItem"></a>GridAutoLayoutItem
 Places and aligns a direct child of a grid auto layout frame. Hidden and absolutely positioned children do not occupy cells.
@@ -1831,7 +1831,7 @@ List of Gradient types.
 ### <a name="GridAutoLayoutAlignment"></a>GridAutoLayoutAlignment Enum
 Specifies how a grid child is positioned within its occupied cells along one axis.
 
-* `0` Auto - uses the grid's default alignment.
+* `0` Auto - uses the default alignment at the left or top edge.
 * `1` Start - aligns to the left or top edge.
 * `2` Center - centers inside the occupied cells.
 * `3` End - aligns to the right or bottom edge.

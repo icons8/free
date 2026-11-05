@@ -57,7 +57,7 @@ public class GridAutoLayout
     public bool StrokesIncluded { get; set; }
 
     /// <summary>
-    /// Draws the last child above earlier children.
+    /// Draws earlier children above later children.
     /// </summary>
     public bool ReverseZIndex { get; set; }
 }

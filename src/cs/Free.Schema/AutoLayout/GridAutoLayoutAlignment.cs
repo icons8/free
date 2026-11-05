@@ -6,7 +6,7 @@ namespace Free.Schema;
 public enum GridAutoLayoutAlignment
 {
     /// <summary>
-    /// Uses the grid's default alignment.
+    /// Uses the default alignment at the left or top edge.
     /// </summary>
     Auto = 0,
 
