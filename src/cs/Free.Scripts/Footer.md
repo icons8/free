@@ -1,6 +1,7 @@
 ## Changelog
 
 ### Version 12 - 28.10.2026
+* Added optional `gridAutoLayout` container settings and `gridAutoLayoutItem` child placement. Grid layers retain saved geometry in earlier readers, which omit the editable grid settings when saving.
 * Added distinct component override references for border, effect, text, and guide styles: `borderStyleId`, `effectStyleId`, `textStyleLinkId`, and `guideStyleId`.
 * Omitting a style-reference field inherits the source link. An explicit all-zero GUID removes the link for that slot.
 * Existing `styleId` and legacy `textStyleId` / `layerStyleId` aliases retain their fill-style meaning. Earlier readers do not retain the four new override references when saving a document.

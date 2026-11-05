@@ -54,6 +54,7 @@ Has all properties of `Layer`, plus:
 * bool stretchWidth = false - determines if the layer should stretch width (auto layout).
 * bool stretchHeight = false - determines whether a layer should stretch height (auto layout).
 * bool absolutePos = false - enables absolute position for the layer (auto layout).
+* GridAutoLayoutItem gridAutoLayoutItem
 * float opacity = 1
 * PathFillType winding = 1
 * Fill tint
@@ -81,6 +82,7 @@ Has all properties of `Layer`, plus:
 * bool flowHome = false
 * PrototypeViewport viewport
 * AutoLayout autoLayout
+* GridAutoLayout gridAutoLayout
 * Layer[] layers
 
 ## Path — A vector path determines the outline and form of a vector object. A path is made up of points and segments.
@@ -135,6 +137,7 @@ Has all properties of `Layer`, plus:
 * string _t = "INSTANCE"
 * GUID componentId
 * AutoLayout autoLayout
+* GridAutoLayout gridAutoLayout
 
 ## Section — Root group of layers. Can be a child of a page or another section. Does not support rotation, flips, effects.
 
@@ -182,6 +185,11 @@ Has all properties of `ComponentPropertyBase`, plus:
 * string _t = "SLOT"
 * GUID value
 * GUID[] values
+
+## GridAutoLayoutTrack — Defines the normal sizing function and optional distinct minimum sizing function of a grid track.
+
+Has all properties of `GridAutoLayoutTrackSizing`, plus:
+* GridAutoLayoutTrackSizing minimum
 
 ## MapEntry — Map Entry. Has Key and Argument value.
 
@@ -258,6 +266,32 @@ Has all properties of `Argument`, plus:
 * float pos = 0 - value between 0 and 1 representing a position along gradient axis.
 * Color color = "00000000"
 * GUID? colorId
+
+## GridAutoLayout — Defines the two-dimensional auto layout of a frame or instance. This field is mutually exclusive with autoLayout. Older readers can display the layer and its children using their stored positions and sizes.
+
+* GridAutoLayoutTrack[] columns
+* GridAutoLayoutTrack[] rows
+* float columnGap = 0
+* float rowGap = 0
+* bool autoRows = false
+* bool autoPlacement = false
+* Thickness padding = [0,0,0,0]
+* bool fixWidth = false
+* bool fixHeight = false
+
+## GridAutoLayoutItem — Places and aligns a direct child of a grid auto layout frame. Hidden and absolutely positioned children do not occupy cells.
+
+* int row = -1
+* int column = -1
+* int rowSpan = 1
+* int columnSpan = 1
+* GridAutoLayoutAlignment horizontal = 0
+* GridAutoLayoutAlignment vertical = 0
+
+## GridAutoLayoutTrackSizing — Defines how a grid track computes its size.
+
+* GridAutoLayoutTrackMode mode = 0
+* float value = 0
 
 ## InlineStyle — Style (bold, italic, etc.) applied to a part of text or single word within a text block.
 
@@ -358,6 +392,19 @@ Has all properties of `Argument`, plus:
 1. radial
 2. angular
 3. diamond
+
+## Enum GridAutoLayoutAlignment — Specifies how a grid child is positioned within its occupied cells along one axis.
+
+0. auto
+1. start
+2. center
+3. end
+
+## Enum GridAutoLayoutTrackMode — Specifies how a grid track is sized along its axis.
+
+0. fixed
+1. hug
+2. fraction
 
 ## Enum HorizontalAlignment
 

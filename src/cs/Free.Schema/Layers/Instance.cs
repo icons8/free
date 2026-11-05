@@ -23,6 +23,11 @@ public class Instance : Layer
     /// Auto Layout Properties
     /// </summary>
     public AutoLayout AutoLayout { get; set; }
+
+    /// <summary>
+    /// Grid auto layout settings, when the instance uses a two-dimensional layout.
+    /// </summary>
+    public GridAutoLayout? GridAutoLayout { get; set; }
     
     /// <summary>
     /// Defines the overrides applied to the instance.

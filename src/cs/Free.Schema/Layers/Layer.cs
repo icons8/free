@@ -130,6 +130,10 @@ public abstract class Layer
     /// </summary>
     public bool AbsolutePos { get; set; }
     /// <summary>
+    /// Placement properties when the parent uses grid auto layout.
+    /// </summary>
+    public GridAutoLayoutItem? GridAutoLayoutItem { get; set; }
+    /// <summary>
     /// Key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
     /// </summary>
     public Dictionary<string, string> Custom { get; set; } = new();

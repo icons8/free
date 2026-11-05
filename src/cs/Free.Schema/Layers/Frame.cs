@@ -29,6 +29,11 @@ public class Frame : Layer
     /// Auto Layout Properties
     /// </summary>
     public AutoLayout AutoLayout { get; set; }
+
+    /// <summary>
+    /// Grid auto layout settings, when the frame uses a two-dimensional layout.
+    /// </summary>
+    public GridAutoLayout? GridAutoLayout { get; set; }
     
     /// <summary>
     /// Grid, Row and Column layouts of the frame.

@@ -340,6 +340,7 @@ Base class for any layer on a canvas.
 * StretchWidth: [bool](#bool) = `false` - determines if the layer should stretch width (auto layout).
 * StretchHeight: [bool](#bool) = `false` - determines whether a layer should stretch height (auto layout).
 * AbsolutePos: [bool](#bool) = `false` - enables absolute position for the layer (auto layout).
+* GridAutoLayoutItem: [GridAutoLayoutItem](#GridAutoLayoutItem) - placement properties when the parent uses grid auto layout.
 * Custom: [[string,string]](#[string,string) - key/Value map for custom properties of a layer. Similar to UserInfo is Sketch and PluginData in Figma.
 * Themes: [ThemeSelection[]](#ThemeSelection) - variable themes selections.
 * Binds: [Bind[]](#Bind) - binds of variables to target fields like: fontSize, cornerRadius, thickness, etc.
@@ -389,6 +390,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * FlowHome: [bool](#bool) = `false` - sets the frame as a prototype starting point.
 * Viewport: [PrototypeViewport](#PrototypeViewport) - defines the area that should be displayed on a prototype, when the frame is resized to ensure scrolling effect.
 * AutoLayout: [AutoLayout](#AutoLayout) - auto Layout Properties
+* GridAutoLayout: [GridAutoLayout](#GridAutoLayout) - grid auto layout settings, when the frame uses a two-dimensional layout.
 * Layouts: [LayoutGuideBase[]](#LayoutGuideBase) - grid, Row and Column layouts of the frame.
 * GridsId: [GUID](#GUID) - grid Layout style id.
 * Rulers: [Rulers](#Rulers) - rulers and guidelines info.
@@ -529,6 +531,7 @@ Has all properties of [`Layer`](#Layer), plus:
 * Scale: [float](#float) = `0` - scale of the instance.
 * ComponentId: [GUID](#GUID) - unique component identifier.
 * AutoLayout: [AutoLayout](#AutoLayout) - auto Layout Properties
+* GridAutoLayout: [GridAutoLayout](#GridAutoLayout) - grid auto layout settings, when the instance uses a two-dimensional layout.
 * Overrides: [Override[]](#Override) - defines the overrides applied to the instance.
 * Settings: [InstanceSetting[]](#InstanceSetting) - values for component properties
 
@@ -1044,6 +1047,13 @@ Has all properties of [`Argument`](#Argument), plus:
 
 * Field: [BindField](#BindField) = `Unknown` - target field. Required. Should be first.
 
+### <a name="GridAutoLayoutTrack"></a>GridAutoLayoutTrack
+Defines the normal sizing function and optional distinct minimum sizing function of a grid track.
+
+Has all properties of [`GridAutoLayoutTrackSizing`](#GridAutoLayoutTrackSizing), plus:
+
+* Minimum: [GridAutoLayoutTrackSizing](#GridAutoLayoutTrackSizing) - explicit minimum sizing function. If omitted, the track uses the minimum implied by its mode.
+
 ### <a name="InstanceSetting"></a>InstanceSetting
 Setting allows you to set a value for an instance property from a component.
 
@@ -1195,6 +1205,37 @@ A position-color pair representing a gradient stop.
 * Pos: [float](#float) = `0` - value between 0 and 1 representing a position along gradient axis.
 * Color: [Color](#Color) = `00000000` - color attached to a corresponding position.
 * ColorId: [GUID?](#GUID) - color variable ID.
+
+### <a name="GridAutoLayout"></a>GridAutoLayout
+Defines the two-dimensional auto layout of a frame or instance. This field is mutually exclusive with autoLayout. Older readers can display the layer and its children using their stored positions and sizes.
+
+* Columns: [GridAutoLayoutTrack[]](#GridAutoLayoutTrack) - column tracks in left-to-right order. At least one column is required.
+* Rows: [GridAutoLayoutTrack[]](#GridAutoLayoutTrack) - row tracks in top-to-bottom order. A missing or empty array defines no explicit row sizing.
+* ColumnGap: [float](#float) = `0` - nonnegative space between column tracks in document units.
+* RowGap: [float](#float) = `0` - nonnegative space between row tracks in document units.
+* AutoRows: [bool](#bool) = `false` - derives the row count from the in-flow children.
+* AutoPlacement: [bool](#bool) = `false` - places in-flow children in layer order, left to right and then top to bottom. Stored anchors apply when false.
+* Padding: [Thickness](#Thickness) = `[0,0,0,0]` - padding around the tracks.
+* FixWidth: [bool](#bool) = `false` - uses the frame's fixed width instead of its content width or the width assigned by its parent.
+* FixHeight: [bool](#bool) = `false` - uses the frame's fixed height instead of its content height or the height assigned by its parent.
+* StrokesIncluded: [bool](#bool) = `false` - includes outer stroke widths in layout measurements.
+* ReverseZIndex: [bool](#bool) = `false` - draws the last child above earlier children.
+
+### <a name="GridAutoLayoutItem"></a>GridAutoLayoutItem
+Places and aligns a direct child of a grid auto layout frame. Hidden and absolutely positioned children do not occupy cells.
+
+* Row: [int](#int) = `-1` - zero-based manual row anchor. An omitted value or -1 leaves the row anchor unset.
+* Column: [int](#int) = `-1` - zero-based manual column anchor. An omitted value or -1 leaves the column anchor unset.
+* RowSpan: [int](#int) = `1` - positive number of rows occupied by the child, including its anchor row.
+* ColumnSpan: [int](#int) = `1` - positive number of columns occupied by the child, including its anchor column.
+* Horizontal: [GridAutoLayoutAlignment](#GridAutoLayoutAlignment) = `Auto` - horizontal alignment inside the occupied cells.
+* Vertical: [GridAutoLayoutAlignment](#GridAutoLayoutAlignment) = `Auto` - vertical alignment inside the occupied cells.
+
+### <a name="GridAutoLayoutTrackSizing"></a>GridAutoLayoutTrackSizing
+Defines how a grid track computes its size.
+
+* Mode: [GridAutoLayoutTrackMode](#GridAutoLayoutTrackMode) = `Fixed` - track sizing mode.
+* Value: [float](#float) = `0` - nonnegative length for fixed sizing or weight for fractional sizing. Omission means zero for fixed sizing, one for normal fractional sizing, or zero for an explicit fractional minimum. Hug sizing ignores the value.
 
 ### <a name="ImageFilters"></a>ImageFilters
 Defines filters that can be applied to images.
@@ -1787,6 +1828,21 @@ List of Gradient types.
 * `2` Angular - angular gradient: sweeps around the circumference.
 * `3` Diamond - diamond gradient.
 
+### <a name="GridAutoLayoutAlignment"></a>GridAutoLayoutAlignment Enum
+Specifies how a grid child is positioned within its occupied cells along one axis.
+
+* `0` Auto - uses the grid's default alignment.
+* `1` Start - aligns to the left or top edge.
+* `2` Center - centers inside the occupied cells.
+* `3` End - aligns to the right or bottom edge.
+
+### <a name="GridAutoLayoutTrackMode"></a>GridAutoLayoutTrackMode Enum
+Specifies how a grid track is sized along its axis.
+
+* `0` Fixed - uses a fixed length in document units.
+* `1` Hug - sizes the track around its contents.
+* `2` Fraction - receives a weighted share of the remaining space.
+
 ### <a name="HorizontalAlignment"></a>HorizontalAlignment Enum
 Defines how a set of layers is aligned horizontally.
 
@@ -2035,6 +2091,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 ## Changelog
 
 ### Version 12 - 28.10.2026
+* Added optional `gridAutoLayout` container settings and `gridAutoLayoutItem` child placement. Grid layers retain saved geometry in earlier readers, which omit the editable grid settings when saving.
 * Added distinct component override references for border, effect, text, and guide styles: `borderStyleId`, `effectStyleId`, `textStyleLinkId`, and `guideStyleId`.
 * Omitting a style-reference field inherits the source link. An explicit all-zero GUID removes the link for that slot.
 * Existing `styleId` and legacy `textStyleId` / `layerStyleId` aliases retain their fill-style meaning. Earlier readers do not retain the four new override references when saving a document.
