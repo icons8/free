@@ -57,6 +57,13 @@ public class Document
     /// </summary>
     public List<Slot> Slots { get; } = new();
     /// <summary>
+    /// Document-local annotation category catalog. Omission uses the built-in catalog.
+    /// An explicit empty array defines a catalog with zero categories.
+    /// </summary>
+    [LunacySpecific]
+    public List<AnnotationCategory>? AnnotationCategories { get; set; }
+
+    /// <summary>
     /// List of document pages.
     /// </summary>
     public List<Guid> Pages { get; } = new();

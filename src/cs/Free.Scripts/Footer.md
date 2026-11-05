@@ -4,6 +4,7 @@
 * Added distinct component override references for border, effect, text, and guide styles: `borderStyleId`, `effectStyleId`, `textStyleLinkId`, and `guideStyleId`.
 * Omitting a style-reference field inherits the source link. An explicit all-zero GUID removes the link for that slot.
 * Existing `styleId` and legacy `textStyleId` / `layerStyleId` aliases retain their fill-style meaning. Earlier readers do not retain the four new override references when saving a document.
+* Added optional layer `annotations` and a document-level `annotationCategories` catalog for handoff notes, live property pins, and custom fields. Earlier readers can open these documents and may omit the annotations and categories when saving.
 
 ### Version 11 - 27.09.2026
 * Accept empty font variation objects in text layers, text styles, and inline styles.

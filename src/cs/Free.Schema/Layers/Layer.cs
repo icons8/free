@@ -135,6 +135,12 @@ public abstract class Layer
     public Dictionary<string, string> Custom { get; set; } = new();
     
     /// <summary>
+    /// Ordered handoff annotations attached to this layer. Omission means an empty list.
+    /// </summary>
+    [LunacySpecific]
+    public List<LayerAnnotation> Annotations { get; } = new();
+
+    /// <summary>
     /// Variable themes selections.
     /// </summary>
     public List<ThemeSelection> Themes { get; } = new();

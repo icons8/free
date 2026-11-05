@@ -370,6 +370,7 @@ Base class for any layer on a canvas.
 <details>
 <summary>Lunacy specific</summary>
 
+* Annotations: [LayerAnnotation[]](#LayerAnnotation) - ordered handoff annotations attached to this layer. Omission means an empty list.
 * PhotoId: [string](#string) - identifier of a photo from the Lunacy gallery.
 * IllustrationId: [string](#string) - identifier of an illustraion from the Lunacy gallery.
 * IconId: [string](#string) - identifier of an icon from the Lunacy gallery.
@@ -1130,6 +1131,12 @@ The document's .json structure.
 * GuideStyles: [GuideStyle[]](#GuideStyle) - guide layout styles stored in the document.
 * Slots: [Slot[]](#Slot) - slots of the document.
 * Pages: [GUID[]](#GUID) - list of document pages.
+
+<details>
+<summary>Lunacy specific</summary>
+
+* AnnotationCategories: [AnnotationCategory[]](#AnnotationCategory) - document-local annotation category catalog. Omission uses the built-in catalog. An explicit empty array defines a catalog with zero categories.
+</details>
 
 <details>
 <summary>Sketch compatibility</summary>
@@ -1903,12 +1910,36 @@ Defines how a set of layers is aligned vertically.
 * `2` Bottom - layers are aligend to the bottom.
 * `3` Distribute - layers are vertically justified.
 
+### <a name="AnnotationCategory"></a>AnnotationCategory
+A named category for handoff annotations within one document. _//Lunacy Specific_
+
+* Id: [GUID](#GUID) - required category identifier, unique within the document.
+* Label: [string](#string) - category label displayed to the reader.
+* Color: [Color](#Color) = `ff000000` - category accent color.
+* Preset: [string](#string) - optional preset identifier, such as DEVELOPMENT, INTERACTION, ACCESSIBILITY, or CONTENT.
+
+### <a name="AnnotationField"></a>AnnotationField
+A custom field on a handoff annotation. _//Lunacy Specific_
+
+* Name: [string](#string) - name of the field.
+* Value: [string](#string) - text value of the field.
+
 ### <a name="DataInfo"></a>DataInfo
 Information about auto generated texts. _//Lunacy Specific_
 
 * Type: [DataType](#DataType) = `Unknown` - category of generated text (person, address, date, etc.).
 * Field: [DataFieldType](#DataFieldType) = `Unknown` - type of generated text (full name or first name, city or ZIP code, etc.).
 * Format: [string](#string) - format for Data Type. Used for Date/Time values.
+
+### <a name="LayerAnnotation"></a>LayerAnnotation
+A handoff annotation attached to a layer. _//Lunacy Specific_
+
+* Id: [GUID](#GUID) - required annotation identifier, unique on its owning layer.
+* Text: [string](#string) - plain-text note displayed to the reader.
+* RichText: [string](#string) - optional source markup preserved from an imported annotation. The text field supplies the plain-text representation.
+* CategoryId: [GUID?](#GUID) - optional identifier in the document's annotation category catalog. A missing category reference is displayed as uncategorized.
+* PinnedProperties: [string[]](#string) - ordered property keys such as width, height, or opacity. Values are resolved from the owning layer. Unrecognized property keys can be preserved for interoperability.
+* CustomFields: [AnnotationField[]](#AnnotationField) - ordered custom text fields.
 
 ### <a name="Measurement"></a>Measurement
 A persistent distance measurement between two layers. _//Lunacy Specific_
@@ -2038,6 +2069,7 @@ Controls the use of suffixes/prefixes in the names of export files. _//Sketch Co
 * Added distinct component override references for border, effect, text, and guide styles: `borderStyleId`, `effectStyleId`, `textStyleLinkId`, and `guideStyleId`.
 * Omitting a style-reference field inherits the source link. An explicit all-zero GUID removes the link for that slot.
 * Existing `styleId` and legacy `textStyleId` / `layerStyleId` aliases retain their fill-style meaning. Earlier readers do not retain the four new override references when saving a document.
+* Added optional layer `annotations` and a document-level `annotationCategories` catalog for handoff notes, live property pins, and custom fields. Earlier readers can open these documents and may omit the annotations and categories when saving.
 
 ### Version 11 - 27.09.2026
 * Accept empty font variation objects in text layers, text styles, and inline styles.
